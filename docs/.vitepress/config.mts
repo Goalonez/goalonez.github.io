@@ -18,14 +18,15 @@ export default defineConfig({
     logo: '/logo.jpg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Blog', link: '/blog/aboutme' }
+      { text: 'Blog', link: '/aboutme' }
     ],
     sidebar: [
       {
         text: 'BLOG',
         items: [
-          { text: 'About Me', link: '/blog/aboutme' },
+          { text: 'About Me', link: '/aboutme' },
           { text: '测试', link: '/blog/测试' },
+          
         ]
       }
     ],
