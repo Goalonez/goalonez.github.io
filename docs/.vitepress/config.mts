@@ -6,13 +6,7 @@ export default defineConfig({
   base: '/',
   lastUpdated: true,
   head: [
-    [
-      'link',
-      {
-        rel: 'icon',
-        href: '/logo.jpg',
-      },
-    ],
+    ["link", {rel: "icon", href: "/icon.jpg"}],
   ],
   themeConfig: {
     logo: '/logo.jpg',
