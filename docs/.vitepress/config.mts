@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 
-
 export default defineConfig({
   title: "Goalonez",
   description: "万变不离其宗",
@@ -45,8 +44,3 @@ export default defineConfig({
 		},
   }
 })
-
-export interface Footer {
-	message?: string
-	copyright?: string
-}
