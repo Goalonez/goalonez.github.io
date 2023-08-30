@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 随便看看
-      link: /aboutme
+      link: /blog/aboutme
 
 features:
   - title: Telegram
