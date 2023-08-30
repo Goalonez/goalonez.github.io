@@ -22,7 +22,7 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        text: 'Examples',
+        text: 'BLOG',
         items: [
           { text: 'About Me', link: '/blog/aboutme' },
           { text: '测试', link: '/blog/测试' },
