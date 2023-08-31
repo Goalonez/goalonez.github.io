@@ -5,22 +5,19 @@ export default defineConfig({
   description: "万变不离其宗",
   base: '/',
   lastUpdated: true,
+  cleanUrls: true,
   head: [
     ["link", {rel: "icon", href: "/logo.ico"}],
   ],
-  markdown: {
-    theme: 'material-palenight',
-    lineNumbers: true
-  },
   themeConfig: {
-    logo: '/logo.jpg',
+    logo: '/logo.png',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Blog', link: '/aboutme' }
     ],
     sidebar: [
       {
-        text: 'BLOG',
+        text: '博客',
         items: [
           { text: 'About Me', link: '/aboutme' },
           { text: 'Tailscale自建(Headscale及Drep)', link: '/blog/Tailscale自建(Headscale及Drep)' },
@@ -33,7 +30,10 @@ export default defineConfig({
 			prev: '上一篇',
 			next: '下一篇',
 		},
-    outlineTitle: '文章目录',
+    outline: {
+      level: [2, 6],
+      label: '文章目录'
+    },
     lastUpdatedText: '最后更新时间',
     search: {
       provider: 'local',
