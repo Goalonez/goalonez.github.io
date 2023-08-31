@@ -1,24 +1,18 @@
 import { defineConfig } from 'vitepress'
+import Layout from './theme/index'
 
 export default defineConfig({
   title: "Goalonez",
   description: "万变不离其宗",
+  lang: 'zh-CN',
   base: '/',
   lastUpdated: true,
   cleanUrls: true,
+  markdown: {
+    lineNumbers: true,
+  },
   head: [
-    ["link", {rel: "icon", href: "/logo.ico"}],
-    [
-      "script",
-      {},
-      `var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?c9cea1db61692f373b94af83f1542da3";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-      })()`,
-    ]
+    ["link", {rel: "icon", href: "/logo.ico"}]
   ],
   themeConfig: {
     logo: '/logo.png',
@@ -54,6 +48,6 @@ export default defineConfig({
     ],
     footer: {
 			copyright: 'Copyright © 2023-present Goalonez',
-		},
+		}
   }
 })
