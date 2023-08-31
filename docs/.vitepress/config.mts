@@ -19,7 +19,9 @@ export default defineConfig({
         text: 'BLOG',
         items: [
           { text: 'About Me', link: '/blog/aboutme' },
-          { text: '测试', link: '/blog/测试' },
+          { text: 'Tailscale自建(Headscale及Drep)', link: '/blog/Tailscale自建(Headscale及Drep)' },
+          { text: 'Navicat Mac版重置试用期脚本', link: '/blog/Navicat Mac版重置试用期脚本' },
+          { text: 'Windows使用WSL2并安装Docker', link: '/blog/Windows使用WSL2并安装Docker' },
         ]
       }
     ],
