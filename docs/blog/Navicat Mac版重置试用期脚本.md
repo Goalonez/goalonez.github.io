@@ -66,3 +66,7 @@ sh ./navicatReset.sh
 ```
 
 - 如果不成功,则多执行几次再打开Navicat
+
+
+
+<git-talk/>
