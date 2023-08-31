@@ -8,6 +8,17 @@ export default defineConfig({
   cleanUrls: true,
   head: [
     ["link", {rel: "icon", href: "/logo.ico"}],
+    [
+      "script",
+      {},
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c9cea1db61692f373b94af83f1542da3";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })()`,
+    ]
   ],
   themeConfig: {
     logo: '/logo.png',
