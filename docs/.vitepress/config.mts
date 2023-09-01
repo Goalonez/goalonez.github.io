@@ -12,7 +12,19 @@ export default defineConfig({
     lineNumbers: true,
   },
   head: [
-    ["link", {rel: "icon", href: "/logo.ico"}]
+    ["link", {rel: "icon", href: "/logo.ico"}],
+    // 添加百度统计代码
+    ['script', {},
+    `
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8074e6952b84d5c01253992c23fbd772";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    `
+    ]
   ],
   themeConfig: {
     logo: '/logo.png',
