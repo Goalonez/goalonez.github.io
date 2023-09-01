@@ -4,7 +4,7 @@
 
 ### 下载二进制文件
 
-[Github地址](https://github.com/juanfont/headscale/releases/)
+[https://github.com/juanfont/headscale/releases/](https://github.com/juanfont/headscale/releases/)
 
 - 将下载好的二进制文件移动到`/usr/ local/bin/`目录下并改名名 `headscale`，然后进行部署准备：
 
