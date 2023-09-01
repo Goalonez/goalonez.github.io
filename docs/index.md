@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "Goalonez"
-  text: "👨‍💻"
+  text: "Hello World"
   tagline: 万变不离其宗
   image:
         src: /logo.png
