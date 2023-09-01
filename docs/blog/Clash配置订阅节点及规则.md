@@ -142,9 +142,21 @@ proxy-groups:
 ## 配置具体代理规则(生效)
 
 - 因为目前采用`白名单模式`,所以只有能在`远程订阅规则,cn网站,自定义规则`匹配到的才会走代理
+
 - 常用的一般在远程订阅规则中已经提供了,某些小众网站自己遇到了,就在自定义规则里加一下
+
 - 有些特殊需求的网站需要对应地区,也在自定义规则中加
+
 - 规则应该是按`从上到下匹配`的,比如cn域名指向了Github Page之类的,那就把这个cn域名的规则放到最前面,否则被cn匹配到就会直连
+
+- 匹配规则具体参考https://dreamacro.github.io/clash/configuration/rules.html
+
+### 代理方式
+
+- DIRECT：通过interface-name直接连接到目标（不查找系统路由表）
+- REJECT：丢弃数据包
+- Proxy：将数据包路由到指定的代理服务器
+- Proxy Group：将数据包路由到指定的代理组
 
 ```yaml
 rules:
@@ -152,7 +164,6 @@ rules:
   # 第一个是匹配方式,第二个是匹配条件,第三个是代理方式
   # 代理方式可以选比如上面配置的hk,usa
   # 代理方式Proxy就是你clash里自己选择的Proxy里的方式
-  # DIRECT就是不走代理,直连
   - RULE-SET,YouTube,hk
   - RULE-SET,Github,usa
   - RULE-SET,ChinaMaxNoIP,DIRECT

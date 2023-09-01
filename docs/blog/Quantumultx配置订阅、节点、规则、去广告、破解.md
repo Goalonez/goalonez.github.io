@@ -1,4 +1,4 @@
-# Quantumultx配置订阅-节点-规则-去广告-破解
+# Quantumultx配置订阅、节点、规则、去广告、破解
 
 ## 概况
 
@@ -71,12 +71,18 @@ https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf,
 - 有些特殊需求的网站需要对应地区,也在自定义规则中加
 - 一般这些可以直接在`app界面`操作(即使使用mac icloud来编辑,同步偶尔也会有坑)
 
+### 规则
+
+- **HOST** / 域名匹配 / 例如：[www.google.com](http://www.google.com/)
+- **HOST-SUFFIX** / 域名后缀匹配 / 例如：google.com
+- **HOST-KEYWORD** / 域名关键字匹配 / 例如：google
+- **USER-AGENT** / 用户代理匹配 / 例如：*abc?
+- **IP-CIDR** / IP匹配 / 例如：192.168.0.1/24
+- **IP6-CIDR** / IPV6
+- **GEOIP** / IP数据库匹配 / 例如：US
+
 ```properties
 [filter_local]
-# 国内网站
-DOMAIN-SUFFIX,cn,direct
-DOMAIN-KEYWORD,-cn,direct
-
 # 自定义
 # 第一个写匹配方式,第二个写匹配条件,第三个写代理方式
 # direct直连
@@ -84,9 +90,13 @@ DOMAIN-KEYWORD,-cn,direct
 # YourProxy,auto-usa,auto-hk代理方式
 host, sdkapp.uve.weibo.com, direct
 host, amdc.m.taobao.com, reject
-DOMAIN-SUFFIX,typora.io,YourProxy
-DOMAIN-SUFFIX,inoreader.com,YourProxy
-DOMAIN-SUFFIX,threads.net,auto-usa
+host-suffix,typora.io,YourProxy
+host-suffix,inoreader.com,YourProxy
+host-suffix,threads.net,auto-usa
+
+# 国内网站
+host-suffix,cn,direct
+host-keyword,-cn,direct
 
 ## 最终规则
 geoip, cn, direct
@@ -169,21 +179,21 @@ https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/StartUp.conf, tag=墨�
 [server_local]
 
 [filter_local]
-# 国内网站
-DOMAIN-SUFFIX,cn,direct
-DOMAIN-KEYWORD,-cn,direct
-
 # 自定义
 host, sdkapp.uve.weibo.com, direct
 host, amdc.m.taobao.com, reject
 host, amdc.m.taobao.com, reject
-DOMAIN-SUFFIX,typora.io,YourProxy
-DOMAIN-SUFFIX,v2ex.com,YourProxy
-DOMAIN-SUFFIX,substack.com,YourProxy
-DOMAIN-SUFFIX,jellow.site,direct
-DOMAIN-SUFFIX,inoreader.com,YourProxy
-DOMAIN-SUFFIX,unsplash.com,YourProxy
-DOMAIN-SUFFIX,threads.net,auto-usa
+host-suffix,typora.io,GoalonezProxy
+host-suffix,v2ex.com,GoalonezProxy
+host-suffix,substack.com,GoalonezProxy
+host-suffix,jellow.site,direct
+host-suffix,inoreader.com,GoalonezProxy
+host-suffix,unsplash.com,GoalonezProxy
+host-suffix,threads.net,auto-usa
+
+# 国内网站
+host-suffix,cn,direct
+host-keyword,-cn,direct
 
 ## 最终规则
 geoip, cn, direct

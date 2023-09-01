@@ -19,7 +19,7 @@ export default defineConfig({
       var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?8074e6952b84d5c01253992c23fbd772";
+        hm.src = "https://hm.baidu.com/hm.js?eb7ec8e9de5faec3aceab73fc11d9b1e";
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
       })();
@@ -38,7 +38,7 @@ export default defineConfig({
         items: [
           { text: 'About Me', link: '/aboutme' },
           { text: 'Clash配置订阅节点及规则', link: '/blog/Clash配置订阅节点及规则' },
-          { text: 'Quantumultx配置订阅-节点-规则-去广告-破解', link: '/blog/Quantumultx配置订阅-节点-规则-去广告-破解' },
+          { text: 'Quantumultx配置订阅-节点-规则-去广告-破解', link: '/blog/Quantumultx配置订阅、节点、规则、去广告、破解' },
           { text: 'Tailscale自建(Headscale及Drep)', link: '/blog/Tailscale自建(Headscale及Drep)' },
           { text: 'Navicat Mac版重置试用期脚本', link: '/blog/Navicat Mac版重置试用期脚本' },
           { text: 'Windows使用WSL2并安装Docker', link: '/blog/Windows使用WSL2并安装Docker' },
