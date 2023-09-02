@@ -3,7 +3,7 @@ import Layout from './theme/index'
 
 export default defineConfig({
   title: "Goalonez",
-  description: "万变不离其宗",
+  description: "Goalonez Blog",
   lang: 'zh-CN',
   base: '/',
   lastUpdated: true,
