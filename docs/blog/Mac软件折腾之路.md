@@ -4,13 +4,13 @@
 
 ### 差生文具多🤣
 
-![CleanShot 2023-09-02 at 20.59.43@2x](./assets/CleanShot-20.59.43.png)
+![CleanShot-20.59.43](./assets/CleanShot-20.59.43.png)
 
-![CleanShot 2023-09-02 at 20.58.35@2x](./assets/CleanShot-20.58.35.png)
+![CleanShot-20.58.35](./assets/CleanShot-20.58.35.png)
 
-![CleanShot 2023-09-02 at 20.58.50@2x](./assets/CleanShot-20.58.50.png)
+![CleanShot-20.58.50](./assets/CleanShot-20.58.50.png)
 
-![CleanShot 2023-09-02 at 20.59.22@2x](./assets/CleanShot-20.59.22.png)
+![CleanShot-20.59.22](./assets/CleanShot-20.59.22.png)
 
 
 
