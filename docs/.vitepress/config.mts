@@ -36,6 +36,7 @@ export default defineConfig({
         text: '博客',
         items: [
           { text: 'About Me', link: '/aboutme' },
+          { text: 'Mac软件折腾之路', link: '/blog/Mac软件折腾之路' },
           { text: '铭凡UM790 Pro体验', link: '/blog/铭凡UM790 Pro体验' },
           { text: '唠叨一下最近修电脑的经历', link: '/blog/唠叨一下最近修电脑的经历' },
           { text: 'Clash配置订阅节点及规则', link: '/blog/Clash配置订阅节点及规则' },
