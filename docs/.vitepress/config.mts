@@ -37,6 +37,11 @@ export default defineConfig({
         items: [
           { text: 'About Me', link: '/aboutme' },
           { text: 'Mac软件折腾之路', link: '/blog/Mac软件折腾之路' },
+          { text: 'Windows软件折腾之路', link: '/blog/Windows软件折腾之路' },
+          { text: 'Chrome插件折腾之路', link: '/blog/Chrome插件折腾之路' },
+          { text: 'Raycast软件折腾之路', link: '/blog/Raycast软件折腾之路' },
+          { text: 'Obsidian软件折腾之路', link: '/blog/Obsidian软件折腾之路' },
+          { text: '终端折腾之路', link: '/blog/终端折腾之路' },
           { text: '铭凡UM790 Pro体验', link: '/blog/铭凡UM790 Pro体验' },
           { text: '唠叨一下最近修电脑的经历', link: '/blog/唠叨一下最近修电脑的经历' },
           { text: 'Clash配置订阅节点及规则', link: '/blog/Clash配置订阅节点及规则' },

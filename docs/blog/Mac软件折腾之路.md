@@ -26,7 +26,7 @@
 
 具体可以参考Blog
 
-> 地址：//TODO Raycast
+> 地址：[Raycast折腾之路](./Raycast折腾之路)
 
 一个软件平替多个软件
 
@@ -70,7 +70,7 @@
 
 具体可以参考Blog
 
-> 地址：//TODO Obsidian
+> 地址：[Obsidian折腾之路](./Obsidian折腾之路)
 
 ![image-20230903000941572](./assets/image-20230903000941572.png)
 
@@ -145,6 +145,10 @@
 ### Chrome（`option + Q`）
 
 这个就不多说了。
+
+具体可以参考Blog
+
+> 地址：[Chrome折腾之路](./Chrome折腾之路)
 
 ### ~~Edge~~
 
@@ -437,6 +441,10 @@ Redis可视化管理，用的也不多。Jetbrains虽然也支持Redis了，但�
 ### Tabby（`option + X`）
 
 终端及服务器管理
+
+具体可以参考Blog
+
+> 地址：[终端折腾之路](./终端折腾之路)
 
 - 全平台同步
 - 新建窗口页的时候有点卡，所以我一般常开一个本地终端标签页
