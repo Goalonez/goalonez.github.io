@@ -148,7 +148,7 @@
 
 具体可以参考Blog
 
-> 地址：[Chrome折腾之路](./Chrome折腾之路)
+> 地址：[Chrome插件折腾之路](./Chrome插件折腾之路)
 
 ### ~~Edge~~
 
