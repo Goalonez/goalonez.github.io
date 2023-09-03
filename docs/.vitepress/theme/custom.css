@@ -350,35 +350,35 @@
    * -------------------------------------------------------------------------- */
   /* 组件：按钮 */
   :root {
-    --vp-button-brand-border: transparent;
+    --vp-button-brand-border: rgba(0, 0, 0, 0);
     --vp-button-brand-text: var(--vp-c-white);
     --vp-button-brand-bg: var(--vp-c-brand-3);
-    --vp-button-brand-hover-border: transparent;
+    --vp-button-brand-hover-border: rgba(0, 0, 0, 0);
     --vp-button-brand-hover-text: var(--vp-c-white);
     --vp-button-brand-hover-bg: var(--vp-c-brand-2);
-    --vp-button-brand-active-border: transparent;
+    --vp-button-brand-active-border: rgba(0, 0, 0, 0);
     --vp-button-brand-active-text: var(--vp-c-white);
     --vp-button-brand-active-bg: var(--vp-c-brand-1);
   
-    --vp-button-alt-border: transparent;
+    --vp-button-alt-border: rgba(0, 0, 0, 0);
     --vp-button-alt-text: var(--vp-c-text-1);
     --vp-button-alt-bg: var(--vp-c-default-3);
-    --vp-button-alt-hover-border: transparent;
+    --vp-button-alt-hover-border: rgba(0, 0, 0, 0);
     --vp-button-alt-hover-text: var(--vp-c-text-1);
     --vp-button-alt-hover-bg: var(--vp-c-default-2);
-    --vp-button-alt-active-border: transparent;
+    --vp-button-alt-active-border: rgba(0, 0, 0, 0);
     --vp-button-alt-active-text: var(--vp-c-text-1);
     --vp-button-alt-active-bg: var(--vp-c-default-1);
   
     --vp-button-sponsor-border: var(--vp-c-text-2);
     --vp-button-sponsor-text: var(--vp-c-text-2);
-    --vp-button-sponsor-bg: transparent;
+    --vp-button-sponsor-bg: rgba(0, 0, 0, 0);
     --vp-button-sponsor-hover-border: var(--vp-c-sponsor);
     --vp-button-sponsor-hover-text: var(--vp-c-sponsor);
-    --vp-button-sponsor-hover-bg: transparent;
+    --vp-button-sponsor-hover-bg: rgba(0, 0, 0, 0);
     --vp-button-sponsor-active-border: var(--vp-c-sponsor);
     --vp-button-sponsor-active-text: var(--vp-c-sponsor);
-    --vp-button-sponsor-active-bg: transparent;
+    --vp-button-sponsor-active-bg: rgba(0, 0, 0, 0);
   }
   
   /**
@@ -389,22 +389,22 @@
     --vp-custom-block-font-size: 14px;
     --vp-custom-block-code-font-size: 13px;
   
-    --vp-custom-block-info-border: transparent;
+    --vp-custom-block-info-border: rgba(0, 0, 0, 0);
     --vp-custom-block-info-text: var(--vp-c-text-1);
     --vp-custom-block-info-bg: var(--vp-c-default-soft);
     --vp-custom-block-info-code-bg: var(--vp-c-default-soft);
   
-    --vp-custom-block-tip-border: transparent;
+    --vp-custom-block-tip-border: rgba(0, 0, 0, 0);
     --vp-custom-block-tip-text: var(--vp-c-text-1);
     --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
     --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
   
-    --vp-custom-block-warning-border: transparent;
+    --vp-custom-block-warning-border: rgba(0, 0, 0, 0);
     --vp-custom-block-warning-text: var(--vp-c-text-1);
     --vp-custom-block-warning-bg: var(--vp-c-warning-soft);
     --vp-custom-block-warning-code-bg: var(--vp-c-warning-soft);
   
-    --vp-custom-block-danger-border: transparent;
+    --vp-custom-block-danger-border: rgba(0, 0, 0, 0);
     --vp-custom-block-danger-text: var(--vp-c-text-1);
     --vp-custom-block-danger-bg: var(--vp-c-danger-soft);
     --vp-custom-block-danger-code-bg: var(--vp-c-danger-soft);
@@ -465,14 +465,14 @@
   /**
    * Component: 主页颜色
    * -------------------------------------------------------------------------- */
-  
+  /* IOS端渐变不支持transparent，图像的渐变不会生效，使用rgba(0, 0, 0, 0)替换 */
   :root {
     /* 设置字体颜色 */
-    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-color: rgba(0, 0, 0, 0);
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
     
     /* 设置右图像渐变 */
-    --vp-home-hero-image-background-image: -webkit-linear-gradient( -45deg, #6a00f4 30%, #ffffff 70% );
+    --vp-home-hero-image-background-image: linear-gradient( -45deg, #6a00f4 30%, #ffffff 70% );
     --vp-home-hero-image-filter: blur(130px);
   }
   
@@ -481,19 +481,19 @@
    * -------------------------------------------------------------------------- */
   /* 组件：徽章 */
   :root {
-    --vp-badge-info-border: transparent;
+    --vp-badge-info-border: rgba(0, 0, 0, 0);
     --vp-badge-info-text: var(--vp-c-text-2);
     --vp-badge-info-bg: var(--vp-c-default-soft);
   
-    --vp-badge-tip-border: transparent;
+    --vp-badge-tip-border: rgba(0, 0, 0, 0);
     --vp-badge-tip-text: var(--vp-c-brand-1);
     --vp-badge-tip-bg: var(--vp-c-brand-soft);
   
-    --vp-badge-warning-border: transparent;
+    --vp-badge-warning-border: rgba(0, 0, 0, 0);
     --vp-badge-warning-text: var(--vp-c-warning-1);
     --vp-badge-warning-bg: var(--vp-c-warning-soft);
   
-    --vp-badge-danger-border: transparent;
+    --vp-badge-danger-border: rgba(0, 0, 0, 0);
     --vp-badge-danger-text: var(--vp-c-danger-1);
     --vp-badge-danger-bg: var(--vp-c-danger-soft);
   }
