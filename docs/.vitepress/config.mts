@@ -41,7 +41,7 @@ export default defineConfig({
           { text: 'Chrome插件折腾之路', link: '/blog/Chrome插件折腾之路' },
           { text: 'Raycast折腾之路', link: '/blog/Raycast折腾之路' },
           { text: 'Obsidian折腾之路', link: '/blog/Obsidian折腾之路' },
-          { text: '终端折腾之路', link: '/blog/终端折腾之路' },
+          { text: 'VitePress博客搭建', link: '/blog/VitePress博客搭建' },
           { text: '铭凡UM790 Pro体验', link: '/blog/铭凡UM790 Pro体验' },
           { text: '唠叨一下最近修电脑的经历', link: '/blog/唠叨一下最近修电脑的经历' },
           { text: 'Clash配置订阅节点及规则', link: '/blog/Clash配置订阅节点及规则' },

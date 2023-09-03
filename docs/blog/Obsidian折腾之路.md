@@ -189,3 +189,7 @@ Git插件，如果文档需要存放在Git仓库，可以使用这个插件，�
 ### Weread Plugin
 
 同步微信读书的数据到Obsidian知识库
+
+
+
+<git-talk/>
