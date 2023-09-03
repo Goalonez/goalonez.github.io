@@ -2,6 +2,7 @@
  * Colors: Solid
  * -------------------------------------------------------------------------- */
 
+ /* 主题 */
  :root {
     --vp-c-white: #ffffff;
     --vp-c-black: #000000;
@@ -43,6 +44,7 @@
    *    custom containers.
    * -------------------------------------------------------------------------- */
   
+  /* 配色 */
   :root {
     --vp-c-gray-1: #dddde3;
     --vp-c-gray-2: #e4e4e9;
@@ -72,6 +74,7 @@
     --vp-c-sponsor: #db2777;
   }
   
+  /* 暗黑模式配色 */
   .dark {
     --vp-c-gray-1: #515c67;
     --vp-c-gray-2: #414853;
@@ -114,6 +117,7 @@
    *   the page. Used for things like "carbon ads" or "table".
    * -------------------------------------------------------------------------- */
   
+  /* 背景色 */
   :root {
     --vp-c-bg: #ffffff;
     --vp-c-bg-alt: #f6f6f7;
@@ -141,6 +145,7 @@
    *   the header and the lest of the page.
    * -------------------------------------------------------------------------- */
   
+  /* 边框 */
   :root {
     --vp-c-border: #c2c2c4;
     --vp-c-divider: #e2e2e3;
@@ -163,6 +168,7 @@
    * - `text-3`: Used for subtle texts, such as "placeholders" or "caret icon".
    * -------------------------------------------------------------------------- */
   
+  /* 文本 */
   :root {
     --vp-c-text-1: rgba(60, 60, 67);
     --vp-c-text-2: rgba(60, 60, 67, 0.78);
@@ -196,6 +202,7 @@
    * To understand the scaling system, refer to "Colors: Palette" section.
    * -------------------------------------------------------------------------- */
   
+  /* 高亮 */
   :root {
     --vp-c-default-1: var(--vp-c-gray-1);
     --vp-c-default-2: var(--vp-c-gray-2);
@@ -215,9 +222,9 @@
     --vp-c-tip-3: var(--vp-c-brand-3);
     --vp-c-tip-soft: var(--vp-c-brand-soft);
   
-    --vp-c-warning-1: var(--vp-c-yellow-1);
-    --vp-c-warning-2: var(--vp-c-yellow-2);
-    --vp-c-warning-3: var(--vp-c-yellow-3);
+    --vp-c-warning-1: var(--vp-c-yellow1-1);
+    --vp-c-warning-2: var(--vp-c-yellow1-2);
+    --vp-c-warning-3: var(--vp-c-yellow1-3);
     --vp-c-warning-soft: var(--vp-c-yellow-soft);
   
     --vp-c-danger-1: var(--vp-c-red-1);
@@ -230,6 +237,7 @@
    * Typography
    * -------------------------------------------------------------------------- */
   
+   /* 排版 */
   :root {
     --vp-font-family-base: 'Chinese Quotes', 'Inter var', 'Inter', ui-sans-serif,
       system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -243,6 +251,7 @@
    * Shadows
    * -------------------------------------------------------------------------- */
   
+  /* 阴影 */
   :root {
     --vp-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
     --vp-shadow-2: 0 3px 12px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.07);
@@ -255,6 +264,7 @@
    * Z-indexes
    * -------------------------------------------------------------------------- */
   
+  /* Z索引 */
   :root {
     --vp-z-index-local-nav: 10;
     --vp-z-index-nav: 20;
@@ -268,6 +278,7 @@
    * Icons
    * -------------------------------------------------------------------------- */
   
+  /* 图标 */
   :root {
     --vp-icon-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(128,128,128,1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2'/%3E%3C/svg%3E");
     --vp-icon-copied: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(128,128,128,1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4'/%3E%3C/svg%3E");
@@ -276,7 +287,7 @@
   /**
    * Layouts
    * -------------------------------------------------------------------------- */
-  
+  /* 布局 */
   :root {
     --vp-layout-max-width: 1440px;
   }
@@ -284,7 +295,7 @@
   /**
    * Component: Header Anchor
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：标题锚 */
   :root {
     --vp-header-anchor-symbol: '#';
   }
@@ -292,7 +303,7 @@
   /**
    * Component: Code
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：代码 */
   :root {
     --vp-code-line-height: 1.7;
     --vp-code-font-size: 0.875em;
@@ -337,7 +348,7 @@
   /**
    * Component: Button
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：按钮 */
   :root {
     --vp-button-brand-border: transparent;
     --vp-button-brand-text: var(--vp-c-white);
@@ -373,7 +384,7 @@
   /**
    * Component: Custom Block
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：自定义块 */
   :root {
     --vp-custom-block-font-size: 14px;
     --vp-custom-block-code-font-size: 13px;
@@ -407,7 +418,7 @@
   /**
    * Component: Input
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：输入框 */
   :root {
     --vp-input-border-color: var(--vp-c-border);
     --vp-input-bg-color: var(--vp-c-bg-alt);
@@ -418,7 +429,7 @@
   /**
    * Component: Nav
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：导航 */
   :root {
     --vp-nav-height: 64px;
     --vp-nav-bg-color: var(--vp-c-bg);
@@ -429,7 +440,7 @@
   /**
    * Component: Local Nav
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：本地导航 */
   :root {
     --vp-local-nav-bg-color: var(--vp-c-bg);
   }
@@ -437,7 +448,7 @@
   /**
    * Component: Sidebar
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：侧边栏 */
   :root {
     --vp-sidebar-width: 272px;
     --vp-sidebar-bg-color: var(--vp-c-bg-alt);
@@ -446,7 +457,7 @@
   /**
    * Colors Backdrop
    * -------------------------------------------------------------------------- */
-  
+   /* 颜色背景色 */
   :root {
     --vp-backdrop-bg-color: rgba(0, 0, 0, 0.6);
   }
@@ -461,14 +472,14 @@
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
     
     /* 设置右图像渐变 */
-    --vp-home-hero-image-background-image: linear-gradient( -45deg, #6a00f4 30%, #ffffff 70% );
+    --vp-home-hero-image-background-image: -webkit-linear-gradient( -45deg, #6a00f4 30%, #ffffff 70% );
     --vp-home-hero-image-filter: blur(130px);
   }
   
   /**
    * Component: Badge
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：徽章 */
   :root {
     --vp-badge-info-border: transparent;
     --vp-badge-info-text: var(--vp-c-text-2);
@@ -490,7 +501,7 @@
   /**
    * Component: Carbon Ads
    * -------------------------------------------------------------------------- */
-  
+  /* 组件：碳素广告 */
   :root {
     --vp-carbon-ads-text-color: var(--vp-c-text-1);
     --vp-carbon-ads-poweredby-color: var(--vp-c-text-2);
@@ -502,7 +513,7 @@
   /**
     * Component: Local Search
     * -------------------------------------------------------------------------- */
-  
+  /* 组件：本地搜索 */
   :root {
     --vp-local-search-bg: var(--vp-c-bg);
     --vp-local-search-result-bg: var(--vp-c-bg);
@@ -511,4 +522,18 @@
     --vp-local-search-result-selected-border: var(--vp-c-brand-1);
     --vp-local-search-highlight-bg: var(--vp-c-green-1);
     --vp-local-search-highlight-text: var(--vp-c-neutral-inverse);
+  }
+
+  .vp-doc blockquote {
+    background-color: #ECF8F3; /* 设置你想要的背景颜色 */
+    border-left: solid #42B983 !important;; /* 设置左侧边框颜色 */
+  }
+
+  .dark .vp-doc blockquote {
+    background-color: #4a5f53; /* 设置你想要的背景颜色 */
+    border-left: solid #b9eed6 !important;; /* 设置左侧边框颜色 */
+  }
+
+  .dark .vp-doc blockquote > p {
+    color: #92cab2;
   }

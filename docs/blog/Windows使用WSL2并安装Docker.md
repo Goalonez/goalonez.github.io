@@ -1,4 +1,4 @@
-# Windows使用WSL2并安装Docker.md
+# Windows使用WSL2并安装Docker
 
 ## 安装WSL2
 
