@@ -472,7 +472,7 @@
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
     
     /* 设置右图像渐变 */
-    --vp-home-hero-image-background-image: linear-gradient( -45deg, #6a00f4 30%, #ffffff 70% );
+    --vp-home-hero-image-background-image: -webkit-linear-gradient( -45deg, #6a00f4 30%, #ffffff 70% );
     --vp-home-hero-image-filter: blur(130px);
   }
   
