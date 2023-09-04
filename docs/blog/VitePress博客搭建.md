@@ -320,12 +320,13 @@ export default defineConfig({
     },
     // 文章更新时间的前缀文本
     lastUpdatedText: '最后更新时间',
+    // 开启本地搜索（左上角）
     search: {
       provider: 'local',
     },
     // 右上角Github链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/' }
+      { icon: 'github', link: 'https://github.com/Goalonez/goalonez.github.io' }
     ],
     // 页脚
     footer: {

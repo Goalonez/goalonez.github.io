@@ -80,6 +80,7 @@ export default defineConfig({
     },
     // 文章更新时间的前缀文本
     lastUpdatedText: '最后更新时间',
+    // 开启本地搜索（左上角）
     search: {
       provider: 'local',
     },
