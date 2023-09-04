@@ -40,6 +40,8 @@ export default defineConfig({
           { text: 'Windows软件折腾之路', link: '/blog/Windows软件折腾之路' },
           { text: 'Chrome插件折腾之路', link: '/blog/Chrome插件折腾之路' },
           { text: 'Raycast折腾之路（常用功能篇）', link: '/blog/Raycast折腾之路（常用功能篇）' },
+          { text: 'Raycast折腾之路（插件篇）', link: '/blog/Raycast折腾之路（插件篇）' },
+          { text: 'Raycast快捷链接参考', link: '/blog/Raycast快捷链接参考' },
           { text: 'Obsidian折腾之路', link: '/blog/Obsidian折腾之路' },
           { text: 'VitePress博客搭建', link: '/blog/VitePress博客搭建' },
           { text: 'Zsh配置', link: '/blog/Zsh配置' },
