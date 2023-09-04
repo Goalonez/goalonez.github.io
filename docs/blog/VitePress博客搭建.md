@@ -142,7 +142,7 @@ volta pin node@18.17.1
 
 ### 首页
 
-#### 编辑`./docs/index.md`
+- 编辑`./docs/index.md`
 
 ```yaml
 ---
@@ -177,7 +177,7 @@ features:
 
 ### 主题设置
 
-#### 编辑`./docs/.vitepress/theme/index.ts`
+- 编辑`./docs/.vitepress/theme/index.ts`
 
 - 引入默认主题
 - 引入自定义css文件
@@ -194,7 +194,7 @@ export default {
 };
 ```
 
-#### 编辑`./docs/.vitepress/theme/custom.css`
+- 编辑`./docs/.vitepress/theme/custom.css`
 
 - 参考以下官方链接
 
@@ -252,9 +252,9 @@ export default {
 
 ### 核心配置
 
-#### 编辑`./docs/.vitepress/config.mts`
+- 编辑`./docs/.vitepress/config.mts`
 
-具体直接参考下面的配置吧
+- 具体直接参考下面的配置吧
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -341,7 +341,8 @@ export default defineConfig({
 
 ## 部署到Github Pages
 
-#### 编辑.github/workflows/deploy.yml
+- 编辑.github/workflows/deploy.yml
+- 提交代码到main分支即自动触发部署到Github Pages
 
 ```yaml
 name: Deploy
@@ -379,8 +380,6 @@ jobs:
         uses: actions/deploy-pages@v1
 ```
 
-#### 提交代码到main分支即自动触发部署到Github Pages
-
 ## 其他配置
 
 ### 引入gitalk
@@ -402,7 +401,9 @@ jobs:
 npm install md5 gitalk
 ```
 
-#### 编辑`./docs/.vitepress/components/gitalk.vue`
+#### 编辑配置
+
+- 编辑`./docs/.vitepress/components/gitalk.vue`
 
 - 默认gitalk存在黑色模式下字体白色，背景色也是白色，导致看不见字体，所以样式里设置一下
 
@@ -443,7 +444,7 @@ export default {
 </style>
 ```
 
-#### 编辑`./docs/.vitepress/theme/index.ts`
+- 编辑`./docs/.vitepress/theme/index.ts`
 
 ```ts
 import DefaultTheme from 'vitepress/theme';
@@ -466,9 +467,9 @@ export default {
 
 ### 接入百度统计
 
-#### 去官网申请，获取接入代码
+- 去官网申请，获取接入代码
 
-编辑`./docs/.vitepress/config.mts`
+- 编辑`./docs/.vitepress/config.mts`
 
 ```ts
 // head设置
@@ -492,7 +493,7 @@ export default {
 
 ## 开始书写
 
-### 记得写完在`./docs/.vitepress/config.mts`里编辑`themeConfig.sidebar`
+- 记得写完在`./docs/.vitepress/config.mts`里编辑`themeConfig.sidebar`。
 
 
 
