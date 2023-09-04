@@ -75,18 +75,21 @@ npx vitepress init
 
 ```shell
 .
+├─ .github                       //这个目录自建，用于存放部署脚本
+│  └─ workflows                  //这个目录自建，用于存放部署脚本
+│       └─ deploy.yml            //这个文件自建，用于部署脚本
 ├─ docs
 │  ├─ .vitepress
-│  │  ├─ components            //这个目录自建，用于存放组件
-│  │  │    └─ gitalk.vue       //这个文件自建，用于引入gitalk
-│  │  ├─ theme                 //这个目录自建，用于存放主题相关文件
-│  │  │    ├─ custom.css       //这个文件自建，用于存放自定义样式
-│  │  │    └─ index.ts         //这个文件自建，用于引入主题和组件
-│  │  └─ config.mts
-│  ├─ blog                     //这个目录自建，用于存放博客内容
-│  ├─ public                   //这个目录自建，用来存放公共资源等，引用的时候路径不需要包含public
-│  │  ├─ logo.ico              //浏览器图标，自己找图
-│  │  └─ logo.png              //首页右侧图片和logo，自己找图
+│  │    ├─ components            //这个目录自建，用于存放组件
+│  │    │    └─ gitalk.vue       //这个文件自建，用于引入gitalk
+│  │    ├─ theme                 //这个目录自建，用于存放主题相关文件
+│  │    │    ├─ custom.css       //这个文件自建，用于存放自定义样式
+│  │    │    └─ index.ts         //这个文件自建，用于引入主题和组件
+│  │    └─ config.mts
+│  ├─ blog                       //这个目录自建，用于存放博客内容
+│  ├─ public                     //这个目录自建，用来存放公共资源等，引用的时候路径不需要包含public
+│  │    ├─ logo.ico              //浏览器图标，自己找图
+│  │    └─ logo.png              //首页右侧图片和logo，自己找图
 │  ├─ api-examples.md
 │  ├─ markdown-examples.md
 │  └─ index.md
@@ -335,6 +338,48 @@ export default defineConfig({
   }
 })
 ```
+
+## 部署到Github Pages
+
+#### 编辑.github/workflows/deploy.yml
+
+```yaml
+name: Deploy
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run docs:build
+      - uses: actions/configure-pages@v2
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/.vitepress/dist
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v1
+```
+
+#### 提交代码到main分支即自动触发部署到Github Pages
 
 ## 其他配置
 
