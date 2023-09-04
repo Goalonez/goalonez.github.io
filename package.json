@@ -10,5 +10,8 @@
   "dependencies": {
     "gitalk": "^1.8.0",
     "md5": "^2.3.0"
+  },
+  "volta": {
+    "node": "18.17.1"
   }
 }
