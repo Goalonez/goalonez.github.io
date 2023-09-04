@@ -55,4 +55,4 @@ source .zshrc
 
 
 
-<git-talk/>
+<gitalk/>

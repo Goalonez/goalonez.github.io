@@ -827,5 +827,5 @@ rules:
 
 ```
 
-<git-talk/>
+<gitalk/>
 

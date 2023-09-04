@@ -209,4 +209,4 @@ final, direct
 # 自己去app里生成
 ```
 
-<git-talk/>
+<gitalk/>

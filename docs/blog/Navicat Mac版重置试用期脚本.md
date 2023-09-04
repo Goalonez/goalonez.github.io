@@ -69,4 +69,4 @@ sh ./navicatReset.sh
 
 
 
-<git-talk/>
+<gitalk/>

@@ -37,4 +37,4 @@
 |什么值得买|`https://search.smzdm.com/?c=faxian&s={Query}&order=time&v=b`|
 |Tinypng|`https://tinypng.com/`|
 
-<git-talk/>
+<gitalk/>

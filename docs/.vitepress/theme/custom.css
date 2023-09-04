@@ -525,13 +525,13 @@
   }
 
   .vp-doc blockquote {
-    background-color: #ECF8F3; /* 设置你想要的背景颜色 */
-    border-left: solid #42B983 !important;; /* 设置左侧边框颜色 */
+    background-color: #ecf8f3;
+    border-left: solid #42b983 !important;
   }
 
   .dark .vp-doc blockquote {
-    background-color: #4a5f53; /* 设置你想要的背景颜色 */
-    border-left: solid #b9eed6 !important;; /* 设置左侧边框颜色 */
+    background-color: #4a5f53;
+    border-left: solid #b9eed6 !important;
   }
 
   .dark .vp-doc blockquote > p {

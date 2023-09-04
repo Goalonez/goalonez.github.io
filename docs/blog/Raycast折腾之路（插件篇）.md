@@ -187,4 +187,4 @@
 
 
 
-<git-talk/>
+<gitalk/>

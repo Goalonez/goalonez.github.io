@@ -56,5 +56,5 @@ Windows上目前试用了很多类似的软件，还是停留在`uTools`上。
 
 
 
-<git-talk/>
+<gitalk/>
 
