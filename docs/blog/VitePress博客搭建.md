@@ -82,12 +82,11 @@ npx vitepress init
 │  │  ├─ theme                 //这个目录自建，用于存放主题相关文件
 │  │  │    ├─ custom.css       //这个文件自建，用于存放自定义样式
 │  │  │    └─ index.ts         //这个文件自建，用于引入主题和组件
-│  │  └─ config.js
+│  │  └─ config.mts
 │  ├─ blog                     //这个目录自建，用于存放博客内容
 │  ├─ public                   //这个目录自建，用来存放公共资源等，引用的时候路径不需要包含public
 │  │  ├─ logo.ico              //浏览器图标，自己找图
-│  │  ├─ logo.jpg              //网页logo，自己找图
-│  │  └─ logo.png              //首页右侧图片，自己找图
+│  │  └─ logo.png              //首页右侧图片和logo，自己找图
 │  ├─ api-examples.md
 │  ├─ markdown-examples.md
 │  └─ index.md
@@ -248,6 +247,96 @@ export default {
 }
 ```
 
+### 核心配置
+
+#### 编辑`./docs/.vitepress/config.mts`
+
+具体直接参考下面的配置吧
+
+```ts
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  // 标题（浏览器后缀）
+  title: "Goalonez",
+  // 描述
+  description: "Goalonez Blog",
+  // 语言
+  lang: 'zh-CN',
+  // 根目录，如果需要部署成htpps://github.com/blog/的形式，则设置/blog/
+  base: '/',
+  // 文档最后更新时间展示
+  lastUpdated: true,
+  // 去除浏览器链接中的.html后缀
+  cleanUrls: true,
+  // markdown显示行数
+  markdown: {
+    lineNumbers: true,
+  },
+  // head设置
+  head: [
+    // 浏览器中图标
+    ["link", {rel: "icon", href: "/logo.ico"}],
+    // 添加百度统计代码
+    ['script', {},
+    `
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?自己申请";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    `
+    ]
+  ],
+  // 主题设置
+  themeConfig: {
+    // 左上角logo
+    logo: '/logo.png',
+    // 首页右上角导航栏
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Blog', link: '/aboutme' }
+    ],
+    // 文章左侧导航栏
+    sidebar: [
+      {
+        text: '博客',
+        items: [
+          { text: 'About Me', link: '/aboutme' }
+        ]
+      }
+    ],
+    // 文章底部导航栏的自定义配置，默认是英语
+    docFooter: {
+			prev: '上一篇',
+			next: '下一篇',
+		},
+    // 文章右侧目录展示级别和标题
+    outline: {
+      level: [2, 6],
+      label: '文章目录'
+    },
+    // 文章更新时间的前缀文本
+    lastUpdatedText: '最后更新时间',
+    search: {
+      provider: 'local',
+    },
+    // 右上角Github链接
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/' }
+    ],
+    // 页脚
+    footer: {
+			copyright: 'Copyright © 2023-present Goalonez',
+		}
+  }
+})
+```
+
+## 其他配置
+
 ### 引入gitalk
 
 > [参考原文档](https://blog.csdn.net/qq_42611074/article/details/128451765)
@@ -328,6 +417,36 @@ export default {
 #### 使用
 
 在需要的Markdown里使用`<gitalk/>`开启评论
+
+### 接入百度统计
+
+#### 去官网申请，获取接入代码
+
+编辑`./docs/.vitepress/config.mts`
+
+```ts
+// head设置
+  head: [
+    // 添加百度统计代码
+    ['script', {},
+    `
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?自己申请";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    `
+    ]
+  ],
+```
+
+
+
+## 开始书写
+
+### 记得写完在`./docs/.vitepress/config.mts`里编辑`themeConfig.sidebar`
 
 
 
