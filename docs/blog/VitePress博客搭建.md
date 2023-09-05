@@ -407,6 +407,8 @@ npm install md5 gitalk
 
 - 默认gitalk存在黑色模式下字体白色，背景色也是白色，导致看不见字体，所以样式里设置一下
 
+> [前端保存clientSecret是否安全?](https://carl-zk.github.io/blog/2020/03/03/gitalk-%E8%BF%90%E4%BD%9C%E5%8E%9F%E7%90%86/#%E4%BB%80%E4%B9%88%E6%98%AF-GitHub-OAuth-Apps)
+
 ```vue
 <template>
     <div class="gitalk-container">

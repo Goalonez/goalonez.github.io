@@ -183,12 +183,12 @@ https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/StartUp.conf, tag=墨�
 host, sdkapp.uve.weibo.com, direct
 host, amdc.m.taobao.com, reject
 host, amdc.m.taobao.com, reject
-host-suffix,typora.io,GoalonezProxy
-host-suffix,v2ex.com,GoalonezProxy
-host-suffix,substack.com,GoalonezProxy
+host-suffix,typora.io,YourProxy
+host-suffix,v2ex.com,YourProxy
+host-suffix,substack.com,YourProxy
 host-suffix,jellow.site,direct
-host-suffix,inoreader.com,GoalonezProxy
-host-suffix,unsplash.com,GoalonezProxy
+host-suffix,inoreader.com,YourProxy
+host-suffix,unsplash.com,YourProxy
 host-suffix,threads.net,auto-usa
 
 # 国内网站
