@@ -160,7 +160,7 @@ Github、Gitee、Gitlab仓库树状图结构展示。
 
 如果没用Apifox的话就不用装了。
 
-## FigmaCN
+## ~~🚫FigmaCN~~
 
 汉化Figma网页。
 
