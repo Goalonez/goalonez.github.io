@@ -4,9 +4,11 @@
 
 ![image-20230903161159263](./assets/image-20230903161159263.png)
 
-## 篡改猴(Tampermonkey)
+## ~~🚫篡改猴(Tampermonkey)~~暴力猴(violentmonkey)
 
 ![image-20230903161533874](./assets/image-20230903161533874.png)
+
+> 已切换到暴力猴
 
 ### 脚本列表
 
