@@ -18,7 +18,7 @@
 
 ## 启动器
 
-### Raycast（`CMD + 空格`）
+### [Raycast](https://www.raycast.com/)（`CMD + 空格`）
 
 #### 👍👍👍极力推荐！极力推荐！极力推荐！
 
@@ -64,7 +64,7 @@
 
 ## 文档
 
-### Obsidian（`option + 1`）
+### [Obsidian](https://obsidian.md/)（`option + 1`）
 
 - 个人知识库。
 
@@ -74,7 +74,7 @@
 
 ![image-20230903000941572](./assets/image-20230903000941572.png)
 
-### WPS（`option + 2`）
+### [WPS](https://www.wps.cn/)（`option + 2`）
 
 - 虽然自己不喜欢写Word，但碍于别人老是发Word和Excel格式的文件，活动的时候差不多5.6元/月开了个会员。
 - 工作相关的本地Word、Excel处理（由于工作文件某些隐私要求，`关闭自动同步云文档`，Word、Excel都是本地处理，至今搞不明白他的上云逻辑，一会自动到云上，一会躲在某个缓存目录下）
@@ -82,23 +82,23 @@
 - 使用`文件夹同步`当做同步盘来备份一些跨平台软件的配置文件。
 - `文件传输助手`（暂时用得不多，主要微信无法多端同时登录，所以使用WPS的，但是目前入口太深不太方便，另外发送出去所有设备都会收到响应，很多时候只是想单纯发给某台机器。之前提了相关需求，也不知道会不会实现，什么时候实现）
 
-### Typora（`option + 3`）
+### [Typora](https://typora.io/)（`option + 3`）
 
 - 仅用来编辑`Blog`内容。（书写体验是真的不错，可惜没法代替Obsidian，没有手机端）
 
-### ~~🚫Notion~~
+### ~~🚫[Notion](https://www.notion.so/)~~
 
 - 卡，挂代理也卡，打开时的加载页面图标停半天，膈应。其他都还不错。目前还是更倾向于Obsidian，数据在本地，掌握在自己手里，本地文件搜索也快。
 
-#### ~~🚫wolai~~
+#### ~~🚫[wolai](https://www.wolai.com/)~~
 
 仿Notion，刚出的时候体验过一段时间，有一些微创新的小功能，国内网络相对好一点。目前被阿里收购，不知道早期一款被骂关闭的貌似叫`寒舟`的软件现在是什么想法🤣。
 
-### ~~🚫Flomo~~
+### ~~🚫[Flomo](https://flomoapp.com/)~~
 
 - 没有代码块，而且个人需求上滴答清单基本能平替，所以轻度体验后就放弃了。
 
-### 🚫~~语雀~~
+### 🚫~~[语雀](https://www.yuque.com/)~~
 
 - 搜索体验不好
 - 目录管理太痛苦了
@@ -109,7 +109,7 @@
 
 ## 待办TODO
 
-### 滴答清单（`option + S`）
+### [滴答清单](https://www.dida365.com/)（`option + S`）
 
 试用过不少待办清单软件，最终还是选择滴答清单，并且为了月视图一直开着会员
 
@@ -128,7 +128,7 @@
 
 ## 资源管理器
 
-### QSpace Pro（`option + A`）
+### [QSpace Pro](https://qspace.awehunt.com/zh-cn/index.html)（`option + A`）
 
 自带的Finder实在是用不习惯，于是看推荐试用了QSpace Pro，感觉真的不错，不过没有用过其他的软件，只谈谈这个软件。
 
@@ -143,7 +143,7 @@
 
 ## 浏览器
 
-### Chrome（`option + Q`）
+### [Chrome](https://www.google.com/chrome/)（`option + Q`）
 
 这个就不多说了。
 
@@ -151,11 +151,11 @@
 
 > 地址：[Chrome插件折腾之路](./Chrome插件折腾之路)
 
-### 🚫~~Edge~~
+### 🚫~~[Edge](https://www.microsoft.com/zh-cn/edge)~~
 
 自从转了内核之后，一开始还当个人，后来就变`纯粹的垃圾桶`，啥都往里扔。而且当时试用的时候出现过几次`丢失登录信息`的情况，所有页面都需要重新登陆，直接转回Chrome。
 
-### 🚫~~Arc~~
+### 🚫~~[Arc](https://arc.net/)~~
 
 从刚测试开始至今，下载安装过两次，都是体验了一会还是转回了Chrome，颜值是有的，可惜它的优势都不是刚需。劣势却很致命。
 
@@ -170,7 +170,7 @@
 
 ## 输入法
 
-### 搜狗输入法
+### [搜狗输入法](https://shurufa.sogou.com/)
 
 切换了不少输入法，最终还是回到了搜狗输入法。
 
@@ -181,13 +181,13 @@
 
 ## 远程桌面
 
-### Microsoft Remote Desktop Beta
+### [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
 
 配合Tailscale控制Windows，Ubuntu Desktop都很方便，自动`适配Mac的快捷键`，可以`同步剪切板`和`传输文件`。
 
 ## 下载软件
 
-### Motrix
+### [Motrix](https://motrix.app/)
 
 我自己用的比较少，主要平时不怎么下东西，小东西Chrome就下完了，也不好评价，偶尔下不动的时候用这个下载速度还可以。
 
@@ -195,7 +195,7 @@
 
 ## 云盘和同步盘
 
-### 阿里云盘
+### [阿里云盘](https://www.aliyundrive.com/)
 
 说实话，一坨💩，越更新越卡，一堆乱七八糟的东西，而且是特别卡，每次打开等半天。
 
@@ -204,56 +204,58 @@
 - 目前主要用来做下冷备，一些iCloud和WPS里的东西加密打包隔一段时间备份一下
 - 然后偶尔下点影视资源，几MB每秒也能接受了，毕竟免费
 
-### WPS（同步文件夹）
+### [WPS](https://www.wps.cn/)（同步文件夹）
 
 工作经常需要用到Word和Excel，所以统一用里面的`同步文件夹`当同步盘了，体验一般，但是够用。
 
-### ~~🚫百度云盘~~
+### ~~[🚫百度网盘](https://pan.baidu.com/)~~
 
 会员还有几个月，但是全端都卸载了，又卡广告又多，同步空间做得一堆BUG（不知道现在有没有好点，那时候功能刚上线没多久体验了下），会员费从使用频率上看并不值得。
 
-### ~~🚫坚果云~~
+### ~~[🚫坚果云](https://www.jianguoyun.com/)~~
 
 体验不错，迫于穷，还没用上，目前仅用于Chrome`简悦`插件的账号数据同步。😂
 
 ## 音乐
 
-### 网易云（`option + ~ `）
+### [网易云](https://music.163.com/)（`option + ~ `）
 
 - 88会员白嫖，所以勉强算免费
 - 音乐云盘（全靠这个功能，没版权的直接传这里再收藏到歌单就能听了，除去某些被封杀的音乐没法听）
 
-### Spotify
+### [Spotify](https://open.spotify.com/)
 
 - 偶尔听一下欧美歌单，还不错
 
-### 🚫~~QQ音乐~~
+### 🚫~~[QQ音乐](https://y.qq.com/)~~
 
 * 哪有白嫖的香
 * 音乐云盘（虚假的音乐云盘，上传后会去匹配自己的资源，达不到网易云的效果，而且有时候瞎匹配导致播放的和上传的不一致）
 
-### ~~🚫Apple Music~~
+### ~~🚫[Apple Music](https://music.apple.com/cn/browse)~~
 
 - 见仁见智，个人不习惯操作方式
 
 ## IM
 
-### 微信（`option + E`）
+### [微信](https://weixin.qq.com/)（`option + E`）
 
 所谓小而美，感觉有点克制，但不多🤣。反正日常还是得用，没办法。缓存机制很烦，工作中有些敏感文件经常被缓存在一些目录下面，得找半天去删除。
 
-### 钉钉（`option + R`）
+### [钉钉](https://www.dingtalk.com/)（`option + R`）
 
 工作需要，打卡、审批、工作交流。
 
-#### ~~🚫钉钉个人版~~
+#### ~~🚫[钉钉个人版](https://workspace.dingtalk.com/welcome)~~
+
+- 邀请码：DINGROCKS
 
 - 体验了一下个人版，割裂严重，和普通版需要切换，而不是深度集成
 - 收购的`wolai`集成度不高，没啥用
 - AI很蠢
 - 云盘集成的阿里云盘，看不到下载上传列表
 
-### Telegram（`option + W`）
+### [Telegram](https://telegram.org/)（`option + W`）
 
 主要用来订阅频道看看资讯，以及机器人。
 
@@ -270,7 +272,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 软件更新器
 
-### MacUpdater
+### [MacUpdater](https://www.corecode.io/macupdater/)
 
 统一更新软件（强迫症福音😂有空就点一点）
 
@@ -278,13 +280,13 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 监控
 
-### Stats
+### [Stats](https://github.com/exelban/stats)
 
 开源软件，挺好用的，经常会看一看。
 
 ## 日历
 
-### Itsycal
+### [Itsycal](https://www.mowglii.com/itsycal/)
 
 简洁，小巧，够用。
 
@@ -292,13 +294,13 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 压缩
 
-### Keka
+### [Keka](https://www.keka.io/)
 
 看推荐下的，官网免费，MAS版收费，下了就一直用着了，也没尝试其他的软件。
 
 ## 鼠标体验增强
 
-### ~~🚫Mos~~
+### ~~🚫[Mos](https://github.com/Caldis/Mos)~~
 
 挺好用的，就是隔段时间会出现软件自动挂掉的问题，得重新启动一下。😅懒得找平替，看来这个问题暂时还能忍。
 
@@ -306,7 +308,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 - 翻转方向
 
-### Mac Mouse Fix 3.0
+### [Mac Mouse Fix 3.0](https://github.com/noah-nuebling/mac-mouse-fix/releases)
 
 刷到帖子下载试了一下，于是决定替换掉了Mos。
 
@@ -316,7 +318,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 快捷控制
 
-### One Switch
+### [One Switch](https://fireball.studio/oneswitch/)
 
 很多小功能的控制。
 
@@ -327,7 +329,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 网络
 
-### Tailscale
+### [Tailscale](https://tailscale.com/)
 
 把自己的一些设备组成一个局域网，很方便。
 
@@ -335,7 +337,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 > 地址：[Tailscale自建(Headscale及Drep)](./Tailscale自建(Headscale及Drep))
 
-### ClashX Pro
+### [ClashX Pro](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
 
 代理。
 
@@ -345,7 +347,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 划词
 
-### PopClip
+### [PopClip](https://www.popclip.app/)
 
 主要配合`Bob`来做划词翻译
 
@@ -355,7 +357,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 翻译
 
-### Bob
+### [Bob](https://bobtranslate.com/)
 
 - 输入翻译（`option + F`）
 - 划词翻译（`配合PopClip`）
@@ -365,7 +367,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 菜单栏管理
 
-### Bartender 4
+### [Bartender 4](https://www.macbartender.com/)
 
 因为刘海的存在，这个是必备软件。下面是我自己的日常配置。
 
@@ -382,7 +384,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 截图
 
-### CleanShot X
+### [CleanShot X](https://cleanshot.com/)
 
 图片类大一统软件
 
@@ -410,7 +412,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 图片管理
 
-### Eagle（`option + Z`）
+### [Eagle](https://eagle.cool/)（`option + Z`）
 
 用来收集素材，并且进行管理，通过iCloud，阿里云盘压缩加密冷备
 
@@ -422,19 +424,21 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 图片预览
 
-### PictureView
+### [PictureView](https://wl879.github.io/apps/picview/)
 
 V2ex看到的帖子，下载下来体验还不错，就一直在用了，倒腾了一下快捷键，还是比较顺手的。
 
 ## 视频播放
 
-### IINA
+### [IINA](https://iina.io/)
 
 倒腾了下快捷键，用着顺手。颜值也不错。
 
+![image-20230913152422102](./assets/image-20230913152422102.png)
+
 ## 视频下载
 
-### Downie 4
+### [Downie 4](https://software.charliemonroe.net/downie/)
 
 偶尔会下载一些网站的视频，使用频率不高，但是很好用。直接输入地址就会自动解析下载。
 
@@ -442,31 +446,31 @@ V2ex看到的帖子，下载下来体验还不错，就一直在用了，倒腾�
 
 ## 开发工具
 
-### Jetbrains全家桶
+### [Jetbrains全家桶](https://www.jetbrains.com/)
 
 这个就不介绍了，个人前后端都喜欢用这一套
 
-### Visual Studio Code
+### [Visual Studio Code](https://code.visualstudio.com/)
 
 我主要用来当文本编辑器用
 
 插件丰富，功能强大
 
-### Navicat
+### [Navicat](https://www.navicat.com.cn/)
 
 偶尔需要用到一下，频率低。处理表结构或者导数据之类的。
 
 大部分时间直接使用JetBrains里自带的，写SQL的时候提示舒服很多，也不单独下载Datagrip，太吃内存了。但是JetBrains表结构的编辑界面做得太烂了，现在习惯直接SQL处理表结构。
 
-### oss-browser
+### [oss-browser](https://github.com/aliyun/oss-browser)
 
 偶尔连下OSS
 
-### Another Redis Desktop Manager
+### [Another Redis Desktop Manager](https://github.com/qishibo/AnotherRedisDesktopManager)
 
 Redis可视化管理，用的也不多。Jetbrains虽然也支持Redis了，但是目前还不完善。
 
-### Tabby（`option + X`）
+### [Tabby](https://tabby.sh/)（`option + X`）
 
 终端及服务器管理
 
@@ -483,7 +487,7 @@ Redis可视化管理，用的也不多。Jetbrains虽然也支持Redis了，但�
 
 ![image-20230903002407514](./assets/image-20230903002407514.png)
 
-### Volta
+### [Volta](https://volta.sh/)
 
 node版本管理
 
