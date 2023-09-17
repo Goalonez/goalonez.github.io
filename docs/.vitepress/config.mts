@@ -66,6 +66,11 @@ export default defineConfig({
           { text: 'Navicat Mac版重置试用期脚本', link: '/blog/Navicat Mac版重置试用期脚本' },
           { text: 'Windows使用WSL2并安装Docker', link: '/blog/Windows使用WSL2并安装Docker' },
         ]
+      },{
+        text: '其他',
+        items: [
+          { text: 'Mac', link: '/blog/Mac' },
+        ]
       }
     ],
     // 文章底部导航栏的自定义配置，默认是英语
