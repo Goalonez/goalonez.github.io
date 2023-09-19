@@ -6,7 +6,7 @@
 
 - 建议使用Volta进行版本管理
 
-#### Unix安装
+#### Linux or MacOS安装
 
 ```shell
 curl https://get.volta.sh | bash
@@ -200,7 +200,7 @@ export default {
 
 > https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
 
-- 我主要调整了一下内容
+- 我主要调整了以下内容
 
 ```css
 /* 整体配色改成绿色 */
