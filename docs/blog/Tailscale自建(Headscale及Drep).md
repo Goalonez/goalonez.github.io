@@ -295,7 +295,7 @@ headscale -n 命名空间 nodes register --key nodekey:上面这行命令返回�
 # 到Headscale服务器上执行返回的命令
 ```
 
-### IOS
+### iOS
 
 ```shell
 # 下载官方Tailscale客户端(去其他区,例如美区)
