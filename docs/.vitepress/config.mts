@@ -49,6 +49,7 @@ export default defineConfig({
         text: '博客',
         items: [
           { text: 'About Me', link: '/aboutme' },
+          { text: 'iOS杭州市民卡交通码快捷打开', link: '/iOS杭州市民卡交通码快捷打开' },
           { text: 'Mac软件折腾之路', link: '/blog/Mac软件折腾之路' },
           { text: 'Windows软件折腾之路', link: '/blog/Windows软件折腾之路' },
           { text: 'Chrome插件折腾之路', link: '/blog/Chrome插件折腾之路' },
