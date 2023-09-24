@@ -60,7 +60,7 @@ proxy-providers:
 
 ```yaml
 rule-providers:
-	# 取个名字
+  # 取个名字
   YouTube:
     type: http
     behavior: classical
@@ -129,7 +129,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-	# 代理的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
+  # 代理的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
   # 流量: clash <-> http <-> vmess <-> ss1 <-> ss2 <-> 互联网
   # 直接用总节点得了,懒得管
   - name: "relay"
@@ -178,7 +178,7 @@ rules:
   - DOMAIN-SUFFIX,v2ex.com,Proxy
   - DOMAIN-SUFFIX,spotify.com,auto-usa
   
-   # 最终规则
+  # 最终规则
   - GEOIP,CN,DIRECT
   - MATCH,DIRECT
 ```
