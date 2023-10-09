@@ -24,11 +24,9 @@
 
 >引用自官方Github：[链接](https://github.com/redisson/redisson/tree/master/redisson-spring-data#1-add-redisson-spring-data-dependency-into-your-project)
 >
->Maven
->
 >```
->     <dependency>
->         <groupId>org.redisson</groupId>
+><dependency>
+>    <groupId>org.redisson</groupId>
 >         <!-- for Spring Data Redis v.1.6.x -->
 >         <artifactId>redisson-spring-data-16</artifactId>
 >         <!-- for Spring Data Redis v.1.7.x -->
@@ -57,7 +55,7 @@
 >         <artifactId>redisson-spring-data-31</artifactId>
 >         <version>3.23.5</version>
 >     </dependency>
->```
+>     ```
 
 
 
