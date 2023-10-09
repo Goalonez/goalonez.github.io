@@ -4,7 +4,7 @@
 
 
 
-> 引用自官方Github：https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter#1-add-redisson-spring-boot-starter-dependency-into-your-project
+> 引用自官方Github：[链接](https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter#1-add-redisson-spring-boot-starter-dependency-into-your-project)
 >
 > `redisson-spring-boot-starter`取决于`redisson-spring-data`与最新版本的 Spring Boot 兼容的模块。`redisson-spring-data`如果需要支持以前的 Spring Boot 版本，请降级模块：
 >
@@ -22,7 +22,7 @@
 
 
 
->引用自官方Github：https://github.com/redisson/redisson/tree/master/redisson-spring-data#1-add-redisson-spring-data-dependency-into-your-project
+>引用自官方Github：[链接](https://github.com/redisson/redisson/tree/master/redisson-spring-data#1-add-redisson-spring-data-dependency-into-your-project)
 >
 >Maven
 >
@@ -61,10 +61,8 @@
 
 
 
-最终，根据我的SpringBoot版本是`2.7.15`，应该是需要使用`redisson-spring-data-27`。从`mvnrepository`仓库中得到了对应信息。
+最终，根据我的SpringBoot版本是`2.7.15`，应该是需要使用`redisson-spring-data-27`。从[mvnrepository](https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter/3.18.0)仓库中得到了对应信息。
 
 目前最高支持的版本应该`3.18.0`
-
-https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter/3.18.0
 
 ![image-20231009104934111](./assets/image-20231009104934111.png)
