@@ -8,13 +8,13 @@
 >
 > `redisson-spring-boot-starter`取决于`redisson-spring-data`与最新版本的 Spring Boot 兼容的模块。`redisson-spring-data`如果需要支持以前的 Spring Boot 版本，请降级模块：
 >
-> | redisson-spring-data 模块名称 | 春季启动 版本 |
-> | ----------------------------- | ------------- |
-> | redisson-spring-data-16       | 1.3.y         |
-> | redisson-spring-data-17       | 1.4.y         |
-> | redisson-spring-data-18       | 1.5.y         |
-> | redisson-spring-data-2x       | 2.xy          |
-> | redisson-spring-data-3x       | 3.xy          |
+> | redisson-spring-data module name | Spring Boot version |
+> | -------------------------------- | ------------------- |
+> | redisson-spring-data-16          | 1.3.y               |
+> | redisson-spring-data-17          | 1.4.y               |
+> | redisson-spring-data-18          | 1.5.y               |
+> | redisson-spring-data-2x          | 2.xy                |
+> | redisson-spring-data-3x          | 3.xy                |
 
 
 
