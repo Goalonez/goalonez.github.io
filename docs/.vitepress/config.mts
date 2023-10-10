@@ -49,6 +49,7 @@ export default defineConfig({
         text: '博客',
         items: [
           { text: 'About Me', link: '/aboutme' },
+          { text: 'OpenAI api集成', link: '/blog/OpenAI api集成' },
           { text: 'SpringBoot与Redisson版本对应', link: '/blog/SpringBoot与Redisson版本对应' },
           { text: 'iOS杭州市民卡交通码URL_Scheme快捷打开', link: '/blog/iOS杭州市民卡交通码URL_Scheme快捷打开' },
           { text: 'Mac软件折腾之路', link: '/blog/Mac软件折腾之路' },

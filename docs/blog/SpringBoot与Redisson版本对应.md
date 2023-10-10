@@ -61,6 +61,6 @@
 
 最终，根据我的SpringBoot版本是`2.7.15`，应该是需要使用`redisson-spring-data-27`。从[mvnrepository](https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter/3.18.0)仓库中得到了对应信息。
 
-目前最高支持的版本应该`3.18.0`
+目前最高支持的版本应该是`3.18.0`。
 
 ![image-20231009104934111](./assets/image-20231009104934111.png)
