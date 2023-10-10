@@ -27,7 +27,7 @@
 - Raycast Explorer
 - ChatGPT
 
-  - > [链接](./OpenAI api集成#raycast-chatgpt插件)
+  - > [链接](./OpenAI%20api集成#raycast-chatgpt插件)
 
 
 ## 安装方式
