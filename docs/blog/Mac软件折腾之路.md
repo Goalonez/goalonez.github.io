@@ -493,6 +493,12 @@ node版本管理
 
 - 全平台（试用过nvm，fnm都遇到过一些坑，只有这个目前畅通）
 
+### OrbStack
+
+- OrbStack 是运行 Docker 容器和 Linux 的快速、轻便且简单的方案。用来替代Docker Desktop。
+
+![image-20231013103033324](./assets/image-20231013103033324.png)
+
 ## M1安装的iOS软件
 
 ### Mi Home（米家）
