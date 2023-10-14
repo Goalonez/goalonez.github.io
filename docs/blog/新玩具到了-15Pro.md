@@ -214,4 +214,4 @@
 
 <img src="./assets/085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c.jpeg" alt="085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c" style="zoom:25%;" />
 
-<git-talk/>
+<gitalk/>
