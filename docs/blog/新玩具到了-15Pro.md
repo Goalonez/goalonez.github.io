@@ -122,7 +122,9 @@
 
 ##### 直立portrait
 
-- 打开App - `随便扫`
+- ~~打开App - `随便扫`~~(体验一般，微信和支付宝的码都是跳转到对应App然后再扫一次，之前试过`一扫`App是直接生效的，但是比较简陋，所以没用上)
+- 打开URL：`微信扫码`
+- weixin://scanqrcode
 
 ##### 倒立portraitUpsideDown
 
