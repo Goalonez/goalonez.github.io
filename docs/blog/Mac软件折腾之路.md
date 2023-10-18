@@ -361,7 +361,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 - 输入翻译（`option + F`）
 - 划词翻译（`配合PopClip`）
-- OCR + 翻译（`option + ESC`）
+- OCR + 翻译~~（`option + ESC`）~~（`option + V`）
 
 ![image-20230902234153576](./assets/image-20230902234153576.png)
 
