@@ -49,6 +49,7 @@ export default defineConfig({
         text: '博客',
         items: [
           { text: 'About Me', link: '/aboutme' },
+          { text: '快捷指令折腾之路', link: '/blog/快捷指令折腾之路' },
           { text: 'AzureOpenAI申请过程', link: '/blog/AzureOpenAI申请过程' },
           { text: '新玩具到了-15Pro', link: '/blog/新玩具到了-15Pro' },
           { text: 'OpenAI api集成', link: '/blog/OpenAI api集成' },

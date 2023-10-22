@@ -27,7 +27,7 @@
 
 ### Azure OpenAI
 
-- 搜索Azure OpenAI
+- 搜索`Azure OpenAI`
 
 ![image-20231017091354605](./assets/image-20231017091354605.png)
 
@@ -73,7 +73,7 @@
 
 然后在你日常使用的客户端就可以填入`密钥、端点、模型名`开始使用了。
 
-不过部分应用可能不支持Azure OpenAI，因为他的结构不同。比如我的Obsidian插件似乎就没法直接使用。
+不过部分应用可能不支持Azure OpenAI，因为api结构不同。比如我的Obsidian插件似乎就没法直接使用。
 
 ## 其他
 
