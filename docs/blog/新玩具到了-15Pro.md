@@ -146,7 +146,7 @@
 
 ##### 屏幕朝上faceUp
 
-- 打开Url`支付宝-付款码`
+- 打开URL`支付宝-付款码`
 - `alipay://platformapi/startapp?appId=20000056`
 
 ##### 屏幕朝下 faceDown
