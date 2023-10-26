@@ -73,7 +73,7 @@ export default defineConfig({
           { text: 'Windows使用WSL2并...', link: '/blog/Windows使用WSL2并安装Docker' },
         ]
       },{
-        text: 'ohter',
+        text: 'Other',
         items: [
           { text: 'Mac', link: '/blog/Mac' },
         ]
