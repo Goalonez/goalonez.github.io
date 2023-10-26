@@ -46,15 +46,15 @@ export default defineConfig({
     // 文章左侧导航栏
     sidebar: [
       {
-        text: '博客',
+        text: 'Blog',
         items: [
-          { text: 'About Me', link: '/aboutme' },
+          { text: '主页', link: '/aboutme' },
           { text: '快捷指令折腾之路', link: '/blog/快捷指令折腾之路' },
           { text: 'AzureOpenAI申请过程', link: '/blog/AzureOpenAI申请过程' },
           { text: '新玩具到了-15Pro', link: '/blog/新玩具到了-15Pro' },
           { text: 'OpenAI api集成', link: '/blog/OpenAI api集成' },
           { text: 'SpringBoot与Redisson版本对应', link: '/blog/SpringBoot与Redisson版本对应' },
-          { text: 'iOS杭州市民卡交通码URL_Scheme快捷打开', link: '/blog/iOS杭州市民卡交通码URL_Scheme快捷打开' },
+          { text: 'iOS杭州市民卡交通码...', link: '/blog/iOS杭州市民卡交通码URL_Scheme快捷打开' },
           { text: 'Mac软件折腾之路', link: '/blog/Mac软件折腾之路' },
           { text: 'Windows软件折腾之路', link: '/blog/Windows软件折腾之路' },
           { text: 'Chrome插件折腾之路', link: '/blog/Chrome插件折腾之路' },
@@ -65,15 +65,15 @@ export default defineConfig({
           { text: 'VitePress博客搭建', link: '/blog/VitePress博客搭建' },
           { text: 'Zsh配置', link: '/blog/Zsh配置' },
           { text: '铭凡UM790 Pro体验', link: '/blog/铭凡UM790 Pro体验' },
-          { text: '唠叨一下最近修电脑的经历', link: '/blog/唠叨一下最近修电脑的经历' },
+          { text: '唠叨一下最近修电脑的经历...', link: '/blog/唠叨一下最近修电脑的经历' },
           { text: 'Clash配置订阅节点及规则', link: '/blog/Clash配置订阅节点及规则' },
-          { text: 'QuantumultX配置订阅-节点-规则-去广告-破解', link: '/blog/QuantumultX配置订阅-节点-规则-去广告-破解' },
-          { text: 'Tailscale自建(Headscale及Drep)', link: '/blog/Tailscale自建(Headscale及Drep)' },
+          { text: 'QuantumultX配置订阅...', link: '/blog/QuantumultX配置订阅-节点-规则-去广告-破解' },
+          { text: 'Tailscale自建(Headscale...', link: '/blog/Tailscale自建(Headscale及Drep)' },
           { text: 'Navicat Mac版重置试用期脚本', link: '/blog/Navicat Mac版重置试用期脚本' },
-          { text: 'Windows使用WSL2并安装Docker', link: '/blog/Windows使用WSL2并安装Docker' },
+          { text: 'Windows使用WSL2并...', link: '/blog/Windows使用WSL2并安装Docker' },
         ]
       },{
-        text: '其他',
+        text: 'ohter',
         items: [
           { text: 'Mac', link: '/blog/Mac' },
         ]
