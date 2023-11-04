@@ -6,7 +6,11 @@
 
 ## 根据原文章获取到交通码地址
 
-`{"url":"smkapp://scanCodeRide2"}`
+```
+{
+  "url": "smkapp://scanCodeRide"
+}
+```
 
 ## Base64后得到URL Scheme
 
