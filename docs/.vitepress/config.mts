@@ -49,9 +49,11 @@ export default defineConfig({
         text: 'Blog',
         items: [
           { text: '主页', link: '/aboutme' },
+          { text: '新玩具-15ProMax', link: '/blog/新玩具-15ProMax' },
+          { text: '新玩具-Keychron-K3-Pro', link: '/blog/新玩具-Keychron-K3-Pro' },
           { text: '快捷指令折腾之路', link: '/blog/快捷指令折腾之路' },
           { text: 'AzureOpenAI申请过程', link: '/blog/AzureOpenAI申请过程' },
-          { text: '新玩具到了-15Pro', link: '/blog/新玩具到了-15Pro' },
+          { text: '新玩具-15Pro', link: '/blog/新玩具-15Pro' },
           { text: 'OpenAI api集成', link: '/blog/OpenAI api集成' },
           { text: 'SpringBoot与Redisson版本对应', link: '/blog/SpringBoot与Redisson版本对应' },
           { text: 'iOS杭州市民卡交通码...', link: '/blog/iOS杭州市民卡交通码URL_Scheme快捷打开' },
