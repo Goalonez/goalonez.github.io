@@ -55,7 +55,7 @@ wsl --set-default-version 2
 wsl
 ```
 
-## WSL2使用Clash代理
+## WSL2使用呆梨
 
 ### 在.bashrc或者.zshrc配置文件中设置
 

@@ -49,6 +49,7 @@ export default defineConfig({
         text: 'Blog',
         items: [
           { text: '主页', link: '/aboutme' },
+          { text: 'shell打包脚本', link: '/blog/shell打包脚本' },
           { text: '新玩具-15ProMax', link: '/blog/新玩具-15ProMax' },
           { text: '新玩具-Keychron-K3-Pro', link: '/blog/新玩具-Keychron-K3-Pro' },
           { text: '快捷指令折腾之路', link: '/blog/快捷指令折腾之路' },

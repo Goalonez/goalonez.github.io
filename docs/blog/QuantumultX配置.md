@@ -6,10 +6,10 @@
 - 测试并自动切换速度快的节点
 - 远程订阅常用软件分流规则
 - 按需添加自定义网址
-- 白名单模式,不在匹配规则里的不代理,保证大部分代理都在自己知情的情况下执行
+- 白名单模式,不在匹配规则里的不呆梨,保证大部分呆梨都在自己知情的情况下执行
 - 重写部分app达到去广告或破解效果
 
-## 代理分组[policy]
+## 呆梨分组[policy]
 
 ```properties
 [policy]
@@ -29,7 +29,7 @@ url-latency-benchmark=auto-usa, server-tag-regex=美国, check-interval=600, tol
 https://你的节点订阅地址
 ```
 
-## 订阅分流规则(代理)[filter_remote]
+## 订阅分流规则(呆梨)[filter_remote]
 
 ### 订阅地址获取
 
@@ -38,7 +38,7 @@ https://你的节点订阅地址
 
 ```properties
 [filter_remote]
-# 自己根据上面提供的连接配置自己常用的应用,tag取个名字,force-policy代理规则
+# 自己根据上面提供的连接配置自己常用的应用,tag取个名字,force-policy呆梨规则
 # force-policy平时统一用YourProxy就可以了,特殊地址可以配置一下自己的分组,比如auto-usa,国内地址直连direct
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Microsoft/Microsoft.list, tag=Microsoft, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/SteamCN/SteamCN.list, tag=SteamCN, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
@@ -46,7 +46,7 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Steam/Steam.list, tag=Steam, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
 ```
 
-## 订阅重写规则(去广告,破解之类的)[rewrite_remote]
+## 订阅重写规则[rewrite_remote]
 
 ### 订阅地址获取
 
@@ -66,8 +66,8 @@ https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf,
 
 ## 自定义规则编写[filter_local]
 
-- 因为目前采用`白名单模式`,所以只有能在`远程订阅规则,cn网站,自定义规则`匹配到的才会走代理
-- 常用的一般在远程订阅规则中已经提供了,某些小众网站自己遇到了,就在自定义规则里加一下
+- 因为目前采用`白名单模式`,所以只有能在`远程订阅规则,cn网站,自定义规则`匹配到的才会走呆梨
+- 常用的一般在远程订阅规则中已经提供了
 - 有些特殊需求的网站需要对应地区,也在自定义规则中加
 - 一般这些可以直接在`app界面`操作(即使使用mac icloud来编辑,同步偶尔也会有坑)
 
@@ -76,7 +76,7 @@ https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf,
 - **HOST** / 域名匹配 / 例如：[www.google.com](http://www.google.com/)
 - **HOST-SUFFIX** / 域名后缀匹配 / 例如：google.com
 - **HOST-KEYWORD** / 域名关键字匹配 / 例如：google
-- **USER-AGENT** / 用户代理匹配 / 例如：*abc?
+- **USER-AGENT** / 用户呆梨匹配 / 例如：*abc?
 - **IP-CIDR** / IP匹配 / 例如：192.168.0.1/24
 - **IP6-CIDR** / IPV6
 - **GEOIP** / IP数据库匹配 / 例如：US
@@ -84,10 +84,10 @@ https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf,
 ```properties
 [filter_local]
 # 自定义
-# 第一个写匹配方式,第二个写匹配条件,第三个写代理方式
+# 第一个写匹配方式,第二个写匹配条件,第三个写呆梨方式
 # direct直连
 # reject拒绝,一般用来去广告
-# YourProxy,auto-usa,auto-hk代理方式
+# YourProxy,auto-usa,auto-hk呆梨方式
 host, sdkapp.uve.weibo.com, direct
 host, amdc.m.taobao.com, reject
 host-suffix,typora.io,YourProxy

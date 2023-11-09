@@ -88,7 +88,7 @@
 
 ### ~~🚫[Notion](https://www.notion.so/)~~
 
-- 卡，挂代理也卡，打开时的加载页面图标停半天，膈应。其他都还不错。目前还是更倾向于Obsidian，数据在本地，掌握在自己手里，本地文件搜索也快。
+- 卡，挂呆梨也卡，打开时的加载页面图标停半天，膈应。其他都还不错。目前还是更倾向于Obsidian，数据在本地，掌握在自己手里，本地文件搜索也快。
 
 #### ~~🚫[wolai](https://www.wolai.com/)~~
 
@@ -337,13 +337,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 > 地址：[Tailscale自建(Headscale及Drep)](./Tailscale自建(Headscale及Drep))
 
-### [ClashX Pro](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
-
-代理。
-
-具体可以参考Blog
-
-> ​	地址：[Clash配置订阅节点及规则](./Clash配置)
+### ClashX Pro
 
 ## 划词
 

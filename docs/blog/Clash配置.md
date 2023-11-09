@@ -6,7 +6,7 @@
 - 测试并自动切换速度快的节点
 - 远程订阅常用软件分流规则
 - 按需添加自定义网址
-- 白名单模式,不在匹配规则里的不代理,保证大部分代理都在自己知情的情况下执行
+- 白名单模式,不在匹配规则里的不呆梨,保证大部分呆梨都在自己知情的情况下执行
 
 ## 配置节点订阅地址proxy-providers
 
@@ -15,13 +15,13 @@ proxy-providers:
 	# 随便取个名字,这里我是按地区来,可以写个hk
   hk:
     type: http
-    # 你的机场节点订阅地址
+    # 你的节点订阅地址
     url: "节点订阅地址"
     interval: 3600
     # 随便取个名字demo-hk.yaml
     path: ./hk.yaml
     # 节点名称过滤条件
-    filter: '香港*'
+    filter: '地址*'
     health-check:
       enable: true
       interval: 600
@@ -33,7 +33,7 @@ proxy-providers:
     url: "节点订阅地址"
     interval: 3600
     path: ./usa.yaml
-    filter: '美国*'
+    filter: '地址*'
     health-check:
       enable: true
       interval: 600
@@ -78,7 +78,7 @@ rule-providers:
     path: ./remote/GitHub.yaml
 ```
 
-## 配置代理组proxy-groups
+## 配置呆梨组proxy-groups
 
 ```yaml
 proxy-groups:
@@ -120,7 +120,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-  # load-balance 可以使相同 eTLD 请求在同一条代理线路上
+  # load-balance 可以使相同 eTLD 请求在同一条呆梨线路上
   # 直接用总节点得了,懒得管
   - name: "load-balance"
     type: load-balance
@@ -129,7 +129,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-  # 代理的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
+  # 呆梨的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
   # 流量: clash <-> http <-> vmess <-> ss1 <-> ss2 <-> 互联网
   # 直接用总节点得了,懒得管
   - name: "relay"
@@ -139,11 +139,11 @@ proxy-groups:
 
 ```
 
-## 配置具体代理规则(生效)
+## 配置具体呆梨规则(生效)
 
-- 因为目前采用`白名单模式`,所以只有能在`远程订阅规则,cn网站,自定义规则`匹配到的才会走代理
+- 因为目前采用`白名单模式`,所以只有能在`远程订阅规则,cn网站,自定义规则`匹配到的才会走呆梨
 
-- 常用的一般在远程订阅规则中已经提供了,某些小众网站自己遇到了,就在自定义规则里加一下
+- 常用的一般在远程订阅规则中已经提供了
 
 - 有些特殊需求的网站需要对应地区,也在自定义规则中加
 
@@ -151,19 +151,19 @@ proxy-groups:
 
 - 匹配规则具体参考https://dreamacro.github.io/clash/configuration/rules.html
 
-### 代理方式
+### 呆梨方式
 
 - DIRECT：通过interface-name直接连接到目标（不查找系统路由表）
 - REJECT：丢弃数据包
-- Proxy：将数据包路由到指定的代理服务器
-- Proxy Group：将数据包路由到指定的代理组
+- Proxy：将数据包路由到指定的呆梨服务器
+- Proxy Group：将数据包路由到指定的呆梨组
 
 ```yaml
 rules:
-  # 首先写远程规则订阅的代理方式
-  # 第一个是匹配方式,第二个是匹配条件,第三个是代理方式
-  # 代理方式可以选比如上面配置的hk,usa
-  # 代理方式Proxy就是你clash里自己选择的Proxy里的方式
+  # 首先写远程规则订阅的呆梨方式
+  # 第一个是匹配方式,第二个是匹配条件,第三个是呆梨方式
+  # 呆梨方式可以选比如上面配置的hk,usa
+  # 呆梨方式Proxy就是你clash里自己选择的Proxy里的方式
   - RULE-SET,YouTube,hk
   - RULE-SET,Github,usa
   - RULE-SET,ChinaMaxNoIP,DIRECT
@@ -196,16 +196,16 @@ rules:
 ## https://github.com/Hackl0us/SS-Rule-Snippet/wiki/clash(X)
 #---------------------------------------------------#
 
-# HTTP 代理端口
+# HTTP 呆梨端口
 #port: 7890
 
-# SOCKS5 代理端口
+# SOCKS5 呆梨端口
 #socks-port: 7891
 
-# Linux 和 macOS 的 redir 透明代理端口 (重定向 TCP 和 TProxy UDP 流量)
+# Linux 和 macOS 的 redir 透明呆梨端口 (重定向 TCP 和 TProxy UDP 流量)
 # redir-port: 7892
 
-# Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
+# Linux 的透明呆梨端口（适用于 TProxy TCP 和 TProxy UDP 流量)
 # tproxy-port: 7893
 
 # HTTP(S) and SOCKS5 共用端口
@@ -216,7 +216,7 @@ mixed-port: 7890
 #  - "user1:pass1"
 #  - "user2:pass2"
 
-# 允许局域网的连接（可用来共享代理）
+# 允许局域网的连接（可用来共享呆梨）
 allow-lan: true
 bind-address: "*"
 # 此功能仅在 allow-lan 设置为 true 时生效，支持三种参数：
@@ -225,7 +225,7 @@ bind-address: "*"
 # "[aaaa::a8aa:ff:fe09:57d8]"   绑定一个 IPv6 地址
 
 # Clash 路由工作模式
-# 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）
+# 规则模式：rule（规则） / global（全局呆梨）/ direct（全局直连）
 mode: rule
 
 # Clash 默认将日志输出至 STDOUT
@@ -362,7 +362,7 @@ dns:
     - '*.mcdn.bilivideo.cn'
 
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
-  # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
+  # 所有 DNS 请求将会直接发送到服务器，不经过任何呆梨。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
   nameserver:
     - https://doh.pub/dns-query
@@ -395,7 +395,7 @@ dns:
 
 proxy-groups:
 
-  # select 用来允许用户手动选择 代理服务器 或 服务器组
+  # select 用来允许用户手动选择 呆梨服务器 或 服务器组
   # 您也可以使用 RESTful API 去切换服务器，这种方式推荐在 GUI 中使用
   - name: Proxy
     type: select
@@ -455,7 +455,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-  # load-balance 可以使相同 eTLD 请求在同一条代理线路上
+  # load-balance 可以使相同 eTLD 请求在同一条呆梨线路上
   - name: "load-balance"
     type: load-balance
     use:
@@ -463,7 +463,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-# 代理的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
+# 呆梨的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
   # 流量: clash <-> http <-> vmess <-> ss1 <-> ss2 <-> 互联网
   - name: "relay"
     type: relay
