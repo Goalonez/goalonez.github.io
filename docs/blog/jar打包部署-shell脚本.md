@@ -96,7 +96,7 @@ touch pushImage.sh
 chmod +x pushImage.sh
 
 # 生成推送文件
-cat << EOF > pushJzsImage.sh
+cat << EOF > pushImage.sh
 #!/bin/bash
 
 # 加载镜像
