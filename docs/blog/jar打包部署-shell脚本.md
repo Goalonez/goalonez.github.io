@@ -1,4 +1,4 @@
-# shell打包脚本
+# jar打包部署-shell脚本
 
 ## 原流程
 
@@ -53,7 +53,7 @@ fi
 # 如果是win，需要先进入wsl,如果是mac则不做操作
 if [[ "$OSTYPE" == "darwin"* ]]; then
   echo "This is a Mac system,Do nothing"
-  # mac下直接用docker命令
+	# mac下直接用docker命令
   docker_command="docker"
 elif [[ "$OS" == "Windows_NT" ]]; then
 	# win的wsl下需要使用wsl docker命令
