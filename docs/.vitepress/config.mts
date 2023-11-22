@@ -7,7 +7,7 @@ export default defineConfig({
   description: "Goalonez Blog",
   // 语言
   lang: 'zh-CN',
-  // 根目录，如果需要部署成htpps://github.com/blog/的形式，则设置/blog/
+  // 根目录，如果需要部署成https://github.com/blog/的形式，则设置/blog/
   base: '/',
   // 文档最后更新时间展示
   lastUpdated: true,
@@ -27,7 +27,7 @@ export default defineConfig({
       var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?eb7ec8e9de5faec3aceab73fc11d9b1e";
+        hm.src = "https://hm.baidu.com/hm.js?9b77e13b749eb16bfaad0e97179ca700";
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
       })();
