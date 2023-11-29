@@ -153,8 +153,18 @@ server {                                                                        
 # 显示节点列表
 headscale nodes ls
 # 删除节点
-headscale nodes delete -i <id>
-# mac系统 ping节点
+headscale nodes delete -i  <id>
+# 启动服务
+systemctl start headscale
+# 开机自启
+systemctl enable headscale
+# 查看状态
+systemctl status headscle
+# 创建命名空间
+headscale namespaces create <namespace>
+# 查看命名空间列表
+headscale namespaces list
+# mac ping
 /Applications/Tailscale.app/Contents/MacOS/Tailscale ping 100.64.0.2
 ```
 

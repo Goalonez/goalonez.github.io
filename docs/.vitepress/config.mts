@@ -54,6 +54,8 @@ export default defineConfig({
         text: 'Blog',
         items: [
           { text: '主页', link: '/aboutme' },
+          { text: '新玩具-极空间Z4pro', link: '/blog/新玩具-极空间Z4pro' },
+          { text: '腾讯云设置root密码登录', link: '/blog/腾讯云设置root密码登录' },
           { text: 'jar打包部署-shell脚本', link: '/blog/jar打包部署-shell脚本' },
           { text: '新玩具-15ProMax', link: '/blog/新玩具-15ProMax' },
           { text: '新玩具-Keychron-K3-Pro', link: '/blog/新玩具-Keychron-K3-Pro' },
