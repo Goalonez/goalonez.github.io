@@ -177,7 +177,7 @@
 
 ## 输入法
 
-### ~~🚫[搜狗输入法~~](https://shurufa.sogou.com/)
+### ~~🚫[搜狗输入法](https://shurufa.sogou.com/)~~
 
 切换了不少输入法，最终还是回到了搜狗输入法。
 
