@@ -114,6 +114,11 @@
 - 买了一年会员，提前放弃了，冲动消费😮‍💨
 - 相对于Notion这样的块级操作，个人还是比较喜欢语雀的书写体验
 
+### [PDFgear](https://www.pdfgear.com/)
+
+- PDF预览软件
+- ![image-20231216212739348](./assets/image-20231216212739348.png)
+
 ## 待办TODO
 
 ### [滴答清单](https://www.dida365.com/)（`option + S`）
@@ -474,9 +479,13 @@ V2ex看到的帖子，下载下来体验还不错，就一直在用了，倒腾�
 
 偶尔连下OSS
 
-### [Another Redis Desktop Manager](https://github.com/qishibo/AnotherRedisDesktopManager)
+### ~~🚫[Another Redis Desktop Manager](https://github.com/qishibo/AnotherRedisDesktopManager)~~
 
-Redis可视化管理，用的也不多。Jetbrains虽然也支持Redis了，但是目前还不完善。
+Redis可视化工具，用的也不多。Jetbrains虽然也支持Redis了，但是目前还不完善。
+
+### [Tiny](https://github.com/tiny-craft/tiny-rdm)
+
+Redis可视化工具，颜值高一点。
 
 ### [Tabby](https://tabby.sh/)（`option + X`）
 
@@ -506,6 +515,12 @@ node版本管理
 - OrbStack 是运行 Docker 容器和 Linux 的快速、轻便且简单的方案。用来替代Docker Desktop。
 
 ![image-20231013103033324](./assets/image-20231013103033324.png)
+
+## 虚拟机
+
+### UTM
+
+![image-20231216212850587](./assets/image-20231216212850587.png)
 
 ## M1安装的iOS软件
 
