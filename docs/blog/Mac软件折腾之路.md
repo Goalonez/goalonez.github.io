@@ -163,7 +163,7 @@
 
 > 地址：[Chrome插件折腾之路](./Chrome插件折腾之路)
 
-### [MenuBarX](https://menubarx.app/)
+### [MenubarX](https://menubarx.app/)
 
 菜单栏浏览器
 
