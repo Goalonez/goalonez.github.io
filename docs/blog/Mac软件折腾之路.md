@@ -163,6 +163,12 @@
 
 > 地址：[Chrome插件折腾之路](./Chrome插件折腾之路)
 
+### [MenuBarX](https://menubarx.app/)
+
+菜单栏浏览器
+
+<img src="./assets/image-20231218140440390.png" alt="image-20231218140440390" style="zoom:25%;" />
+
 ### ~~🚫[Edge](https://www.microsoft.com/zh-cn/edge)~~
 
 自从转了内核之后，一开始还当个人，后来就变`纯粹的垃圾桶`，啥都往里扔。而且当时试用的时候出现过几次`丢失登录信息`的情况，所有页面都需要重新登陆，直接转回Chrome。
