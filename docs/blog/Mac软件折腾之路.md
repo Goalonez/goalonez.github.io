@@ -463,6 +463,26 @@ V2ex看到的帖子，下载下来体验还不错，就一直在用了，倒腾�
 
 ![image-20230903001326779](./assets/image-20230903001326779.png)
 
+## AI
+
+### [MacGPT](https://www.macgpt.com/)
+
+目前使用这款，可以呼出类似Raycast的输入框，也可以呼出菜单栏小窗口，并且还有全局右侧窗口（这个窗口使用的是官方web版的页面）
+
+我目前主要使用右侧窗口，毕竟官方的页面做得是最完善的，不会出现显示错误。
+
+- 搜索框
+
+![image-20231218231645879](./assets/image-20231218231645879.png)
+
+- 菜单栏
+
+  <img src="./assets/image-20231218231540125.png" alt="image-20231218231540125" style="zoom:25%;" />
+
+- 全局右侧呼出
+
+<img src="./assets/image-20231218231503440.png" alt="image-20231218231503440" style="zoom:25%;" />
+
 ## 开发工具
 
 ### [Jetbrains全家桶](https://www.jetbrains.com/)
