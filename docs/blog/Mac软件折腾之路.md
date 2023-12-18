@@ -485,6 +485,12 @@ V2ex看到的帖子，下载下来体验还不错，就一直在用了，倒腾�
 
 <img src="./assets/image-20231218231503440.png" alt="image-20231218231503440" style="zoom:25%;" />
 
+- 全局`+gpt`输入
+
+  - 微信示例
+
+  <img src="./assets/image-20231218232738252.png" alt="image-20231218232738252" style="zoom: 50%;" />
+
 ## 开发工具
 
 ### [Jetbrains全家桶](https://www.jetbrains.com/)
