@@ -54,6 +54,7 @@ export default defineConfig({
         text: 'Blog',
         items: [
           { text: '主页', link: '/aboutme' },
+          { text: '网易云2023年度总结', link: '/blog/网易云2023年度总结' },
           { text: 'Raycast-Wrapped-2023', link: '/blog/Raycast-Wrapped-2023' },
           { text: '新玩具-极空间Z4pro', link: '/blog/新玩具-极空间Z4pro' },
           { text: '腾讯云设置root密码登录', link: '/blog/腾讯云设置root密码登录' },
