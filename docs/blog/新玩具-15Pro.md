@@ -44,7 +44,7 @@
 - 第二天中午到店取了货（这次直接现场拆了包装先看了下外观），顺便办了退款，也拿到了膜。
 - 最终订单变成了这个样子。（😂真是一波三折）
 
-<img src="./assets/8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c.jpeg" alt="8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c" style="zoom: 40%;" />
+<img src="./assets/8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c.jpg" alt="8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c" style="zoom: 40%;" />
 
 ## 开箱
 
@@ -52,7 +52,7 @@
 
 
 
-<img src="./assets/22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c.jpeg" alt="22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c" style="zoom:50%;" />
+<img src="./assets/22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c.jpg" alt="22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c" style="zoom:50%;" />
 
 ### 手机
 
@@ -60,14 +60,14 @@
 - 店里看了4个配色，感觉不如14Pro，都有点做旧风的感觉。
 - 所以也就不纠结白色了，因为不是想象中以前那种透亮的白。原色也不错。
 
-<img src="./assets/88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c.jpeg" alt="88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c" style="zoom: 50%;" />
+<img src="./assets/88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c.jpg" alt="88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c" style="zoom: 50%;" />
 
 ### Type-C线
 
 - 线是编织的，跟MacBook的差不多。
 - 已经能想象到以后变黄的样子了😒。
 
-<img src="./assets/F4655F94-3CC4-4008-8175-0A5BAEA943CD.jpeg" alt="F4655F94-3CC4-4008-8175-0A5BAEA943CD" style="zoom:10%;" />
+<img src="./assets/F4655F94-3CC4-4008-8175-0A5BAEA943CD.jpg" alt="F4655F94-3CC4-4008-8175-0A5BAEA943CD" style="zoom:10%;" />
 
 ## 数据传输
 
@@ -75,7 +75,7 @@
 - 但是因为`面容ID会重置`，所以导致银行App都得重新登陆。
 - `QuantumultX`迁移过去后也无效了，删了App重新下载配置才成功。（这个很奇怪，浏览器有效，但App连不上，所以就重新弄了）
 
-<img src="./assets/A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c.jpeg" alt="A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c" style="zoom: 33%;" />
+<img src="./assets/A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c.jpg" alt="A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c" style="zoom: 33%;" />
 
 ## 折腾
 
@@ -100,7 +100,7 @@
   - 14Pro带壳的话由于摄像头又大了一圈,本身线圈自带的位置会顶到摄像头,需要找适配的 magsafe 壳,之前用的壳线圈应该是有点往下移的设计.会在 100%电量之后间歇性出现充电开始的提示。
   - 15Pro用的`申本`的壳，目前没发现上面的问题。
 
-<img src="./assets/0120E6F4-E597-4046-AD64-F840F2E7D04C.jpeg" alt="0120E6F4-E597-4046-AD64-F840F2E7D04C" style="zoom: 10%;" />
+<img src="./assets/0120E6F4-E597-4046-AD64-F840F2E7D04C.jpg" alt="0120E6F4-E597-4046-AD64-F840F2E7D04C" style="zoom: 10%;" />
 
 ### Action Button👍👍👍
 
@@ -210,10 +210,10 @@
 
 最后纪念一下陪伴一年的14Pro
 
-<img src="./assets/241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c.jpeg" alt="241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c" style="zoom:25%;" />
+<img src="./assets/241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c.jpg" alt="241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c" style="zoom:25%;" />
 
-<img src="./assets/F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c.jpeg" alt="F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c" style="zoom:25%;" />
+<img src="./assets/F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c.jpg" alt="F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c" style="zoom:25%;" />
 
-<img src="./assets/085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c.jpeg" alt="085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c" style="zoom:25%;" />
+<img src="./assets/085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c.jpg" alt="085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c" style="zoom:25%;" />
 
 <gitalk/>
