@@ -50,10 +50,16 @@ export default defineConfig({
     ],
     // 文章左侧导航栏
     sidebar: [
+      { text: 'AboutMe', link: '/aboutme' },
       {
         text: 'Blog',
         items: [
-          { text: '主页', link: '/aboutme' },
+          /* {
+            text: '2024',
+            items: [
+            ]
+          }, */
+          { text: '再见2023', link: '/blog/再见2023' },
           { text: '网易云2023年度总结', link: '/blog/网易云2023年度总结' },
           { text: 'Raycast-Wrapped-2023', link: '/blog/Raycast-Wrapped-2023' },
           { text: '新玩具-极空间Z4pro', link: '/blog/新玩具-极空间Z4pro' },
@@ -83,11 +89,6 @@ export default defineConfig({
           { text: 'Tailscale自建(Headscale...', link: '/blog/Tailscale自建(Headscale及Drep)' },
           { text: 'Navicat Mac版重置试用期脚本', link: '/blog/Navicat Mac版重置试用期脚本' },
           { text: 'Windows使用WSL2并...', link: '/blog/Windows使用WSL2并安装Docker' },
-        ]
-      },{
-        text: 'Other',
-        items: [
-          { text: 'Mac', link: '/blog/Mac' },
         ]
       }
     ],
