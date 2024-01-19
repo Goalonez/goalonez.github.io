@@ -57,7 +57,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
-              { text: 'MoviePilot-Nas媒体库自动化管理工具', link: '/blog/MoviePilot-Nas媒体库自动化管理工具' },
+              { text: 'MoviePilot配置-Nas媒体库自动化管理工具', link: '/blog/MoviePilot配置-Nas媒体库自动化管理工具' },
               { text: '你好2024', link: '/blog/你好2024' },
             ]
           }, 
