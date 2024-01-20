@@ -437,6 +437,6 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ## 求药🙈
 
-堡、大聪明、人人人、💊论坛、各大站，感谢大佬！
+求某几个Web资源更新快的站、💊论坛、各大站，感谢大佬！
 
 <gitalk/>
