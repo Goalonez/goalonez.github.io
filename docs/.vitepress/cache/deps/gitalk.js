@@ -1,6 +1,6 @@
 import {
   __commonJS
-} from "./chunk-76J2PTFD.js";
+} from "./chunk-Y2F7D3TJ.js";
 
 // node_modules/gitalk/dist/gitalk.js
 var require_gitalk = __commonJS({
@@ -2532,7 +2532,7 @@ var require_gitalk = __commonJS({
             function _interopRequireDefault(obj) {
               return obj && obj.__esModule ? obj : { default: obj };
             }
-            exports2.default = function() {
+            exports2.default = /* @__PURE__ */ function() {
               function defineProperties(target, props) {
                 for (var i = 0; i < props.length; i++) {
                   var descriptor = props[i];
@@ -2687,7 +2687,7 @@ var require_gitalk = __commonJS({
           function(module2, exports2, __webpack_require__) {
             var cof = __webpack_require__(43);
             var TAG = __webpack_require__(9)("toStringTag");
-            var ARG = cof(function() {
+            var ARG = cof(/* @__PURE__ */ function() {
               return arguments;
             }()) == "Arguments";
             var tryGet = function(it, key) {
@@ -9328,7 +9328,7 @@ var require_gitalk = __commonJS({
           /***/
           function(module2, exports2) {
             var g;
-            g = function() {
+            g = /* @__PURE__ */ function() {
               return this;
             }();
             try {
@@ -11419,7 +11419,7 @@ var require_gitalk = __commonJS({
             Object.defineProperty(exports2, "__esModule", {
               value: true
             });
-            var _slicedToArray = function() {
+            var _slicedToArray = /* @__PURE__ */ function() {
               function sliceIterator(arr, i) {
                 var _arr = [];
                 var _n = true;
@@ -11466,7 +11466,7 @@ var require_gitalk = __commonJS({
               }
               return target;
             };
-            var _createClass = function() {
+            var _createClass = /* @__PURE__ */ function() {
               function defineProperties(target, props) {
                 for (var i = 0; i < props.length; i++) {
                   var descriptor = props[i];
@@ -12010,7 +12010,7 @@ var require_gitalk = __commonJS({
                 }
                 return target;
               };
-              var _createClass = function() {
+              var _createClass = /* @__PURE__ */ function() {
                 function defineProperties(target, props) {
                   for (var i = 0; i < props.length; i++) {
                     var descriptor = props[i];
@@ -12435,7 +12435,7 @@ var require_gitalk = __commonJS({
               }
             })(this, function(exports3, module3) {
               "use strict";
-              var map = typeof Map === "function" ? /* @__PURE__ */ new Map() : function() {
+              var map = typeof Map === "function" ? /* @__PURE__ */ new Map() : /* @__PURE__ */ function() {
                 var keys = [];
                 var values = [];
                 return {
@@ -12962,7 +12962,7 @@ var require_gitalk = __commonJS({
             function _interopRequireDefault(obj) {
               return obj && obj.__esModule ? obj : { default: obj };
             }
-            exports2.default = function() {
+            exports2.default = /* @__PURE__ */ function() {
               function sliceIterator(arr, i) {
                 var _arr = [];
                 var _n = true;
@@ -13430,7 +13430,7 @@ var require_gitalk = __commonJS({
               }()
             ) : (
               // Non standard browser envs (web workers, react-native) lack needed support.
-              function nonStandardBrowserEnv() {
+              /* @__PURE__ */ function nonStandardBrowserEnv() {
                 return function isURLSameOrigin() {
                   return true;
                 };
@@ -13444,7 +13444,7 @@ var require_gitalk = __commonJS({
             var utils = __webpack_require__(10);
             module2.exports = utils.isStandardBrowserEnv() ? (
               // Standard browser envs support document.cookie
-              function standardBrowserEnv() {
+              /* @__PURE__ */ function standardBrowserEnv() {
                 return {
                   write: function write(name, value, expires, path, domain, secure) {
                     var cookie = [];
@@ -13474,7 +13474,7 @@ var require_gitalk = __commonJS({
               }()
             ) : (
               // Non standard browser env (web workers, react-native) lack needed support.
-              function nonStandardBrowserEnv() {
+              /* @__PURE__ */ function nonStandardBrowserEnv() {
                 return {
                   write: function write() {
                   },
