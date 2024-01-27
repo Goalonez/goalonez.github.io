@@ -21,7 +21,7 @@ export default defineConfig({
   head: [
     // 浏览器中图标
     ["link", {rel: "icon", href: "/logo.ico"}],
-    // 添加百度统计代码
+    // 添加统计代码
     ['script', {},
     `
       var _hmt = _hmt || [];
