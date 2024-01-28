@@ -24,7 +24,7 @@
 
 >引用自官方Github：[链接](https://github.com/redisson/redisson/tree/master/redisson-spring-data#1-add-redisson-spring-data-dependency-into-your-project)
 >
->```
+>```xml
 ><dependency>
 >    <groupId>org.redisson</groupId>
 >         <!-- for Spring Data Redis v.1.6.x -->
