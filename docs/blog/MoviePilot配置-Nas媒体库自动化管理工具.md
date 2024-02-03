@@ -151,7 +151,7 @@
     - /个人空间/docker/qb -> /config
   - tr
     - /个人空间/docker/tr/watch -> /watch
-    - /个人空间/docker/tr/watch -> /config
+    - /个人空间/docker/tr/config -> /config
   - MoviePilot
     - /个人空间/docker/MoviePilot/config -> /config
     - /个人空间/docker/MoviePilot/cache -> /moviepilot
