@@ -1,14 +1,20 @@
 # MoviePilot配置-Nas媒体库自动化管理工具
 
-## 概况
+## 仓库
 
-### UI展示
+[官方仓库](https://github.com/jxxghp/MoviePilot)
+
+感谢大佬的开源
+
+## UI展示
 
 ![image-20240119142233843](./assets/image-20240119142233843.png)
 
 ![image-20240119142246105](./assets/image-20240119142246105.png)
 
 ![image-20240119142150301](./assets/image-20240119142150301.png)
+
+## 功能介绍
 
 ### 仪表盘
 
@@ -83,7 +89,9 @@
   - 关于
     - 系统版本信息
 
-## 安装CookieCloud（可选）
+## 前置-安装CookieCloud（可选）
+
+- 主要用于添加站点管理
 
 > 也可以手动在MoviePilot左下角的站点管理中手动添加站点。
 >
@@ -110,7 +118,7 @@
     - 不过下面`自定义索引站点`插件，可以添加`cc`域名，并且能够搭配辅种插件（`io`没法辅种），所以还是建议先用`io`域名添加完之后配置索引，然后把域名改成`cc`的。
 - 一般选择手动同步即可，平时暂停，等什么时候网站连接不通了再手动更新就好了
 
-## 配置概况
+## 前置-目录概况
 
 - 这里以极空间举例，其他产品应该整体逻辑都差不多，反正都是基于Docker的版本。
 
@@ -121,8 +129,6 @@
 
 
 > 如果是ZDR模式，也就是一个存储池，设置上应该更方便一些。我是因为在折腾之前已经切换到单盘模式了，而且怕盘坏了不知道丢了什么内容，所以还是继续使用单盘模式。
-
-## 目录创建
 
 ![image-20240128223421293](./assets/image-20240128223421293.png)
 
@@ -150,11 +156,9 @@
     - /个人空间/docker/MoviePilot/config -> /config
     - /个人空间/docker/MoviePilot/cache -> /moviepilot
 
-## 下载器
+## 前置-下载器安装
 
-### 下载qBittorrent
-
-> 主要用于下载任务
+### 下载qBittorrent（用于下载任务）
 
 参考[官方文档](https://www.zspace.cn/help/?articleId=100124)
 
@@ -168,7 +172,7 @@
 | /团队空间/公共下载1 | /downloads1 | 盘1下载目录，为了`目录监控`插件，方便整理到媒体库 |
 | /团队空间/公共下载3 | /downloads3 | 盘3下载目录，为了`刷流`插件                       |
 
-### 下载Transmission
+### 下载Transmission（用于保种任务）
 
 > 主要用于上传保种
 
@@ -180,9 +184,9 @@
 
 ##### 启动容器
 
-###### 关闭性能限制
+###### 1.关闭性能限制
 
-###### 文件夹映射
+###### 2.文件夹映射
 
 | 本地文件夹路径（自己创建） | 容器内路径  | 备注                                        |
 | -------------------------- | ----------- | ------------------------------------------- |
@@ -192,7 +196,7 @@
 | /团队空间/公共下载1        | /downloads1 | 盘1下载目录，方便`目录监控`插件整理到媒体库 |
 | /团队空间/公共下载3        | /downloads3 | 盘3下载目录，为了`刷流`插件                 |
 
-###### 端口
+###### 3.端口
 
 > 由于极空间自带下载为51413，防止冲突，所以等会环境变量里PEERPORT设置成51419
 
@@ -202,7 +206,7 @@
 | 51419    | 51419 UDP  |
 | 9091     | 9091       |
 
-###### 环境变量
+###### 4.环境变量
 
 | 环境变量 | 值   | 备注 |
 | -------- | ---- | ---- |
@@ -211,7 +215,7 @@
 | PUID     | 0    | 权限 |
 | PGIU     | 0    | 权限 |
 
-## 安装MoviePilot
+## 主要-安装MoviePilot⭐
 
 ### Docker安装
 
@@ -296,7 +300,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ![image-20240119152711398](./assets/image-20240119152711398.png)
 
-## 插件
+## 插件⭐
 
 ![image-20240119142150301](./assets/image-20240119142150301.png)
 
@@ -397,15 +401,17 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 - 服务器地址记得配置完成，完整的应该是`https://api.day.app/你的编码`
 
+### ⭐
+
 ### 自定义索引站点
 
 - 添加没有默认支持的站点
 
-- ![image-20240129182519617](./assets/image-20240129182519617.png)
+- <img src="./assets/image-20240129182519617.png" alt="image-20240129182519617" style="zoom:25%;" />
 
-- 馒头cc（主要为了辅种）（感谢iyuu tg群里的大佬提供方案）
+- 馒头cc（主要为了辅种）（感谢iyuu tg群里的大佬提供方案)⭐
 
-  - 如果之前已经在站点管理里添加了io域名，请改成cc域名
+  - `如果之前已经在站点管理里添加了io域名，请改成cc域名`
 
   - ```
     m-team.cc|eyJpZCI6Im10ZWFtIiwibmFtZSI6IummkuWktCIsImRvbWFpbiI6Imh0dHBzOi8va3AubS10ZWFtLmNjLyIsImVuY29kaW5nIjoiVVRGLTgiLCJwdWJsaWMiOmZhbHNlLCJzZWFyY2giOnsicGF0aHMiOlt7InBhdGgiOiJ0b3JyZW50cy5waHAiLCJtZXRob2QiOiJnZXQifV0sInBhcmFtcyI6eyJzZWFyY2giOiJ7a2V5d29yZH0ifX0sImNhdGVnb3J5Ijp7Im1vdmllIjpbeyJpZCI6NDAxLCJjYXQiOiJNb3ZpZXMvU0QiLCJkZXNjIjoiTW92aWUo6Zu75b2xKS9TRCIsImRlZmF1bHQiOnRydWV9LHsiaWQiOjQxOSwiY2F0IjoiTW92aWVzL0hEIiwiZGVzYyI6Ik1vdmllKOmbu+W9sSkvSEQiLCJkZWZhdWx0Ijp0cnVlfSx7ImlkIjo0MjAsImNhdCI6Ik1vdmllcy9EVkQiLCJkZXNjIjoiTW92aWUo6Zu75b2xKS9EVkRpU28iLCJkZWZhdWx0Ijp0cnVlfSx7ImlkIjo0MjEsImNhdCI6Ik1vdmllcy9CbHVSYXkiLCJkZXNjIjoiTW92aWUo6Zu75b2xKS9CbHUtUmF5IiwiZGVmYXVsdCI6dHJ1ZX0seyJpZCI6NDM5LCJjYXQiOiJNb3ZpZXMvT3RoZXIiLCJkZXNjIjoiTW92aWUo6Zu75b2xKS9SZW11eCIsImRlZmF1bHQiOnRydWV9XSwidHYiOlt7ImlkIjo0MDMsImNhdCI6IlRWL1NEIiwiZGVzYyI6IlRWIFNlcmllcyjlvbHliocv57ac6JedKS9TRCIsImRlZmF1bHQiOnRydWV9LHsiaWQiOjQwMiwiY2F0IjoiVFYvSEQiLCJkZXNjIjoiVFYgU2VyaWVzKOW9seWKhy/ntpzol50pL0hEIiwiZGVmYXVsdCI6dHJ1ZX0seyJpZCI6NDM1LCJjYXQiOiJUVi9TRCIsImRlc2MiOiJUViBTZXJpZXMo5b2x5YqHL+e2nOiXnSkvRFZEaVNvIiwiZGVmYXVsdCI6dHJ1ZX0seyJpZCI6NDM4LCJjYXQiOiJUVi9IRCIsImRlc2MiOiJUViBTZXJpZXMo5b2x5YqHL+e2nOiXnSkvQkQiLCJkZWZhdWx0Ijp0cnVlfSx7ImlkIjo0MDQsImNhdCI6IlRWL0RvY3VtZW50YXJ5IiwiZGVzYyI6Iue0gOmMhOaVmeiCsiIsImRlZmF1bHQiOnRydWV9LHsiaWQiOjQwNSwiY2F0IjoiVFYvQW5pbWUiLCJkZXNjIjoiQW5pbWUo5YuV55WrKSIsImRlZmF1bHQiOnRydWV9XX0sInRvcnJlbnRzIjp7Imxpc3QiOnsic2VsZWN0b3IiOiJ0YWJsZS50b3JyZW50cyA+IHRyOmhhcyhcInRhYmxlLnRvcnJlbnRuYW1lXCIpIn0sImZpZWxkcyI6eyJpZCI6eyJzZWxlY3RvciI6ImFbaHJlZio9XCJkZXRhaWxzLnBocD9pZD1cIl0iLCJhdHRyaWJ1dGUiOiJocmVmIiwiZmlsdGVycyI6W3sibmFtZSI6InJlX3NlYXJjaCIsImFyZ3MiOlsiXFxkKyIsMF19XX0sInRpdGxlX2RlZmF1bHQiOnsic2VsZWN0b3IiOiJhW2hyZWYqPVwiZGV0YWlscy5waHA/aWQ9XCJdID4gYiJ9LCJ0aXRsZV9vcHRpb25hbCI6eyJvcHRpb25hbCI6dHJ1ZSwic2VsZWN0b3IiOiJhW3RpdGxlXVtocmVmKj1cImRldGFpbHMucGhwP2lkPVwiXSIsImF0dHJpYnV0ZSI6InRpdGxlIn0sInRpdGxlIjp7InRleHQiOiJ7JSBpZiBmaWVsZHNbJ3RpdGxlX29wdGlvbmFsJ10gJX17eyBmaWVsZHNbJ3RpdGxlX29wdGlvbmFsJ10gfX17JSBlbHNlICV9e3sgZmllbGRzWyd0aXRsZV9kZWZhdWx0J10gfX17JSBlbmRpZiAlfSJ9LCJjYXRlZ29yeSI6eyJzZWxlY3RvciI6ImFbaHJlZio9XCI/Y2F0PVwiXSIsImF0dHJpYnV0ZSI6ImhyZWYiLCJmaWx0ZXJzIjpbeyJuYW1lIjoicXVlcnlzdHJpbmciLCJhcmdzIjoiY2F0In1dfSwiZGV0YWlscyI6eyJzZWxlY3RvciI6ImFbaHJlZio9XCJkZXRhaWxzLnBocD9pZD1cIl0iLCJhdHRyaWJ1dGUiOiJocmVmIn0sImRvd25sb2FkIjp7InNlbGVjdG9yIjoiYVtocmVmKj1cImRvd25sb2FkLnBocD9pZD1cIl0iLCJhdHRyaWJ1dGUiOiJocmVmIn0sInBvc3RlciI6eyJzZWxlY3RvciI6ImltZ1thbHQ9XCJ0b3JyZW50IHRodW1ibmFpbFwiXSIsImF0dHJpYnV0ZSI6InNyYyIsImZpbHRlcnMiOlt7Im5hbWUiOiJyZXBsYWNlIiwiYXJncyI6WyJwaWMvbm9waWMuanBnIiwiIl19XX0sImltZGJpZCI6eyJzZWxlY3RvciI6ImFbaHJlZio9XCJpbWRiLmNvbS90aXRsZS90dFwiXSIsImF0dHJpYnV0ZSI6ImhyZWYiLCJmaWx0ZXJzIjpbeyJuYW1lIjoicmVfc2VhcmNoIiwiYXJncyI6WyJ0dFxcZCsiLDBdfV19LCJzaXplIjp7InNlbGVjdG9yIjoidGQucm93Zm9sbG93Om50aC1sYXN0LWNoaWxkKDYpIn0sImdyYWJzIjp7InNlbGVjdG9yIjoidGQucm93Zm9sbG93Om50aC1sYXN0LWNoaWxkKDMpIn0sInNlZWRlcnMiOnsic2VsZWN0b3IiOiJ0ZC5yb3dmb2xsb3c6bnRoLWxhc3QtY2hpbGQoNSkifSwibGVlY2hlcnMiOnsic2VsZWN0b3IiOiJ0ZC5yb3dmb2xsb3c6bnRoLWxhc3QtY2hpbGQoNCkifSwiZGF0ZV9hZGRlZCI6eyJzZWxlY3RvciI6InRkLnJvd2ZvbGxvdzpudGgtbGFzdC1jaGlsZCg3KSA+IHNwYW4iLCJhdHRyaWJ1dGUiOiJ0aXRsZSIsIm9wdGlvbmFsIjp0cnVlfSwiZGF0ZV9lbGFwc2VkIjp7InNlbGVjdG9yIjoidHIgPiB0ZCA+IHNwYW4iLCJvcHRpb25hbCI6dHJ1ZX0sImRhdGUiOnsidGV4dCI6InslIGlmIGZpZWxkc1snZGF0ZV9lbGFwc2VkJ10gb3IgZmllbGRzWydkYXRlX2FkZGVkJ10gJX17eyBmaWVsZHNbJ2RhdGVfZWxhcHNlZCddIGlmIGZpZWxkc1snZGF0ZV9lbGFwc2VkJ10gZWxzZSBmaWVsZHNbJ2RhdGVfYWRkZWQnXSB9fXslIGVsc2UgJX1ub3d7JSBlbmRpZiAlfSIsImZpbHRlcnMiOlt7Im5hbWUiOiJkYXRlcGFyc2UiLCJhcmdzIjoiJVktJW0tJWQgJUg6JU06JVMifV19LCJkb3dubG9hZHZvbHVtZWZhY3RvciI6eyJjYXNlIjp7ImltZy5wcm9fZnJlZSI6MCwiaW1nLnByb19mcmVlMnVwIjowLCJpbWcucHJvXzUwcGN0ZG93biI6MC41LCJpbWcucHJvXzUwcGN0ZG93bjJ1cCI6MC41LCJpbWcucHJvXzMwcGN0ZG93biI6MC4zLCIqIjoxfX0sInVwbG9hZHZvbHVtZWZhY3RvciI6eyJjYXNlIjp7ImltZy5wcm9fNTBwY3Rkb3duMnVwIjoyLCJpbWcucHJvX2ZyZWUydXAiOjIsImltZy5wcm9fMnVwIjoyLCIqIjoxfX0sImZyZWVfZGVhZGxpbmUiOnsiZGVmYXVsdF92YWx1ZSI6InslIGlmIGZpZWxkc1snZG93bmxvYWR2b2x1bWVmYWN0b3InXT09MCAlfXt7bWF4X3RpbWV9fXslIGVuZGlmJX0iLCJkZWZhdWx0X3ZhbHVlX2Zvcm1hdCI6IiVZLSVtLSVkICVIOiVNOiVTLiVmIiwic2VsZWN0b3IiOiJzcGFuW3N0eWxlPVwiZm9udC13ZWlnaHQ6bm9ybWFsXCJdIiwiZmlsdGVycyI6W3sibmFtZSI6InJlX3NlYXJjaCIsImFyZ3MiOlsiKD866ZmQ5pmC77yaXFxzKikoKD86XFxkK+aXpSk/KD86XFxkK+aZgik/KD86XFxkK+WIhik/KSIsMV19LHsibmFtZSI6ImRhdGVfZWxhcHNlZF9wYXJzZSJ9XX0sImRlc2NyaXB0aW9uIjp7InNlbGVjdG9yIjoidGFibGUudG9ycmVudG5hbWUgPiB0ciA+IHRkLmVtYmVkZGVkIiwiY29udGVudHMiOi0xfSwibGFiZWxzIjp7InNlbGVjdG9yIjoidGFibGUudG9ycmVudG5hbWUgPiB0ciA+IHRkLmVtYmVkZGVkID4gaW1nW2NsYXNzKj1cImxhYmVsX1wiXSIsImF0dHJpYnV0ZSI6ImFsdCJ9fX0sInByaWNlIjp7IkZSRUUiOlsiLy9oMVtAaWQ9J3RvcCddL2IvZm9udFtAY2xhc3M9J2ZyZWUnXSJdLCIyWEZSRUUiOltdLCJIUiI6W10sIlBFRVJfQ09VTlQiOlsiLy9kaXZbQGlkPSdwZWVyY291bnQnXS9iWzFdIl19LCJzeXN0ZW1fdHlwZSI6Im5leHVzX3BocCIsImV4dF9kb21haW4iOlsiaHR0cHM6Ly94cC5tLXRlYW0uaW8vIiwiaHR0cHM6Ly94cC5tLXRlYW0uY2MvIiwiaHR0cHM6Ly9hcC5tLXRlYW0uY2MvIl19
@@ -418,6 +424,8 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
     ```
 
 - 其他站点欢迎留言补充
+
+### ⭐
 
 ### 清理订阅缓存
 
