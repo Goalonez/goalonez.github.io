@@ -225,7 +225,7 @@
 
 #### 安装容器
 
-###### 文件夹路径映射
+###### 1.文件夹路径映射
 
 | 本地文件夹路径（自己创建）                | 容器内路径  | 备注                                               |
 | ----------------------------------------- | ----------- | -------------------------------------------------- |
@@ -237,11 +237,11 @@
 | /团队空间/公共下载1                       | /downloads1 | 盘1下载目录，为了`目录监控`插件，方便整理到媒体库  |
 | /团队空间/公共下载3                       | /downloads3 | 盘3下载目录，为了`刷流`插件                        |
 
-###### 网络
+###### 2.网络
 
 - host
 
-###### 环境
+###### 3.环境
 
 - 这里只提供基础的一些配置
 - 更多配置可以参考[仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
@@ -282,7 +282,7 @@
 | SUBSCRIBE_RSS_INTERVAL | 15                          | RSS订阅模式刷新时间间隔（分钟）                              |
 | PLUGIN_MARKET          | 见下方                      | 仓库扩展                                                     |
 
-###### 仓库扩展
+###### 3.1仓库扩展
 
 ```
 https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePilot-Plugins,https://github.com/honue/MoviePilot-Plugins,https://github.com/dandkong/MoviePilot-Plugins,https://github.com/Aqr-K/MoviePilot-Plugins,https://github.com/AnjoyLi/MoviePilot-Plugins,https://github.com/WithdewHua/MoviePilot-Plugins,https://github.com/HankunYu/MoviePilot-Plugins,https://github.com/baozaodetudou/MoviePilot-Plugins
