@@ -260,7 +260,8 @@
 | TMDB_IMAGE_DOMAIN      | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨可以填`image.tmdb.org`                    |
 | DOWNLOAD_PATH          | /downloads/qb               | 默认下载地址，盘2的qb下载目录下                              |
 | LIBRARY_PATH           | /downloads/link             | 默认媒体库地址，盘2的下载目录的link下                        |
-| DOWNLOAD_CATEGORY      | true                        | 自动二级分类开关                                             |
+| LIBRARY_CATEGORY       | true                        | 资源库开启自动二级分类                                       |
+| DOWNLOAD_CATEGORY      | false                       | 下载关闭自动二级分类                                         |
 | TRANSFER_TYPE          | link                        | 默认整理方式，推荐`link`硬链接，只占用1份空间。`但是似乎多盘位会变成复制。所以我盘2只硬链接盘2的媒体库，盘1只硬链接盘1的媒体库，通过极影视选中文件夹来关联资源。` |
 | DOWNLOADER             | qbittorrent                 | 默认下载器                                                   |
 | QB_HOST                | `http://nas的局域网ip:端口` | qb的地址                                                     |
