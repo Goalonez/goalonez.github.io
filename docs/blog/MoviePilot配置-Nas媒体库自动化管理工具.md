@@ -402,15 +402,15 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 - 服务器地址记得配置完成，完整的应该是`https://api.day.app/你的编码`
 
-### ⭐
-
 ### 自定义索引站点
+
+> 2024-02-15:目前最新版官方添加麒麟、馒头多域名支持。
 
 - 添加没有默认支持的站点
 
 - <img src="./assets/image-20240129182519617.png" alt="image-20240129182519617" style="zoom:25%;" />
 
-- 馒头cc（主要为了辅种）（感谢iyuu tg群里的大佬提供方案)⭐
+- 馒头cc（主要为了辅种）（感谢iyuu tg群里的大佬提供方案)
 
   - `如果之前已经在站点管理里添加了io域名，请改成cc域名`
 
@@ -425,8 +425,6 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
     ```
 
 - 其他站点欢迎留言补充
-
-### ⭐
 
 ### 清理订阅缓存
 
@@ -446,6 +444,8 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 ![image-20240119161818965](./assets/image-20240119161818965.png)
 
 ## iyuu掉备案临时解决方案
+
+> 目前官方已通过hk域名解决该问题
 
 ### 反代
 
