@@ -495,6 +495,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ## 求药🙈
 
-求💊论坛、十一大，感谢大佬！
+求💊论坛、十一大，感谢大佬！[我的邮箱](mailto:z4781854680@gmail.com)
 
 <gitalk/>
