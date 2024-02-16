@@ -119,7 +119,7 @@
   - 当然也可以自建，具体参考Github仓库
 - Key和密码生成后自己记住
 - 域名一行一个
-  - 建议只配置pt站，没必要把所有cookie都同步上去，虽然理论上有key和密码加密。
+  - 建议只配置PT站，没必要把所有Cookie都同步上去，虽然理论上有KEY和密码加密。
   - ~~馒头需要用`xp.io`的域名。~~新版本已支持馒头所有域名
     - ~~不过下面`自定义索引站点`插件，可以添加`cc`域名，并且能够搭配辅种插件（`io`没法辅种），所以还是建议先用`io`域名添加完之后配置索引，然后把域名改成`cc`的。~~
 - 一般选择手动同步即可，平时暂停，等什么时候网站连接不通了再手动更新就好了
@@ -129,10 +129,10 @@
 - 这里以极空间举例，其他产品应该整体逻辑都差不多，反正都是基于Docker的版本。
 
 - 硬盘模式为单盘模式，目前为3个机械盘，1个固态盘。
-  - 盘1主要长期保种资源（这类资源通常通过MoviePilot下载种子到本地，手动添加到Qb下载，路径选到盘1，并且打上标签`已整理`。`因为默认下载路径在盘2，搭配“目录监控”插件整理到媒体库中`）
+  - 盘1主要长期保种资源（这类资源通常通过MoviePilot下载种子到本地，手动添加到qBittorrent下载，路径选到盘1，并且打上标签`已整理`。`因为默认下载路径在盘2，搭配“目录监控”插件整理到媒体库中`）
   - 盘2主要存放短期影视资源、订阅内容
   - 盘3主要用于刷流。
-  - 固态盘1主要存放docker配置信息、虚拟机文件
+  - 固态盘1主要存放Docker配置信息、虚拟机文件
 
 
 > 如果是ZDR模式，也就是一个存储池，设置上应该更方便一些。我是因为在折腾之前已经切换到单盘模式了，而且怕盘坏了不知道丢了什么内容，所以还是继续使用单盘模式。
@@ -154,9 +154,9 @@
   - 公共下载3 -> 盘3
 
 - 配置文件目录（固态盘）
-  - qb
+  - qBittorrent
     - /个人空间/docker/qb -> /config
-  - tr
+  - Transmission
     - /个人空间/docker/tr/watch -> /watch
     - /个人空间/docker/tr/config -> /config
   - MoviePilot
@@ -197,7 +197,7 @@
 | -------------------------- | ----------- | ------------------------------------------------------------ |
 | /个人空间/docker/tr/watch  | /watch      | 种子监控目录，感觉没啥用                                     |
 | /个人空间/docker/tr/config | /config     | 配置目录                                                     |
-| /个人空间/docker/tr/web    | /web        | web ui文件夹[官方仓库](https://github.com/transmission-web-control/transmission-web-control) |
+| /个人空间/docker/tr/web    | /web        | web UI文件夹[官方仓库](https://github.com/transmission-web-control/transmission-web-control) |
 | /团队空间/公共下载         | /downloads  | 默认盘2下载目录                                              |
 | /团队空间/公共下载1        | /downloads1 | 盘1下载目录，方便`目录监控`插件整理到媒体库                  |
 | /团队空间/公共下载3        | /downloads3 | 盘3下载目录，为了`刷流`插件                                  |
@@ -214,21 +214,21 @@
 
 ###### 4.环境变量
 
-| 环境变量              | 值       | 备注 |
-| --------------------- | -------- | ---- |
-| USER                  | 自己设置 | 账号 |
-| PASS                  | 自己设置 | 密码 |
-| PUID                  | 0        | 权限 |
-| PGIU                  | 0        | 权限 |
-| TRANSMISSION_WEB_HOME | /web     |      |
+| 环境变量              | 值       | 备注   |
+| --------------------- | -------- | ------ |
+| USER                  | 自己设置 | 账号   |
+| PASS                  | 自己设置 | 密码   |
+| PUID                  | 0        | 权限   |
+| PGIU                  | 0        | 权限   |
+| TRANSMISSION_WEB_HOME | /web     | web UI |
 
 ##### 补充
 
-###### 1.TR Web UI卡顿解决
+###### 1.Transmission web UI卡顿解决
 
-根据药丸论坛的教程，可以设置`/个人空间/docker/tr/config/tr-web-control/config.js`下的`pageSize`调整到50以下。然后重启容器，清除浏览器里tr页面的缓存。这样默认分页会从200变得小一点。
+根据药丸论坛的教程，可以设置`/个人空间/docker/tr/config/tr-web-control/config.js`下的`pageSize`调整到50以下。然后重启容器，清除浏览器里Transmission页面的缓存。这样默认分页会从200变得小一点。
 
-###### 2.TR任务列表文件大小与pt站不一致
+###### 2.Transmission任务列表文件大小与PT站不一致
 
 由于默认文件大小是按1000来计算的，所以可以修改源代码进行解决。
 
@@ -254,8 +254,8 @@
 
 | 本地文件夹路径（自己创建）                | 容器内路径  | 备注                                               |
 | ----------------------------------------- | ----------- | -------------------------------------------------- |
-| /个人空间/docker/tr/config/torrents       | /tr         | Docker安装的tr的种子文件夹                         |
-| /个人空间/docker/qb/qBittorrent/BT_backup | /qb         | Docker安装的qb的种子文件夹                         |
+| /个人空间/docker/tr/config/torrents       | /tr         | Docker安装的Transmission的种子文件夹               |
+| /个人空间/docker/qb/qBittorrent/BT_backup | /qb         | Docker安装的qBittorrent的种子文件夹                |
 | /个人空间/docker/MoviePilot/config        | /config     | MoviePilot的配置文件夹                             |
 | /个人空间/docker/MoviePilot/cache         | /moviepilot | MoviePilot的浏览器内核，不映射的话每次都会重新下载 |
 | /团队空间/公共下载                        | /downloads  | 默认盘2下载目录                                    |
@@ -283,18 +283,18 @@
 | IYUU_SIGN              |                             | [iyuu](https://iyuu.cn/)获取                                 |
 | TMDB_API_DOMAIN        | api.tmdb.org                | TMDB API地址,有呆梨可以填`api.themoviedb.org`                |
 | TMDB_IMAGE_DOMAIN      | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨可以填`image.tmdb.org`                    |
-| DOWNLOAD_PATH          | /downloads/qb               | 默认下载地址，盘2的qb下载目录下                              |
+| DOWNLOAD_PATH          | /downloads/qb               | 默认下载地址，盘2的qBittorrent下载目录下                     |
 | LIBRARY_PATH           | /downloads/link             | 默认媒体库地址，盘2的下载目录的link下                        |
 | LIBRARY_CATEGORY       | true                        | 资源库开启自动二级分类                                       |
 | DOWNLOAD_CATEGORY      | false                       | 下载关闭自动二级分类                                         |
 | TRANSFER_TYPE          | link                        | 默认整理方式，推荐`link`硬链接，只占用1份空间。`但是似乎多盘位会变成复制。所以我盘2只硬链接盘2的媒体库，盘1只硬链接盘1的媒体库，通过极影视选中文件夹来关联资源。` |
 | DOWNLOADER             | qbittorrent                 | 默认下载器                                                   |
-| QB_HOST                | `http://nas的局域网ip:端口` | qb的地址                                                     |
-| QB_USER                |                             | qb的账号                                                     |
-| QB_PASSWORD            |                             | qb的密码                                                     |
-| TR_HOST                | `http://nas的局域网ip:端口` | tr的地址                                                     |
-| TR_USER                |                             | tr的账号                                                     |
-| TR_PASSWORD            |                             | tr的密码                                                     |
+| QB_HOST                | `http://nas的局域网ip:端口` | qBittorrent的地址                                            |
+| QB_USER                |                             | qBittorrent的账号                                            |
+| QB_PASSWORD            |                             | qBittorrent的密码                                            |
+| TR_HOST                | `http://nas的局域网ip:端口` | Transmission的地址                                           |
+| TR_USER                |                             | Transmission的账号                                           |
+| TR_PASSWORD            |                             | Transmission的密码                                           |
 | DOWNLOAD_MOVIE_PATH    | /downloads/qb/电影          | 电影下载保存目录路径                                         |
 | DOWNLOAD_TV_PATH       | /downloads/qb/电视剧        | 电视剧下载保存目录路径                                       |
 | DOWNLOAD_ANIME_PATH    | /downloads/qb/动漫          | 动漫下载保存目录路径                                         |
@@ -348,7 +348,6 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 - 15 21 * * *
 - 每天21点15分执行一次
-- 主要是mac上的chrome不太方便安装ptpp，所以用这个插件看下自己的数据
 
 ![image-20240119154018004](./assets/image-20240119154018004.png)
 
@@ -356,7 +355,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 - 主要是为了盘1手动下载的资源进行整理入库
 - 监控了盘1下载目录的3个类型的文件夹
-- 每一行一个目录，支持以下几种配置方式，转移方式支持move、copy、link、softlink、rclone_copy、rclone_move
+- 每一行一个目录，支持以下几种配置方式，转移方式支持`move、copy、link、softlink、rclone_copy、rclone_move`
 
   - 监控目录#转移方式
   - 监控目录:转移目的目录
@@ -387,13 +386,13 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 - 45 8,19 * * *
 - 每天8点45分和19点45分执行一次
 - 刷流目录下的不辅种
-  - 本来可以按标签来，但是刷流标签在自动转种到tr后会消失，所以只能按目录来了
+  - 本来可以按标签来，但是刷流标签在自动转种到Transmission后会消失，所以只能按目录来了
 
 ![image-20240119154810968](./assets/image-20240119154810968.png)
 
 ### 自动转移做种
 
-- qb只负责下载任务，下载完成后转移到tr进行保种
+- qBittorrent只负责下载任务，下载完成后转移到Transmission进行保种
 
 - */10 * * * *
 - 每隔10分钟1次
@@ -404,7 +403,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ### 下载器文件同步
 
-我也没搞懂干嘛的。虽然下来开着，但是一直不知道是什么效果。欢迎留言补充。
+我也没搞懂干嘛的。虽然下载后开着，但是一直不知道具体是什么效果。欢迎留言补充。
 
 ### 站点刷流
 
@@ -417,7 +416,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 ### 下载进度推送
 
 - 3600秒，1小时执行1次。
-- 只会监控通过MoviePilot下载的任务。自己在qb添加的不会监控。
+- 只会监控通过MoviePilot下载的任务。自己在qBittorrent添加的不会监控。
 
 ![image-20240119155432788](./assets/image-20240119155432788.png)
 
