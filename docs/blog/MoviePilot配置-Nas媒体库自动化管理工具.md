@@ -722,7 +722,13 @@ tv:
 #	MN	蒙古国 蒙古
 ```
 
+## 其他教程
 
+🔥热心网友整理的MoviePilot安装和使用指引，可供参考：
+
+- https://github.com/DDS-Derek/MoviePilot/tree/docs
+- https://hackfang.me/movie-pilot-install-and-guide
+- https://github.com/Putarku/MoviePilot-Help
 
 ## 求药🙈
 
