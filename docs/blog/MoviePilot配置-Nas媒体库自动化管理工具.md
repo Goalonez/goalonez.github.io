@@ -271,42 +271,42 @@
 - 这里只提供主要的一些配置
 - 更多配置可以参考[官方仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
 
-| 环境变量               | 值                          | 备注                                                         |
-| ---------------------- | --------------------------- | ------------------------------------------------------------ |
-| PORT                   | 3000                        | WEB服务端口，可自行修改，不要和API端口冲突                   |
-| NGINX_PORT             | 3001                        | API服务端口，可自行修改，不要和WEB端口冲突                   |
-| PROXY_HOST             | `http://nas的局域网ip:7890` | 没有呆梨就别填，主要是为了tg通知和Github更新版本             |
-| MOVIEPILOT_AUTO_UPDATE | true                        | 自动更新                                                     |
-| AUTH_SITE              | hdfans,iyuu                 | 认证站点，具体参考[仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F) |
-| HDFANS_UID             |                             | 自行根据站点填写                                             |
-| HDFANS_PASSKEY         |                             | 自行根据站点填写                                             |
-| IYUU_SIGN              |                             | [iyuu](https://iyuu.cn/)获取                                 |
-| TMDB_API_DOMAIN        | api.tmdb.org                | TMDB API地址,有呆梨可以填`api.themoviedb.org`                |
-| TMDB_IMAGE_DOMAIN      | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨可以填`image.tmdb.org`                    |
-| DOWNLOAD_PATH          | /downloads/qb               | 默认下载地址，盘2的qBittorrent下载目录下                     |
-| LIBRARY_PATH           | /downloads/link             | 默认媒体库地址，盘2的下载目录的link下                        |
-| LIBRARY_CATEGORY       | true                        | 资源库开启自动二级分类                                       |
-| DOWNLOAD_CATEGORY      | false                       | 下载关闭自动二级分类                                         |
-| TRANSFER_TYPE          | link                        | 默认整理方式，推荐`link`硬链接，只占用1份空间。`但是似乎多盘位会变成复制。所以我盘2只硬链接盘2的媒体库，盘1只硬链接盘1的媒体库，通过极影视选中文件夹来关联资源。` |
-| DOWNLOADER             | qbittorrent                 | 默认下载器                                                   |
-| QB_HOST                | `http://nas的局域网ip:端口` | qBittorrent的地址                                            |
-| QB_USER                |                             | qBittorrent的账号                                            |
-| QB_PASSWORD            |                             | qBittorrent的密码                                            |
-| TR_HOST                | `http://nas的局域网ip:端口` | Transmission的地址                                           |
-| TR_USER                |                             | Transmission的账号                                           |
-| TR_PASSWORD            |                             | Transmission的密码                                           |
-| DOWNLOAD_MOVIE_PATH    | /downloads/qb/电影          | 电影下载保存目录路径                                         |
-| DOWNLOAD_TV_PATH       | /downloads/qb/电视剧        | 电视剧下载保存目录路径                                       |
-| DOWNLOAD_ANIME_PATH    | /downloads/qb/动漫          | 动漫下载保存目录路径                                         |
-| LIBRARY_MOVIE_NAME     | 电影                        | 电影媒体库目录名称                                           |
-| LIBRARY_TV_NAME        | 电视剧                      | 电视剧媒体库目录名称                                         |
-| LIBRARY_ANIME_NAME     | 动漫                        | 动漫媒体库目录名称                                           |
-| COOKIECLOUD_KEY        |                             | 上方CookieCloud插件生成的key                                 |
-| COOKIECLOUD_PASSWORD   |                             | 上方CookieCloud插件生成的密码                                |
-| COOKIECLOUD_INTERVAL   | 10                          | CookieCloud同步间隔（分钟）                                  |
-| SUBSCRIBE_MODE         | rss                         | 订阅模式                                                     |
-| SUBSCRIBE_RSS_INTERVAL | 15                          | RSS订阅模式刷新时间间隔（分钟）                              |
-| PLUGIN_MARKET          | 见下方                      | 仓库扩展                                                     |
+| 环境变量                                                     | 值                          | 备注                                                         |
+| ------------------------------------------------------------ | --------------------------- | ------------------------------------------------------------ |
+| PORT                                                         | 3000                        | WEB服务端口，可自行修改，不要和API端口冲突                   |
+| NGINX_PORT                                                   | 3001                        | API服务端口，可自行修改，不要和WEB端口冲突                   |
+| PROXY_HOST                                                   | `http://nas的局域网ip:7890` | 没有呆梨就别填，主要是为了tg通知和Github更新版本             |
+| MOVIEPILOT_AUTO_UPDATE                                       | true                        | 自动更新                                                     |
+| AUTH_SITE                                                    | hdfans,iyuu                 | 认证站点，具体参考[仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F) |
+| HDFANS_UID                                                   |                             | 自行根据站点填写                                             |
+| HDFANS_PASSKEY                                               |                             | 自行根据站点填写                                             |
+| IYUU_SIGN                                                    |                             | [iyuu](https://iyuu.cn/)获取                                 |
+| TMDB_API_DOMAIN                                              | api.tmdb.org                | TMDB API地址,有呆梨可以填`api.themoviedb.org`                |
+| TMDB_IMAGE_DOMAIN                                            | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨可以填`image.tmdb.org`                    |
+| DOWNLOAD_PATH`新版本mp可以直接在页面设定-系统里进行配置`     | /downloads/qb               | 默认下载地址，盘2的qBittorrent下载目录下                     |
+| LIBRARY_PATH`新版本mp可以直接在页面设定-系统里进行配置`      | /downloads/link             | 默认媒体库地址，盘2的下载目录的link下                        |
+| LIBRARY_CATEGORY`新版本mp可以直接在页面设定-系统里进行配置`  | true                        | 资源库开启自动二级分类                                       |
+| DOWNLOAD_CATEGORY`新版本mp可以直接在页面设定-系统里进行配置` | false                       | 下载关闭自动二级分类                                         |
+| TRANSFER_TYPE`新版本mp可以直接在页面设定-系统里进行配置`     | link                        | 默认整理方式，推荐`link`硬链接，只占用1份空间。`但是似乎多盘位会变成复制。所以我盘2只硬链接盘2的媒体库，盘1只硬链接盘1的媒体库，通过极影视选中文件夹来关联资源。` |
+| DOWNLOADER`新版本mp可以直接在页面设定-系统里进行配置`        | qbittorrent                 | 默认下载器                                                   |
+| QB_HOST`新版本mp可以直接在页面设定-系统里进行配置`           | `http://nas的局域网ip:端口` | qBittorrent的地址                                            |
+| QB_USER`新版本mp可以直接在页面设定-系统里进行配置`           |                             | qBittorrent的账号                                            |
+| QB_PASSWORD`新版本mp可以直接在页面设定-系统里进行配置`       |                             | qBittorrent的密码                                            |
+| TR_HOST`新版本mp可以直接在页面设定-系统里进行配置`           | `http://nas的局域网ip:端口` | Transmission的地址                                           |
+| TR_USER`新版本mp可以直接在页面设定-系统里进行配置`           |                             | Transmission的账号                                           |
+| TR_PASSWORD`新版本mp可以直接在页面设定-系统里进行配置`       |                             | Transmission的密码                                           |
+| DOWNLOAD_MOVIE_PATH`新版本mp可以直接在页面设定-系统里进行配置` | /downloads/qb/电影          | 电影下载保存目录路径                                         |
+| DOWNLOAD_TV_PATH`新版本mp可以直接在页面设定-系统里进行配置`  | /downloads/qb/电视剧        | 电视剧下载保存目录路径                                       |
+| DOWNLOAD_ANIME_PATH`新版本mp可以直接在页面设定-系统里进行配置` | /downloads/qb/动漫          | 动漫下载保存目录路径                                         |
+| LIBRARY_MOVIE_NAME`新版本mp可以直接在页面设定-系统里进行配置` | 电影                        | 电影媒体库目录名称                                           |
+| LIBRARY_TV_NAME`新版本mp可以直接在页面设定-系统里进行配置`   | 电视剧                      | 电视剧媒体库目录名称                                         |
+| LIBRARY_ANIME_NAME`新版本mp可以直接在页面设定-系统里进行配置` | 动漫                        | 动漫媒体库目录名称                                           |
+| COOKIECLOUD_KEY`新版本mp可以直接在页面设定-站点里进行配置`   |                             | 上方CookieCloud插件生成的key                                 |
+| COOKIECLOUD_PASSWORD`新版本mp可以直接在页面设定-站点里进行配置` |                             | 上方CookieCloud插件生成的密码                                |
+| COOKIECLOUD_INTERVAL`新版本mp可以直接在页面设定-站点里进行配置` | 10                          | CookieCloud同步间隔（分钟）                                  |
+| SUBSCRIBE_MODE`新版本mp可以直接在页面设定-订阅里进行配置`    | rss                         | 订阅模式                                                     |
+| SUBSCRIBE_RSS_INTERVAL`新版本mp可以直接在页面设定-订阅里进行配置` | 15                          | RSS订阅模式刷新时间间隔（分钟）                              |
+| PLUGIN_MARKET                                                | 见下方                      | 仓库扩展                                                     |
 
 ###### 3.1仓库扩展
 
