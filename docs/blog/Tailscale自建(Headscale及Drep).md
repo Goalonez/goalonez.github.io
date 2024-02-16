@@ -1,4 +1,4 @@
-# Tailscale自建(Headscale及Drep)
+# Tailscale自建(Headscale及Derp)
 
 ## Headscale安装
 
@@ -168,7 +168,7 @@ headscale namespaces list
 /Applications/Tailscale.app/Contents/MacOS/Tailscale ping 100.64.0.2
 ```
 
-## 自建Drep节点
+## 自建Derp节点
 
 ### 登录节点服务器(跟Headscale同一台就没事了)
 
@@ -183,9 +183,9 @@ tailscale up --login-server=http://你自己的域名或ip:8080 --accept-dns=fal
 headscale -n 命名空间 nodes register --key nodekey:上面这行命令返回结果的key
 ```
 
-### 使用Docker Compose运行drep镜像
+### 使用Docker Compose运行derp镜像
 
-- 以下是`docker-drep.yaml`配置文件
+- 以下是`docker-derp.yaml`配置文件
 
   ```yaml
   version: '3.5'
@@ -208,7 +208,7 @@ headscale -n 命名空间 nodes register --key nodekey:上面这行命令返回�
         DERP_VERIFY_CLIENTS: "true"
   ```
 
-###  在`docker-drep.yaml`目录下运行
+###  在`docker-derp.yaml`目录下运行
 
 ```
 docker-compose up -d

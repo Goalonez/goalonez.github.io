@@ -91,7 +91,7 @@ export default defineConfig({
               { text: '唠叨一下最近修电脑的经历...', link: '/blog/唠叨一下最近修电脑的经历' },
               { text: 'Clash配置', link: '/blog/Clash配置' },
               { text: 'QuantumultX配置', link: '/blog/QuantumultX配置' },
-              { text: 'Tailscale自建(Headscale...', link: '/blog/Tailscale自建(Headscale及Drep)' },
+              { text: 'Tailscale自建(Headscale...', link: '/blog/Tailscale自建(Headscale及Derp)' },
               { text: 'Navicat Mac版重置试用期脚本', link: '/blog/Navicat Mac版重置试用期脚本' },
               { text: 'Windows使用WSL2并...', link: '/blog/Windows使用WSL2并安装Docker' },
             ]

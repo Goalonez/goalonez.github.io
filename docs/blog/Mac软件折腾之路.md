@@ -360,7 +360,7 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 具体可以参考Blog
 
-> 地址：[Tailscale自建(Headscale及Drep)](./Tailscale自建(Headscale及Drep))
+> 地址：[Tailscale自建(Headscale及Derp)](./Tailscale自建(Headscale及Derp))
 
 ### ClashX Pro
 
