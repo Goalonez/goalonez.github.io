@@ -502,7 +502,7 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 - 修改配置文件
   - `/个人空间/docker/MoviePilot/config/category.yaml`
 
-```
+```yaml
 movie:
   恐怖电影:
     genre_ids: '27'
