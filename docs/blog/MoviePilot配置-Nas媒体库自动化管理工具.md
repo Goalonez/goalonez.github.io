@@ -73,7 +73,12 @@
 
 - 系统设置内容
   - 用户
+  - 系统
+    - 设置下载器
+    - 设置媒体服务
+    - 设置媒体库
   - 站点
+    - 设置同步CookieCloud
     - 优先级
   - 搜索
     - 站点选择
@@ -84,6 +89,7 @@
   - 服务
     - 自带的服务，可以手动执行
   - 通知
+    - 设置通知密钥
     - 选择通知方案，微信、Tg、Slack、群晖
   - 词表
   - 关于
@@ -114,18 +120,19 @@
 - Key和密码生成后自己记住
 - 域名一行一个
   - 建议只配置pt站，没必要把所有cookie都同步上去，虽然理论上有key和密码加密。
-  - 馒头需要用`xp.io`的域名。
-    - 不过下面`自定义索引站点`插件，可以添加`cc`域名，并且能够搭配辅种插件（`io`没法辅种），所以还是建议先用`io`域名添加完之后配置索引，然后把域名改成`cc`的。
+  - ~~馒头需要用`xp.io`的域名。~~新版本已支持馒头所有域名
+    - ~~不过下面`自定义索引站点`插件，可以添加`cc`域名，并且能够搭配辅种插件（`io`没法辅种），所以还是建议先用`io`域名添加完之后配置索引，然后把域名改成`cc`的。~~
 - 一般选择手动同步即可，平时暂停，等什么时候网站连接不通了再手动更新就好了
 
 ## 前置-目录概况
 
 - 这里以极空间举例，其他产品应该整体逻辑都差不多，反正都是基于Docker的版本。
 
-- 硬盘模式为单盘模式，目前为3个盘。
-  - 盘1主要存放配置信息、长期保种资源（这类资源通常通过MoviePilot下载种子到本地，手动添加到Qb下载，路径选到盘1，并且打上标签`已整理`。`因为默认下载路径在盘2，搭配“目录监控”插件整理到媒体库中`）
+- 硬盘模式为单盘模式，目前为3个机械盘，1个固态盘。
+  - 盘1主要长期保种资源（这类资源通常通过MoviePilot下载种子到本地，手动添加到Qb下载，路径选到盘1，并且打上标签`已整理`。`因为默认下载路径在盘2，搭配“目录监控”插件整理到媒体库中`）
   - 盘2主要存放短期影视资源、订阅内容
   - 盘3主要用于刷流。
+  - 固态盘1主要存放docker配置信息、虚拟机文件
 
 
 > 如果是ZDR模式，也就是一个存储池，设置上应该更方便一些。我是因为在折腾之前已经切换到单盘模式了，而且怕盘坏了不知道丢了什么内容，所以还是继续使用单盘模式。
@@ -146,7 +153,7 @@
 
   - 公共下载3 -> 盘3
 
-- 配置文件目录
+- 配置文件目录（固态盘）
   - qb
     - /个人空间/docker/qb -> /config
   - tr
@@ -158,7 +165,7 @@
 
 ## 前置-下载器安装
 
-### 下载qBittorrent（用于下载任务）
+### qBittorrent（用于下载任务）
 
 参考[官方文档](https://www.zspace.cn/help/?articleId=100124)
 
@@ -172,9 +179,7 @@
 | /团队空间/公共下载1 | /downloads1 | 盘1下载目录，为了`目录监控`插件，方便整理到媒体库 |
 | /团队空间/公共下载3 | /downloads3 | 盘3下载目录，为了`刷流`插件                       |
 
-### 下载Transmission（用于保种任务）
-
-> 主要用于上传保种
+### Transmission（用于保种任务）
 
 #### Docker安装
 
@@ -208,12 +213,12 @@
 
 ###### 4.环境变量
 
-| 环境变量 | 值   | 备注 |
-| -------- | ---- | ---- |
-| USER     |      | 账号 |
-| PASS     |      | 密码 |
-| PUID     | 0    | 权限 |
-| PGIU     | 0    | 权限 |
+| 环境变量 | 值       | 备注 |
+| -------- | -------- | ---- |
+| USER     | 自己设置 | 账号 |
+| PASS     | 自己设置 | 密码 |
+| PUID     | 0        | 权限 |
+| PGIU     | 0        | 权限 |
 
 ## 主要-安装MoviePilot⭐
 
@@ -243,8 +248,8 @@
 
 ###### 3.环境
 
-- 这里只提供基础的一些配置
-- 更多配置可以参考[仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+- 这里只提供主要的一些配置
+- 更多配置可以参考[官方仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
 
 | 环境变量               | 值                          | 备注                                                         |
 | ---------------------- | --------------------------- | ------------------------------------------------------------ |
@@ -438,7 +443,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 > 引用自MoviePilot群组
 
 ```
- SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > SPECSUB & CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 4K & !BLU & !DOLBY > 4K & !BLU > SPECSUB & CNSUB & 1080P & BLURAY & !DOLBY & !BLU & !UHD & !REMUX > CNSUB & 1080P & !BLU & BLURAY & !DOLBY & !UHD & !REMUX > SPECSUB & CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 1080P & !BLU & !DOLBY > 1080P & !BLU > 720P & !BLU 
+SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > SPECSUB & CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 4K & !BLU & !DOLBY > 4K & !BLU > SPECSUB & CNSUB & 1080P & BLURAY & !DOLBY & !BLU & !UHD & !REMUX > CNSUB & 1080P & !BLU & BLURAY & !DOLBY & !UHD & !REMUX > SPECSUB & CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 1080P & !BLU & !DOLBY > 1080P & !BLU > 720P & !BLU 
 ```
 
 ![image-20240119161818965](./assets/image-20240119161818965.png)
