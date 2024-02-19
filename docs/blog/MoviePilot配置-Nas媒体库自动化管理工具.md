@@ -434,7 +434,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ### 自定义索引站点
 
-> 2024-02-15:目前最新版官方已经添加麒麟、馒头多域名支持。
+> 2024-02-15:目前最新版官方已经添加麒麟、馒头多域名支持，所以删除了相应配置方案。
 
 - 添加没有默认支持的站点
 
