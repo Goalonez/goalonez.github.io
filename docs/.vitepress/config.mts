@@ -57,6 +57,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: '开工开工', link: '/blog/开工开工' },
               { text: 'MoviePilot配置-Nas媒体库自动化管理工具', link: '/blog/MoviePilot配置-Nas媒体库自动化管理工具' },
               { text: '你好2024', link: '/blog/你好2024' },
             ]
