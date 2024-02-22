@@ -304,6 +304,7 @@
 | LIBRARY_MOVIE_NAME`新版本mp可以直接在页面设定-系统里进行配置` | 电影                        | 电影媒体库目录名称                                           |
 | LIBRARY_TV_NAME`新版本mp可以直接在页面设定-系统里进行配置`   | 电视剧                      | 电视剧媒体库目录名称                                         |
 | LIBRARY_ANIME_NAME`新版本mp可以直接在页面设定-系统里进行配置` | 动漫                        | 动漫媒体库目录名称                                           |
+| COOKIECLOUD_HOST`新版本mp可以直接在页面设定-站点里进行配置`  | `http://nas的局域网ip:端口` | 如果自建的话就填写，如果用默认mp官方的话不需要加这个环境变量 |
 | COOKIECLOUD_KEY`新版本mp可以直接在页面设定-站点里进行配置`   |                             | 上方CookieCloud插件生成的key                                 |
 | COOKIECLOUD_PASSWORD`新版本mp可以直接在页面设定-站点里进行配置` |                             | 上方CookieCloud插件生成的密码                                |
 | COOKIECLOUD_INTERVAL`新版本mp可以直接在页面设定-站点里进行配置` | 10                          | CookieCloud同步间隔（分钟）                                  |
