@@ -179,6 +179,14 @@
 | /团队空间/公共下载1 | /downloads1 | 盘1下载目录，为了`目录监控`插件，方便整理到媒体库 |
 | /团队空间/公共下载3 | /downloads3 | 盘3下载目录，为了`刷流`插件                       |
 
+#### Web UI
+
+[仓库地址](https://github.com/VueTorrent/VueTorrent)
+
+- 我为了一屏显示我关注的数据所以改了一些样式代码，但大致是如下图所示
+
+![image-20240224131006032](./assets/image-20240224131006032.png)
+
 ### Transmission（用于保种任务）
 
 #### Docker安装
@@ -221,6 +229,12 @@
 | PUID                  | 0        | 权限   |
 | PGIU                  | 0        | 权限   |
 | TRANSMISSION_WEB_HOME | /web     | web UI |
+
+#### Web UI
+
+[仓库地址](https://github.com/transmission-web-control/transmission-web-control)
+
+![image-20240224131221305](./assets/image-20240224131221305.png)
 
 ##### 补充
 
