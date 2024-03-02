@@ -10,7 +10,7 @@ hero:
         alt: Goalonez
   actions:
     - theme: brand
-      text: Blog☝︎
+      text: Blog👉
       link: /aboutme
 
 features:
