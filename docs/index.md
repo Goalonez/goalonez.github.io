@@ -10,7 +10,7 @@ hero:
         alt: Goalonez
   actions:
     - theme: brand
-      text: 随便看看
+      text: Blog☝︎
       link: /aboutme
 
 features:
