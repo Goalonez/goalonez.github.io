@@ -6,10 +6,6 @@
 
 感谢大佬的开源
 
-## 待更新
-
-最近工作比较忙，对于新版本的动漫分类设置和馒头新架构后续有空了再整理。
-
 ## UI展示
 
 ![image-20240119142233843](./assets/image-20240119142233843.png)
@@ -491,7 +487,7 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ![image-20240119161818965](./assets/image-20240119161818965.png)
 
-## iyuu掉备案临时解决方案
+## ~~iyuu掉备案临时解决方案~~
 
 > 目前官方已通过hk域名解决该问题
 
@@ -517,12 +513,54 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 - /IYUU/app/common/Constant.php
 - 修改api.iyuu.cn成自己反代的地址即可
 
+## 馒头新架构添加站点
+
+> 引用自官方群组
+>
+> 注意：馒头部分插件仍然使用cookie访问，请自行评估风险。具体可参考更新日志支持情况。
+
+- 检查版本是否为1.7.5+
+
+- 添加配置
+
+  - 如果原先站点管理里的mt没删除 请替换rss地址、cookie和UA
+
+  - 如果意外删除 请手动添加。`官方提供的添加方式图片就不放了，因为带了链接。`
+
+- 添加完成后请到馒头的控制台 - 实验室 - 建立存取令牌
+
+- 生成令牌后请回到站点管理测试馒头联通性一次 连通性正常后尝试`搜索`并观察日志 日志中有MT获取到APIkey字样即可
+
+请在cookiecloud浏览器插件端黑名单添加域名
+
+避免下次同步时覆盖手动添加的cookie
+
 ## 媒体库分类示例
+
+> 动漫分类更新：
+>
+> 电影不动，原先电视剧里的动漫调整到了单独分类。
+>
+> - 这部分我也没整太明白，也不知道这样配置对不对。因为测试了一下原有资源重新整理。
+>   - 火影忍者是正常进入分类的。
+>   - 死亡笔记却跑到日韩剧里去了。
+> - 欢迎大佬留言改进。
 
 - 修改配置文件
   - `/个人空间/docker/MoviePilot/config/category.yaml`
 
 ```yaml
+####### 配置说明 #######
+# 1. 该配置文件用于配置电影和电视剧的分类策略，配置后程序会按照配置的分类策略名称进行分类，配置文件采用yaml格式，需要严格附合语法规则
+# 2. 配置文件中的一级分类名称：`movie`、`tv` 为固定名称不可修改，二级名称同时也是目录名称，会按先后顺序匹配，匹配后程序会按这个名称建立二级目录
+# 3. 支持的分类条件：
+#   `original_language` 语种，具体含义参考下方字典
+#   `production_countries` 国家或地区（电影）、`origin_country` 国家或地区（电视剧），具体含义参考下方字典
+#   `genre_ids` 内容类型，具体含义参考下方字典
+#   themoviedb 详情API返回的其它一级字段
+# 4. 配置多项条件时需要同时满足，一个条件需要匹配多个值是使用`,`分隔
+
+# 配置电影的分类策略
 movie:
   恐怖电影:
     genre_ids: '27'
@@ -539,17 +577,9 @@ movie:
   日韩电影:
     original_language: 'ja,ko'
   欧美电影:
+
+# 配置电视剧的分类策略
 tv:
-  儿童动漫:
-    genre_ids: '10762'
-  中国动漫:
-    genre_ids: '16'
-    original_language: 'zh,cn,bo,za'
-  日韩动漫:
-    genre_ids: '16'
-    original_language: 'ja,ko'
-  欧美动漫:
-    genre_ids: '16'
   中国纪录片:
     genre_ids: '99'
     original_language: 'zh,cn,bo,za'
@@ -568,8 +598,19 @@ tv:
   日韩剧:
     original_language: 'ja,ko'
   欧美剧:
-   
 
+# 配置动漫的分类策略
+anime:
+  中国动漫:
+    # 匹配 origin_country 国家，CN是中国大陆，TW是中国台湾，HK是中国香港
+    origin_country: 'CN,TW,HK'
+  日韩动漫:
+    # 匹配 origin_country 国家，JP是日本
+    origin_country: 'JP,KR'
+  儿童动漫:
+    genre_ids: '10762'
+  欧美动漫:
+  
 ## genre_ids 内容类型 字典，注意部分中英文是不一样的
 #	28	Action
 #	12	Adventure
@@ -691,7 +732,7 @@ tv:
 #	cn	中文
 #	zu	祖鲁语
 
-## origin_country 国家地区 字典
+## origin_country/production_countries 国家地区 字典
 #	AR	阿根廷
 #	AU	澳大利亚
 #	BE	比利时
