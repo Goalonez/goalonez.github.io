@@ -602,15 +602,18 @@ tv:
 # 配置动漫的分类策略
 anime:
   中国动漫:
+    genre_ids: '16'
     # 匹配 origin_country 国家，CN是中国大陆，TW是中国台湾，HK是中国香港
     origin_country: 'CN,TW,HK'
   日韩动漫:
+    genre_ids: '16'
     # 匹配 origin_country 国家，JP是日本
     origin_country: 'JP,KR'
   儿童动漫:
     genre_ids: '10762'
   欧美动漫:
-  
+    genre_ids: '16'
+
 ## genre_ids 内容类型 字典，注意部分中英文是不一样的
 #	28	Action
 #	12	Adventure
