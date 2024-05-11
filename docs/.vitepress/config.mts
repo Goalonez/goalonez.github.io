@@ -57,6 +57,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: 'MacOS单独调用IDEA的文本对比工具', link: '/blog/MacOS单独调用IDEA的文本对比工具' },
               { text: '修修补补又三年', link: '/blog/修修补补又三年' },
               { text: '修了一下GPW滚轮', link: '/blog/修了一下GPW滚轮' },
               { text: '离大谱的阿里云盘', link: '/blog/离大谱的阿里云盘' },
