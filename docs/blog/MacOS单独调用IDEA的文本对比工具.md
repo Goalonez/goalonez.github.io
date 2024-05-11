@@ -21,3 +21,7 @@ alias idiff='open -na "/Users/你的用户名/Applications/IntelliJ IDEA Ultimat
 [命令行打开文本对比工具](https://www.jetbrains.com/help/idea/2024.1/command-line-differences-viewer.html#macos)
 
 [命令行脚本配置](https://www.jetbrains.com/help/idea/2024.1/working-with-the-ide-features-from-command-line.html)
+
+
+
+<gitalk/>
