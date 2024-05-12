@@ -1,4 +1,4 @@
-# MacOS单独调用IDEA的文本对比工具.md
+# MacOS单独调用IDEA的文本对比工具
 
 ## 命令
 
