@@ -87,6 +87,7 @@
     - 设置同步CookieCloud
     - 优先级
   - 搜索
+    - 媒体数据源
     - 站点选择
     - 优先级规则
   - 订阅
@@ -127,6 +128,10 @@
 - 域名一行一个
   - 建议只配置PT站，没必要把所有Cookie都同步上去，虽然理论上有KEY和密码加密。
 - 一般选择手动同步即可，平时暂停，等什么时候网站连接不通了再手动更新就好了
+
+#### 自建
+
+如果想自建的后端服务话搜索镜像`easychen_cookiecloud`
 
 ## 前置-目录概况
 
@@ -304,43 +309,22 @@
 - 更多配置可以参考[官方仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
 - <img src="./assets/image-20240217010610952.png" alt="image-20240217010610952" style="zoom:50%;" />
 
-| 环境变量                                                     | 值                          | 备注                                                         |
-| ------------------------------------------------------------ | --------------------------- | ------------------------------------------------------------ |
-| PORT                                                         | 3001                        | API服务端口，默认`3001`，可自行修改，不能与WEB服务端口冲突   |
-| NGINX_PORT                                                   | 3000                        | WEB服务端口，默认`3000`，可自行修改，不能与API服务端口冲突   |
-| PROXY_HOST                                                   | `http://nas的局域网ip:7890` | 没有呆梨就别填，主要是为了tg通知和Github更新版本             |
-| MOVIEPILOT_AUTO_UPDATE                                       | true                        | 自动更新                                                     |
-| AUTH_SITE                                                    | hdfans,iyuu                 | 认证站点，具体参考[仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F) |
-| HDFANS_UID                                                   |                             | 自行根据站点填写                                             |
-| HDFANS_PASSKEY                                               |                             | 自行根据站点填写                                             |
-| IYUU_SIGN                                                    |                             | [iyuu](https://iyuu.cn/)获取                                 |
-| TMDB_API_DOMAIN                                              | api.tmdb.org                | TMDB API地址,有呆梨可以填`api.themoviedb.org`                |
-| TMDB_IMAGE_DOMAIN                                            | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨可以填`image.tmdb.org`                    |
-| DOWNLOAD_PATH`新版本mp可以直接在页面设定-系统里进行配置`     | /downloads/qb               | 默认下载地址，盘2的qBittorrent下载目录下                     |
-| LIBRARY_PATH`新版本mp可以直接在页面设定-系统里进行配置`      | /downloads/link             | 默认媒体库地址，盘2的下载目录的link下                        |
-| LIBRARY_CATEGORY`新版本mp可以直接在页面设定-系统里进行配置`  | true                        | 资源库开启自动二级分类                                       |
-| DOWNLOAD_CATEGORY`新版本mp可以直接在页面设定-系统里进行配置` | false                       | 下载关闭自动二级分类                                         |
-| TRANSFER_TYPE`新版本mp可以直接在页面设定-系统里进行配置`     | link                        | 默认整理方式，推荐`link`硬链接，只占用1份空间。`但是似乎多盘位会变成复制。所以我盘2只硬链接盘2的媒体库，盘1只硬链接盘1的媒体库，通过极影视选中文件夹来关联资源。` |
-| DOWNLOADER`新版本mp可以直接在页面设定-系统里进行配置`        | qbittorrent                 | 默认下载器                                                   |
-| QB_HOST`新版本mp可以直接在页面设定-系统里进行配置`           | `http://nas的局域网ip:端口` | qBittorrent的地址                                            |
-| QB_USER`新版本mp可以直接在页面设定-系统里进行配置`           |                             | qBittorrent的账号                                            |
-| QB_PASSWORD`新版本mp可以直接在页面设定-系统里进行配置`       |                             | qBittorrent的密码                                            |
-| TR_HOST`新版本mp可以直接在页面设定-系统里进行配置`           | `http://nas的局域网ip:端口` | Transmission的地址                                           |
-| TR_USER`新版本mp可以直接在页面设定-系统里进行配置`           |                             | Transmission的账号                                           |
-| TR_PASSWORD`新版本mp可以直接在页面设定-系统里进行配置`       |                             | Transmission的密码                                           |
-| DOWNLOAD_MOVIE_PATH`新版本mp可以直接在页面设定-系统里进行配置` | /downloads/qb/电影          | 电影下载保存目录路径                                         |
-| DOWNLOAD_TV_PATH`新版本mp可以直接在页面设定-系统里进行配置`  | /downloads/qb/电视剧        | 电视剧下载保存目录路径                                       |
-| DOWNLOAD_ANIME_PATH`新版本mp可以直接在页面设定-系统里进行配置` | /downloads/qb/动漫          | 动漫下载保存目录路径                                         |
-| LIBRARY_MOVIE_NAME`新版本mp可以直接在页面设定-系统里进行配置` | 电影                        | 电影媒体库目录名称                                           |
-| LIBRARY_TV_NAME`新版本mp可以直接在页面设定-系统里进行配置`   | 电视剧                      | 电视剧媒体库目录名称                                         |
-| LIBRARY_ANIME_NAME`新版本mp可以直接在页面设定-系统里进行配置` | 动漫                        | 动漫媒体库目录名称                                           |
-| COOKIECLOUD_HOST`新版本mp可以直接在页面设定-站点里进行配置`  | `http://nas的局域网ip:端口` | 如果自建的话就填写，如果用默认mp官方的话不需要加这个环境变量 |
-| COOKIECLOUD_KEY`新版本mp可以直接在页面设定-站点里进行配置`   |                             | 上方CookieCloud插件生成的key                                 |
-| COOKIECLOUD_PASSWORD`新版本mp可以直接在页面设定-站点里进行配置` |                             | 上方CookieCloud插件生成的密码                                |
-| COOKIECLOUD_INTERVAL`新版本mp可以直接在页面设定-站点里进行配置` | 10                          | CookieCloud同步间隔（分钟）                                  |
-| SUBSCRIBE_MODE`新版本mp可以直接在页面设定-订阅里进行配置`    | rss                         | 订阅模式                                                     |
-| SUBSCRIBE_RSS_INTERVAL`新版本mp可以直接在页面设定-订阅里进行配置` | 15                          | RSS订阅模式刷新时间间隔（分钟）                              |
-| PLUGIN_MARKET                                                | 见下方                      | 仓库扩展                                                     |
+| 环境变量                  | 值                          | 备注                                                         |
+| ------------------------- | --------------------------- | ------------------------------------------------------------ |
+| PORT                      | 3001                        | API服务端口，默认`3001`，可自行修改，不能与WEB服务端口冲突   |
+| NGINX_PORT                | 3000                        | WEB服务端口，默认`3000`，可自行修改，不能与API服务端口冲突   |
+| PROXY_HOST                | `http://nas的局域网ip:7890` | 没有呆梨就别填，主要是为了tg通知和Github更新版本             |
+| MOVIEPILOT_AUTO_UPDATE    | true                        | 自动更新                                                     |
+| AUTH_SITE                 | hdfans,iyuu                 | 认证站点，具体参考[仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F) |
+| HDFANS_UID                |                             | 自行根据站点填写                                             |
+| HDFANS_PASSKEY            |                             | 自行根据站点填写                                             |
+| IYUU_SIGN                 |                             | [iyuu](https://iyuu.cn/)获取                                 |
+| BIG_MEMORY_MODE           | 默认false，可以改成true     | 大内存模式，速度更快，但同时占用更多内存                     |
+| SUBSCRIBE_STATISTIC_SHARE | 默认true                    | 订阅匿名共享数据                                             |
+| PLUGIN_STATISTIC_SHARE    | 默认true                    | 插件下载匿名共享数据                                         |
+| TMDB_API_DOMAIN           | api.tmdb.org                | TMDB API地址,有呆梨不用写这个变量，默认就是api.themoviedb.org` |
+| TMDB_IMAGE_DOMAIN         | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨不用写这个变量，默认就是`image.tmdb.org`  |
+| PLUGIN_MARKET             | 见下方                      | 仓库扩展`当前版本已经内置了流行的三方仓库，所以这个变量应该也不需要了` |
 
 ###### 3.1仓库扩展
 
@@ -356,13 +340,55 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 - 访问`http://nas的局域网ip:3000`，默认用户名admin，初始化密码在日志中，登录后自行修改。
 
-## 同步站点
+## 系统
+
+### 下载器
+
+![image-20240515222632881](./assets/image-20240515222632881.png)
+
+### 媒体服务器
+
+由于我使用的极空间的极影视，所以没装其他媒体服务器了。
+
+### 媒体库
+
+![image-20240515222724843](./assets/image-20240515222724843.png)
+
+## 站点
+
+### 站点同步
+
+如果自建的话就填自己的ip端口
+
+![image-20240515222813517](./assets/image-20240515222813517.png)
 
 - 执行
   - 设定-服务-同步CookieCloud站点
   - 同步完成即可在`站点管理`中看到自己的PT站了
 
 ![image-20240119152711398](./assets/image-20240119152711398.png)
+
+## 搜索
+
+![image-20240515222931412](./assets/image-20240515222931412.png)
+
+## 订阅
+
+![image-20240515222957184](./assets/image-20240515222957184.png)
+
+### 订阅规则
+
+> 引用自MoviePilot群组
+
+```
+SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > SPECSUB & CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 4K & !BLU & !DOLBY > 4K & !BLU > SPECSUB & CNSUB & 1080P & BLURAY & !DOLBY & !BLU & !UHD & !REMUX > CNSUB & 1080P & !BLU & BLURAY & !DOLBY & !UHD & !REMUX > SPECSUB & CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 1080P & !BLU & !DOLBY > 1080P & !BLU > 720P & !BLU 
+```
+
+![image-20240119161818965](./assets/image-20240119161818965.png)
+
+## 通知
+
+![image-20240515223124206](./assets/image-20240515223124206.png)
 
 ## 插件⭐
 
@@ -374,13 +400,6 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 - 每天8点45和19点45执行一次。第二次执行只是为了保证某些时候失败的情况。
 
 ![image-20240119153703279](./assets/image-20240119153703279.png)
-
-### 配置中心
-
-- 可视化修改一些app.env的数据
-- 按需修改即可
-
-![image-20240119153837718](./assets/image-20240119153837718.png)
 
 ### 站点数据统计
 
@@ -481,17 +500,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ![image-20240119155801228](./assets/image-20240119155801228.png)
 
-### 订阅规则
-
-> 引用自MoviePilot群组
-
-```
-SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > SPECSUB & CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 4K & !BLU & !DOLBY > 4K & !BLU > SPECSUB & CNSUB & 1080P & BLURAY & !DOLBY & !BLU & !UHD & !REMUX > CNSUB & 1080P & !BLU & BLURAY & !DOLBY & !UHD & !REMUX > SPECSUB & CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 1080P & !BLU & !DOLBY > 1080P & !BLU > 720P & !BLU 
-```
-
-![image-20240119161818965](./assets/image-20240119161818965.png)
-
-## ~~iyuu掉备案临时解决方案~~
+## iyuu掉备案临时解决方案~~
 
 > 目前官方已通过hk域名解决该问题
 
