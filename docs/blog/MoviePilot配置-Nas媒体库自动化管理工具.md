@@ -131,7 +131,7 @@
 
 #### 自建
 
-如果想自建的后端服务话搜索镜像`easychen_cookiecloud`
+如果想自建后端服务的话搜索镜像`easychen_cookiecloud`
 
 ## 前置-目录概况
 
