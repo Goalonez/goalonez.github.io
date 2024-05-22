@@ -253,7 +253,15 @@
 
 #### Web UI
 
-[仓库地址](https://github.com/transmission-web-control/transmission-web-control)
+被大佬安利了一个新的UI，确实流畅不少。替换了`transmission-web-control`。
+
+[TrguiNG仓库地址](https://github.com/jayzcoder/TrguiNG)
+
+![image-20240522190424733](./assets/image-20240522190424733.png)
+
+
+
+[transmission-web-control仓库地址](https://github.com/transmission-web-control/transmission-web-control)
 
 ![image-20240224131221305](./assets/image-20240224131221305.png)
 
