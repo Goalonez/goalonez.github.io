@@ -348,23 +348,23 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 - 访问`http://nas的局域网ip:3000`，默认用户名admin，初始化密码在日志中，登录后自行修改。
 
-## 系统
+## 配置介绍
 
-### 下载器
+### 连接
 
-![image-20240515222632881](./assets/image-20240515222632881.png)
+![image-20240523230952495](./assets/image-20240523230952495.png)
 
-### 媒体服务器
+### 目录
 
-由于我使用的极空间的极影视，所以没装其他媒体服务器了。
+![image-20240523230940092](./assets/image-20240523230940092.png)
 
-### 媒体库
+#### 
 
-![image-20240515222724843](./assets/image-20240515222724843.png)
 
-## 站点
 
-### 站点同步
+### 站点
+
+#### 站点同步
 
 如果自建的话就填自己的ip端口
 
@@ -376,15 +376,15 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ![image-20240119152711398](./assets/image-20240119152711398.png)
 
-## 搜索
+### 搜索
 
 ![image-20240515222931412](./assets/image-20240515222931412.png)
 
-## 订阅
+### 订阅
 
 ![image-20240515222957184](./assets/image-20240515222957184.png)
 
-### 订阅规则
+#### 订阅规则
 
 > 引用自MoviePilot群组
 
@@ -394,7 +394,7 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ![image-20240119161818965](./assets/image-20240119161818965.png)
 
-## 通知
+### 通知
 
 ![image-20240515223124206](./assets/image-20240515223124206.png)
 
