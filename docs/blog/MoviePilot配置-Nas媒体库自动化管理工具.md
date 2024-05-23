@@ -508,7 +508,7 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ![image-20240119155801228](./assets/image-20240119155801228.png)
 
-## ~~iyuu掉备案临时解决方案~~
+## ~~🚫iyuu掉备案临时解决方案~~
 
 > 目前官方已解决该问题
 
