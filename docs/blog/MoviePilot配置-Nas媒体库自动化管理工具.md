@@ -261,7 +261,7 @@
 
 
 
-[transmission-web-control仓库地址](https://github.com/transmission-web-control/transmission-web-control)
+~~[transmission-web-control仓库地址](https://github.com/transmission-web-control/transmission-web-control)~~
 
 ![image-20240224131221305](./assets/image-20240224131221305.png)
 
