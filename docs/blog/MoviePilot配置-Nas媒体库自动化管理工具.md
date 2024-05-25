@@ -279,13 +279,15 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 #### 下载目录
 
-- 我的策略是下载目录只进行`一级分类`，也就是只分成动漫、电影、电视剧
+- 我的策略是下载目录只进行`一级分类`，也就是只分成动漫、电影、电视剧。`我是因为兼容以前的动漫二级分类，所以设置了一堆动漫目录`
+- 如果下面`二级分类配置`动漫不细分，只设置`genre_ids: '16'`的话，我理解是只需要设置两个动漫目录就行了，一个电影下的，一个电视剧下的。
 
 ![image-20240525104131059](./assets/image-20240525104131059.png)
 
 #### 媒体库目录
 
-- 媒体库目录进行了二级分类。因为目前版本动漫是直接存在电影和电视剧分类下，所以将动漫分类优先级提高。最终在目录路径上其实还是区分出了电影、电视剧、动漫三大类。
+- 媒体库目录进行了二级分类。因为目前版本动漫是直接存在电影和电视剧分类下，所以将动漫分类优先级提高。最终在目录路径上其实还是区分出了电影、电视剧、动漫三大类。`我是因为兼容以前的动漫二级分类，所以设置了一堆动漫目录`
+- 如果下面`二级分类配置`动漫不细分，只设置`genre_ids: '16'`的话，我理解是只需要设置两个动漫目录就行了，一个电影下的，一个电视剧下的。让极影视或者其他媒体服务器自己去处理媒体库分类。
 
 ![image-20240525104231475](./assets/image-20240525104231475.png)
 
@@ -317,7 +319,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 >
 >     类别：国漫
 >
->   参考分类配置文件：https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml
+>   参考分类[配置文件](https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml)
 
 - 修改配置文件（可以直接通过上面的插件修改）
   - `/个人空间/docker/MoviePilot/config/category.yaml`
