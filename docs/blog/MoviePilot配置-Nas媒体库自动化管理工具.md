@@ -560,14 +560,29 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ## 媒体库分类示例
 
-> 动漫分类更新：
+> - 目前的目录设定结构已经可以做到按二级分类精细化设定目录，动漫一级分类已没有意义，现已取消，同时解决了动漫分类错误的问题。如动漫需单独一级目录，可在目录设定中对电影/电视剧下的动漫二级分类单独设定目录，并将优先级调高
 >
-> 电影不动，原先电视剧里的动漫调整到了单独分类。
+> - 【动漫独立一级目录配置示例】
 >
-> - 这部分我也没整太明白，也不知道这样配置对不对。因为测试了一下原有资源重新整理。
->   - 火影忍者是正常进入分类的。
->   - 死亡笔记却跑到日韩剧里去了。
-> - 欢迎大佬留言改进。
+>   1. 仅适用于`v1.9.1-1+`
+>
+>   2. 在分类策略配置文件中 movie/tv 下配置好动漫二级分类，`anime配置项已弃用`
+>
+>   3. 在目录设定中按如下格式新增目录，并提高优先级，仅为示例，同样的原理名称和路径都可以自己灵活调整，也可以不加（此时在电影/电视剧二级目录下）
+>
+>   \- 路径：/video/动漫
+>
+>     类型：电影
+>
+>     类别：动画电影
+>
+>   \- 路径：/video/动漫
+>
+>     类型：电视剧
+>
+>     类别：国漫
+>
+>   参考分类配置文件：https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml
 
 - 修改配置文件
   - `/个人空间/docker/MoviePilot/config/category.yaml`
@@ -585,8 +600,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 # 配置电影的分类策略
 movie:
-  恐怖电影:
-    genre_ids: '27'
   中国动画电影:
     genre_ids: '16'
     original_language: 'zh,cn,bo,za'
@@ -595,6 +608,8 @@ movie:
     original_language: 'ja,ko'
   欧美动画电影:
     genre_ids: '16'
+  恐怖电影:
+    genre_ids: '27'
   华语电影:
     original_language: 'zh,cn,bo,za'
   日韩电影:
@@ -603,6 +618,18 @@ movie:
 
 # 配置电视剧的分类策略
 tv:
+  中国动漫:
+    genre_ids: '16'
+    # 匹配 origin_country 国家，CN是中国大陆，TW是中国台湾，HK是中国香港
+    origin_country: 'CN,TW,HK'
+  日韩动漫:
+    genre_ids: '16'
+    # 匹配 origin_country 国家，JP是日本
+    origin_country: 'JP,KR'
+  儿童动漫:
+    genre_ids: '10762'
+  欧美动漫:
+    genre_ids: '16'
   中国纪录片:
     genre_ids: '99'
     original_language: 'zh,cn,bo,za'
@@ -621,22 +648,7 @@ tv:
   日韩剧:
     original_language: 'ja,ko'
   欧美剧:
-
-# 配置动漫的分类策略
-anime:
-  中国动漫:
-    genre_ids: '16'
-    # 匹配 origin_country 国家，CN是中国大陆，TW是中国台湾，HK是中国香港
-    origin_country: 'CN,TW,HK'
-  日韩动漫:
-    genre_ids: '16'
-    # 匹配 origin_country 国家，JP是日本
-    origin_country: 'JP,KR'
-  儿童动漫:
-    genre_ids: '10762'
-  欧美动漫:
-    genre_ids: '16'
-
+  
 ## genre_ids 内容类型 字典，注意部分中英文是不一样的
 #	28	Action
 #	12	Adventure
