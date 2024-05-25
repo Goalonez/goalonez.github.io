@@ -356,6 +356,8 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ### 目录
 
+> 通过目前的方式配置的话，极影视中也是三大类。动漫、电影、电视剧。每种分类分别选种link目录下的对应目录即可。
+
 #### 下载目录
 
 - 我的策略是下载目录只进行`一级分类`，也就是只分成动漫、电影、电视剧
