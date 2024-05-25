@@ -139,9 +139,9 @@
 
 #### Web UI
 
-被大佬安利了一个新的UI，确实流畅不少。替换了~~[transmission-web-control仓库地址](https://github.com/transmission-web-control/transmission-web-control)~~。
-
 [TrguiNG仓库地址](https://github.com/jayzcoder/TrguiNG)
+
+被大佬安利了这个新的UI，确实流畅不少。替换了原先使用的[transmission-web-control](https://github.com/transmission-web-control/transmission-web-control)。
 
 ![image-20240522190424733](./assets/image-20240522190424733.png)
 
@@ -268,15 +268,12 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ### 目录
 
-> 通过目前的方式配置的话，极影视中也是三大类。动漫、电影、电视剧。每种分类分别选种link目录下的对应目录即可。
->
-> - 具体方案可以自己配置完后在历史记录找个文件`重新整理`一下试试就知道了。
->
-> 当然我也不确定这样使用是否正确，欢迎大佬补充。
+> 我也不确定这样使用是否正确，欢迎大佬补充。
 
-目前的效果大概是这个样子的，qb是下载目录，link是媒体库。
+- 通过目前的方式配置的话，极影视中也是三大类。动漫、电影、电视剧。每种分类分别选种link目录下的对应目录即可。
+  - 具体方案可以自己配置完后在历史记录找个文件`重新整理`一下试试就知道了。
 
-- 其实用极影视的话似乎动漫也不需要二级分类，直接全部放在动漫一级里就行了。我是为了历史文件懒得重新整理，所以还是按照以前的目录来兼容了。`如果只配置一级分类的话下面的下载目录和媒体库目录路径只需要配置1次就行了，不用像我这样单独列出来。`
+- 目前的效果大概是这个样子的，qb是下载目录，link是媒体库。
 
 <img src="./assets/image-20240525110818988.png" alt="image-20240525110818988" style="zoom:25%;" />
 
