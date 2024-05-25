@@ -22,98 +22,40 @@
 
 ## 功能介绍
 
-### 仪表盘
-
-- 展示一些基础信息
-
-### 发现
-
-#### 推荐
-
-- 搜索影视资源
-  - 添加订阅
-  - 搜索已添加站点里的种子资源
-
-#### 资源搜索
-
-- 搜索已添加站点里的种子资源
-
-### 订阅（自动追剧）⭐
-
-- 电影
-- 电视剧
-- 日历
-  - 更新时间展示
-
-> 只有暂时没有资源的或者还在更新的会展示在订阅中
->
-> 如果下载完了，会从订阅里消失
-
-### 整理
-
-#### 正在下载
-
-- 当前正在下载的任务信息
-
-#### 历史记录⭐
-
-- 媒体库整理纪录
-- 经过MoviePilot的资源全靠这个历史记录来管理，比较重要，但目前界面还比较简单
-
-#### 文件管理
-
-- 环境变量中DLOWNLOAD_PATH路径下的内容
-- 也可以跳转到上层，展示整个Docker容器的目录
-
-### 系统
-
-#### 插件⭐
-
-- 插件系统
-
-#### 站点管理⭐
-
-- PT站点管理
-
-#### 设定
-
-- 系统设置内容
-  - 用户
-  - 系统
-    - 设置下载器
-    - 设置媒体服务
-    - 设置媒体库
-  - 站点
-    - 设置同步CookieCloud
-    - 优先级
-  - 搜索
-    - 媒体数据源
-    - 站点选择
-    - 优先级规则
-  - 订阅
-    - 站点选择
-    - 优先级规则
-  - 服务
-    - 自带的服务，可以手动执行
-  - 通知
-    - 设置通知密钥
-    - 选择通知方案，微信、Tg、Slack、群晖
-  - 词表
-  - 关于
-    - 系统版本信息
+| 类别              | 子类别    | 内容                                                         |
+| ----------------- | --------- | ------------------------------------------------------------ |
+| 仪表盘            | -         | 展示一些基础信息                                             |
+| 发现              | 推荐      | 搜索影视资源<br />- 添加订阅<br />- 搜索已添加站点里的种子资源 |
+|                   | 资源搜索  | 搜索已添加站点里的种子资源                                   |
+| 订阅（自动追剧）⭐ | 电影      | -                                                            |
+|                   | 电视剧    | -                                                            |
+|                   | 日历      | 更新时间展示                                                 |
+| 整理              | 正在下载  | 当前正在下载的任务信息                                       |
+|                   | 历史记录⭐ | 媒体库整理纪录<br />经过MoviePilot的资源全靠这个历史记录来管理，比较重要 |
+|                   | 文件管理  | 配置的下载目录下的文件列表<br />也可以跳转到上层，展示整个Docker容器的目录 |
+| 系统              | 插件⭐     | 插件系统                                                     |
+|                   | 站点管理⭐ | PT站点管理                                                   |
+|                   | 设定      | 系统设置内容                                                 |
+|                   | 用户      | -                                                            |
+|                   | 连接      | 设置下载器<br />设置媒体服务器                               |
+|                   | 目录      | 设置下载目录和媒体库目录<br />设置整理模式                   |
+|                   | 站点      | 设置同步CookieCloud<br />设置下载优先级                      |
+|                   | 搜索      | 媒体数据源<br />站点选择<br />优先级规则                     |
+|                   | 订阅      | 站点选择<br />优先级规则                                     |
+|                   | 服务      | 自带的服务，可以手动执行                                     |
+|                   | 通知      | 设置通知密钥                                                 |
+|                   |           | 选择通知方案，微信、Tg、Slack、群晖                          |
+|                   | 词表      | -                                                            |
+|                   | 关于      | 系统版本信息                                                 |
 
 ## 前置-安装CookieCloud（可选）
 
-- 主要用于添加站点管理
-
-> 也可以手动在MoviePilot左下角的站点管理中手动添加站点。
->
-> 但是还是推荐用CookieCloud这个Chrome插件，添加站点方便点。
+- 用于添加站点管理
+- 如果手动在MoviePilot站点管理里添加，`也可以选择不装`
 
 #### 安装地址
-  - https://github.com/easychen/CookieCloud
-  - 可以直接在Releases安装
-  - 也可以在插件商店安装
+  - [Github仓库地址](https://github.com/easychen/CookieCloud/releases)
+  - 也可以在Chrome插件商店安装
 
 #### 界面
 
@@ -121,17 +63,13 @@
 
 #### 配置
 
-- 服务器地址
-  - MoviePilot提供的公共地址：https://movie-pilot.org/cookiecloud
-  - 当然也可以自建，具体参考Github仓库
+- 服务器地址（自选1种）
+  - 使用公共CookieCloud远程服务器（默认）：服务器地址为：https://movie-pilot.org/cookiecloud
+  - 使用MoviePilot内建的本地Cookie服务：在 `设定` - `站点` 中打开`启用本地CookieCloud服务器`后，将启用内建的CookieCloud提供服务，服务地址为：`http://localhost:${NGINX_PORT}/cookiecloud/`, Cookie数据加密保存在配置文件目录下的`cookies`文件中
+  - 自建服务CookieCloud服务器：参考 [CookieCloud](https://github.com/easychen/CookieCloud) 项目进行搭建，docker镜像请点击 [这里](https://hub.docker.com/r/easychen/cookiecloud)。极空间的话直接搜索`easychen_cookiecloud`。
 - Key和密码生成后自己记住
 - 域名一行一个
-  - 建议只配置PT站，没必要把所有Cookie都同步上去，虽然理论上有KEY和密码加密。
-- 一般选择手动同步即可，平时暂停，等什么时候网站连接不通了再手动更新就好了
-
-#### 自建
-
-如果想自建后端服务的话搜索镜像`easychen_cookiecloud`
+  - 建议只配置PT站就行了，没必要把所有Cookie都同步上去，虽然理论上有KEY和密码加密。
 
 ## 前置-下载器安装
 
@@ -141,7 +79,7 @@
 
 - 关闭性能限制
 
-- 下载目录如果有多盘位的话就跟我设置得一样就行了
+- 如果有多盘位的话可以参考下面我的下载目录设置
 
 | 目录                | 容器内路径  | 备注                                              |
 | ------------------- | ----------- | ------------------------------------------------- |
@@ -175,7 +113,7 @@
 | -------------------------- | ----------- | ------------------------------------------------------------ |
 | /个人空间/docker/tr/watch  | /watch      | 种子监控目录，感觉没啥用                                     |
 | /个人空间/docker/tr/config | /config     | 配置目录                                                     |
-| /个人空间/docker/tr/web    | /web        | web UI文件夹[官方仓库](https://github.com/transmission-web-control/transmission-web-control) |
+| /个人空间/docker/tr/web    | /web        | web UI文件夹[官方仓库](https://github.com/jayzcoder/TrguiNG)。文件夹名改成对应的。 |
 | /团队空间/公共下载         | /downloads  | 默认盘2下载目录                                              |
 | /团队空间/公共下载1        | /downloads1 | 盘1下载目录，方便`目录监控`插件整理到媒体库                  |
 | /团队空间/公共下载3        | /downloads3 | 盘3下载目录，为了`刷流`插件                                  |
@@ -202,13 +140,11 @@
 
 #### Web UI
 
-被大佬安利了一个新的UI，确实流畅不少。替换了`transmission-web-control`。
+被大佬安利了一个新的UI，确实流畅不少。替换了~~[transmission-web-control仓库地址](https://github.com/transmission-web-control/transmission-web-control)~~。
 
 [TrguiNG仓库地址](https://github.com/jayzcoder/TrguiNG)
 
 ![image-20240522190424733](./assets/image-20240522190424733.png)
-
-
 
 ~~[transmission-web-control仓库地址](https://github.com/transmission-web-control/transmission-web-control)~~
 
@@ -216,11 +152,11 @@
 
 ##### 补充
 
-###### 1.Transmission web UI卡顿解决
+###### 1.Transmission-web-control卡顿解决
 
 根据药丸论坛的教程，可以设置`/个人空间/docker/tr/config/tr-web-control/config.js`下的`pageSize`调整到50以下。然后重启容器，清除浏览器里Transmission页面的缓存。这样默认分页会从200变得小一点。
 
-###### 2.Transmission任务列表文件大小与PT站不一致
+###### 2.Transmission-web-control任务列表文件大小与PT站不一致
 
 由于默认文件大小是按1000来计算的，所以可以修改源代码进行解决。
 
@@ -241,11 +177,8 @@
   - 盘2主要存放短期影视资源、订阅内容
   - 盘3主要用于刷流。
   - 固态盘1主要存放Docker配置信息、虚拟机文件
+  - `如果是ZDR模式，也就是一个存储池，设置上应该更方便一些。我是因为在折腾之前已经切换到单盘模式了，而且怕盘坏了不知道丢了什么内容，所以还是继续使用单盘模式。`
 
-
-> 如果是ZDR模式，也就是一个存储池，设置上应该更方便一些。我是因为在折腾之前已经切换到单盘模式了，而且怕盘坏了不知道丢了什么内容，所以还是继续使用单盘模式。
-
-![image-20240217003930444](./assets/image-20240217003930444.png)
 
 > 这里主要是因为极影视只能通过分类共享，但是里面的资源也得放在公共空间。
 >
@@ -253,29 +186,13 @@
 >
 > 配置目录则放在个人空间。
 
-- 下载目录
-
-  - 公共下载 -> 盘2
-
-  - 公共下载1 -> 盘1
-
-  - 公共下载3 -> 盘3
-
-- 配置文件目录（固态盘）
-  - qBittorrent
-    - /个人空间/docker/qb -> /config
-  - Transmission
-    - /个人空间/docker/tr/watch -> /watch
-    - /个人空间/docker/tr/config -> /config
-  - MoviePilot
-    - /个人空间/docker/MoviePilot/config -> /config
-    - /个人空间/docker/MoviePilot/cache -> /moviepilot
+![image-20240217003930444](./assets/image-20240217003930444.png)
 
 > 2024-02-28：引用自官方频道
 >
 > 【关于 MoviePilot多目录支持的说明】
 >
-> 1. 下载目录支持按电影、电视剧、动漫设定三个不同的下载目录。
+> 1. 下载目录支持按电影、电视剧、~~动漫~~设定三个不同的下载目录。`最新版已经取消了动漫单独分类，可以参考后续系统设置目录里来配置出单独的动漫目录`
 > 2. 媒体库目录支持配置多个根目录（使用,号分隔），同时每个根目录下可以按电影、电视剧、动漫设定多个不同的一级目录名称，开启自动分类时会在一级目录下根据分类策略自动建二级目录。
 > 3. 多目录整理时会自动匹配下载目录和媒体库目录的关系，匹配的逻辑是：
 >
@@ -332,17 +249,13 @@
 | PLUGIN_STATISTIC_SHARE    | 默认true                    | 插件下载匿名共享数据                                         |
 | TMDB_API_DOMAIN           | api.tmdb.org                | TMDB API地址,有呆梨不用写这个变量，默认就是api.themoviedb.org` |
 | TMDB_IMAGE_DOMAIN         | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨不用写这个变量，默认就是`image.tmdb.org`  |
-| PLUGIN_MARKET             | 见下方                      | 仓库扩展`当前版本已经内置了流行的三方仓库，所以这个变量应该也不需要了` |
+| PLUGIN_MARKET             | 见下方                      | 仓库扩展`当前版本已经内置了流行的三方仓库，所以这个变量没有特别需求的话应该也不用加了` |
 
 ###### 3.1仓库扩展
 
 ```
 https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePilot-Plugins,https://github.com/honue/MoviePilot-Plugins,https://github.com/dandkong/MoviePilot-Plugins,https://github.com/Aqr-K/MoviePilot-Plugins,https://github.com/AnjoyLi/MoviePilot-Plugins,https://github.com/WithdewHua/MoviePilot-Plugins,https://github.com/HankunYu/MoviePilot-Plugins,https://github.com/baozaodetudou/MoviePilot-Plugins
 ```
-
-###### 4.媒体库分类
-
-- 详情参考下方`目录`配置
 
 #### 启动容器
 
