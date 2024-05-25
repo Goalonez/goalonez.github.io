@@ -356,11 +356,103 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ### 目录
 
-![image-20240523230940092](./assets/image-20240523230940092.png)
+#### 下载目录
 
-#### 
+- 我的策略是下载目录只进行`一级分类`，也就是只分成动漫、电影、电视剧
 
+![image-20240525104131059](./assets/image-20240525104131059.png)
 
+#### 媒体库目录
+
+- 媒体库目录进行了二级分类。因为目前版本动漫是直接存在电影和电视剧分类下，所以将动漫分类优先级提高。最终在目录路径上其实还是区分出了电影、电视剧、动漫三大类。
+
+![image-20240525104231475](./assets/image-20240525104231475.png)
+
+#### 媒体库分类示例
+
+- 配合`二级分类策略`插件，修改会方便一点。
+
+<img src="./assets/image-20240525104059002.png" alt="image-20240525104059002" style="zoom:25%;" />
+
+> - 目前的目录设定结构已经可以做到按二级分类精细化设定目录，动漫一级分类已没有意义，现已取消，同时解决了动漫分类错误的问题。如动漫需单独一级目录，可在目录设定中对电影/电视剧下的动漫二级分类单独设定目录，并将优先级调高
+>
+> - 【动漫独立一级目录配置示例】
+>
+>   1. 仅适用于`v1.9.1-1+`
+>
+>   2. 在分类策略配置文件中 movie/tv 下配置好动漫二级分类，`anime配置项已弃用`
+>
+>   3. 在目录设定中按如下格式新增目录，并提高优先级，仅为示例，同样的原理名称和路径都可以自己灵活调整，也可以不加（此时在电影/电视剧二级目录下）
+>
+>   \- 路径：/video/动漫
+>
+>     类型：电影
+>
+>     类别：动画电影
+>
+>   \- 路径：/video/动漫
+>
+>     类型：电视剧
+>
+>     类别：国漫
+>
+>   参考分类配置文件：https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml
+
+- 修改配置文件（可以直接通过上面的插件修改）
+  - `/个人空间/docker/MoviePilot/config/category.yaml`
+
+```yaml
+# 配置电影的分类策略
+movie:
+  中国动画电影:
+    genre_ids: '16'
+    original_language: 'zh,cn,bo,za'
+  日韩动画电影:
+    genre_ids: '16'
+    original_language: 'ja,ko'
+  欧美动画电影:
+    genre_ids: '16'
+  恐怖电影:
+    genre_ids: '27'
+  华语电影:
+    original_language: 'zh,cn,bo,za'
+  日韩电影:
+    original_language: 'ja,ko'
+  欧美电影:
+
+# 配置电视剧的分类策略
+tv:
+  中国动漫:
+    genre_ids: '16'
+    # 匹配 origin_country 国家，CN是中国大陆，TW是中国台湾，HK是中国香港
+    origin_country: 'CN,TW,HK'
+  日韩动漫:
+    genre_ids: '16'
+    # 匹配 origin_country 国家，JP是日本
+    origin_country: 'JP,KR'
+  儿童动漫:
+    genre_ids: '10762'
+  欧美动漫:
+    genre_ids: '16'
+  中国纪录片:
+    genre_ids: '99'
+    original_language: 'zh,cn,bo,za'
+  外国纪录片:
+    genre_ids: '99'
+  中国综艺:
+    genre_ids: '10764,10767'
+    original_language: 'zh,cn,bo,za'
+  日韩综艺:
+    genre_ids: '10764,10767'
+    original_language: 'ja,ko'
+  欧美综艺:
+    genre_ids: '10764,10767'
+  国产剧:
+    origin_country: 'CN,TW,HK'
+  日韩剧:
+    original_language: 'ja,ko'
+  欧美剧:
+```
 
 ### 站点
 
@@ -557,269 +649,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 请在cookiecloud浏览器插件端黑名单添加域名
 
 避免下次同步时覆盖手动添加的cookie
-
-## 媒体库分类示例
-
-> - 目前的目录设定结构已经可以做到按二级分类精细化设定目录，动漫一级分类已没有意义，现已取消，同时解决了动漫分类错误的问题。如动漫需单独一级目录，可在目录设定中对电影/电视剧下的动漫二级分类单独设定目录，并将优先级调高
->
-> - 【动漫独立一级目录配置示例】
->
->   1. 仅适用于`v1.9.1-1+`
->
->   2. 在分类策略配置文件中 movie/tv 下配置好动漫二级分类，`anime配置项已弃用`
->
->   3. 在目录设定中按如下格式新增目录，并提高优先级，仅为示例，同样的原理名称和路径都可以自己灵活调整，也可以不加（此时在电影/电视剧二级目录下）
->
->   \- 路径：/video/动漫
->
->     类型：电影
->
->     类别：动画电影
->
->   \- 路径：/video/动漫
->
->     类型：电视剧
->
->     类别：国漫
->
->   参考分类配置文件：https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml
-
-- 修改配置文件
-  - `/个人空间/docker/MoviePilot/config/category.yaml`
-
-```yaml
-####### 配置说明 #######
-# 1. 该配置文件用于配置电影和电视剧的分类策略，配置后程序会按照配置的分类策略名称进行分类，配置文件采用yaml格式，需要严格附合语法规则
-# 2. 配置文件中的一级分类名称：`movie`、`tv` 为固定名称不可修改，二级名称同时也是目录名称，会按先后顺序匹配，匹配后程序会按这个名称建立二级目录
-# 3. 支持的分类条件：
-#   `original_language` 语种，具体含义参考下方字典
-#   `production_countries` 国家或地区（电影）、`origin_country` 国家或地区（电视剧），具体含义参考下方字典
-#   `genre_ids` 内容类型，具体含义参考下方字典
-#   themoviedb 详情API返回的其它一级字段
-# 4. 配置多项条件时需要同时满足，一个条件需要匹配多个值是使用`,`分隔
-
-# 配置电影的分类策略
-movie:
-  中国动画电影:
-    genre_ids: '16'
-    original_language: 'zh,cn,bo,za'
-  日韩动画电影:
-    genre_ids: '16'
-    original_language: 'ja,ko'
-  欧美动画电影:
-    genre_ids: '16'
-  恐怖电影:
-    genre_ids: '27'
-  华语电影:
-    original_language: 'zh,cn,bo,za'
-  日韩电影:
-    original_language: 'ja,ko'
-  欧美电影:
-
-# 配置电视剧的分类策略
-tv:
-  中国动漫:
-    genre_ids: '16'
-    # 匹配 origin_country 国家，CN是中国大陆，TW是中国台湾，HK是中国香港
-    origin_country: 'CN,TW,HK'
-  日韩动漫:
-    genre_ids: '16'
-    # 匹配 origin_country 国家，JP是日本
-    origin_country: 'JP,KR'
-  儿童动漫:
-    genre_ids: '10762'
-  欧美动漫:
-    genre_ids: '16'
-  中国纪录片:
-    genre_ids: '99'
-    original_language: 'zh,cn,bo,za'
-  外国纪录片:
-    genre_ids: '99'
-  中国综艺:
-    genre_ids: '10764,10767'
-    original_language: 'zh,cn,bo,za'
-  日韩综艺:
-    genre_ids: '10764,10767'
-    original_language: 'ja,ko'
-  欧美综艺:
-    genre_ids: '10764,10767'
-  国产剧:
-    origin_country: 'CN,TW,HK'
-  日韩剧:
-    original_language: 'ja,ko'
-  欧美剧:
-  
-## genre_ids 内容类型 字典，注意部分中英文是不一样的
-#	28	Action
-#	12	Adventure
-#	16	Animation
-#	35	Comedy
-#	80	Crime
-#	99	Documentary
-#	18	Drama
-#	10751	Family
-#	14	Fantasy
-#	36	History
-#	27	Horror
-#	10402	Music
-#	9648	Mystery
-#	10749	Romance
-#	878  Science Fiction
-#	10770	TV Movie
-#	53	Thriller
-#	10752	War
-#	37	Western
-#	28	动作
-#	12	冒险
-#	16	动画
-#	35	喜剧
-#	80	犯罪
-#	99	纪录
-#	18	剧情
-#	10751	家庭
-#	14	奇幻
-#	36	历史
-#	27	恐怖
-#	10402	音乐
-#	9648	悬疑
-#	10749	爱情
-#	878	科幻
-#	10770	电视电影
-#	53	惊悚
-#	10752	战争
-#	37	西部
-
-## original_language 语种 字典
-#	af	南非语
-#	ar	阿拉伯语
-#	az	阿塞拜疆语
-#	be	比利时语
-#	bg	保加利亚语
-#	ca	加泰隆语
-#	cs	捷克语
-#	cy	威尔士语
-#	da	丹麦语
-#	de	德语
-#	dv	第维埃语
-#	el	希腊语
-#	en	英语
-#	eo	世界语
-#	es	西班牙语
-#	et	爱沙尼亚语
-#	eu	巴士克语
-#	fa	法斯语
-#	fi	芬兰语
-#	fo	法罗语
-#	fr	法语
-#	gl	加里西亚语
-#	gu	古吉拉特语
-#	he	希伯来语
-#	hi	印地语
-#	hr	克罗地亚语
-#	hu	匈牙利语
-#	hy	亚美尼亚语
-#	id	印度尼西亚语
-#	is	冰岛语
-#	it	意大利语
-#	ja	日语
-#	ka	格鲁吉亚语
-#	kk	哈萨克语
-#	kn	卡纳拉语
-#	ko	朝鲜语
-#	kok	孔卡尼语
-#	ky	吉尔吉斯语
-#	lt	立陶宛语
-#	lv	拉脱维亚语
-#	mi	毛利语
-#	mk	马其顿语
-#	mn	蒙古语
-#	mr	马拉地语
-#	ms	马来语
-#	mt	马耳他语
-#	nb	挪威语(伯克梅尔)
-#	nl	荷兰语
-#	ns	北梭托语
-#	pa	旁遮普语
-#	pl	波兰语
-#	pt	葡萄牙语
-#	qu	克丘亚语
-#	ro	罗马尼亚语
-#	ru	俄语
-#	sa	梵文
-#	se	北萨摩斯语
-#	sk	斯洛伐克语
-#	sl	斯洛文尼亚语
-#	sq	阿尔巴尼亚语
-#	sv	瑞典语
-#	sw	斯瓦希里语
-#	syr	叙利亚语
-#	ta	泰米尔语
-#	te	泰卢固语
-#	th	泰语
-#	tl	塔加路语
-#	tn	茨瓦纳语
-#	tr	土耳其语
-#	ts	宗加语
-#	tt	鞑靼语
-#	uk	乌克兰语
-#	ur	乌都语
-#	uz	乌兹别克语
-#	vi	越南语
-#	xh	班图语
-#	zh	中文
-#	cn	中文
-#	zu	祖鲁语
-
-## origin_country/production_countries 国家地区 字典
-#	AR	阿根廷
-#	AU	澳大利亚
-#	BE	比利时
-#	BR	巴西
-#	CA	加拿大
-#	CH	瑞士
-#	CL	智利
-#	CO	哥伦比亚
-#	CZ	捷克
-#	DE	德国
-#	DK	丹麦
-#	EG	埃及
-#	ES	西班牙
-#	FR	法国
-#	GR	希腊
-#	HK	香港
-#	IL	以色列
-#	IN	印度
-#	IQ	伊拉克
-#	IR	伊朗
-#	IT	意大利
-#	JP	日本
-#	MM	缅甸
-#	MO	澳门
-#	MX	墨西哥
-#	MY	马来西亚
-#	NL	荷兰
-#	NO	挪威
-#	PH	菲律宾
-#	PK	巴基斯坦
-#	PL	波兰
-#	RU	俄罗斯
-#	SE	瑞典
-#	SG	新加坡
-#	TH	泰国
-#	TR	土耳其
-#	US	美国
-#	VN	越南
-#	CN	中国 内地
-#	GB	英国
-#	TW	中国台湾
-#	NZ	新西兰
-#	SA	沙特阿拉伯
-#	LA	老挝
-#	KP	朝鲜 北朝鲜
-#	KR	韩国 南朝鲜
-#	PT	葡萄牙
-#	MN	蒙古国 蒙古
-```
 
 ## 其他教程
 
