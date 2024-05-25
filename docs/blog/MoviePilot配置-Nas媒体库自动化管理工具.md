@@ -342,7 +342,7 @@ https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePil
 
 ###### 4.媒体库分类
 
-- 详情参考底部示例
+- 详情参考下方`目录`配置
 
 #### 启动容器
 
