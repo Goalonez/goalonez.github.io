@@ -18,7 +18,7 @@
 
 ![image-20240119142246105](./assets/image-20240119142246105.png)
 
-![image-20240119142150301](./assets/image-20240119142150301.png)
+![image-20240602113955154](./assets/image-20240602113955154.png)
 
 ## 功能介绍
 
@@ -253,7 +253,7 @@
 ###### 3.1仓库扩展
 
 ```
-https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePilot-Plugins,https://github.com/honue/MoviePilot-Plugins,https://github.com/dandkong/MoviePilot-Plugins,https://github.com/Aqr-K/MoviePilot-Plugins,https://github.com/AnjoyLi/MoviePilot-Plugins,https://github.com/WithdewHua/MoviePilot-Plugins,https://github.com/HankunYu/MoviePilot-Plugins,https://github.com/baozaodetudou/MoviePilot-Plugins
+https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePilot-Plugins,https://github.com/honue/MoviePilot-Plugins,https://github.com/dandkong/MoviePilot-Plugins,https://github.com/Aqr-K/MoviePilot-Plugins,https://github.com/AnjoyLi/MoviePilot-Plugins,https://github.com/WithdewHua/MoviePilot-Plugins,https://github.com/almus2zhang/MoviePilot-Plugins,https://github.com/baozaodetudou/MoviePilot-Plugins,https://github.com/HankunYu/MoviePilot-Plugins,https://github.com/InfinityPacer/MoviePilot-Plugins,https://github.com/Pixel-LH/MoviePilot-Plugins,https://github.com/lightolly/MoviePilot-Plugins, https://github.com/so1ve/MoviePilot-Plugins
 ```
 
 #### 启动容器
@@ -417,7 +417,7 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ## 插件⭐
 
-![image-20240119142150301](./assets/image-20240119142150301.png)
+![image-20240602113955154](./assets/image-20240602113955154.png)
 
 ### 站点自动签到
 
