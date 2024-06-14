@@ -111,58 +111,73 @@ server_check_url =http://www.google.com/generate_204
 excluded_routes = 192.168.0.0/16, 172.16.0.0/12, 100.64.0.0/10, 10.0.0.0/8
 
 [dns]
-server=119.29.29.29
 server=223.5.5.5
+server=119.29.29.29
+server=1.1.1.1
+server=8.8.8.8
 
 [policy]
-static=YourProxy, proxy, auto-hk, auto-usa, auto-tw, auto-sg, auto-jp, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AmyTelecom.png
+static=GoalonezProxy, proxy, auto-hk, auto-usa, img-url=https://图标
 url-latency-benchmark=auto-hk, server-tag-regex=香港, check-interval=600, tolerance=0, alive-checking=false
 url-latency-benchmark=auto-usa, server-tag-regex=美国, check-interval=600, tolerance=0, alive-checking=false
-url-latency-benchmark=auto-tw, server-tag-regex=台湾, check-interval=600, tolerance=0, alive-checking=false
-url-latency-benchmark=auto-sg, server-tag-regex=新加坡, check-interval=600, tolerance=0, alive-checking=false
-url-latency-benchmark=auto-jp, server-tag-regex=日本, check-interval=600, tolerance=0, alive-checking=false
 
 [server_remote]
-# 你的订阅地址
+你的节点地址, tag=标签, update-interval=3600, opt-parser=false, enabled=true
 
 [filter_remote]
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Microsoft/Microsoft.list, tag=Microsoft, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/SteamCN/SteamCN.list, tag=SteamCN, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Game/GameDownloadCN/GameDownloadCN.list, tag=GameDownloadCN, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Steam/Steam.list, tag=Steam, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMaxNoIP/ChinaMaxNoIP.list, tag=国内域名, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Vercel/Vercel.list, tag=Vercel, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Tumblr/Tumblr.list, tag=Tumblr, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Twitch/Twitch.list, tag=Twitch, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Reddit/Reddit.list, tag=Reddit, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Nvidia/Nvidia.list, tag=NVIDIA, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Notion/Notion.list, tag=Notion, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Imgur/Imgur.list, tag=Imgur, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitLab/GitLab.list, tag=GitLab, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitBook/GitBook.list, tag=GitBook, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Dropbox/Dropbox.list, tag=Dropbox, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Emby/Emby.list, tag=Emby, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GoogleEarth/GoogleEarth.list, tag=GoogleEarth, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Wikimedia/Wikimedia.list, tag=Wikimedia, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/BBC/BBC.list, tag=BBC, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Instagram/Instagram.list, tag=Instagram, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Amazon/Amazon.list, tag=Amazon, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Wikipedia/Wikipedia.list, tag=Wikipedia, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Spotify/Spotify.list, tag=Spotify, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Cloudflare/Cloudflare.list, tag=Cloudflare, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Twitter/Twitter.list, tag=Twitter, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Telegram/Telegram.list, tag=Telegram, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitHub/GitHub.list, tag=GitHub, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Google/Google.list, tag=Google, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/YouTube/YouTube.list, tag=YouTube, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingLite/AdvertisingLite.list, tag=去广告, force-policy=reject, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list, tag=OpenAI, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Facebook/Facebook.list, tag=Facebook, force-policy=YourProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Direct/Direct.list, tag=直连, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/PrivateTracker/PrivateTracker.list, tag=直连, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
+
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/AdvertisingLite/AdvertisingLite.list, tag=去广告, force-policy=reject, update-interval=172800, opt-parser=false, enabled=true
+
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/ChinaMaxNoIP/ChinaMaxNoIP.list, tag=国内域名, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Game/GameDownloadCN/GameDownloadCN.list, tag=GameDownloadCN, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/SteamCN/SteamCN.list, tag=SteamCN, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
+
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Microsoft/Microsoft.list, tag=Microsoft, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Jetbrains/Jetbrains.list, tag=Jetbrains, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Claude/Claude.list, tag=Claude, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/OpenAI/OpenAI.list, tag=OpenAI, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Spotify/Spotify.list, tag=Spotify, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
+
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Google/Google.list, tag=Google, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Steam/Steam.list, tag=Steam, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Cloudflare/Cloudflare.list, tag=Cloudflare, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Twitter/Twitter.list, tag=Twitter, force-policy=auto-usa, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Telegram/Telegram.list, tag=Telegram, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/GitHub/GitHub.list, tag=GitHub, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/YouTube/YouTube.list, tag=YouTube, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Vercel/Vercel.list, tag=Vercel, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Tumblr/Tumblr.list, tag=Tumblr, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Twitch/Twitch.list, tag=Twitch, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Reddit/Reddit.list, tag=Reddit, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Nvidia/Nvidia.list, tag=Nvidia, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Notion/Notion.list, tag=Notion, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Imgur/Imgur.list, tag=Imgur, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/GitLab/GitLab.list, tag=GitLab, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/GitBook/GitBook.list, tag=GitBook, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Dropbox/Dropbox.list, tag=Dropbox, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Emby/Emby.list, tag=Emby, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/GoogleEarth/GoogleEarth.list, tag=GoogleEarth, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Wikimedia/Wikimedia.list, tag=Wikimedia, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Wikipedia/Wikipedia.list, tag=Wikipedia, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/BBC/BBC.list, tag=BBC, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Instagram/Instagram.list, tag=Instagram, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Threads/Threads.list, tag=Threads, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Amazon/Amazon.list, tag=Amazon, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Pinterest/Pinterest.list, tag=Pinterest, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Facebook/Facebook.list, tag=Facebook, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Slack/Slack.list, tag=Slack, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Discord/Discord.list, tag=Discord, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Docker/Docker.list, tag=Docker, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Python/Python.list, tag=Python, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Jsdelivr/Jsdelivr.list, tag=Jsdelivr, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Figma/Figma.list, tag=Figma, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Nintendo/Nintendo.list, tag=Nintendo, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
+https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Tmdb/Tmdb.list,tag=Tmdb, force-policy=GoalonezProxy, update-interval=172800, opt-parser=false, enabled=true
 
 [rewrite_remote]
 https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Ximalaya.conf, tag=喜马拉雅, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/BingSimplify.conf, tag=Bing首页简化, update-interval=172800, opt-parser=false, enabled=true
-https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/NewBing.conf, tag=解锁NewBing, update-interval=172800, opt-parser=false, enabled=true
 https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf, tag=微信, update-interval=172800, opt-parser=false, enabled=true
 https://raw.githubusercontent.com/app2smile/rules/master/module/tieba-qx.conf, tag=贴吧, update-interval=172800, opt-parser=false, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zheye/zheye.snippet, tag=知乎, update-interval=172800, opt-parser=false, enabled=true
@@ -175,21 +190,78 @@ https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Amap.conf, tag=高德, 
 https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Weibo.conf, tag=微博, update-interval=172800, opt-parser=false, enabled=true
 https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/YoutubeAds.conf, tag=YouTube, update-interval=172800, opt-parser=false, enabled=true
 https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/StartUp.conf, tag=墨鱼去开屏, update-interval=172800, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/KeepStyle.conf, tag=Keep, update-interval=172800, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.conf, tag=百度搜索去广告, update-interval=172800, opt-parser=false, enabled=true
 
 [server_local]
 
 [filter_local]
+# PT
+host-suffix,m-team.io,direct
+
+host-keyword,tracker,direct
+host-keyword,v6tracker,direct
+
 # 自定义
-host, sdkapp.uve.weibo.com, direct
-host, amdc.m.taobao.com, reject
-host, amdc.m.taobao.com, reject
-host-suffix,typora.io,YourProxy
-host-suffix,v2ex.com,YourProxy
-host-suffix,substack.com,YourProxy
+host,sdkapp.uve.weibo.com,direct
+host,amdc.m.taobao.com,reject
+host,amdc.m.taobao.com,reject
+
 host-suffix,jellow.site,direct
-host-suffix,inoreader.com,YourProxy
-host-suffix,unsplash.com,YourProxy
-host-suffix,threads.net,auto-usa
+  
+host-suffix,sentry.io,auto-usa
+host-suffix,codeium.com,auto-usa
+host-suffix,godaddy.com,auto-usa
+host-suffix,oaistatic.com,auto-usa
+host-suffix,oaiusercontent.com,auto-usa
+host-suffix,cdn.oaistatic.com,auto-usa
+
+host-suffix,amysecure.com,GoalonezProxy
+host-suffix,mojie.mx,GoalonezProxy
+
+host-suffix,www.v2ex.com,GoalonezProxy
+host-suffix,v2ex.com,GoalonezProxy
+host-suffix,substack.com,GoalonezProxy
+host-suffix,inoreader.com,GoalonezProxy
+host-suffix,typora.io,GoalonezProxy
+host-suffix,software.charliemonroe.net,GoalonezProxy
+host-suffix,download.eclipse.org,GoalonezProxy
+host-suffix,stackoverflow.com,GoalonezProxy
+host-suffix,unsplash.com,GoalonezProxy
+host-suffix,ycombinator.com,GoalonezProxy
+host-suffix,dribbble.com,GoalonezProxy
+host-suffix,quora.com,GoalonezProxy
+host-suffix,poe.com,GoalonezProxy
+host-suffix,theverge.com,GoalonezProxy
+host-suffix,dcinside.com,GoalonezProxy
+host-suffix,hostloc.com,GoalonezProxy
+host-suffix,element-plus.org,GoalonezProxy
+host-suffix,raycast.com,GoalonezProxy
+host-suffix,minisforum.com,GoalonezProxy
+host-suffix,mousefix.org,GoalonezProxy
+host-suffix,karabiner-elements.pqrs.org,GoalonezProxy
+host-suffix,axios-http.com,GoalonezProxy
+host-suffix,spring.io,GoalonezProxy
+host-suffix,echarts.apache.org,GoalonezProxy
+host-suffix,macupdater-backend.com,GoalonezProxy
+host-suffix,chatpdf.com,GoalonezProxy
+host-suffix,corecode.io,GoalonezProxy
+host-suffix,scamalytics.com,GoalonezProxy
+host-suffix,text-gen.com,GoalonezProxy
+host-suffix,porkbun.com,GoalonezProxy
+host-suffix,cleanshot.com,GoalonezProxy
+host-suffix,snoy.com,GoalonezProxy
+host-suffix,yts.mx,GoalonezProxy
+host-suffix,bcebos.com,GoalonezProxy
+host-suffix,img.yts.mx,GoalonezProxy
+host-suffix,0bt0.com,GoalonezProxy
+host-suffix,visual-paradigm.com,GoalonezProxy
+host-suffix,playcover.io,GoalonezProxy
+host-suffix,twitter.com,GoalonezProxy
+host-suffix,instagram.com,GoalonezProxy
+host-suffix,discord.com,GoalonezProxy
+host-suffix,reddit.com,GoalonezProxy
+host-suffix,github.com,GoalonezProxy
 
 # 国内网站
 host-suffix,cn,direct
@@ -200,13 +272,18 @@ geoip, cn, direct
 final, direct
 
 [rewrite_local]
+# 薄荷健康
+^https?:\/\/api\.boohee\.com\/shop-interface\/api\/v1\/home\/index url reject-dict
+^https?:\/\/bohe\.sfo-tx-shanghai-01\.saas\.sensorsdata\.cn\/api\/v2\/sfo\/user_popup_configs url reject-dict
+^https?:\/\/api\.boohee\.com\/meta-interface\/v1\/index\/(discover_chosen|page_float_bubbles) url reject-dict
+^https?:\/\/api\.boohee\.com\/app-interface\/v1\/record\/record_tool(_pop)?_ad url reject-dict
+^https?:\/\/api\.boohee\.com\/meta-interface\/v1\/index\/record_index url response-body articles response-body random_body
 
 [task_local]
 
 [http_backend]
 
 [mitm]
-# 自己去app里生成
 ```
 
 <gitalk/>
