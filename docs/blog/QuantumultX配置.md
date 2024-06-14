@@ -111,10 +111,10 @@ server_check_url =http://www.google.com/generate_204
 excluded_routes = 192.168.0.0/16, 172.16.0.0/12, 100.64.0.0/10, 10.0.0.0/8
 
 [dns]
-server=223.5.5.5
-server=119.29.29.29
-server=1.1.1.1
-server=8.8.8.8
+prefer-doh3
+no-system
+no-ipv6
+doh-server = https://223.5.5.5/dns-query,https://119.29.29.29/dns-query,https://1.1.1.1/dns-query,https://8.8.8.8/dns-query
 
 [policy]
 static=GoalonezProxy, proxy, auto-hk, auto-usa, img-url=https://图标
