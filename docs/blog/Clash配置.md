@@ -7,7 +7,6 @@
 - 远程订阅常用软件分流规则
 - 按需添加自定义网址
 - 白名单模式,不在匹配规则里的不呆梨,保证大部分呆梨都在自己知情的情况下执行
-- fake ip模式，处理dns污染
 
 ## 配置节点订阅地址proxy-providers
 
@@ -227,102 +226,104 @@ dns:
   enable: true
   prefer-h3: true
   listen: 0.0.0.0:53
-  # 关闭ipv6，很多问题是由于开启了ipv6导致的
+  # 关闭ipv6，很多问题是由于ipv6导致的
   ipv6: false
 
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
-  # default-nameserver:
-  #   - 223.5.5.5
-  #   - 223.6.6.6
-  enhanced-mode: fake-ip # 或 redir-host
-  fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+  enhanced-mode: redir-host # redir-host 或 fake-ip 
+  #fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
   # use-hosts: true # 查询 hosts 并返回 IP 记录
 
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
-  fake-ip-filter:
-    # === LAN ===
-    - "*"
-    - "+.local"
-    - '*.lan'
-    # === NTP Service ===
-    - 'time.*.com'
-    - 'time.*.gov'
-    - 'time.*.edu.cn'
-    - 'time.*.apple.com'
+  # fake-ip-filter:
+  #   # === LAN ===
+  #   - "*"
+  #   - "+.local"
+  #   - '*.lan'
+  #   # === NTP Service ===
+  #   - 'time.*.com'
+  #   - 'time.*.gov'
+  #   - 'time.*.edu.cn'
+  #   - 'time.*.apple.com'
 
-    - 'time1.*.com'
-    - 'time2.*.com'
-    - 'time3.*.com'
-    - 'time4.*.com'
-    - 'time5.*.com'
-    - 'time6.*.com'
-    - 'time7.*.com'
+  #   - 'time1.*.com'
+  #   - 'time2.*.com'
+  #   - 'time3.*.com'
+  #   - 'time4.*.com'
+  #   - 'time5.*.com'
+  #   - 'time6.*.com'
+  #   - 'time7.*.com'
 
-    - 'ntp.*.com'
-    - 'ntp.*.com'
-    - 'ntp1.*.com'
-    - 'ntp2.*.com'
-    - 'ntp3.*.com'
-    - 'ntp4.*.com'
-    - 'ntp5.*.com'
-    - 'ntp6.*.com'
-    - 'ntp7.*.com'
+  #   - 'ntp.*.com'
+  #   - 'ntp.*.com'
+  #   - 'ntp1.*.com'
+  #   - 'ntp2.*.com'
+  #   - 'ntp3.*.com'
+  #   - 'ntp4.*.com'
+  #   - 'ntp5.*.com'
+  #   - 'ntp6.*.com'
+  #   - 'ntp7.*.com'
 
-    - '*.time.edu.cn'
-    - '*.ntp.org.cn'
-    - '+.pool.ntp.org'
+  #   - '*.time.edu.cn'
+  #   - '*.ntp.org.cn'
+  #   - '+.pool.ntp.org'
 
-    - 'time1.cloud.tencent.com'    
-    # === Apple Software Update Service ===
-    - 'swscan.apple.com'
-    - 'mesu.apple.com'
-    # === Windows 10 Connnect Detection ===
-    - '*.msftconnecttest.com'
-    - '*.msftncsi.com'
-    ## NetEase
-    - '+.music.163.com'
-    - '*.126.net'
-    ## Baidu
-    - 'musicapi.taihe.com'
-    - 'music.taihe.com'
-    ## QQ
-    - '+.y.qq.com'
-    - '+.music.tc.qq.com'
-    - 'aqqmusic.tc.qq.com'
-    - '+.stream.qqmusic.qq.com'
-    # === Game Service ===
-    ## Nintendo Switch
-    - '+.srv.nintendo.net'
-    ## Sony PlayStation
-    - '+.stun.playstation.net'
-    ## Microsoft Xbox
-    - 'xbox.*.microsoft.com'
-    - '+.xboxlive.com'
-    # === Other ===
-    ## QQ Quick Login
-    - 'localhost.ptlogin2.qq.com'
-    ## STUN Server
-    - 'stun.*.*'
-    - 'stun.*.*.*'
-    ## Bilibili CDN
-    - '*.mcdn.bilivideo.cn'
+  #   - 'time1.cloud.tencent.com'    
+  #   # === Apple Software Update Service ===
+  #   - 'swscan.apple.com'
+  #   - 'mesu.apple.com'
+  #   # === Windows 10 Connnect Detection ===
+  #   - '*.msftconnecttest.com'
+  #   - '*.msftncsi.com'
+  #   ## NetEase
+  #   - '+.music.163.com'
+  #   - '*.126.net'
+  #   ## Baidu
+  #   - 'musicapi.taihe.com'
+  #   - 'music.taihe.com'
+  #   ## QQ
+  #   - '+.y.qq.com'
+  #   - '+.music.tc.qq.com'
+  #   - 'aqqmusic.tc.qq.com'
+  #   - '+.stream.qqmusic.qq.com'
+  #   # === Game Service ===
+  #   ## Nintendo Switch
+  #   - '+.srv.nintendo.net'
+  #   ## Sony PlayStation
+  #   - '+.stun.playstation.net'
+  #   ## Microsoft Xbox
+  #   - 'xbox.*.microsoft.com'
+  #   - '+.xboxlive.com'
+  #   # === Other ===
+  #   ## QQ Quick Login
+  #   - 'localhost.ptlogin2.qq.com'
+  #   ## STUN Server
+  #   - 'stun.*.*'
+  #   - 'stun.*.*.*'
+  #   ## Bilibili CDN
+  #   - '*.mcdn.bilivideo.cn'
 
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
   nameserver:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
-  nameserver-policy:
-    'geosite:cn': 
-      - https://223.5.5.5/dns-query
-      - https://119.29.29.29/dns-query
+    # - https://1.1.1.1/dns-query
+    # - https://8.8.8.8/dns-query
+    - https://223.5.5.5/dns-query
+    - https://119.29.29.29/dns-query
+  # nameserver-policy:
+    # 'geosite:cn': 
+    #   - https://223.5.5.5/dns-query
+    #   - https://119.29.29.29/dns-query
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
-  # fallback:
-  #   - https://1.1.1.1/dns-query
-  #   - https://8.8.8.8/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
 
   # 如果使用 `nameservers` 解析的 IP 地址在下面指定的子网中,
   # 则认为它们无效, 并使用 `fallback` 服务器的结果.
@@ -332,16 +333,16 @@ dns:
   #
   # 如果 `fallback-filter.geoip` 为 false, 且不匹配 `fallback-filter.ipcidr`,
   # 则始终使用 `nameservers` 服务器的结果
-  
-  # fallback-filter:
-  #   geoip: true
-  #   geoip-code: CN
-  #   ipcidr:
-  #     - 240.0.0.0/4
-  #   domain:
-  #     - '+.google.com'
-  #     - '+.youtube.com'
-  #     - '+.github.com'
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.google.com'
+      - '+.youtube.com'
+      - '+.github.com'
+      - '+.v2ex.com'
 
 proxy-groups:
   # 代理的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
