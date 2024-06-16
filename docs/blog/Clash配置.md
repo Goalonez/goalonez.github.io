@@ -703,6 +703,10 @@ rule-providers:
     path: ./goalonez-remote/AdvertisingLite.yaml
 
 rules:
+  # 局域网（no-resolve不进行dns解析）
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   # 直连
   - RULE-SET,DirectRule,DIRECT
   - RULE-SET,ChinaMaxNoIP,DIRECT
@@ -719,54 +723,8 @@ rules:
   - DOMAIN-KEYWORD,v6tracker,DIRECT
   
   # 自定义规则
-  - DOMAIN-SUFFIX,jellow.site,DIRECT
-
-  - DOMAIN-SUFFIX,amysecure.com,Proxy
-  - DOMAIN-SUFFIX,mojie.mx,Proxy
-
   - DOMAIN-SUFFIX,www.v2ex.com,Proxy
   - DOMAIN-SUFFIX,v2ex.com,Proxy
-  - DOMAIN-SUFFIX,substack.com,Proxy
-  - DOMAIN-SUFFIX,inoreader.com,Proxy
-  - DOMAIN-SUFFIX,typora.io,Proxy
-  - DOMAIN-SUFFIX,software.charliemonroe.net,Proxy
-  - DOMAIN-SUFFIX,download.eclipse.org,Proxy
-  - DOMAIN-SUFFIX,stackoverflow.com,Proxy
-  - DOMAIN-SUFFIX,unsplash.com,Proxy
-  - DOMAIN-SUFFIX,ycombinator.com,Proxy
-  - DOMAIN-SUFFIX,dribbble.com,Proxy
-  - DOMAIN-SUFFIX,quora.com,Proxy
-  - DOMAIN-SUFFIX,poe.com,Proxy
-  - DOMAIN-SUFFIX,theverge.com,Proxy
-  - DOMAIN-SUFFIX,dcinside.com,Proxy
-  - DOMAIN-SUFFIX,hostloc.com,Proxy
-  - DOMAIN-SUFFIX,element-plus.org,Proxy
-  - DOMAIN-SUFFIX,raycast.com,Proxy
-  - DOMAIN-SUFFIX,minisforum.com,Proxy
-  - DOMAIN-SUFFIX,mousefix.org,Proxy
-  - DOMAIN-SUFFIX,karabiner-elements.pqrs.org,Proxy
-  - DOMAIN-SUFFIX,axios-http.com,Proxy
-  - DOMAIN-SUFFIX,spring.io,Proxy
-  - DOMAIN-SUFFIX,echarts.apache.org,Proxy
-  - DOMAIN-SUFFIX,macupdater-backend.com,Proxy
-  - DOMAIN-SUFFIX,chatpdf.com,Proxy
-  - DOMAIN-SUFFIX,corecode.io,Proxy
-  - DOMAIN-SUFFIX,scamalytics.com,Proxy
-  - DOMAIN-SUFFIX,text-gen.com,Proxy
-  - DOMAIN-SUFFIX,porkbun.com,Proxy
-  - DOMAIN-SUFFIX,cleanshot.com,Proxy
-  - DOMAIN-SUFFIX,snoy.com,Proxy
-  - DOMAIN-SUFFIX,yts.mx,Proxy
-  - DOMAIN-SUFFIX,bcebos.com,Proxy
-  - DOMAIN-SUFFIX,img.yts.mx,Proxy
-  - DOMAIN-SUFFIX,0bt0.com,Proxy
-  - DOMAIN-SUFFIX,visual-paradigm.com,Proxy
-  - DOMAIN-SUFFIX,playcover.io,Proxy
-  - DOMAIN-SUFFIX,twitter.com,Proxy
-  - DOMAIN-SUFFIX,instagram.com,Proxy
-  - DOMAIN-SUFFIX,discord.com,Proxy
-  - DOMAIN-SUFFIX,reddit.com,Proxy
-  - DOMAIN-SUFFIX,github.com,Proxy
 
   # 特定区地址
   - DOMAIN-SUFFIX,sentry.io,auto-usa

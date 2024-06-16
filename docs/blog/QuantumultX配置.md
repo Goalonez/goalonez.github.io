@@ -203,12 +203,6 @@ host-keyword,tracker,direct
 host-keyword,v6tracker,direct
 
 # 自定义
-host,sdkapp.uve.weibo.com,direct
-host,amdc.m.taobao.com,reject
-host,amdc.m.taobao.com,reject
-
-host-suffix,jellow.site,direct
-  
 host-suffix,sentry.io,auto-usa
 host-suffix,codeium.com,auto-usa
 host-suffix,godaddy.com,auto-usa
@@ -216,52 +210,9 @@ host-suffix,oaistatic.com,auto-usa
 host-suffix,oaiusercontent.com,auto-usa
 host-suffix,cdn.oaistatic.com,auto-usa
 
-host-suffix,amysecure.com,GoalonezProxy
-host-suffix,mojie.mx,GoalonezProxy
-
 host-suffix,www.v2ex.com,GoalonezProxy
 host-suffix,v2ex.com,GoalonezProxy
-host-suffix,substack.com,GoalonezProxy
-host-suffix,inoreader.com,GoalonezProxy
-host-suffix,typora.io,GoalonezProxy
-host-suffix,software.charliemonroe.net,GoalonezProxy
-host-suffix,download.eclipse.org,GoalonezProxy
-host-suffix,stackoverflow.com,GoalonezProxy
-host-suffix,unsplash.com,GoalonezProxy
-host-suffix,ycombinator.com,GoalonezProxy
-host-suffix,dribbble.com,GoalonezProxy
-host-suffix,quora.com,GoalonezProxy
-host-suffix,poe.com,GoalonezProxy
-host-suffix,theverge.com,GoalonezProxy
-host-suffix,dcinside.com,GoalonezProxy
-host-suffix,hostloc.com,GoalonezProxy
-host-suffix,element-plus.org,GoalonezProxy
-host-suffix,raycast.com,GoalonezProxy
-host-suffix,minisforum.com,GoalonezProxy
-host-suffix,mousefix.org,GoalonezProxy
-host-suffix,karabiner-elements.pqrs.org,GoalonezProxy
-host-suffix,axios-http.com,GoalonezProxy
-host-suffix,spring.io,GoalonezProxy
-host-suffix,echarts.apache.org,GoalonezProxy
-host-suffix,macupdater-backend.com,GoalonezProxy
-host-suffix,chatpdf.com,GoalonezProxy
-host-suffix,corecode.io,GoalonezProxy
-host-suffix,scamalytics.com,GoalonezProxy
-host-suffix,text-gen.com,GoalonezProxy
-host-suffix,porkbun.com,GoalonezProxy
-host-suffix,cleanshot.com,GoalonezProxy
-host-suffix,snoy.com,GoalonezProxy
-host-suffix,yts.mx,GoalonezProxy
-host-suffix,bcebos.com,GoalonezProxy
-host-suffix,img.yts.mx,GoalonezProxy
-host-suffix,0bt0.com,GoalonezProxy
-host-suffix,visual-paradigm.com,GoalonezProxy
-host-suffix,playcover.io,GoalonezProxy
-host-suffix,twitter.com,GoalonezProxy
-host-suffix,instagram.com,GoalonezProxy
-host-suffix,discord.com,GoalonezProxy
-host-suffix,reddit.com,GoalonezProxy
-host-suffix,github.com,GoalonezProxy
+
 
 # 国内网站
 host-suffix,cn,direct
