@@ -393,7 +393,17 @@ V2ex看到的，目前用来管理订阅，偶尔看看每个月的付费情况�
 
 ## 菜单栏管理
 
-### [Bartender 5](https://www.macbartender.com/)
+### ~~🚫[Bartender 5](https://www.macbartender.com/)~~
+
+> 暂时没有找到特别合适的替代品，还在试用其他几款类似的工具中
+
+> 来自 MacUpdater 的警告
+>
+> IMPORTANT INFORMATION:
+>
+> MacUpdater Upgrade Explanation: The company and developer behind Bartender was replaced in a silent and dubious manner updates to version 5.0.52 and newer are your own risk and responsibility
+>
+> https://www.reddit.com/r/macapps/comments/1d7zjv8/bartender_5_not_safe_anymore_warning_from/
 
 因为刘海的存在，这个是必备软件。下面是我自己的日常配置。
 
