@@ -4,7 +4,7 @@
 
 本来没打算买15Pro，所以也就没抢首发。后来看着去年首发购入的14Pro只剩90的电池了（这一代的电池实在太太垃圾了😭）。
 
-<img src="./assets/Fp9vLgkjrzZHwQjE8rUofKHINbUWv3.png" alt="Fp9vLgkjrzZHwQjE8rUofKHINbUWv3" style="zoom:15%;" />
+![Fp9vLgkjrzZHwQjE8rUofKHINbUWv3](./assets/Fp9vLgkjrzZHwQjE8rUofKHINbUWv3.png)
 
 ## 下单
 
@@ -15,7 +15,7 @@
 - 下单时间：`10/29 00:01`。
 - 发货时间：`11/02-11/09`。
 
-<img src="./assets/image-20231014102814173.png" alt="image-20231014102814173" style="zoom:20%;" />
+![image-20231014102814173](./assets/image-20231014102814173.png)
 
 ### 第二单
 
@@ -31,9 +31,9 @@
 - `10/12`号的时候刷官网发现其他3个配色都有现货了，白色依然没有。
 - 于是纠结一番后下单了`15Pro 256G 原色`。
 
-<img src="./assets/image-20231014103938335.png" alt="image-20231014103938335" style="zoom:25%;" />
+![image-20231014103938335](./assets/image-20231014103938335.png)
 
-<img src="./assets/B9C9512C-DA84-4B9C-AB70-F2C0CDF4080B.png" alt="B9C9512C-DA84-4B9C-AB70-F2C0CDF4080B" style="zoom:25%;" />
+![B9C9512C-DA84-4B9C-AB70-F2C0CDF4080B](./assets/B9C9512C-DA84-4B9C-AB70-F2C0CDF4080B.png)
 
 ### 第四单
 
@@ -44,7 +44,7 @@
 - 第二天中午到店取了货（这次直接现场拆了包装先看了下外观），顺便办了退款，也拿到了膜。
 - 最终订单变成了这个样子。（😂真是一波三折）
 
-<img src="./assets/8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c.jpg" alt="8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c" style="zoom: 40%;" />
+![8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c](./assets/8B3703FD-0EB4-4EDA-A031-3794CA05B7F1_1_105_c.jpg)
 
 ## 开箱
 
@@ -52,7 +52,7 @@
 
 
 
-<img src="./assets/22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c.jpg" alt="22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c" style="zoom:50%;" />
+![22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c](./assets/22588AF3-D9FF-48F6-B08F-28FB618047C9_1_105_c.jpg)
 
 ### 手机
 
@@ -60,14 +60,14 @@
 - 店里看了4个配色，感觉不如14Pro，都有点做旧风的感觉。
 - 所以也就不纠结白色了，因为不是想象中以前那种透亮的白。原色也不错。
 
-<img src="./assets/88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c.jpg" alt="88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c" style="zoom: 50%;" />
+![88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c](./assets/88E05C45-72B7-4EE9-BD2A-91D54D14C5ED_4_5005_c.jpg)
 
 ### Type-C线
 
 - 线是编织的，跟MacBook的差不多。
 - 已经能想象到以后变黄的样子了😒。
 
-<img src="./assets/F4655F94-3CC4-4008-8175-0A5BAEA943CD.jpg" alt="F4655F94-3CC4-4008-8175-0A5BAEA943CD" style="zoom:10%;" />
+![F4655F94-3CC4-4008-8175-0A5BAEA943CD](./assets/F4655F94-3CC4-4008-8175-0A5BAEA943CD.jpg)
 
 ## 数据传输
 
@@ -75,7 +75,7 @@
 - 但是因为`面容ID会重置`，所以导致银行App都得重新登陆。
 - `QuantumultX`迁移过去后也无效了，删了App重新下载配置才成功。（这个很奇怪，浏览器有效，但App连不上，所以就重新弄了）
 
-<img src="./assets/A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c.jpg" alt="A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c" style="zoom: 33%;" />
+![A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c](./assets/A1E39486-516A-456C-9BF8-A508FDF0FCCA_1_105_c.jpg)
 
 ## 折腾
 
@@ -100,7 +100,9 @@
   - 14Pro带壳的话由于摄像头又大了一圈,本身线圈自带的位置会顶到摄像头,需要找适配的 magsafe 壳,之前用的壳线圈应该是有点往下移的设计.会在 100%电量之后间歇性出现充电开始的提示。
   - 15Pro用的`申本`的壳，目前没发现上面的问题。
 
-<img src="./assets/0120E6F4-E597-4046-AD64-F840F2E7D04C.jpg" alt="0120E6F4-E597-4046-AD64-F840F2E7D04C" style="zoom: 10%;" />
+> 别买这款，用了一段时间，转轴就松了。维持不住角度。
+
+![0120E6F4-E597-4046-AD64-F840F2E7D04C](./assets/0120E6F4-E597-4046-AD64-F840F2E7D04C.jpg)
 
 ### Action Button👍👍👍
 
@@ -210,10 +212,10 @@
 
 最后纪念一下陪伴一年的14Pro
 
-<img src="./assets/241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c.jpg" alt="241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c" style="zoom:25%;" />
+![241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c](./assets/241861FC-2ACC-4B0F-B2A7-FD995A420F23_1_105_c.jpg)
 
-<img src="./assets/F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c.jpg" alt="F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c" style="zoom:25%;" />
+![F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c](./assets/F36DBE87-2046-4FB0-B578-2EA5F4F4BE35_1_105_c.jpg)
 
-<img src="./assets/085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c.jpg" alt="085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c" style="zoom:25%;" />
+![085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c](./assets/085F082E-5F08-4843-8F4E-D02E3334F4F7_1_105_c.jpg)
 
 <gitalk/>

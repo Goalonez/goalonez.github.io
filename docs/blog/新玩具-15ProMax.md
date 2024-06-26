@@ -42,11 +42,11 @@
 
 ## 外观
 
-<img src="./assets/image-20231104231314493.png" alt="image-20231104231314493" style="zoom:25%;" />
+![image-20231104231314493](./assets/image-20231104231314493.png)
 
-<img src="./assets/image-20231104231339736.png" alt="image-20231104231339736" style="zoom:25%;" />
+![image-20231104231339736](./assets/image-20231104231339736.png)
 
-<img src="./assets/image-20231104231356967.png" alt="image-20231104231356967" style="zoom:25%;" />
+![image-20231104231356967](./assets/image-20231104231356967.png)
 
 ## 配置
 
