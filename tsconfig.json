@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "module": "NodeNext",
+      "allowJs": true,
+      "strict": true,
+      "jsx": "preserve",
+      "lib": [
+      "ES2021.String"
+    ],
+    },
+    "include": ["./docs/.vitepress/*"]
+  }
