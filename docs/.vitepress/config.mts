@@ -183,6 +183,7 @@ export default defineConfig({
       id: hostname,
       title: siteConfig.site.title,
       description: siteConfig.site.description,
+      updated: new Date(),
       link: hostname,
       copyright: '',
     })
