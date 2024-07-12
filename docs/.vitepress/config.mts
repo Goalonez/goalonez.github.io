@@ -1,4 +1,20 @@
 import { defineConfig } from 'vitepress'
+import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
+
+const baseUrl = 'https://blog.goalonez.site'
+const RSS: RSSOptions = {
+  title: 'Goalonez Blog',
+  baseUrl,
+  copyright: 'Copyright © 2023-present Goalonez',
+  language: 'zh-cn',
+  icon: true,
+  author: {
+    name: 'Goalonez',
+    email: 'z471854680@gmail.com',
+    link: 'https://blog.goalonez.site'
+  },
+  filename: 'feed.rss',
+}
 
 export default defineConfig({
   // 标题（浏览器后缀）
@@ -16,6 +32,11 @@ export default defineConfig({
   // markdown显示行数
   markdown: {
     lineNumbers: true,
+  },
+  vite: {
+    // ↓↓↓↓↓
+    plugins: [RssPlugin(RSS)]
+    // ↑↑↑↑↑
   },
   // head设置
   head: [

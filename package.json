@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "gitalk": "^1.8.0",
-    "md5": "^2.3.0"
+    "md5": "^2.3.0",
+    "vitepress-plugin-rss": "^0.2.8"
   },
   "volta": {
     "node": "18.17.1"
