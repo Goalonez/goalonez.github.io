@@ -170,6 +170,8 @@ export default defineConfig({
 			copyright: 'Copyright © 2023-present Goalonez',
 		},
   },
+  //------------------------------------------------------------------------------
+  //处理RSS
   transformHtml(code, id, ctx) {
     if (!/[\\/]404\.html$/.test(id)) {
       map[id] = code
@@ -191,6 +193,7 @@ export default defineConfig({
       render: true,
     }).load()
 
+    //按时间排序
     posts.sort(
       (a, b) =>
         +new Date(b.frontmatter.date as string) -
@@ -221,11 +224,12 @@ export default defineConfig({
       }
       return p
     }
-
-    // 添加到 feed 中
+ 
     for (let { url, excerpt, frontmatter, html } of posts) {
-      const date = new Date(frontmatter.date); // 创建一个 Date 对象
+      //处理时区
+      const date = new Date(frontmatter.date); 
       const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+      //处理图片路径
       if (html?.includes('<img')) {
         const htmlUrl = getAbsPath(siteConfig.outDir, url)
         if (map[htmlUrl]) {
@@ -233,12 +237,13 @@ export default defineConfig({
           html = await cleanHtml(map[htmlUrl], baseUrl)
         }
       }
+      // 添加到 feed 中
       feed.addItem({
         title: frontmatter.title,
         id: `${hostname}${url}`,
         link: `${hostname}${url}`,
-        description: excerpt,
-        content: html?.replaceAll('&ZeroWidthSpace;', ''),
+        description: `${hostname}${url}`,
+        content: html?.replaceAll('&ZeroWidthSpace;', '').replaceAll(/<span class="line-number">\d+<\/span>/g, ''),
         author: feed.options.author ? [feed.options.author] : undefined,
         date: gmtDate, // 使用 GMT 时区的日期
       })
@@ -248,4 +253,6 @@ export default defineConfig({
     await writeFile(path.join(siteConfig.outDir, 'feed.xml'), feed.rss2())
 
   },
+  //处理RSS
+  //------------------------------------------------------------------------------
 })
