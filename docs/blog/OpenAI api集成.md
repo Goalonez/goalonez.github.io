@@ -56,7 +56,7 @@
 - 模型配置
 - 归档
 
-![image-20231010100522998](./assets/image-20231010100522998.png)
+![image-20231010100522998](../public/assets/image-20231010100522998.png)
 
 ### 功能
 
@@ -65,11 +65,11 @@
 - 进入Ask Question后，可以直接输入问题。
 - 通过`CMD + P`选择对应预设的Models。
 
-![image-20231010100753888](./assets/image-20231010100753888.png)
+![image-20231010100753888](../public/assets/image-20231010100753888.png)
 
 - 可以进行`连续对话`，但不如Raycast AI那么直观，这个是以`List`的形式展示的，不过也还行。
 
-![image-20231010100946121](./assets/image-20231010100946121.png)
+![image-20231010100946121](../public/assets/image-20231010100946121.png)
 
 #### Conversations
 
@@ -77,19 +77,19 @@
   - 因为Conversations是根据`整个对话`来进行`分组`
   - 而History是`每一个发送的问题`的历史记录
 
-![image-20231010101305840](./assets/image-20231010101305840.png)
+![image-20231010101305840](../public/assets/image-20231010101305840.png)
 
 #### Models
 
 - Models就类似于预设的`前置提示词`，对应了Raycast AI中的`command`。
 
-![image-20231010101412959](./assets/image-20231010101412959.png)
+![image-20231010101412959](../public/assets/image-20231010101412959.png)
 
 - Temperature可以设置温度，可以设置`0-2`
 - Model设置模型
   - 目前只有`gpt-3.5-turbo`和`gpt-3.5-turbo-0301`
 
-![image-20231010101445478](./assets/image-20231010101445478.png)
+![image-20231010101445478](../public/assets/image-20231010101445478.png)
 
 ## Obsidian Text Generator插件
 
@@ -102,7 +102,7 @@
 - 开了生成内容到`blockquote`（不过这个只有整片输出或者按模板输出的时候生效，流式的时候没有效果）
 - 配置了ai生成内容`模板`的路径
 
-![image-20231010102201712](./assets/image-20231010102201712.png)
+![image-20231010102201712](../public/assets/image-20231010102201712.png)
 
 #### 快捷键
 
@@ -111,10 +111,10 @@
 - 开启了停止流式生成`CMD + K`，因为感觉每次生成的内容很多，偶尔会想停止，就配置了快捷键
 - 把原先元数据生成的快捷键`CMD + Option +J`改到了根据模板生成上，感觉这个会比较常用.比如周报之类的生成。
 
-![image-20231010102442842](./assets/image-20231010102442842.png)
+![image-20231010102442842](../public/assets/image-20231010102442842.png)
 
 #### 效果
 
-![image-20231010102758890](./assets/image-20231010102758890.png)
+![image-20231010102758890](../public/assets/image-20231010102758890.png)
 
 <gitalk/>
