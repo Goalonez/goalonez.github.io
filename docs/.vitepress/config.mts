@@ -259,18 +259,20 @@ export default defineConfig({
     }
  
     for (let { url, excerpt, frontmatter, html } of posts) {
+      //处理图片路径
+      const htmlUrl = getAbsPath(siteConfig.outDir, url);
       let result;
+      if (map[htmlUrl]) {
+        const baseUrl = path.join(hostname, siteConfig.site.base);
+        result = await cleanHtml(map[htmlUrl], baseUrl);
+      } else {
+        result = { cleanedHtml: html };
+      }
+      
       //处理时区
       const date = new Date(frontmatter.date); 
       const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
-      //处理图片路径
-      if (html?.includes('<img')) {
-        const htmlUrl = getAbsPath(siteConfig.outDir, url)
-        if (map[htmlUrl]) {
-          const baseUrl = path.join(hostname, siteConfig.site.base)
-          result = await cleanHtml(map[htmlUrl], baseUrl)
-        }
-      }
+      
       // 添加到 feed 中
       feed.addItem({
         title: frontmatter.title,
