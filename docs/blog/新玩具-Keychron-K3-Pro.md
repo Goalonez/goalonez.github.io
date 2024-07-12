@@ -4,15 +4,15 @@
 
 ### 盒子
 
-![image-20231104224326243](assets/image-20231104224326243.png)
+![image-20231104224326243](../public/assets/image-20231104224326243.png)
 
 ### 无灯
 
-![image-20231104224349620](assets/image-20231104224349620.png)
+![image-20231104224349620](../public/assets/image-20231104224349620.png)
 
 ### RGB
 
-![image-20231104232428380](assets/image-20231104232428380.png)
+![image-20231104232428380](../public/assets/image-20231104232428380.png)
 
 ## via改键
 
@@ -24,10 +24,10 @@
 
 ### Mac
 
-![image-20231104225015518](assets/image-20231104225015518.png)
+![image-20231104225015518](../public/assets/image-20231104225015518.png)
 
 ### Windows
 
-![image-20231104225037945](assets/image-20231104225037945.png)
+![image-20231104225037945](../public/assets/image-20231104225037945.png)
 
 <gitalk/>

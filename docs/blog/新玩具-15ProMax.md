@@ -24,11 +24,11 @@
 
 #### 邮件
 
-![image-20231104230912841](assets/image-20231104230912841.png)
+![image-20231104230912841](../public/assets/image-20231104230912841.png)
 
 #### 订单
 
-![image-20231104230851717](assets/image-20231104230851717.png)
+![image-20231104230851717](../public/assets/image-20231104230851717.png)
 
 ## 购入15 Pro Max
 
@@ -42,11 +42,11 @@
 
 ## 外观
 
-![image-20231104231314493](assets/image-20231104231314493.png)
+![image-20231104231314493](../public/assets/image-20231104231314493.png)
 
-![image-20231104231339736](assets/image-20231104231339736.png)
+![image-20231104231339736](../public/assets/image-20231104231339736.png)
 
-![image-20231104231356967](assets/image-20231104231356967.png)
+![image-20231104231356967](../public/assets/image-20231104231356967.png)
 
 ## 配置
 

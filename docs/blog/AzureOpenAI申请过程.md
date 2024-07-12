@@ -8,7 +8,7 @@
 
 > https://azure.microsoft.com/zh-cn/free
 
-![image-20231017102256872](assets/image-20231017102256872.png)
+![image-20231017102256872](../public/assets/image-20231017102256872.png)
 
 - 点击免费开始使用
 - 登录
@@ -17,7 +17,7 @@
 
 ## 控制台
 
-![image-20231017091418234](assets/image-20231017091418234.png)
+![image-20231017091418234](../public/assets/image-20231017091418234.png)
 
 ### 订阅
 
@@ -29,7 +29,7 @@
 
 - 搜索`Azure OpenAI`
 
-![image-20231017091354605](assets/image-20231017091354605.png)
+![image-20231017091354605](../public/assets/image-20231017091354605.png)
 
 - 先申请`权限`
 
@@ -49,25 +49,25 @@
 
 - 创建完成后转到资源
 
-![image-20231017092607256](assets/image-20231017092607256.png)
+![image-20231017092607256](../public/assets/image-20231017092607256.png)
 
 ### 密钥
 
 - 左侧密钥和终结点
 - 获取Api Key和Endpoint
 
-![image-20231017092543205](assets/image-20231017092543205.png)
+![image-20231017092543205](../public/assets/image-20231017092543205.png)
 
 ### 模型部署
 
 - 左侧模型部署
 - 点击管理部署
 
-![image-20231017103208044](assets/image-20231017103208044.png)
+![image-20231017103208044](../public/assets/image-20231017103208044.png)
 
 - 点击新建部署创建一个模型
 
-![image-20231017103249531](assets/image-20231017103249531.png)
+![image-20231017103249531](../public/assets/image-20231017103249531.png)
 
 ## 开始使用
 
