@@ -14,14 +14,26 @@ const RSS: RSSOptions = {
     email: 'z471854680@gmail.com',
     link: 'https://blog.goalonez.site'
   },
+  authors: [
+    {
+      name: 'Goalonez',
+    email: 'z471854680@gmail.com',
+    link: 'https://blog.goalonez.site'
+    },
+  ],
   filename: 'feed',
+  limit: 100,
+  renderHTML: (filecontent: string) => {
+    // 使用正则表达式去除所有的 &ZeroWidthSpace;
+    return filecontent.replace(/&ZeroWidthSpace;/g, '');
+  }
 }
 
 export default defineConfig({
   // 标题（浏览器后缀）
-  title: "Goalonez",
+  title: "Goalonez Blog",
   // 描述
-  description: "Goalonez Blog",
+  description: "万变不离其宗",
   // 语言
   lang: 'zh-CN',
   // 根目录，如果需要部署成https://github.com/blog/的形式，则设置/blog/
