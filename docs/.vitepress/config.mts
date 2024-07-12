@@ -4,7 +4,7 @@ import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
 const baseUrl = 'https://blog.goalonez.site'
 const RSS: RSSOptions = {
   title: 'Goalonez Blog',
-  description: "万变不离其宗",
+  description: '万变不离其宗',
   baseUrl,
   copyright: 'Copyright © 2023-present Goalonez',
   language: 'zh-cn',
@@ -14,18 +14,11 @@ const RSS: RSSOptions = {
     email: 'z471854680@gmail.com',
     link: 'https://blog.goalonez.site'
   },
-  authors: [
-    {
-      name: 'Goalonez',
-    email: 'z471854680@gmail.com',
-    link: 'https://blog.goalonez.site'
-    },
-  ],
   filename: 'feed',
   limit: 100,
   renderHTML: (filecontent: string) => {
     // 使用正则表达式去除所有的 &ZeroWidthSpace;
-    return filecontent.replace(/&ZeroWidthSpace;/g, '');
+    return filecontent.replaceAll(/&ZeroWidthSpace;/g, '');
   }
 }
 
