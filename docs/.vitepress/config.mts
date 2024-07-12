@@ -224,6 +224,8 @@ export default defineConfig({
 
     // 添加到 feed 中
     for (let { url, excerpt, frontmatter, html } of posts) {
+      const date = new Date(frontmatter.date); // 创建一个 Date 对象
+      const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
       if (html?.includes('<img')) {
         const htmlUrl = getAbsPath(siteConfig.outDir, url)
         if (map[htmlUrl]) {
@@ -238,7 +240,7 @@ export default defineConfig({
         description: excerpt,
         content: html?.replaceAll('&ZeroWidthSpace;', ''),
         author: feed.options.author ? [feed.options.author] : undefined,
-        date: frontmatter.date,
+        date: gmtDate, // 使用 GMT 时区的日期
       })
     }
 
