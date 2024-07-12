@@ -1,7 +1,21 @@
 import { createContentLoader, defineConfig } from 'vitepress'
-import { Feed } from 'feed'
-import { writeFile } from 'fs/promises'
-import * as path from 'path'
+import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
+
+const baseUrl = 'https://blog.goalonez.site'
+const RSS: RSSOptions = {
+  title: 'Goalonez Blog',
+  description: "万变不离其宗",
+  baseUrl,
+  copyright: 'Copyright © 2023-present Goalonez',
+  language: 'zh-cn',
+  icon: true,
+  author: {
+    name: 'Goalonez',
+    email: 'z471854680@gmail.com',
+    link: 'https://blog.goalonez.site'
+  },
+  filename: 'feed',
+}
 
 export default defineConfig({
   // 标题（浏览器后缀）
@@ -19,6 +33,11 @@ export default defineConfig({
   // markdown显示行数
   markdown: {
     lineNumbers: true,
+  },
+  vite: {
+    // ↓↓↓↓↓
+    plugins: [RssPlugin(RSS)]
+    // ↑↑↑↑↑
   },
   // head设置
   head: [
@@ -133,44 +152,5 @@ export default defineConfig({
     footer: {
 			copyright: 'Copyright © 2023-present Goalonez',
 		},
-  },
-  async buildEnd(siteConfig) {
-    const hostname = 'https://blog.goalonez.site'
-    const feed = new Feed({
-      id: hostname,
-      title: siteConfig.site.title,
-      description: siteConfig.site.description,
-      link: hostname,
-      copyright: 'Copyright © 2023-present Goalonez',
-    })
-
-    // 过滤出所有的 markdown 文件
-    const posts = await createContentLoader('./blog/*.md', {
-      excerpt: true,
-      render: true,
-    }).load()
-
-    // 按照时间排序
-    posts.sort(
-      (a, b) =>
-        +new Date(b.frontmatter.date as string) -
-        +new Date(a.frontmatter.date as string),
-    )
-
-    // 添加到 feed 中
-    for (const { url, excerpt, frontmatter, html } of posts) {
-      feed.addItem({
-        title: frontmatter.title,
-        id: `${hostname}${url}`,
-        link: `${hostname}${url}`,
-        description: excerpt,
-        content: html?.replaceAll('&ZeroWidthSpace;', ''),
-        author: feed.options.author ? [feed.options.author] : undefined,
-        date: frontmatter.date,
-      })
-    }
-
-    // 生成并写入文件
-    await writeFile(path.join(siteConfig.outDir, 'feed.rss'), feed.rss2())
   },
 })
