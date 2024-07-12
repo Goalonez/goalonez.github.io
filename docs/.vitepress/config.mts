@@ -246,7 +246,7 @@ export default defineConfig({
         //处理vitepress编译后生成的ZeroWidthSpace
         //处理gitalk
         content: html?.replaceAll('&ZeroWidthSpace;', '')
-        .replaceAll(/<span class="line-number">\d+<\/span>/g, '')
+        .replaceAll(/<span class="line-number">\d+<\/span><br>/g, '')
         .replaceAll(/<div class="gitalk-container"><div id="gitalk-container"><\/div><\/div>/g, '')
         .replaceAll(/<gitalk\/>/g, ''),
         author: feed.options.author ? [feed.options.author] : undefined,
