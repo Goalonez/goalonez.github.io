@@ -206,7 +206,7 @@ export default defineConfig({
     }
 
     // 生成并写入文件
-    await writeFile(path.join(siteConfig.outDir, 'feed'), feed.rss2())
+    await writeFile(path.join(siteConfig.outDir, 'feed.xml'), feed.rss2())
 
     function getAbsPath(outDir: string, p: string): string {
       if (p.endsWith('.html')) {
