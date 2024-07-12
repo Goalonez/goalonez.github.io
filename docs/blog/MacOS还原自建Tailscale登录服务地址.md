@@ -12,6 +12,6 @@ defaults write io.tailscale.ipn.macos ControlURL https://controlplane.tailscale.
 
 这时候可以看到，地址又回到官方地址了。
 
-![image-20240515221657506](../public/assets/image-20240515221657506.png)
+![image-20240515221657506](assets/image-20240515221657506.png)
 
 <gitalk/>

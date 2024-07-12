@@ -18,7 +18,7 @@ Windows上目前试用了很多类似的软件，还是停留在`uTools`上。
 - 本地搜索基于`Everything`。
 - 有个`Ctool`的插件还不错，开发用得上。
 
-![image-20230903174631582](../public/assets/image-20230903174631582.png)
+![image-20230903174631582](assets/image-20230903174631582.png)
 
 ## 压缩软件
 
@@ -30,7 +30,7 @@ Windows上目前试用了很多类似的软件，还是停留在`uTools`上。
 
 ### [Honeyview](https://cn.bandisoft.com/honeyview/)
 
-![image-20230903174722851](../public/assets/image-20230903174722851.png)
+![image-20230903174722851](assets/image-20230903174722851.png)
 
 ## 设备监控
 
@@ -46,7 +46,7 @@ Windows上目前试用了很多类似的软件，还是停留在`uTools`上。
 
 > 最近一直弹出更新，而且提示需要管理员权限，就切换成TTime了
 
-![image-20230903175038116](../public/assets/image-20230903175038116.png)
+![image-20230903175038116](assets/image-20230903175038116.png)
 
 ### [TTime](https://github.com/inkTimeRecord/TTime)
 
@@ -54,13 +54,13 @@ Windows上目前试用了很多类似的软件，还是停留在`uTools`上。
 
 自带划词选中翻译，不需要配合快捷键，更符合Mac上Bob配合PopClip的使用习惯。
 
-![image-20231010212902589](../public/assets/image-20231010212902589.png)
+![image-20231010212902589](assets/image-20231010212902589.png)
 
 ## 截图
 
 ### [Snipaste](https://zh.snipaste.com/)
 
-![image-20230903174843520](../public/assets/image-20230903174843520.png)
+![image-20230903174843520](assets/image-20230903174843520.png)
 
 
 

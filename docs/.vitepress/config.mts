@@ -1,27 +1,32 @@
-import { defineConfig } from 'vitepress'
-import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
+import { createContentLoader, defineConfig } from 'vitepress'
+import { Feed } from 'feed'
+import { writeFile } from 'fs/promises'
+import * as path from 'path'
+//import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
 
-const baseUrl = 'https://blog.goalonez.site'
-const RSS: RSSOptions = {
-  title: 'Goalonez Blog',
-  description: '万变不离其宗',
-  baseUrl,
-  copyright: 'Copyright © 2023-present Goalonez',
-  language: 'zh-cn',
-  icon: true,
-  author: {
-    name: 'Goalonez',
-    email: 'z471854680@gmail.com',
-    link: 'https://blog.goalonez.site'
-  },
-  filename: 'feed',
-  limit: 100,
-  log: true,
-  renderHTML: (filecontent: string) => {
-    // 使用正则表达式去除所有的 &ZeroWidthSpace;
-    return filecontent.replaceAll(/&ZeroWidthSpace;/g, '');
-  }
-}
+const map: Record<string, string> = {}
+
+// const baseUrl = 'https://blog.goalonez.site'
+// const RSS: RSSOptions = {
+//   title: 'Goalonez Blog',
+//   description: '万变不离其宗',
+//   baseUrl,
+//   copyright: 'Copyright © 2023-present Goalonez',
+//   language: 'zh-cn',
+//   icon: true,
+//   author: {
+//     name: 'Goalonez',
+//     email: 'z471854680@gmail.com',
+//     link: 'https://blog.goalonez.site'
+//   },
+//   filename: 'feed',
+//   limit: 100,
+//   log: true,
+//   renderHTML: (filecontent: string) => {
+//     // 使用正则表达式去除所有的 &ZeroWidthSpace;
+//     return filecontent.replaceAll(/&ZeroWidthSpace;/g, '');
+//   }
+// }
 
 export default defineConfig({
   // 标题（浏览器后缀）
@@ -40,11 +45,11 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
-  vite: {
-    // ↓↓↓↓↓
-    plugins: [RssPlugin(RSS)]
-    // ↑↑↑↑↑
-  },
+  // vite: {
+  //   // ↓↓↓↓↓
+  //   plugins: [RssPlugin(RSS)]
+  //   // ↑↑↑↑↑
+  // },
   // head设置
   head: [
     // 浏览器中图标
@@ -158,5 +163,83 @@ export default defineConfig({
     footer: {
 			copyright: 'Copyright © 2023-present Goalonez',
 		},
+  },
+  transformHtml(code, id, ctx) {
+    if (!/[\\/]404\.html$/.test(id)) {
+      map[id] = code
+    }
+  },
+  async buildEnd(siteConfig) {
+    const hostname = 'https://blog.goalonez.site'
+    const feed = new Feed({
+      id: hostname,
+      title: siteConfig.site.title,
+      description: siteConfig.site.description,
+      link: hostname,
+      copyright: '',
+    })
+
+    // 过滤出所有的 markdown 文件
+    const posts = await createContentLoader('./blog/*.md', {
+      excerpt: true,
+      render: true,
+    }).load()
+
+    // 按照时间排序
+    posts.sort(
+      (a, b) =>
+        +new Date(b.frontmatter.date as string) -
+        +new Date(a.frontmatter.date as string),
+    )
+
+    // 添加到 feed 中
+    for (const { url, excerpt, frontmatter, html } of posts) {
+      feed.addItem({
+        title: frontmatter.title,
+        id: `${hostname}${url}`,
+        link: `${hostname}${url}`,
+        description: excerpt,
+        content: html?.replaceAll('&ZeroWidthSpace;', ''),
+        author: feed.options.author ? [feed.options.author] : undefined,
+        date: frontmatter.date,
+      })
+    }
+
+    // 生成并写入文件
+    await writeFile(path.join(siteConfig.outDir, 'feed.rss'), feed.rss2())
+
+    function getAbsPath(outDir: string, p: string): string {
+      if (p.endsWith('.html')) {
+        return path.join(outDir, p)
+      }
+      if (p.endsWith('/')) {
+        return path.join(outDir, p, 'index.html')
+      }
+      return p
+    }
+    async function cleanHtml(
+      html: string,
+      baseUrl: string,
+    ): Promise<string | undefined> {
+      const { parse } = await import('node-html-parser')
+      const dom = parse(html).querySelector('main > .vp-doc > div')
+      dom?.querySelectorAll('img').forEach((it) => {
+        it.setAttribute(
+          'src',
+          new URL(it.getAttribute('src')!, baseUrl).toString(),
+        )
+      })
+      return dom?.innerHTML
+    }
+    for (let { url, excerpt, frontmatter, html } of posts) {
+      if (html?.includes('<img')) {
+        const htmlUrl = getAbsPath(siteConfig.outDir, url)
+        if (map[htmlUrl]) {
+          const baseUrl = path.join(hostname, siteConfig.site.base)
+          html = await cleanHtml(map[htmlUrl], baseUrl)
+        }
+      }
+    }
+
   },
 })
