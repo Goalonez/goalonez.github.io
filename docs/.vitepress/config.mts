@@ -134,11 +134,6 @@ export default defineConfig({
 			copyright: 'Copyright © 2023-present Goalonez',
 		},
   },
-  transformHtml(code, id, ctx) {
-    if (!/[\\/]404\.html$/.test(id)) {
-      map[id] = code
-    }
-  },
   async buildEnd(siteConfig) {
     const hostname = 'https://blog.goalonez.site'
     const feed = new Feed({
