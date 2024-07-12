@@ -208,21 +208,6 @@ export default defineConfig({
         +new Date(a.frontmatter.date as string),
     )
 
-    // async function cleanHtml(
-    //   html: string,
-    //   baseUrl: string,
-    // ): Promise<string | undefined> {
-    //   const { parse } = await import('node-html-parser')
-    //   const dom = parse(html).querySelector('main > .vp-doc > div')
-    //   dom?.querySelectorAll('img').forEach((it) => {
-    //     it.setAttribute(
-    //       'src',
-    //       new URL(it.getAttribute('src')!, baseUrl).toString(),
-    //     )
-    //   })
-    //   return dom?.innerHTML
-    // }
-
     async function cleanHtml(
       html: string,
       baseUrl: string,
@@ -268,7 +253,7 @@ export default defineConfig({
       } else {
         result = { cleanedHtml: html };
       }
-      
+
       //处理时区
       const date = new Date(frontmatter.date); 
       const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
