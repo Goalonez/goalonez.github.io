@@ -13,7 +13,7 @@ const RSS: RSSOptions = {
     email: 'z471854680@gmail.com',
     link: 'https://blog.goalonez.site'
   },
-  filename: 'feed.rss',
+  filename: 'feed',
 }
 
 export default defineConfig({

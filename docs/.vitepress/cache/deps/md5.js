@@ -1,6 +1,6 @@
 import {
   __commonJS
-} from "./chunk-Y2F7D3TJ.js";
+} from "./chunk-BUSYA2B4.js";
 
 // node_modules/crypt/crypt.js
 var require_crypt = __commonJS({
@@ -72,8 +72,7 @@ var require_crypt = __commonJS({
         base64ToBytes: function(base64) {
           base64 = base64.replace(/[^A-Z0-9+\/]/ig, "");
           for (var bytes = [], i = 0, imod4 = 0; i < base64.length; imod4 = ++i % 4) {
-            if (imod4 == 0)
-              continue;
+            if (imod4 == 0) continue;
             bytes.push((base64map.indexOf(base64.charAt(i - 1)) & Math.pow(2, -2 * imod4 + 8) - 1) << imod4 * 2 | base64map.indexOf(base64.charAt(i)) >>> 6 - imod4 * 2);
           }
           return bytes;

@@ -1,67 +1,67 @@
 {
-  "hash": "5294e115",
-  "configHash": "4850f16d",
-  "lockfileHash": "65df5d0a",
-  "browserHash": "837237e6",
+  "hash": "50f114b7",
+  "configHash": "7a122531",
+  "lockfileHash": "bf1fb977",
+  "browserHash": "a615ad3a",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "627d12e0",
+      "fileHash": "ff03f5fa",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
-      "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
+      "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "7cb86372",
+      "fileHash": "4121ac94",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "69501704",
+      "fileHash": "1bd67466",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
-      "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
+      "src": "../../../../node_modules/vitepress/node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "44dd641c",
+      "fileHash": "86236118",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "d61917ef",
+      "fileHash": "7731ea37",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "665d9203",
+      "fileHash": "95b2f5ed",
       "needsInterop": false
     },
     "md5": {
       "src": "../../../../node_modules/md5/md5.js",
       "file": "md5.js",
-      "fileHash": "1d2dd18a",
+      "fileHash": "6774f822",
       "needsInterop": true
     },
     "gitalk": {
       "src": "../../../../node_modules/gitalk/dist/gitalk.js",
       "file": "gitalk.js",
-      "fileHash": "0ba1cba6",
+      "fileHash": "27852a3a",
       "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-WFT6MZEP": {
-      "file": "chunk-WFT6MZEP.js"
+    "chunk-UFNYUUAL": {
+      "file": "chunk-UFNYUUAL.js"
     },
-    "chunk-3YS4HNIT": {
-      "file": "chunk-3YS4HNIT.js"
+    "chunk-AU3CLKKL": {
+      "file": "chunk-AU3CLKKL.js"
     },
-    "chunk-Y2F7D3TJ": {
-      "file": "chunk-Y2F7D3TJ.js"
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
     }
   }
 }
