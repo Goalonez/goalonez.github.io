@@ -145,7 +145,7 @@ export default defineConfig({
     })
 
     // 过滤出所有的 markdown 文件
-    const posts = await createContentLoader('./docs/blog/*.md', {
+    const posts = await createContentLoader('./blog/*.md', {
       excerpt: true,
       render: true,
     }).load()
