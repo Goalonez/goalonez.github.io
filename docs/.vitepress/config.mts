@@ -183,9 +183,16 @@ export default defineConfig({
       id: hostname,
       title: siteConfig.site.title,
       description: siteConfig.site.description,
+      language: 'zh-CN',
+      favicon: hostname + "/logo.ico",
       updated: new Date(),
       link: hostname,
       copyright: '',
+      author: {
+        name: "Goalonez",
+        email: "z471854680@gmail.com",
+        link: hostname
+      }
     })
 
     // 过滤出所有的 markdown 文件
@@ -201,19 +208,44 @@ export default defineConfig({
         +new Date(a.frontmatter.date as string),
     )
 
+    // async function cleanHtml(
+    //   html: string,
+    //   baseUrl: string,
+    // ): Promise<string | undefined> {
+    //   const { parse } = await import('node-html-parser')
+    //   const dom = parse(html).querySelector('main > .vp-doc > div')
+    //   dom?.querySelectorAll('img').forEach((it) => {
+    //     it.setAttribute(
+    //       'src',
+    //       new URL(it.getAttribute('src')!, baseUrl).toString(),
+    //     )
+    //   })
+    //   return dom?.innerHTML
+    // }
+
     async function cleanHtml(
       html: string,
       baseUrl: string,
-    ): Promise<string | undefined> {
-      const { parse } = await import('node-html-parser')
-      const dom = parse(html).querySelector('main > .vp-doc > div')
-      dom?.querySelectorAll('img').forEach((it) => {
-        it.setAttribute(
-          'src',
-          new URL(it.getAttribute('src')!, baseUrl).toString(),
-        )
-      })
-      return dom?.innerHTML
+    ): Promise<{ cleanedHtml?: string, firstImageUrl?: string }> {
+      const { parse } = await import('node-html-parser');
+      const dom = parse(html).querySelector('main > .vp-doc > div');
+      let firstImageUrl: string | undefined = undefined;
+    
+      dom?.querySelectorAll('img').forEach((it, index) => {
+        const src = it.getAttribute('src');
+        if (src) {
+          const absoluteSrc = new URL(src, baseUrl).toString();
+          it.setAttribute('src', absoluteSrc);
+          if (index === 0) {
+            firstImageUrl = absoluteSrc; // 记录第一个图片的路径
+          }
+        }
+      });
+    
+      return {
+        cleanedHtml: dom?.innerHTML,
+        firstImageUrl,
+      };
     }
 
     function getAbsPath(outDir: string, p: string): string {
@@ -227,6 +259,7 @@ export default defineConfig({
     }
  
     for (let { url, excerpt, frontmatter, html } of posts) {
+      let result;
       //处理时区
       const date = new Date(frontmatter.date); 
       const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
@@ -235,7 +268,7 @@ export default defineConfig({
         const htmlUrl = getAbsPath(siteConfig.outDir, url)
         if (map[htmlUrl]) {
           const baseUrl = path.join(hostname, siteConfig.site.base)
-          html = await cleanHtml(map[htmlUrl], baseUrl)
+          result = await cleanHtml(map[htmlUrl], baseUrl)
         }
       }
       // 添加到 feed 中
@@ -246,12 +279,13 @@ export default defineConfig({
         description: `${hostname}${url}`,
         //处理vitepress编译后生成的ZeroWidthSpace
         //处理gitalk
-        content: html?.replaceAll('&ZeroWidthSpace;', '')
+        content: result?.cleanedHtml?.replaceAll('&ZeroWidthSpace;', '')
         .replaceAll(/<span class="line-number">\d+<\/span><br>/g, '')
         .replaceAll(/<div class="gitalk-container"><div id="gitalk-container"><\/div><\/div>/g, '')
         .replaceAll(/<gitalk\/>/g, ''),
         author: feed.options.author ? [feed.options.author] : undefined,
         date: gmtDate, // 使用 GMT 时区的日期
+        image: result?.firstImageUrl || `${hostname}` + '/logo.jpg',
       })
     }
 
