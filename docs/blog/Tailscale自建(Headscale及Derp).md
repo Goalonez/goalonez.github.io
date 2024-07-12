@@ -1,3 +1,6 @@
+---
+date: 2023-12-03 23:30:51
+---
 # Tailscale自建(Headscale及Derp)
 
 ## Headscale安装

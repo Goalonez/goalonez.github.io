@@ -1,3 +1,6 @@
+---
+date: 2023-12-18 23:30:51
+---
 # SpringBoot与Redisson版本对应
 
 最近新项目需要搭个脚手架，在集成SpringBoot与Redisson时，发现需要版本对应。
