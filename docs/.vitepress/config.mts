@@ -3,6 +3,8 @@ import { Feed } from 'feed'
 import { writeFile } from 'fs/promises'
 import * as path from 'path'
 
+const map: Record<string, string> = {}
+
 export default defineConfig({
   // 标题（浏览器后缀）
   title: "Goalonez",
@@ -134,6 +136,11 @@ export default defineConfig({
 			copyright: 'Copyright © 2023-present Goalonez',
 		},
   },
+  transformHtml(code, id, ctx) {
+    if (!/[\\/]404\.html$/.test(id)) {
+      map[id] = code
+    }
+  },
   async buildEnd(siteConfig) {
     const hostname = 'https://blog.goalonez.site'
     const feed = new Feed({
@@ -172,5 +179,39 @@ export default defineConfig({
 
     // 生成并写入文件
     await writeFile(path.join(siteConfig.outDir, 'feed.rss'), feed.rss2())
+
+    function getAbsPath(outDir: string, p: string): string {
+      if (p.endsWith('.html')) {
+        return path.join(outDir, p)
+      }
+      if (p.endsWith('/')) {
+        return path.join(outDir, p, 'index.html')
+      }
+      return p
+    }
+    async function cleanHtml(
+      html: string,
+      baseUrl: string,
+    ): Promise<string | undefined> {
+      const { parse } = await import('node-html-parser')
+      const dom = parse(html).querySelector('main > .vp-doc > div')
+      dom?.querySelectorAll('img').forEach((it) => {
+        it.setAttribute(
+          'src',
+          new URL(it.getAttribute('src')!, baseUrl).toString(),
+        )
+      })
+      return dom?.innerHTML
+    }
+    for (let { url, excerpt, frontmatter, html } of posts) {
+      if (html?.includes('<img')) {
+        const htmlUrl = getAbsPath(siteConfig.outDir, url)
+        if (map[htmlUrl]) {
+          const baseUrl = path.join(hostname, siteConfig.site.base)
+          html = await cleanHtml(map[htmlUrl], baseUrl)
+        }
+      }
+    }
+
   },
 })
