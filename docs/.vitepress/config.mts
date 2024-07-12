@@ -28,7 +28,7 @@ export default defineConfig({
   // 文档最后更新时间展示
   lastUpdated: true,
   // 去除浏览器链接中的.html后缀(部署服务器时会导致页面重复问题，等待官方更新解决)
-  cleanUrls: true,
+  //cleanUrls: true,
   // markdown显示行数
   markdown: {
     lineNumbers: true,
