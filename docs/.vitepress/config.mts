@@ -1,4 +1,4 @@
-import { createContentLoader, defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress'
 import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
 
 const baseUrl = 'https://blog.goalonez.site'
@@ -16,6 +16,7 @@ const RSS: RSSOptions = {
   },
   filename: 'feed',
   limit: 100,
+  log: true,
   renderHTML: (filecontent: string) => {
     // 使用正则表达式去除所有的 &ZeroWidthSpace;
     return filecontent.replaceAll(/&ZeroWidthSpace;/g, '');
