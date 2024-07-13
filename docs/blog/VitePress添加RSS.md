@@ -180,6 +180,19 @@ export default defineConfig({
       return p
     }
  
+     //处理title
+    function getMiddlePart(postsUrl: string): string {
+      if (!postsUrl) {
+        return '';
+      }
+      const match = postsUrl.match(/\/blog\/(.*?)\.html/);
+      if (match && match[1]) {
+        return match[1];
+      } else {
+        return postsUrl;
+      }
+    }
+
     for (let { url, excerpt, frontmatter, html } of posts) {
       let result;
       //处理路径
@@ -196,9 +209,12 @@ export default defineConfig({
       const date = new Date(frontmatter.date); 
       const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
       
+      //处理title
+      const feedTitle = getMiddlePart(url);
+
       // 添加到 feed 中
       feed.addItem({
-        title: frontmatter.title,
+        title: feedTitle,
         id: `${hostname}${url}`,
         link: `${hostname}${url}`,
         description: `${hostname}${url}`,
