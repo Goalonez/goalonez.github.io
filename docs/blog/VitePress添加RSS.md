@@ -8,7 +8,7 @@ date: 2024-07-13 14:29:41
 ### vitepress-plugin-rss
 >我目前没有用这个实现，折腾的时候暂时解决不了一些问题，就直接换了种方式。
 
-一开始搜到了这款插件，简单看了下[vitepress-plugin-rss - npm](https://www.npmjs.com/package/vitepress-plugin-rss)文档感觉挺方便了。于是立马开始折腾。
+一开始搜到了这款插件，看了下[vitepress-plugin-rss - npm](https://www.npmjs.com/package/vitepress-plugin-rss)文档感觉挺方便的。于是立马开始折腾。
 
 #### 安装依赖
 ```shell
