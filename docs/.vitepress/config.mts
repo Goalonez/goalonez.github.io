@@ -12,7 +12,7 @@ const map: Record<string, string> = {}
 //   description: '万变不离其宗',
 //   baseUrl,
 //   copyright: 'Copyright © 2023-present Goalonez',
-//   language: 'zh-cn',
+//   language: 'zh-CN',
 //   icon: true,
 //   author: {
 //     name: 'Goalonez',
@@ -90,6 +90,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: 'VitePress添加RSS', link: '/blog/VitePress添加RSS' },
               { text: 'mt终于保号了', link: '/blog/mt终于保号了' },
               { text: 'MacOS还原自建Tailscale登录服务地址', link: '/blog/MacOS还原自建Tailscale登录服务地址' },
               { text: 'MacOS单独调用IDEA的文本对比工具', link: '/blog/MacOS单独调用IDEA的文本对比工具' },
@@ -177,17 +178,20 @@ export default defineConfig({
       map[id] = code
     }
   },
+  //构建完成后处理逻辑
   async buildEnd(siteConfig) {
     const hostname = 'https://blog.goalonez.site'
+    //初始化feed
     const feed = new Feed({
       id: hostname,
       title: siteConfig.site.title,
       description: siteConfig.site.description,
-      language: 'zh-CN',
+      language: siteConfig.site.lang,
       favicon: hostname + "/logo.ico",
+      //处理更新时间，没加的时候时区似乎不对
       updated: new Date(),
       link: hostname,
-      copyright: '',
+      copyright: siteConfig.site.themeConfig.footer.copyright,
       author: {
         name: "Goalonez",
         email: "z471854680@gmail.com",
@@ -208,6 +212,7 @@ export default defineConfig({
         +new Date(a.frontmatter.date as string),
     )
 
+    //处理内容及图片
     async function cleanHtml(
       html: string,
       baseUrl: string,
@@ -233,6 +238,7 @@ export default defineConfig({
       };
     }
 
+    //处理路径
     function getAbsPath(outDir: string, p: string): string {
       if (p.endsWith('.html')) {
         return path.join(outDir, p)
@@ -244,9 +250,10 @@ export default defineConfig({
     }
  
     for (let { url, excerpt, frontmatter, html } of posts) {
-      //处理图片路径
-      const htmlUrl = getAbsPath(siteConfig.outDir, url);
       let result;
+      //处理路径
+      const htmlUrl = getAbsPath(siteConfig.outDir, url);
+      //处理内容及图片
       if (map[htmlUrl]) {
         const baseUrl = path.join(hostname, siteConfig.site.base);
         result = await cleanHtml(map[htmlUrl], baseUrl);
