@@ -195,7 +195,6 @@ export default defineConfig({
       copyright: siteConfig.site.themeConfig.footer.copyright,
       author: {
         name: "Goalonez",
-        email: "z471854680@gmail.com",
         link: hostname
       }
     })
