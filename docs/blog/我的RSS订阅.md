@@ -1,3 +1,6 @@
+---
+date: 2024-08-02 12:41:54
+---
 # 我的RSS订阅
 ## RSS
 - 有条件的话推荐自荐RSSHub，这样还可以添加一些例如B站的关注之类的功能
@@ -126,6 +129,8 @@
 | Wincer | https://blog.itswincer.com/atom.xml |
 | Xargin | https://xargin.com/rss/ |
 | ziglang | https://ziglang.cc/index.xml |
+## 客户端
+[GitHub - Ranchero-Software/NetNewsWire: RSS reader for macOS and iOS.](https://github.com/Ranchero-Software/NetNewsWire)
 
 ## 快捷指令
 - 另外分享一个iOS上搭配Alook浏览器快捷打开今日热榜的快捷指令
@@ -133,5 +138,6 @@
 
 [快捷指令](https://www.icloud.com/shortcuts/5725f18ebfac4c66953c4de06508edad)
 
+![](assets/IMG_1154.png)
 
 <gitalk/>
