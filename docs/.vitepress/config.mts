@@ -91,6 +91,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: '我的RSS订阅', link: '/blog/我的RSS订阅' },
               { text: 'VitePress添加RSS', link: '/blog/VitePress添加RSS' },
               { text: 'mt终于保号了', link: '/blog/mt终于保号了' },
               { text: 'MacOS还原自建Tailscale登录服务地址', link: '/blog/MacOS还原自建Tailscale登录服务地址' },
