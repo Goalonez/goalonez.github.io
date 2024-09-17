@@ -91,6 +91,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: 'follow认证', link: '/blog/follow认证' },
               { text: '我的RSS订阅', link: '/blog/我的RSS订阅' },
               { text: 'VitePress添加RSS', link: '/blog/VitePress添加RSS' },
               { text: 'mt终于保号了', link: '/blog/mt终于保号了' },
