@@ -48,6 +48,8 @@ date: 2024-08-02 12:41:54
 
 
 ### 即刻圈子
+- 需要自建rsshub，官方的已经down了
+
 | 标题   |  url   |
 | --- | --- |
 | 产品安利社 | https://rsshub.app/jike/topic/564c2ce508987312006e2326 |
@@ -97,38 +99,43 @@ date: 2024-08-02 12:41:54
 | HelloGithub | https://hellogithub.com/rss |
 
 ### 博客
-| 标题   |  url   |
-| --- | --- |
-| Goalonez | https://blog.goalonez.site/feed.xml |
-| 宝硕 | https://blog.baoshuo.ren/atom.xml |
-| 被删 | https://godbasin.github.io/atom.xml |
-| 程序员的喵 | https://catcoding.me/atom.xml |
-| 构建我的被动收入 | https://www.bmpi.dev/index.xml |
-| 虹线 | https://1q43.blog/feed |
-| 罗磊的独立博客 | https://rsshub.app/luolei |
-| 美团技术团队 | https://tech.meituan.com/feed/ |
-| 面向信仰编程 | https://draveness.me/feed.xml |
-| 陪她去流浪 | https://blog.twofei.com/rss |
-| 苹果fans | https://www.mac52ipod.cn/feed.php |
-| 神楽坂 玉兔 | https://www.54yt.net/feed |
-| 王登科 | https://greatdk.com/feed |
-| 月光博客 | https://www.williamlong.info/feed |
-| 子方有料 | https://rsshub.app/ippa |
-| August | https://www.augusts.me/feed |
-| freelancer-x | http://freelancer-x.com/feed |
-| GeekPlux | https://geekplux.com/feed.xml |
-| GeekPlux-letters | https://letters.geekplux.com/rss/ |
-| Guyskk | https://blog.guyskk.com/feed.xml |
-| iDese | https://idese.co/feed/ |
-| KAIX.IN | https://kaix.in/feed/ |
-| linmi | https://linmi.cc/feed |
-| Luyu Huang | https://luyuhuang.tech/feed.xml |
-| Pseudoyu | https://www.pseudoyu.com/zh/index.xml |
-| Simon | https://song.al/feed.xml |
-| sugarat.top | https://sugarat.top/feed.rss |
-| Wincer | https://blog.itswincer.com/atom.xml |
-| Xargin | https://xargin.com/rss/ |
-| ziglang | https://ziglang.cc/index.xml |
+| 标题               | url                                   |
+| ---------------- | ------------------------------------- |
+| Goalonez         | https://blog.goalonez.site/feed.xml   |
+| 宝硕               | https://blog.baoshuo.ren/atom.xml     |
+| 被删               | https://godbasin.github.io/atom.xml   |
+| 程序员的喵            | https://catcoding.me/atom.xml         |
+| 构建我的被动收入         | https://www.bmpi.dev/index.xml        |
+| 虹线               | https://1q43.blog/feed                |
+| 罗磊的独立博客          | https://rsshub.app/luolei             |
+| 美团技术团队           | https://tech.meituan.com/feed/        |
+| 面向信仰编程           | https://draveness.me/feed.xml         |
+| 陪她去流浪            | https://blog.twofei.com/rss           |
+| 苹果fans           | https://www.mac52ipod.cn/feed.php     |
+| 神楽坂 玉兔           | https://www.54yt.net/feed             |
+| 王登科              | https://greatdk.com/feed              |
+| 月光博客             | https://www.williamlong.info/feed     |
+| 子方有料             | https://rsshub.app/ippa               |
+| August           | https://www.augusts.me/feed           |
+| freelancer-x     | http://freelancer-x.com/feed          |
+| GeekPlux         | https://geekplux.com/feed.xml         |
+| GeekPlux-letters | https://letters.geekplux.com/rss/     |
+| Guyskk           | https://blog.guyskk.com/feed.xml      |
+| iDese            | https://idese.co/feed/                |
+| KAIX.IN          | https://kaix.in/feed/                 |
+| linmi            | https://linmi.cc/feed                 |
+| Luyu Huang       | https://luyuhuang.tech/feed.xml       |
+| Pseudoyu         | https://www.pseudoyu.com/zh/index.xml |
+| Simon            | https://song.al/feed.xml              |
+| sugarat.top      | https://sugarat.top/feed.rss          |
+| Wincer           | https://blog.itswincer.com/atom.xml   |
+| Xargin           | https://xargin.com/rss/               |
+| ziglang          | https://ziglang.cc/index.xml          |
+### Youtube
+
+| 标题   | url                                                          |
+| ---- | ------------------------------------------------------------ |
+| 频道订阅 | https://www.youtube.com/feeds/videos.xml?channel_id=你关注的频道ID |
 ## 客户端
 [GitHub - Ranchero-Software/NetNewsWire: RSS reader for macOS and iOS.](https://github.com/Ranchero-Software/NetNewsWire)
 
