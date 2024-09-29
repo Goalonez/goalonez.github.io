@@ -133,12 +133,46 @@ date: 2024-08-02 12:41:54
 | ziglang          | https://ziglang.cc/index.xml          |
 ### Youtube
 
-| 标题   | url                                                          |
-| ---- | ------------------------------------------------------------ |
-| 频道订阅 | https://www.youtube.com/feeds/videos.xml?channel_id=你关注的频道ID |
-## 客户端
-[GitHub - Ranchero-Software/NetNewsWire: RSS reader for macOS and iOS.](https://github.com/Ranchero-Software/NetNewsWire)
+| 标题                | url                                                                          |
+| ----------------- | ---------------------------------------------------------------------------- |
+| 频道订阅              | https://www.youtube.com/feeds/videos.xml?channel_id=你关注的频道ID                 |
+| 大刘说说              | https://www.youtube.com/feeds/videos.xml?channel_id=UC9Q8KmHEHhDl_2LSiQNGLaQ |
+| 啾啾鞋               | https://www.youtube.com/feeds/videos.xml?channel_id=UCIF_gt4BfsWyM_2GOcKXyEQ |
+| 凯文一家Kevin Family  | https://www.youtube.com/feeds/videos.xml?channel_id=UCjwcZvgmqIsulOtsONVP7Lw |
+| 李自然说              | https://www.youtube.com/feeds/videos.xml?channel_id=UCgLUl1WDoDXUtxPaZeSZHsw |
+| 理科男士K一米           | https://www.youtube.com/feeds/videos.xml?channel_id=UCJMEiNh1HvpopPU3n9vJsMQ |
+| 蒙面财经MaskFinance   | https://www.youtube.com/feeds/videos.xml?channel_id=UCjJklW6MyT2yjHEOrRu-FOA |
+| 南半球聊财经            | https://www.youtube.com/feeds/videos.xml?channel_id=UCAH-NTSIOGRCix0yibcyeNQ |
+| 睡前消息              | https://www.youtube.com/feeds/videos.xml?channel_id=UCR4U_q_MojVVqYnawAVlryw |
+| 孙富贵               | https://www.youtube.com/feeds/videos.xml?channel_id=UCkHrq03gWLLx6vjS2DOJ8aA |
+| 巫师财经              | https://www.youtube.com/feeds/videos.xml?channel_id=UC55ahPQ7m5iJdVWcOfmuE6g |
+| 小岛大浪吹-非正经政经频道     | https://www.youtube.com/feeds/videos.xml?channel_id=UCYPT3wl0MgbOz63ho166KOw |
+| 小Lin说             | https://www.youtube.com/feeds/videos.xml?channel_id=UCilwQlk62k1z7aUEZPOB6yw |
+| 楊世光在金錢爆           | https://www.youtube.com/feeds/videos.xml?channel_id=UCrm095p7ZHRS1njmQ1wkgCg |
+| 有何高见              | https://www.youtube.com/feeds/videos.xml?channel_id=UCYw7Ycy0Hka6-uadHYJCEXQ |
+| 张捷观察              | https://www.youtube.com/feeds/videos.xml?channel_id=UCMcXBNgwlHSRkj_CTKNrsdQ |
+| cbvivi            | https://www.youtube.com/feeds/videos.xml?channel_id=UCCjvaaAMgMuP9Ru4jaUUR-w |
+| LIFEANO CLUB      | https://www.youtube.com/feeds/videos.xml?channel_id=UC5xunxPS6oZ1zzKufgREFuA |
+| MaoMao TV         | https://www.youtube.com/feeds/videos.xml?channel_id=UCflli65jykYa6D0AU8JSuGA |
+| OK哥环球探海记          | https://www.youtube.com/feeds/videos.xml?channel_id=UCJUIqG9JUcQ5saqXSYTF0gg |
+| Ryuuu TV / 學日文看日本 | https://www.youtube.com/feeds/videos.xml?channel_id=UCCZS6YMggfiRV_U7NuiNNsg |
 
+### Follow Lists
+| 标题               | id                |
+|--------------------|-------------------|
+| 新闻资讯集合       | 60700611172500480 |
+| telegram资讯集合    | 60699162828598272 |
+| 期刊集合           | 60703861258578944 |
+| 博客集合           | 60701170750974976 |
+| 即刻圈子集合       | 60697036629682176 |
+| 即刻摄影类圈子集合 | 60841590092741632 |
+- 需要配合[Follow](https://github.com/RSSNext/Follow)客户端
+![](assets/我的RSS订阅-202409290900.png)
+
+## 客户端推荐
+[NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire)
+
+[Follow](https://github.com/RSSNext/Follow):目前还在内测，需要邀请码才能使用。
 ## 快捷指令
 - 另外分享一个iOS上搭配Alook浏览器快捷打开今日热榜的快捷指令
 > Alook的快捷指令配置起来有点麻烦，不能自己任意加链接，只能选到最近打开过的页面历史记录。
