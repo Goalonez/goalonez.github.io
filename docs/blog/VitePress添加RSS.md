@@ -2,7 +2,6 @@
 date: 2024-07-13 14:29:41
 ---
 # VitePress添加RSS
-由于平时经常逛V2EX，前段时间论坛增加了VXNA板块，于是想着给Blog加个RSS，接入到VXNA去。
 
 ## 开动
 ### vitepress-plugin-rss
