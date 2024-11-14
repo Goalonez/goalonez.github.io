@@ -280,7 +280,8 @@ export default defineConfig({
 
       //处理时区
       const date = new Date(frontmatter.date); 
-      const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+      //const gmtDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+      const gmtDate = new Date(date.getTime());
       
       //处理title
       const feedTitle = getMiddlePart(url);
