@@ -56,8 +56,11 @@ export default defineConfig({
     // 浏览器中图标
     ["link", {rel: "icon", href: "/logo.ico"}],
     // 添加统计代码
-    ['script', {},
-    `
+    // 添加百度统计代码
+    [
+      "script",
+      {},
+      `
       var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
@@ -65,12 +68,28 @@ export default defineConfig({
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
       })();
+      `
+    ],
+    // 添加 Clarity 代码
+    [
+      "script",
+      {},
+      `
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "jud16drf49");
-    `
+      `
+    ],
+    // 添加 Umami 统计代码
+    [
+      "script",
+      {
+        defer: "true",
+        src: "https://cloud.umami.is/script.js",
+        "data-website-id": "03ba4e01-f061-4ea5-8f1d-6d8c912bb4ab"
+      }
     ]
   ],
   // 主题设置
