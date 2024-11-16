@@ -110,6 +110,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: 'Umami防止被广告插件屏蔽', link: '/blog/Umami防止被广告插件屏蔽' },
               { text: 'Blog迁移到了Vercel', link: '/blog/Blog迁移到了Vercel' },
               { text: '我的RSS订阅', link: '/blog/我的RSS订阅' },
               { text: 'VitePress添加RSS', link: '/blog/VitePress添加RSS' },
