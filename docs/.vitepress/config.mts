@@ -191,7 +191,7 @@ export default defineConfig({
       copyright: siteConfig.site.themeConfig.footer.copyright,
       author: {
         name: "Goalonez",
-        email: " ",
+        email: 'z471854680@gmail.com',
         link: hostname
       }
     })
@@ -298,6 +298,7 @@ export default defineConfig({
 
     // 生成并写入文件
     await writeFile(path.join(siteConfig.outDir, 'feed.xml'), feed.rss2())
+    await writeFile(path.join(siteConfig.outDir, 'atom.xml'), feed.atom1())
 
   },
   //处理RSS
