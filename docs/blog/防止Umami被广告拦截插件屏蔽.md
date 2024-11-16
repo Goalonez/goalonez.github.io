@@ -8,7 +8,7 @@ date: 2024-11-16 13:02:55
 
 最终选了umami，主要感觉UI还不错🤣
 
-但是发现ublock会屏蔽脚本，影响统计，所以去找一些办法，看到有自部署的、Cloudflare Workers代理的。
+但是发现ublock会屏蔽脚本，影响统计，所以去找了一些办法，看到有自部署的、Cloudflare Workers代理的。
 
 最终在[官方文档](https://umami.is/docs/guides/running-on-vercel#proxy-umami-analytics-via-vercel)发现了Vercel rewrites的方案，我的Blog就托管在Vercel，刚好可以很方便的实现。
 
