@@ -2,8 +2,6 @@ import { createContentLoader, defineConfig } from 'vitepress'
 import { Feed } from 'feed'
 import { writeFile } from 'fs/promises'
 import * as path from 'path'
-import { Analytics } from '@vercel/analytics/vue';
-
 
 const map: Record<string, string> = {}
 
@@ -26,16 +24,10 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
-  vite: {
-    // ↓↓↓↓↓
-    plugins: [
-      // 使用 Analytics 插件
-      Analytics({
-        // 默认配置即可，Vercel 会自动处理
-      }),
-    ]
-    // ↑↑↑↑↑
-  },
+  // vite: {
+  //   plugins: [
+  //   ]
+  // },
   // head设置
   head: [
     // 浏览器中图标
@@ -75,7 +67,17 @@ export default defineConfig({
         src: "/stats/script.js",
         "data-website-id": "03ba4e01-f061-4ea5-8f1d-6d8c912bb4ab"
       }
-    ]
+    ],
+    //vercel
+    [
+      'script',
+      {},
+      `window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };`,
+    ],
+    [
+      'script',
+      { defer: 'true', src: '/_vercel/insights/script.js' },
+    ],
   ],
   // 主题设置
   themeConfig: {
