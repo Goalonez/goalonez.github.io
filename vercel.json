@@ -6,7 +6,12 @@
       },
       {
         "source": "/vstats/:match*",
-        "destination": "https://blog.goaloenz.site/_vercel/insights/:match*"
+        "destination": "https://blog.goalonez.site/_vercel/insights/:match*"
+      }
+      ,
+      {
+        "source": "/svstats/:match*",
+        "destination": "https://blog.goalonez.site/_vercel/speed-insights/:match*"
       }
     ]
   }
