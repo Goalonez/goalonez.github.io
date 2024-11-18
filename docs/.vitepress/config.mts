@@ -76,7 +76,7 @@ export default defineConfig({
     ],
     [
       'script',
-      { defer: 'true', src: '/_vercel/insights/script.js' },
+      { defer: 'true', src: '/vstats/script.js' },
     ],
   ],
   // 主题设置

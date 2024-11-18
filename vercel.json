@@ -3,6 +3,10 @@
       {
         "source": "/stats/:match*",
         "destination": "https://cloud.umami.is/:match*"
+      },
+      {
+        "source": "/vstats/:match*",
+        "destination": "https://blog.goaloenz.site/_vercel/insights/:match*"
       }
     ]
   }
