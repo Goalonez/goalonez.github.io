@@ -9,6 +9,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.4.0",
     "feed": "^4.2.2",
     "gitalk": "^1.8.0",
     "md5": "^2.3.0",

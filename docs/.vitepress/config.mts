@@ -2,6 +2,8 @@ import { createContentLoader, defineConfig } from 'vitepress'
 import { Feed } from 'feed'
 import { writeFile } from 'fs/promises'
 import * as path from 'path'
+import { Analytics } from '@vercel/analytics/vue';
+
 
 const map: Record<string, string> = {}
 
@@ -24,11 +26,16 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
-  // vite: {
-  //   // ↓↓↓↓↓
-  //   plugins: [RssPlugin(RSS)]
-  //   // ↑↑↑↑↑
-  // },
+  vite: {
+    // ↓↓↓↓↓
+    plugins: [
+      // 使用 Analytics 插件
+      Analytics({
+        // 默认配置即可，Vercel 会自动处理
+      }),
+    ]
+    // ↑↑↑↑↑
+  },
   // head设置
   head: [
     // 浏览器中图标
