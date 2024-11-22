@@ -23,5 +23,17 @@ features:
   - title: Twitter
     details: 欢迎在Twitter上关注我
     link: https://twitter.com/Goalonez
+  - icon: 📰
+    title: 万变不离其宗
+    details: ✈️：一些值得订阅的博客RSS集合
+    link: https://t.me/blog_goalonez
+  - icon: 😼
+    title: 即刻圈子热门
+    details: ✈️：一些即刻圈子的热门列表RSS集合
+    link: https://t.me/jike_goalonez
+  - icon: 📷
+    title: 片刻
+    details: ✈️：一些摄影作品RSS集合
+    link: https://t.me/photo_goalonez
 ---
 
