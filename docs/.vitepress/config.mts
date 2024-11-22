@@ -90,7 +90,15 @@ export default defineConfig({
     // 首页右上角导航栏
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Blog', link: '/aboutme' }
+      { text: 'Blog', link: '/aboutme' },
+      {
+        text: 'Telegram Channel',
+        items: [
+          { text: '万变不离其宗📰', link: 'https://t.me/blog_goalonez' },
+          { text: '即刻圈子热门😼', link: 'https://t.me/jike_goalonez' },
+          { text: '片刻📷', link: 'https://t.me/photo_goalonez' }
+        ]
+      }
     ],
     // 文章左侧导航栏
     sidebar: [
