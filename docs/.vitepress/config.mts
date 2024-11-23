@@ -109,6 +109,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: '在Telegram中订阅RSS', link: '/blog/在Telegram中订阅RSS' },
               { text: '防止Umami被广告拦截插件屏蔽', link: '/blog/防止Umami被广告拦截插件屏蔽' },
               { text: 'Blog迁移到了Vercel', link: '/blog/Blog迁移到了Vercel' },
               { text: '我的RSS订阅', link: '/blog/我的RSS订阅' },
