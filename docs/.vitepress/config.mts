@@ -74,10 +74,10 @@ export default defineConfig({
       {},
       `window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };`,
     ],
-    [
-      'script',
-      { defer: 'true', src: '/vstats/script.js' },
-    ],
+    // [
+    //   'script',
+    //   { defer: 'true', src: '/vstats/script.js' },
+    // ],
     [
       'script',
       { defer: 'true', src: '/svstats/script.js' },
