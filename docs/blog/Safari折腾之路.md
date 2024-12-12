@@ -71,4 +71,9 @@ pipifier，效果肯定是不如 Alook 的，但是有总比没有好。而且�
 ##### 移动端页面后退按钮
 自己拿 ChatGPT 写的，方便单手操作的时候后退。
 
+### xSearch
+快捷搜索插件
+
+原本我以为它只是一款 safari 的搜索插件，使用下来感觉他有种 iOS 上的 raycast的身影。可以通过快捷指令搭配URL Scheme快速跳转到其他 app 上去实现一些功能。
+
 <gitalk/>
