@@ -34,19 +34,19 @@ export default defineConfig({
     ["link", {rel: "icon", href: "/logo.ico"}],
     // 添加统计代码
     // 添加百度统计代码
-    [
-      "script",
-      {},
-      `
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?9b77e13b749eb16bfaad0e97179ca700";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-      })();
-      `
-    ],
+    // [
+    //   "script",
+    //   {},
+    //   `
+    //   var _hmt = _hmt || [];
+    //   (function() {
+    //     var hm = document.createElement("script");
+    //     hm.src = "https://hm.baidu.com/hm.js?9b77e13b749eb16bfaad0e97179ca700";
+    //     var s = document.getElementsByTagName("script")[0]; 
+    //     s.parentNode.insertBefore(hm, s);
+    //   })();
+    //   `
+    // ],
     // 添加 Clarity 代码
     [
       "script",
