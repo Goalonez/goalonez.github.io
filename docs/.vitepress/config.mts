@@ -109,6 +109,7 @@ export default defineConfig({
           {
             text: '2024',
             items: [
+              { text: 'Raycast-Wrapped-2024', link: '/blog/Raycast-Wrapped-2024' },
               { text: 'Safari折腾之路', link: '/blog/Safari折腾之路' },
               { text: '在Telegram中订阅RSS', link: '/blog/在Telegram中订阅RSS' },
               { text: '防止Umami被广告拦截插件屏蔽', link: '/blog/防止Umami被广告拦截插件屏蔽' },
