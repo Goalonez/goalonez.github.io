@@ -5,7 +5,7 @@ date: 2025-04-19 20:50:32
 
 好久没写Blog了，忙着研究装修。最近极空间更新了Docker Compose，抽时间把原先跑的镜像都切换成了Docker Compose的形式运行，以后也方便更新和迁移。
 
-目前看更新的Docker Compose也只是勉强能用，还是有不少Bug。但是又不想把SSH放出去，而且以前刚放开SSH的时候遇到Docker Compose跑的容器没法在图形界面操作的问题，所以还是希望通过这次更新的Compose图形化的界面来管理YAML配置。好在遇到的问题基本都解决了。
+目前看更新的Docker Compose也只是勉强能用，还是有不少Bug。但是又不想把SSH放出去，而且以前刚放开SSH的时候遇到Docker Compose跑的容器没法在图形界面操作的问题，所以还是希望通过这次更新的Compose图形化的界面来管理YAML配置。
 
 ## 问题
 ### 团队空间的目录无法映射
