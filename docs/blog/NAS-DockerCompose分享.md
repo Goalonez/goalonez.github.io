@@ -341,6 +341,7 @@ networks:
 
 ### sun-panel
 - 导航页
+- 美化
 ```yaml
 services:
   sun-panel:
@@ -350,6 +351,21 @@ services:
       - "11888:3002"
     volumes:
       - /tmp/zfsv3/硬盘名/账号手机号/data/docker/sun-panel/conf:/app/conf
+    restart: unless-stopped
+    networks:
+      - defaultnet
+
+  sun-panel-helper:
+    image: madrays/sun-panel-helper:latest
+    container_name: sun-panel-helper
+    ports:
+      - "11887:80"
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/sun-panel/sun-panel-helper/data:/app/backend/data
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/sun-panel/sun-panel-helper/backups:/app/backend/backups
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/sun-panel/conf/custom:/app/backend/custom
+    environment:
+      - BACKEND_PORT=3001
     restart: unless-stopped
     networks:
       - defaultnet
