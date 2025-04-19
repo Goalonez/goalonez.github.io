@@ -1,7 +1,6 @@
 ---
 date: 2024-12-17 10:04:28
 ---
-
 # Raycast-Wrapped-2024
 #### 又是一年。
 ![](assets/CleanShot2024-12-17at09-51-12.png)

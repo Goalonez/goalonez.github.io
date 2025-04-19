@@ -107,6 +107,12 @@ export default defineConfig({
         text: 'Blog',
         items: [
           {
+            text: '2025',
+            items: [
+              { text: 'NAS-DockerCompose分享', link: '/blog/NAS-DockerCompose分享' },
+            ]
+          }, 
+          {
             text: '2024',
             items: [
               { text: 'Raycast-Wrapped-2024', link: '/blog/Raycast-Wrapped-2024' },
