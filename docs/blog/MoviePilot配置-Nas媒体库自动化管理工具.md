@@ -2,8 +2,6 @@
 date: 2024-07-02 23:30:51
 ---
 # MoviePilot配置-Nas媒体库自动化管理工具
-
->[docker compose直接跑](./NAS-DockerCompose分享.html#moviepilot)
 ## 仓库
 
 [官方仓库](https://github.com/jxxghp/MoviePilot)
@@ -207,6 +205,9 @@ date: 2024-07-02 23:30:51
 
 ### Docker安装
 
+>
+>[docker compose](./NAS-DockerCompose分享.html#moviepilot)
+>
 #### 搜索镜像
 
 > jxxghp/moviepilot
