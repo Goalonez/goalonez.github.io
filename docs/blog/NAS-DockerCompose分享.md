@@ -451,4 +451,22 @@ networks:
     external: true
 ```
 
+### HowToCook
+- 菜谱
+```yaml
+services:
+  how-to-cook:
+    image: ghcr.io/anduin2017/how-to-cook:latest
+    container_name: how-to-cook
+    ports:
+      - "12333:5000"
+    restart: unless-stopped
+    networks:
+      - defaultnet
+
+networks:
+  defaultnet:
+    external: true
+```
+
 <gitalk/>
