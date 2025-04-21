@@ -25,7 +25,7 @@ date: 2025-04-19 20:50:32
 ```yaml
 services:
   alist:
-    image: xhofe/alist:latest-aio
+    image: xhofe/alist:latest
     container_name: alist
     ports:
       - "11444:5244"
