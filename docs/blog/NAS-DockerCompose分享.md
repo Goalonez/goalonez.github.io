@@ -211,7 +211,7 @@ networks:
 ```yaml
 services:
   qbittorrent:
-    image: linuxserver/qbittorrent:latest
+    image: linuxserver/qbittorrent:4.6.7
     container_name: qbittorrent
     network_mode: host
     volumes:
@@ -229,7 +229,7 @@ services:
 ```yaml
 services:
   transmission:
-    image: linuxserver/transmission:latest
+    image: linuxserver/transmission:4.0.4
     container_name: transmission
     network_mode: host
     volumes:
