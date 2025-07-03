@@ -78,10 +78,10 @@ export default defineConfig({
     //   'script',
     //   { defer: 'true', src: '/vstats/script.js' },
     // ],
-    [
-      'script',
-      { defer: 'true', src: '/svstats/script.js' },
-    ],
+    // [
+    //   'script',
+    //   { defer: 'true', src: '/svstats/script.js' },
+    // ],
   ],
   // 主题设置
   themeConfig: {
