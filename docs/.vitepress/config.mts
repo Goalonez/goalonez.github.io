@@ -109,6 +109,7 @@ export default defineConfig({
           {
             text: '2025',
             items: [
+              { text: 'Raycast-Windows初步体验', link: '/blog/Raycast-Windows初步体验' },
               { text: 'NAS-DockerCompose分享', link: '/blog/NAS-DockerCompose分享' },
             ]
           }, 
