@@ -127,6 +127,7 @@ services:
       - icloud_china=true
       - auth_china=true
       - auto_delete=true
+      - skip_check=true #跳过检测，处理全部文件，否则只有在有新的照片的时候才能触发删除
       - notification_type=Telegram #默认不需要，通知
       - telegram_token= #你的机器人token
       - telegram_chat_id= #你的tgid
