@@ -3,7 +3,7 @@ date: 2025-07-26 13:35:24
 ---
 # Loon配置
 
-之前发现B站经常加载不出来评论区，发现是QuantumultX的B站去广告插件导致的。看Tg上的公告似乎没有解决办法，要么切到外区App要么换工具。结果白版App用了没多久，B站就发公告不维护了。于是，最近从QuantumultX切换到了Loon，目前使用下来体验非常不错。所以也分享一下我的配置。
+之前B站经常加载不出来评论区，发现是QuantumultX的B站去广告插件导致的。看Tg上的公告似乎没有解决办法，要么切到外区App要么换工具。结果白版App用了没多久，B站就发公告不维护了。于是，最近从QuantumultX切换到了Loon，目前使用下来体验非常不错。所以也分享一下我的配置。
 ## 图标
 [Semporia图标库［彩色手绘］](https://www.nsloon.com/openloon/import?iconset=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Semporia.json)
 ## 配置
