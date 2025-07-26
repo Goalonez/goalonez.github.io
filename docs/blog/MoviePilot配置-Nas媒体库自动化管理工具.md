@@ -6,7 +6,9 @@ date: 2024-07-02 23:30:51
 ## 界面
 
 ![](assets/mp仪表盘.png)
+
 ![](assets/mp推荐页.png)
+
 ![](assets/mp插件页.png)
 
 
@@ -46,15 +48,11 @@ date: 2024-07-02 23:30:51
 [官方仓库](https://github.com/jxxghp/MoviePilot)
 
 感谢大佬的开源
-
 ## 前置条件
 
-> 请先准备好`认证站点`，否则装了也无法使用。
->
-> 具体`认证站点`可参考官方仓库下[AUTH_SITE](https://wiki.movie-pilot.org/configuration)的内容
->
+> - 请先准备好`认证站点`，否则装了也无法使用。
+> - 具体`认证站点`可参考官方仓库下[AUTH_SITE](https://wiki.movie-pilot.org/configuration)的内容
 > - 请注意`认证站点`和`支持站点`并不相同。MoviePilot支持管理的站点并不代表能够用来认证。
-
 
 ## 前置-安装CookieCloud插件（可选）
 
@@ -62,7 +60,7 @@ date: 2024-07-02 23:30:51
 - 如果手动在MoviePilot站点管理里添加，`也可以选择不装`
 
 #### 安装地址
-- Chrome插件商店
+- [Chrome插件商店](https://chromewebstore.google.com/detail/cookiecloud/ffjiejobkoibkjlhjnlgmcnnigeelbdl)
 
 #### 界面
 
@@ -78,7 +76,7 @@ date: 2024-07-02 23:30:51
 
 ### qBittorrent（用于下载任务）
 #### 安装
-参考[官方文档](https://www.zspace.cn/help/?articleId=100124)或者[docker compose](./NAS-DockerCompose分享.html#qbittorrent)
+参考[官方文档](https://www.zspace.cn/help/?articleId=100124)或者[Docker Compose](./NAS-DockerCompose分享.html#qbittorrent)
 
 | 目录                | 容器内路径  | 备注                                              |
 | ------------------- | ----------- | ------------------------------------------------- |
@@ -98,7 +96,7 @@ date: 2024-07-02 23:30:51
 
 #### 安装
 
-参考[docker compose](./NAS-DockerCompose分享.html#transmission)
+参考[Docker Compose](./NAS-DockerCompose分享.html#transmission)
 
 | 本地文件夹路径（自己创建） | 容器内路径  | 备注                                                         |
 | -------------------------- | ----------- | ------------------------------------------------------------ |
@@ -156,17 +154,17 @@ date: 2024-07-02 23:30:51
 
 ### 安装
 
-参考[docker compose](./NAS-DockerCompose分享.html#moviepilot)
+参考[Docker Compose](./NAS-DockerCompose分享.html#moviepilot)
 
-| 本地文件夹路径（自己创建）                | 容器内路径  | 备注                                               |
-| ----------------------------------------- | ----------- | -------------------------------------------------- |
-| /个人空间/docker/tr/config/torrents       | /tr         | Docker安装的Transmission的种子文件夹               |
-| /个人空间/docker/qb/qBittorrent/BT_backup | /qb         | Docker安装的qBittorrent的种子文件夹                |
-| /个人空间/docker/MoviePilot/config        | /config     | MoviePilot的配置文件夹                             |
+| 本地文件夹路径（自己创建）                         | 容器内路径       | 备注                             |
+| ------------------------------------- | ----------- | ------------------------------ |
+| /个人空间/docker/tr/config/torrents       | /tr         | Docker安装的Transmission的种子文件夹    |
+| /个人空间/docker/qb/qBittorrent/BT_backup | /qb         | Docker安装的qBittorrent的种子文件夹     |
+| /个人空间/docker/MoviePilot/config        | /config     | MoviePilot的配置文件夹               |
 | /个人空间/docker/MoviePilot/cache         | /moviepilot | MoviePilot的浏览器内核，不映射的话每次都会重新下载 |
-| /团队空间/公共下载                        | /downloads  | 默认盘2下载目录                                    |
-| /团队空间/公共下载1                       | /downloads1 | 盘1下载目录，为了`目录监控`插件，方便整理到媒体库  |
-| /团队空间/公共下载3                       | /downloads3 | 盘3下载目录，为了`刷流`插件                        |
+| /团队空间/公共下载                            | /downloads  | 默认盘2下载目录                       |
+| /团队空间/公共下载1                           | /downloads1 | 盘1下载目录                         |
+| /团队空间/公共下载3                           | /downloads3 | 盘3下载目录，为了`刷流`插件                |
 
 #### 启动容器
 
@@ -178,6 +176,7 @@ date: 2024-07-02 23:30:51
 
 #### 下载器
 ![](assets/ab503899-393e-40a8-89cb-f1a75373c899%201.png)
+
 ![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261305.png)
 
 ### 存储&目录
@@ -204,7 +203,7 @@ qb
 - 配合`二级分类策略`插件，修改会方便一点。
 - 参考分类[配置文件](https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml)
 
-![image-20240525104059002](assets/image-20240525104059002.png)
+![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261330.png)
 
 - 修改配置文件（可以直接通过上面的插件修改）
   - `/个人空间/docker/MoviePilot/config/category.yaml`
@@ -364,10 +363,7 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 ## 支持阿里云盘、115网盘
 
 文件管理-左上角-选择对应网盘-扫码登录即可
-
-> 需要重新拉取镜像更新版本才会出现
-
-![image-20240619203145041](assets/image-20240619203145041.png)
+![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261332.png)
 
 ## 其他教程
 
