@@ -2,85 +2,83 @@
 date: 2024-07-02 23:30:51
 ---
 # MoviePilot配置-Nas媒体库自动化管理工具
-## 仓库
+
+## 界面
+
+![](assets/mp仪表盘.png)
+![](assets/mp推荐页.png)
+![](assets/mp插件页.png)
+
+
+## 功能介绍
+
+| 类别        | 子类别     | 内容                                                                                    |
+| --------- | ------- | ------------------------------------------------------------------------------------- |
+| 仪表盘       | -       | 展示一些基础统计信息                                                                            |
+| 搜索结果      | -       | 搜索已添加站点里的种子资源                                                                         |
+| 发现        | 推荐      | 影视资源榜单<br />- 添加到订阅<br />- 搜索已添加站点里的具体种子资源                                            |
+|           | 探索      | 搜索已添加站点里的种子资源                                                                         |
+| 订阅（自动追剧）⭐ | 电影      | -                                                                                     |
+|           | 电视剧     | -                                                                                     |
+|           | 工作流     |                                                                                       |
+|           | 日历      | 订阅后的影视更新时间展示                                                                          |
+| 整理        | 正在下载    | 当前正在下载的任务信息                                                                           |
+|           | 媒体整理⭐   | 媒体库整理纪录<br />经过MoviePilot的资源全靠这个历史记录来管理，比较重要                                          |
+|           | 文件管理    | 配置的下载目录下的文件列表<br />也可以跳转到上层，展示整个Docker容器的目录<br />支持`阿里云盘`、`115网盘`、`RClone`、`OpenList` |
+| 系统        | 插件⭐     | 插件系统                                                                                  |
+|           | 站点管理⭐   | PT站点管理                                                                                |
+|           | 用户管理    | 管理用户信息                                                                                |
+|           | 设定      | 系统设置内容                                                                                |
+|           | --系统    | 设置api地址、令牌、下载器、媒体服务器等                                                                 |
+|           | --存储&目录 | 设置本地或三方挂载、媒体目录、刮削规则                                                                   |
+|           | --站点    | 设置同步CookieCloud<br />站点刷新<br />站点重置                                                   |
+|           | --规则    | 设置自定义规则、优先级规则、下载规则                                                                    |
+|           | --搜索    | 媒体数据源<br />搜索站点选择                                                                     |
+|           | --订阅    | 订阅模式设置、订阅站点选择                                                                         |
+|           | --服务    | 操作定时任务                                                                                |
+|           | --缓存    | 管理缓存                                                                                  |
+|           | --通知    | 设置通知相关内容<br />微信、Telegram、Slack、SynologyChat、VoceChat、WebPush、自定义                     |
+|           | --词表    | 自定义识别词、制作组、字幕组、占位符、屏蔽词                                                                |
+|           | --关于    | 系统版本信息                                                                                |
+
+## 仓库地址
 
 [官方仓库](https://github.com/jxxghp/MoviePilot)
 
 感谢大佬的开源
 
+## 前置条件
+
 > 请先准备好`认证站点`，否则装了也无法使用。
 >
-> 具体`认证站点`可参考官方仓库下AUTH_SITE的内容
+> 具体`认证站点`可参考官方仓库下[AUTH_SITE](https://wiki.movie-pilot.org/configuration)的内容
 >
 > - 请注意`认证站点`和`支持站点`并不相同。MoviePilot支持管理的站点并不代表能够用来认证。
 
-## UI展示
 
-![image-20240119142233843](assets/image-20240119142233843.png)
-
-![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202411231945.png)
-
-![image-20240602113955154](assets/image-20240602113955154.png)
-
-## 功能介绍
-
-| 类别              | 子类别    | 内容                                                         |
-| ----------------- | --------- | ------------------------------------------------------------ |
-| 仪表盘            | -         | 展示一些基础信息                                             |
-| 发现              | 推荐      | 搜索影视资源<br />- 添加订阅<br />- 搜索已添加站点里的种子资源 |
-|                   | 资源搜索  | 搜索已添加站点里的种子资源                                   |
-| 订阅（自动追剧）⭐ | 电影      | -                                                            |
-|                   | 电视剧    | -                                                            |
-|                   | 日历      | 更新时间展示                                                 |
-| 整理              | 正在下载  | 当前正在下载的任务信息                                       |
-|                   | 历史记录⭐ | 媒体库整理纪录<br />经过MoviePilot的资源全靠这个历史记录来管理，比较重要 |
-|                   | 文件管理  | 配置的下载目录下的文件列表<br />也可以跳转到上层，展示整个Docker容器的目录<br />支持`阿里云盘`、`115网盘` |
-| 系统              | 插件⭐     | 插件系统                                                     |
-|                   | 站点管理⭐ | PT站点管理                                                   |
-|                   | 设定      | 系统设置内容                                                 |
-|                   | --用户    | -                                                            |
-|                   | --连接    | 设置下载器<br />设置媒体服务器                               |
-|                   | --目录    | 设置下载目录和媒体库目录<br />设置整理模式                   |
-|                   | --站点    | 设置同步CookieCloud<br />设置下载优先级                      |
-|                   | --搜索    | 媒体数据源<br />站点选择<br />优先级规则                     |
-|                   | --订阅    | 站点选择<br />优先级规则                                     |
-|                   | --服务    | 自带的服务，可以手动执行                                     |
-|                   | --通知    | 设置通知密钥<br />选择通知方案，微信、Tg、Slack、群晖        |
-|                   | --词表    | -                                                            |
-|                   | --关于    | 系统版本信息                                                 |
-
-## 前置-安装CookieCloud（可选）
+## 前置-安装CookieCloud插件（可选）
 
 - 用于添加站点管理
 - 如果手动在MoviePilot站点管理里添加，`也可以选择不装`
 
 #### 安装地址
-  - [Github仓库地址](https://github.com/easychen/CookieCloud/releases)
-  - 也可以在Chrome插件商店安装
+- Chrome插件商店
 
 #### 界面
 
 ![image-20240120140415919](assets/image-20240120140415919.png)
 
 #### 配置
-
-- 服务器地址（自选1种）
-  - 使用公共CookieCloud远程服务器（默认）：服务器地址为：https://movie-pilot.org/cookiecloud
-  - 使用MoviePilot内建的本地Cookie服务：在 `设定` - `站点` 中打开`启用本地CookieCloud服务器`后，将启用内建的CookieCloud提供服务，服务地址为：`http://localhost:${NGINX_PORT}/cookiecloud/`, Cookie数据加密保存在配置文件目录下的`cookies`文件中
-  - 自建服务CookieCloud服务器：参考 [CookieCloud](https://github.com/easychen/CookieCloud) 项目进行搭建，docker镜像请点击 [这里](https://hub.docker.com/r/easychen/cookiecloud)。极空间的话直接搜索`easychen_cookiecloud`。
-- Key和密码生成后自己记住
+- 生成用户KEY、端对端加密密码
+    - 先记下来，后续在mp的`设定-站点-站点同步`中进行配置，勾选`启用本地CookieCloud服务器`，启用内建的CookieCloud提供服务，服务地址为：`http://localhost:${NGINX_PORT}/cookiecloud/`
 - 域名一行一个
   - 建议只配置PT站就行了，没必要把所有Cookie都同步上去，虽然理论上有KEY和密码加密。
 
 ## 前置-下载器安装
 
 ### qBittorrent（用于下载任务）
-
-参考[官方文档](https://www.zspace.cn/help/?articleId=100124)
-
-- 关闭性能限制
-
-- 如果有多盘位的话可以参考下面我的下载目录设置
+#### 安装
+参考[官方文档](https://www.zspace.cn/help/?articleId=100124)或者[docker compose](./NAS-DockerCompose分享.html#qbittorrent)
 
 | 目录                | 容器内路径  | 备注                                              |
 | ------------------- | ----------- | ------------------------------------------------- |
@@ -98,17 +96,9 @@ date: 2024-07-02 23:30:51
 
 ### Transmission（用于保种任务）
 
-#### Docker安装
+#### 安装
 
-#####  搜索镜像
-
-> chisbread_transmission
-
-##### 启动容器
-
-###### 1.关闭性能限制
-
-###### 2.文件夹映射
+参考[docker compose](./NAS-DockerCompose分享.html#transmission)
 
 | 本地文件夹路径（自己创建） | 容器内路径  | 备注                                                         |
 | -------------------------- | ----------- | ------------------------------------------------------------ |
@@ -119,25 +109,8 @@ date: 2024-07-02 23:30:51
 | /团队空间/公共下载1        | /downloads1 | 盘1下载目录，方便`目录监控`插件整理到媒体库                  |
 | /团队空间/公共下载3        | /downloads3 | 盘3下载目录，为了`刷流`插件                                  |
 
-###### 3.端口
+> 由于极空间自带下载端口为51413，可能会冲突，要么修改端口，要么直接服务控制里关掉自带的下载
 
-> 由于极空间自带下载为51413，防止冲突，所以等会环境变量里PEERPORT设置成51419
-
-| 映射端口 | 容器内端口 |
-| -------- | ---------- |
-| 51419    | 51419 TCP  |
-| 51419    | 51419 UDP  |
-| 9091     | 9091       |
-
-###### 4.环境变量
-
-| 环境变量              | 值       | 备注   |
-| --------------------- | -------- | ------ |
-| USER                  | 自己设置 | 账号   |
-| PASS                  | 自己设置 | 密码   |
-| PUID                  | 0        | 权限   |
-| PGIU                  | 0        | 权限   |
-| TRANSMISSION_WEB_HOME | /web     | web UI |
 
 #### Web UI
 
@@ -146,28 +119,6 @@ date: 2024-07-02 23:30:51
 被大佬安利了这个新的UI，确实流畅不少。替换了原先使用的[transmission-web-control](https://github.com/transmission-web-control/transmission-web-control)。
 
 ![image-20240522190424733](assets/image-20240522190424733.png)
-
-~~[transmission-web-control仓库地址](https://github.com/transmission-web-control/transmission-web-control)~~
-
-![image-20240224131221305](assets/image-20240224131221305.png)
-
-##### 补充
-
-###### 1.Transmission-web-control卡顿解决
-
-根据药丸论坛的教程，可以设置`/个人空间/docker/tr/config/tr-web-control/config.js`下的`pageSize`调整到50以下。然后重启容器，清除浏览器里Transmission页面的缓存。这样默认分页会从200变得小一点。
-
-###### 2.Transmission-web-control任务列表文件大小与PT站不一致
-
-由于默认文件大小是按1000来计算的，所以可以修改源代码进行解决。
-
-- 拉取代码
-- 找到路径`src/lib/utils.ts`
-- 搜索`const k = 1000;`，改成`1024`
-- 执行`npm install`、`npm run build`打包
-- 打包出来的`dist`即`/个人空间/docker/tr/web`
-
-> 有点麻烦，其实也没什么必要去改。
 
 ## 前置-目录概况
 
@@ -203,20 +154,9 @@ date: 2024-07-02 23:30:51
 
 ## 主要-安装MoviePilot⭐
 
-### Docker安装
+### 安装
 
->
->[docker compose](./NAS-DockerCompose分享.html#moviepilot)
->
-#### 搜索镜像
-
-> jxxghp/moviepilot
-
-#### 安装容器
-
-###### 1.文件夹路径映射
-
-![image-20240217010329978](assets/image-20240217010329978.png)
+参考[docker compose](./NAS-DockerCompose分享.html#moviepilot)
 
 | 本地文件夹路径（自己创建）                | 容器内路径  | 备注                                               |
 | ----------------------------------------- | ----------- | -------------------------------------------------- |
@@ -228,105 +168,43 @@ date: 2024-07-02 23:30:51
 | /团队空间/公共下载1                       | /downloads1 | 盘1下载目录，为了`目录监控`插件，方便整理到媒体库  |
 | /团队空间/公共下载3                       | /downloads3 | 盘3下载目录，为了`刷流`插件                        |
 
-###### 2.网络
-
-- host
-
-###### 3.环境
-
-- 这里只提供主要的一些配置
-- 更多配置可以参考[官方仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
-- ![image-20240217010610952](assets/image-20240217010610952.png)
-
-| 环境变量                  | 值                          | 备注                                                         |
-| ------------------------- | --------------------------- | ------------------------------------------------------------ |
-| PORT                      | 3001                        | API服务端口，默认`3001`，可自行修改，不能与WEB服务端口冲突   |
-| NGINX_PORT                | 3000                        | WEB服务端口，默认`3000`，可自行修改，不能与API服务端口冲突   |
-| PROXY_HOST                | `http://nas的局域网ip:7890` | 没有呆梨就别填，主要是为了tg通知和Github更新版本             |
-| MOVIEPILOT_AUTO_UPDATE    | true                        | 自动更新                                                     |
-| AUTH_SITE                 | hdfans,iyuu                 | 认证站点，具体参考[仓库](https://github.com/jxxghp/MoviePilot?tab=readme-ov-file#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F) |
-| HDFANS_UID                |                             | 自行根据站点填写                                             |
-| HDFANS_PASSKEY            |                             | 自行根据站点填写                                             |
-| IYUU_SIGN                 |                             | [iyuu](https://iyuu.cn/)获取                                 |
-| BIG_MEMORY_MODE           | 默认false，可以改成true     | 大内存模式，速度更快，但同时占用更多内存                     |
-| SUBSCRIBE_STATISTIC_SHARE | 默认true                    | 订阅匿名共享数据                                             |
-| PLUGIN_STATISTIC_SHARE    | 默认true                    | 插件下载匿名共享数据                                         |
-| TMDB_API_DOMAIN           | api.tmdb.org                | TMDB API地址,有呆梨不用写这个变量，默认就是api.themoviedb.org` |
-| TMDB_IMAGE_DOMAIN         | static-mdb.v.geilijiasu.com | TMDB API地址,有呆梨不用写这个变量，默认就是`image.tmdb.org`  |
-| PLUGIN_MARKET             | 见下方                      | 仓库扩展`当前版本已经内置了流行的三方仓库，所以这个变量没有特别需求的话应该也不用加了` |
-
-###### 3.1仓库扩展
-
-```
-https://github.com/jxxghp/MoviePilot-Plugins,https://github.com/thsrite/MoviePilot-Plugins,https://github.com/honue/MoviePilot-Plugins,https://github.com/dandkong/MoviePilot-Plugins,https://github.com/Aqr-K/MoviePilot-Plugins,https://github.com/AnjoyLi/MoviePilot-Plugins,https://github.com/WithdewHua/MoviePilot-Plugins,https://github.com/almus2zhang/MoviePilot-Plugins,https://github.com/baozaodetudou/MoviePilot-Plugins,https://github.com/HankunYu/MoviePilot-Plugins,https://github.com/InfinityPacer/MoviePilot-Plugins,https://github.com/Pixel-LH/MoviePilot-Plugins,https://github.com/lightolly/MoviePilot-Plugins, https://github.com/so1ve/MoviePilot-Plugins
-```
-
 #### 启动容器
 
 - 访问`http://nas的局域网ip:3000`，默认用户名admin，初始化密码在日志中，登录后自行修改。
 
 ## MoviePilot配置介绍
 
-### 连接
+### 系统
 
-![image-20240523230952495](assets/image-20240523230952495.png)
+#### 下载器
+![](assets/ab503899-393e-40a8-89cb-f1a75373c899%201.png)
+![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261305.png)
 
-### 目录
-
-> 我也不确定这样使用是否正确，欢迎大佬补充。
-
-- 通过目前的方式配置的话，极影视中也是三大类。动漫、电影、电视剧。每种分类分别选中link目录下的对应目录即可。
-  - 具体方案可以自己配置完后在历史记录找个文件`重新整理`一下试试就知道了。
-
+### 存储&目录
 - 目前的效果大概是这个样子的，qb是下载目录，link是媒体库。
-
-![image-20240525110818988](assets/image-20240525110818988.png)
-
-#### 下载目录
-
-- 我的策略是下载目录只进行`一级分类`，也就是只分成动漫、电影、电视剧。`我是因为兼容以前的动漫二级分类，懒得重新整理媒体库，所以设置了一堆动漫目录`。
-- 由于下载目录只有一级分类，所以这么多动漫分类其实路径都是同一个。
-- 如果下面`二级分类配置`动漫不细分，只设置`genre_ids: '16'`的话，我理解是只需要设置两个动漫目录就行了，一个电影下的，一个电视剧下的。
-
-![image-20240525104131059](assets/image-20240525104131059.png)
-
-#### 媒体库目录
-
-- 媒体库目录进行了二级分类。因为目前版本动漫是直接存在电影和电视剧分类下，所以将动漫分类优先级提高。最终在目录路径上其实还是区分出了电影、电视剧、动漫三大类。`我是为了兼容以前的动漫二级分类，懒得重新整理媒体库，所以设置了一堆动漫目录`
-- 由于媒体库目录是二级分类，所以这么多动漫分类都指定了对应目录。`因为测试了一下指定在动漫目录不会自动分类`
-- 如果下面`二级分类配置`动漫不细分，只设置`genre_ids: '16'`的话，我理解是只需要设置两个动漫目录就行了，一个电影下的，一个电视剧下的。让极影视或者其他媒体服务器自己去处理媒体库分类。
-
-![image-20240525104231475](assets/image-20240525104231475.png)
+    - 动漫的分类是以前的版本遗留下来的，目前已经全部归属到电视剧里了，当然如果想拆分也可以自己调整配置
+```
+link
+├── 电视剧
+│   ├── 国产剧
+│   ├── 欧美剧
+│   ├── 日韩剧
+│   ├── 中国动漫
+│   └── 中国纪录
+├── 电影
+│   ├── 中国动画电影
+│   └── 欧美电影
+qb
+├── 电视剧
+├── 电影
+```
+![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261306.png)
 
 #### 媒体库分类示例
-
 - 配合`二级分类策略`插件，修改会方便一点。
+- 参考分类[配置文件](https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml)
 
 ![image-20240525104059002](assets/image-20240525104059002.png)
-
-> 2024-05-25：引用自官方频道
->
-> - 目前的目录设定结构已经可以做到按二级分类精细化设定目录，动漫一级分类已没有意义，现已取消，同时解决了动漫分类错误的问题。如动漫需单独一级目录，可在目录设定中对电影/电视剧下的动漫二级分类单独设定目录，并将优先级调高
->
-> - 【动漫独立一级目录配置示例】
->
->   1. 仅适用于`v1.9.1-1+`
->   2. 在分类策略配置文件中 movie/tv 下配置好动漫二级分类，`anime配置项已弃用`
->   3. 在目录设定中按如下格式新增目录，并提高优先级，仅为示例，同样的原理名称和路径都可以自己灵活调整，也可以不加（此时在电影/电视剧二级目录下）
->
->   \- 路径：/video/动漫
->
->     类型：电影
->
->     类别：动画电影
->
->   \- 路径：/video/动漫
->
->     类型：电视剧
->
->     类别：国漫
->
->   参考分类[配置文件](https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml)
 
 - 修改配置文件（可以直接通过上面的插件修改）
   - `/个人空间/docker/MoviePilot/config/category.yaml`
@@ -388,41 +266,27 @@ tv:
 
 #### 站点同步
 
-如果自建的话就填自己的ip端口
-
-![image-20240515222813517](assets/image-20240515222813517.png)
-
+![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261314.png)
 - 执行
   - 设定-服务-同步CookieCloud站点
   - 同步完成即可在`站点管理`中看到自己的PT站了
 
 ![image-20240119152711398](assets/image-20240119152711398.png)
 
-### 搜索
+### 规则
 
-![image-20240515222931412](assets/image-20240515222931412.png)
-
-### 订阅
-
-![image-20240515222957184](assets/image-20240515222957184.png)
-
-#### 订阅规则
-
-> 引用自MoviePilot群组
-
+#### 优先级规则组
 ```
-SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > SPECSUB & CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 4K & !BLU & !DOLBY > 4K & !BLU > SPECSUB & CNSUB & 1080P & BLURAY & !DOLBY & !BLU & !UHD & !REMUX > CNSUB & 1080P & !BLU & BLURAY & !DOLBY & !UHD & !REMUX > SPECSUB & CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 1080P & !BLU & !DOLBY > 1080P & !BLU > 720P & !BLU 
+SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > SPECSUB & CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 4K & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 4K & !BLU & !DOLBY > 4K & !BLU > SPECSUB & CNSUB & 1080P & BLURAY & !DOLBY & !BLU & !UHD & !REMUX > CNSUB & 1080P & !BLU & BLURAY & !DOLBY & !UHD & !REMUX > SPECSUB & CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > CNSUB & 1080P & !BLU & !BLURAY & !UHD & !REMUX & WEBDL & !DOLBY > 1080P & !BLU & !DOLBY > 1080P & !BLU > 720P & !BLU
 ```
-
-![image-20240119161818965](assets/image-20240119161818965.png)
 
 ### 通知
 
-![image-20240515223124206](assets/image-20240515223124206.png)
+![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261316.png)
 
 ## 插件⭐
 
-![image-20240602113955154](assets/image-20240602113955154.png)
+![](assets/mp插件页.png)
 
 ### 站点自动签到
 
@@ -437,18 +301,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 - 每天21点15分执行一次
 
 ![image-20240119154018004](assets/image-20240119154018004.png)
-
-### 目录监控
-
-- 主要是为了盘1手动下载的资源进行整理入库
-- 监控了盘1下载目录的3个类型的文件夹
-- 每一行一个目录，支持以下几种配置方式，转移方式支持`move、copy、link、softlink、rclone_copy、rclone_move`
-
-  - 监控目录#转移方式
-  - 监控目录:转移目的目录
-  - 监控目录:转移目的目录#转移方式
-
-![image-20240119154202244](assets/image-20240119154202244.png)
 
 ### 自动删种
 
@@ -488,10 +340,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ![image-20240119154959694](assets/image-20240119154959694.png)
 
-### 下载器文件同步
-
-我也没搞懂干嘛的。虽然下载后开着，但是一直不知道具体是什么效果。欢迎留言补充。
-
 ### 站点刷流
 
 - 默认10分钟运行一次
@@ -505,23 +353,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 - 只会监控通过MoviePilot下载的任务。自己在qBittorrent添加的不会监控。
 
 ![image-20240119155432788](assets/image-20240119155432788.png)
-
-### Bark消息通知
-
-没有呆梨的话可以用这个插件来通知，配置还是挺方便的。
-
-- 服务器地址记得配置完成，完整的应该是`https://api.day.app/你的编码`
-
-### 自定义索引站点
-
-> 2024-02-15:目前最新版官方已经添加麒麟、馒头多域名支持，所以删除了相应配置方案。
-
-- 添加没有默认支持的站点
-
-- ![image-20240129182519617](assets/image-20240129182519617.png)
-
-- 其他站点欢迎留言补充
-
 
 ### 清理订阅缓存
 
@@ -538,56 +369,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 ![image-20240619203145041](assets/image-20240619203145041.png)
 
-## ~~🚫iyuu掉备案临时解决方案~~
-
-> 目前官方已解决该问题
-
-#### 反代
-
-- 首页自己得有域名
-- 申请一个免费的ssl证书
-- 通过自己的服务器反代一个api.iyuu.cn
-
-#### MoviePilot插件版
-
-- 由于容器内没法使用nano、vi、vim，只能文件夹映射出来
-
-- /app/app/plugins/iyuuautoseed/iyuu_helper.py
-
-- 修改api.iyuu.cn成自己反代的地址即可
-
-> 但是这种情况会导致MoviePilot自动升级功能失效，一直提示获取当前版本失败,取消映射即可修复
-
-#### iyuu-plus
-
-- ssh只能通过sh命令进入，而且每次启动都会拉取最新代码，所以还是得文件夹映射出来
-- /IYUU/app/common/Constant.php
-- 修改api.iyuu.cn成自己反代的地址即可
-
-## 馒头新架构添加站点
-
-> 引用自官方群组
->
-> 注意：馒头部分插件仍然使用cookie访问，请自行评估风险。具体可参考更新日志支持情况。
-
-- 检查版本是否为1.7.5+
-
-- 添加配置
-
-  - 如果原先站点管理里的mt没删除 请替换rss地址、cookie和UA
-
-  - 如果意外删除 请手动添加。`官方提供的添加方式图片就不放了，因为带了链接。`
-
-- 添加完成后请到馒头的控制台 - 实验室 - 建立存取令牌
-  - 生成令牌后请回到站点管理测试馒头联通性一次
-  - 连通性正常后尝试`搜索`并观察日志
-  - 日志中有MT获取到APIkey字样即可
-
-
-请在cookiecloud浏览器插件端黑名单添加域名
-
-避免下次同步时覆盖手动添加的cookie
-
 ## 其他教程
 
 🔥热心网友整理的MoviePilot安装和使用指引，可供参考：
@@ -595,10 +376,6 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 - https://github.com/DDS-Derek/MoviePilot/tree/docs
 - https://hackfang.me/movie-pilot-install-and-guide
 - https://github.com/Putarku/MoviePilot-Help
-
-## 求药🙈
-
-求💊论坛、十一大，感谢大佬！[我的邮箱](mailto:z4781854680@gmail.com)
 
 ## 注意
 
