@@ -129,9 +129,9 @@ https://rule.kelee.one/Loon/Game.lsr, policy=CNdirect, tag=Game, enabled=true
 https://rule.kelee.one/Loon/SteamCN.lsr, policy=CNdirect, tag=SteamCN, enabled=true
 https://rule.kelee.one/Loon/PrivateTracker.lsr, policy=CNdirect, tag=PrivateTracker, enabled=true
 https://rule.kelee.one/Loon/iCloud.lsr, policy=CNdirect, tag=iCloud, enabled=true
-https://rule.kelee.one/Loon/AdvertisingLite.lsr, policy=Advertising, tag=AdvertisingLite, enabled=true
 
 # 去广告
+https://rule.kelee.one/Loon/AdvertisingLite.lsr, policy=Advertising, tag=AdvertisingLite, enabled=true
 https://rule.kelee.one/Loon/AdvertisingMiTV.lsr, policy=Advertising, tag=AdvertisingMiTV, enabled=true
 
 # 游戏
