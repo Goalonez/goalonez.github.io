@@ -95,8 +95,7 @@ export default defineConfig({
         text: 'Telegram Channel',
         items: [
           { text: '万变不离其宗📰', link: 'https://t.me/blog_goalonez' },
-          { text: '即刻圈子热门😼', link: 'https://t.me/jike_goalonez' },
-          { text: '片刻📷', link: 'https://t.me/photo_goalonez' }
+          { text: '即刻圈子热门😼', link: 'https://t.me/jike_goalonez' }
         ]
       }
     ],
