@@ -494,4 +494,26 @@ networks:
     external: true
 ```
 
+### Opengist
+- 自部署类似Github Gist
+```
+services:
+  opengist:
+    image: thomiceli/opengist:latest
+    container_name: opengist
+    ports:
+      - "6157:6157"
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/Opengist:/opengist
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+    networks:
+      - defaultnet
+
+networks:
+  defaultnet:
+    external: true
+```
+
 <gitalk/>
