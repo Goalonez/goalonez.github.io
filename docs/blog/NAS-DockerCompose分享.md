@@ -249,7 +249,7 @@ services:
     restart: unless-stopped
 ```
 
-### qinglong
+### Qinglong
 - 定时任务，配合dailycheckin签到
 ```yaml
 services:

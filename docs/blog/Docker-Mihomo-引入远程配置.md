@@ -15,8 +15,8 @@ date: 2025-07-31 17:14:30
 - 新建`config.yaml`文件
 - 获取`原始文件`url
 
-## qinglong
-- 安装[qinglong](./NAS-DockerCompose分享.html#qinglong)
+## Qinglong
+- 安装[Qinglong](./NAS-DockerCompose分享.html#Qinglong)
     - 记得映射mihomo配置文件的目录
 - 脚本管理-新建脚本
 - 新建定时任务`task download_mihomo_config.sh`
