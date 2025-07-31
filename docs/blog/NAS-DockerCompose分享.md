@@ -400,21 +400,23 @@ networks:
     external: true
 ```
 
-### verysync
+### syncthing
 - 同步，代替文档同步功能
 ```yaml
 services:
-  verysync:
-    image: jonnyan404/verysync:latest
-    container_name: verysync
+  syncthing:
+    image: syncthing/syncthing:latest
+    container_name: syncthing
     ports:
-      - "12027:22027"
-      - "12037:22037"
-      - "12330:22330"
-      - "3000:3000"
-      - "8886:8886"
+      - 8384:8384 # Web UI
+      - 22000:22000/tcp # TCP file transfers
+      - 22000:22000/udp # QUIC file transfers
+      - 21027:21027/udp # Receive local discovery broadcasts
     volumes:
-      - /tmp/zfsv3/硬盘名/账号手机号/data/verysync:/data
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/syncthing:/var/syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
     restart: unless-stopped
     networks:
       - defaultnet
@@ -461,6 +463,28 @@ services:
     container_name: how-to-cook
     ports:
       - "12333:5000"
+    restart: unless-stopped
+    networks:
+      - defaultnet
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### duplicati
+- 跨盘备份、备份到云盘（代替备份中心，极空间的备份中心只能支持增量备份，不会同步删除）
+```yaml
+services:
+  duplicati:
+    image: duplicati/duplicati:latest
+    container_name: duplicati
+    ports:
+      - 8200:8200
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/duplicati/data:/data
+      - /tmp/zfsv3/硬盘名/账号手机号/data/:/sourcessd
+      - /tmp/zfsv3/硬盘名/账号手机号/data/backup:/backup
     restart: unless-stopped
     networks:
       - defaultnet
