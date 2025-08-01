@@ -280,14 +280,14 @@ tun:
 listeners:
 - name: qb-socks
   type: socks
-  port: 61413
+  port: 12349
   listen: 0.0.0.0
   udp: true
   users: []
   proxy: DIRECT
 - name: tr-socks
   type: socks
-  port: 41413
+  port: 12340
   listen: 0.0.0.0
   udp: true
   users: []
