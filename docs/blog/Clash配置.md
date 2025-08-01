@@ -183,6 +183,15 @@ mixed-port: 7890
 #  - "user1:pass1"
 #  - "user2:pass2"
 
+unified-delay: true
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+tcp-concurrent: true
+find-process-mode: strict
+global-client-fingerprint: chrome
+
 # 允许局域网的连接（可用来共享代理）
 allow-lan: true
 # 此功能仅在 allow-lan 设置为 true 时生效，支持三种参数：
@@ -200,12 +209,15 @@ mode: rule
 # 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
 log-level: info
 
+ipv6: true
+udp: true
+
 # clash 的 RESTful API 监听地址
 external-controller: 0.0.0.0:9090
 
 # 存放配置文件的相对路径，或存放网页静态资源的绝对路径
 # Clash core 将会将其部署在 http://{{external-controller}}/ui
-# external-ui: folder
+external-ui: /metacubexd
 
 # RESTful API 的口令 (可选)
 # 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
@@ -215,6 +227,46 @@ external-controller: 0.0.0.0:9090
 # 出站网卡接口
 # interface-name: en0
 
+geox-url:
+  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
+  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
+
+  skip-domain:
+    - Mijia Cloud
+
+tun:
+  enable: true
+  # 模式 mixed混合堆栈，tcp使用 system 栈，udp使用 gvisor 栈，使用体验可能相对更好。
+  stack: system
+  # DNS劫持
+  dns-hijack:
+    - any:53
+  # 自动设置全局路由
+  auto-route: true
+  # 自动选择流量出口接口
+  auto-detect-interface: true
 # DNS 服务器和建立连接时的 静态 Hosts, 仅在 dns.enhanced-mode 模式为 redir-host 生效
 # 支持通配符域名 (例如: *.clash.dev, *.foo.*.example.com )
 # 不使用通配符的域名优先级高于使用通配符的域名 (例如: foo.example.com > *.example.com > .example.com )
@@ -224,91 +276,108 @@ external-controller: 0.0.0.0:9090
 # '.dev': 127.0.0.1
 # 'alpha.clash.dev': '::1'
 
+# P2P下载端口
+listeners:
+- name: qb-socks
+  type: socks
+  port: 61413
+  listen: 0.0.0.0
+  udp: true
+  users: []
+  proxy: DIRECT
+- name: tr-socks
+  type: socks
+  port: 41413
+  listen: 0.0.0.0
+  udp: true
+  users: []
+  proxy: DIRECT
+
 # DNS 服务器配置(可选；若不配置，程序内置的 DNS 服务会被关闭)
 dns:
   enable: true
   prefer-h3: true
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:1053
   # 关闭ipv6，很多问题是由于ipv6导致的
-  ipv6: false
+  ipv6: true
 
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver:
     - 223.5.5.5
     - 223.6.6.6
-  enhanced-mode: redir-host # redir-host 或 fake-ip 
-  #fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
+  enhanced-mode: fake-ip # redir-host 或 fake-ip 
+  fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
   # use-hosts: true # 查询 hosts 并返回 IP 记录
 
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
-  # fake-ip-filter:
-  #   # === LAN ===
-  #   - "*"
-  #   - "+.local"
-  #   - '*.lan'
-  #   # === NTP Service ===
-  #   - 'time.*.com'
-  #   - 'time.*.gov'
-  #   - 'time.*.edu.cn'
-  #   - 'time.*.apple.com'
+  fake-ip-filter:
+    # === LAN ===
+    - "*"
+    - "+.local"
+    - '*.lan'
+    # === NTP Service ===
+    - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.edu.cn'
+    - 'time.*.apple.com'
 
-  #   - 'time1.*.com'
-  #   - 'time2.*.com'
-  #   - 'time3.*.com'
-  #   - 'time4.*.com'
-  #   - 'time5.*.com'
-  #   - 'time6.*.com'
-  #   - 'time7.*.com'
+    - 'time1.*.com'
+    - 'time2.*.com'
+    - 'time3.*.com'
+    - 'time4.*.com'
+    - 'time5.*.com'
+    - 'time6.*.com'
+    - 'time7.*.com'
 
-  #   - 'ntp.*.com'
-  #   - 'ntp.*.com'
-  #   - 'ntp1.*.com'
-  #   - 'ntp2.*.com'
-  #   - 'ntp3.*.com'
-  #   - 'ntp4.*.com'
-  #   - 'ntp5.*.com'
-  #   - 'ntp6.*.com'
-  #   - 'ntp7.*.com'
+    - 'ntp.*.com'
+    - 'ntp.*.com'
+    - 'ntp1.*.com'
+    - 'ntp2.*.com'
+    - 'ntp3.*.com'
+    - 'ntp4.*.com'
+    - 'ntp5.*.com'
+    - 'ntp6.*.com'
+    - 'ntp7.*.com'
 
-  #   - '*.time.edu.cn'
-  #   - '*.ntp.org.cn'
-  #   - '+.pool.ntp.org'
+    - '*.time.edu.cn'
+    - '*.ntp.org.cn'
+    - '+.pool.ntp.org'
 
-  #   - 'time1.cloud.tencent.com'    
-  #   # === Apple Software Update Service ===
-  #   - 'swscan.apple.com'
-  #   - 'mesu.apple.com'
-  #   # === Windows 10 Connnect Detection ===
-  #   - '*.msftconnecttest.com'
-  #   - '*.msftncsi.com'
-  #   ## NetEase
-  #   - '+.music.163.com'
-  #   - '*.126.net'
-  #   ## Baidu
-  #   - 'musicapi.taihe.com'
-  #   - 'music.taihe.com'
-  #   ## QQ
-  #   - '+.y.qq.com'
-  #   - '+.music.tc.qq.com'
-  #   - 'aqqmusic.tc.qq.com'
-  #   - '+.stream.qqmusic.qq.com'
-  #   # === Game Service ===
-  #   ## Nintendo Switch
-  #   - '+.srv.nintendo.net'
-  #   ## Sony PlayStation
-  #   - '+.stun.playstation.net'
-  #   ## Microsoft Xbox
-  #   - 'xbox.*.microsoft.com'
-  #   - '+.xboxlive.com'
-  #   # === Other ===
-  #   ## QQ Quick Login
-  #   - 'localhost.ptlogin2.qq.com'
-  #   ## STUN Server
-  #   - 'stun.*.*'
-  #   - 'stun.*.*.*'
-  #   ## Bilibili CDN
-  #   - '*.mcdn.bilivideo.cn'
+    - 'time1.cloud.tencent.com'    
+    # === Apple Software Update Service ===
+    - 'swscan.apple.com'
+    - 'mesu.apple.com'
+    # === Windows 10 Connnect Detection ===
+    - '*.msftconnecttest.com'
+    - '*.msftncsi.com'
+    ## NetEase
+    - '+.music.163.com'
+    - '*.126.net'
+    ## Baidu
+    - 'musicapi.taihe.com'
+    - 'music.taihe.com'
+    ## QQ
+    - '+.y.qq.com'
+    - '+.music.tc.qq.com'
+    - 'aqqmusic.tc.qq.com'
+    - '+.stream.qqmusic.qq.com'
+    # === Game Service ===
+    ## Nintendo Switch
+    - '+.srv.nintendo.net'
+    ## Sony PlayStation
+    - '+.stun.playstation.net'
+    ## Microsoft Xbox
+    - 'xbox.*.microsoft.com'
+    - '+.xboxlive.com'
+    # === Other ===
+    ## QQ Quick Login
+    - 'localhost.ptlogin2.qq.com'
+    ## STUN Server
+    - 'stun.*.*'
+    - 'stun.*.*.*'
+    ## Bilibili CDN
+    - '*.mcdn.bilivideo.cn'
 
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
@@ -324,9 +393,9 @@ dns:
     #   - https://119.29.29.29/dns-query
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
-  fallback:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
+  # fallback:
+  #   - https://1.1.1.1/dns-query
+  #   - https://8.8.8.8/dns-query
 
   # 如果使用 `nameservers` 解析的 IP 地址在下面指定的子网中,
   # 则认为它们无效, 并使用 `fallback` 服务器的结果.
@@ -336,18 +405,77 @@ dns:
   #
   # 如果 `fallback-filter.geoip` 为 false, 且不匹配 `fallback-filter.ipcidr`,
   # 则始终使用 `nameservers` 服务器的结果
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-    domain:
-      - '+.google.com'
-      - '+.youtube.com'
-      - '+.github.com'
-      - '+.v2ex.com'
+  
+  # fallback-filter:
+  #   geoip: true
+  #   geoip-code: CN
+  #   ipcidr:
+  #     - 240.0.0.0/4
+  #   domain:
+  #     - '+.google.com'
+  #     - '+.youtube.com'
+  #     - '+.github.com'
+  #     - '+.githubusercontent.com'
+  #     - '+.jsdelivr.com'
+  #     - '+.jsdelivr.net'
+  #     - '+.v2ex.com'
+  #     - '+.linux.do'
+  #     - '+.twitter.com'
+  #     - '+.instagram.com'
+  #     - '+.discord.com'
+  #     - '+.reddit.com'
+  #     - '+.amytele.net'
+  #     - '+.openai.com'
+  #     - '+.reddit.com'
+  #     - '+.cloudflare.com'
+  #     - '+.imgur.com'
+  #     - '+.themoviedb.org'
+  #     - '+.tmdb.org'
+  #     - '+.thetvdb.com'
+
+# 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 6 秒一次健康检查]
+NodeParam: &NodeParam {type: http, interval: 3600000, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 6}}
+
+proxy-providers:
+  amy:
+    url: '订阅地址'
+    <<: *NodeParam
+    path: './proxy_providers/amy.yaml'
+    override:
+      additional-prefix: "[amy] " # 为订阅节点添加机场名称前缀
+
+# 锚点 - 节点筛选组
+FilterHK: &FilterHK '^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+FilterTW: &FilterTW '^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+FilterJP: &FilterJP '^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+FilterSG: &FilterSG '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+FilterUS: &FilterUS '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+FilterOpenAI: &FilterOpenAI '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(US|USA|United States|JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
+FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
+
+# 策略组参数锚点
+# 锚点 - 时延优选参数 [每 6 秒一次惰性健康检查，容差 20ms，时延超过 2 秒判定为失败，失败 3 次则自动触发健康检查]
+UrlTest: &UrlTest {type: url-test, interval: 6, tolerance: 20, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
+# 锚点 - 故障转移参数 [每 6 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次则自动触发健康检查]
+FallBack: &FallBack {type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
+# 锚点 - 负载均衡参数 [每 6 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次则自动触发健康检查]
+LoadBalance: &LoadBalance {type: load-balance, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, strategy: consistent-hashing, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
 
 proxy-groups:
+  - {name: AutoProxy, type: select, include-all-providers: true, proxies: [香港自动, 美国自动, 日本自动, 台湾自动, 新加坡自动]}
+  - {name: SpecialAutoProxy, type: select, include-all-providers: false, proxies: [香港自动, 美国自动, 日本自动, 台湾自动, 新加坡自动]}
+  - {name: OpenAI, type: select, include-all-providers: true, filter: *FilterOpenAI}
+  - {name: Advertising, type: select, include-all-providers: false, proxies: [REJECT,DIRECT]}
+  - {name: End, type: select, include-all-providers: false, proxies: [DIRECT, AutoProxy]}
+
+  # 时延优选策略组
+  - {name: 香港自动, <<: *UrlTest, filter: *FilterHK}
+  - {name: 美国自动, <<: *UrlTest, filter: *FilterUS}
+  - {name: 日本自动, <<: *UrlTest, filter: *FilterJP}
+  - {name: 台湾自动, <<: *UrlTest, filter: *FilterTW}
+  - {name: 新加坡自动, <<: *UrlTest, filter: *FilterSG}
+
+
   # 代理的转发链, 在 proxies 中不应该包含 relay. 不支持 UDP.
   # 流量: clash <-> http <-> vmess <-> ss1 <-> ss2 <-> 互联网
   # - name: "relay"
@@ -357,28 +485,28 @@ proxy-groups:
 
   # select 用来允许用户手动选择 代理服务器 或 服务器组
   # 您也可以使用 RESTful API 去切换服务器，这种方式推荐在 GUI 中使用
-  - name: Proxy
-    type: select
-    use:
-      - amy
-    proxies:
-      - auto-hk
-      - auto-usa
+  # - name: Proxy
+  #   type: select
+  #   use:
+  #     - amy
+  #   proxies:
+  #     - auto-hk
+  #     - auto-usa
 
   # url-test 可以自动选择与指定 URL 测速后，延迟最短的服务器
-  - name: "auto-hk"
-    type: url-test
-    use:
-      - amy-hk
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+  # - name: "auto-hk"
+  #   type: url-test
+  #   use:
+  #     - amy-hk
+  #   url: 'http://www.gstatic.com/generate_204'
+  #   interval: 300
   
-  - name: "auto-usa"
-    type: url-test
-    use:
-      - amy-usa
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+  # - name: "auto-usa"
+  #   type: url-test
+  #   use:
+  #     - amy-usa
+  #   url: 'http://www.gstatic.com/generate_204'
+  #   interval: 300
 
   # fallback 可以尽量按照用户书写的服务器顺序，在确保服务器可用的情况下，自动选择服务器
   # - name: "fallback-auto"
@@ -396,397 +524,307 @@ proxy-groups:
   #   url: 'http://www.gstatic.com/generate_204'
   #   interval: 300
 
-proxy-providers:
-  amy-hk:
-    type: http
-    url: "你的节点地址"
-    interval: 3600
-    path: ./amy-hk.yaml
-    filter: '香港*'
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  amy-usa:
-    type: http
-    url: "你的节点地址"
-    interval: 3600
-    path: ./amy-usa.yaml
-    filter: '美国*'
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  amy:
-    type: http
-    url: "你的节点地址"
-    interval: 3600
-    path: ./amy.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+# 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
+RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml}
 
 rule-providers:
   ChinaMaxNoIP:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Classical.yaml
-    interval: 21600
-    path: ./goalonez-remote/ChinaMaxNoIP.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Classical.yaml
+    path: ./rule-remote/ChinaMaxNoIP.yaml
   Google:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
-    interval: 21600
-    path: ./goalonez-remote/Google.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
+    path: ./rule-remote/Google.yaml
   YouTube:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml
-    interval: 21600
-    path: ./goalonez-remote/YouTube.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
+    path: ./rule-remote/YouTube.yaml
   GitHub:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
-    interval: 21600
-    path: ./goalonez-remote/GitHub.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
+    path: ./rule-remote/GitHub.yaml
   Telegram:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
-    interval: 21600
-    path: ./goalonez-remote/Telegram.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
+    path: ./rule-remote/Telegram.yaml
   Twitter:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
-    interval: 21600
-    path: ./goalonez-remote/Twitter.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
+    path: ./rule-remote/Twitter.yaml
   Cloudflare:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflare/Cloudflare.yaml
-    interval: 21600
-    path: ./goalonez-remote/Cloudflare.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare.yaml
+    path: ./rule-remote/Cloudflare.yaml
   Spotify:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
-    interval: 21600
-    path: ./goalonez-remote/Spotify.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
+    path: ./rule-remote/Spotify.yaml
   Wikipedia:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Wikipedia/Wikipedia.yaml
-    interval: 21600
-    path: ./goalonez-remote/Wikipedia.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Wikipedia/Wikipedia.yaml
+    path: ./rule-remote/Wikipedia.yaml
   Amazon:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.yaml
-    interval: 21600
-    path: ./goalonez-remote/Amazon.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.yaml
+    path: ./rule-remote/Amazon.yaml
   Instagram:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Instagram/Instagram.yaml
-    interval: 21600
-    path: ./goalonez-remote/Instagram.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml
+    path: ./rule-remote/Instagram.yaml
   BBC:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BBC/BBC.yaml
-    interval: 21600
-    path: ./goalonez-remote/BBC.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BBC/BBC.yaml
+    path: ./rule-remote/BBC.yaml
   Wikimedia:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Wikimedia/Wikimedia.yaml
-    interval: 21600
-    path: ./goalonez-remote/Wikimedia.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Wikimedia/Wikimedia.yaml
+    path: ./rule-remote/Wikimedia.yaml
   GoogleEarth:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleEarth/GoogleEarth.yaml
-    interval: 21600
-    path: ./goalonez-remote/GoogleEarth.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleEarth/GoogleEarth.yaml
+    path: ./rule-remote/GoogleEarth.yaml
   Emby:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Emby/Emby.yaml
-    interval: 21600
-    path: ./goalonez-remote/Emby.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml
+    path: ./rule-remote/Emby.yaml
   Dropbox:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Dropbox/Dropbox.yaml
-    interval: 21600
-    path: ./goalonez-remote/Dropbox.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Dropbox/Dropbox.yaml
+    path: ./rule-remote/Dropbox.yaml
   GitBook:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitBook/GitBook.yaml
-    interval: 21600
-    path: ./goalonez-remote/GitBook.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitBook/GitBook.yaml
+    path: ./rule-remote/GitBook.yaml
   GitLab:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitLab/GitLab.yaml
-    interval: 21600
-    path: ./goalonez-remote/GitLab.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitLab/GitLab.yaml
+    path: ./rule-remote/GitLab.yaml
   Imgur:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Imgur/Imgur.yaml
-    interval: 21600
-    path: ./goalonez-remote/Imgur.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Imgur/Imgur.yaml
+    path: ./rule-remote/Imgur.yaml
   Notion:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Notion/Notion.yaml
-    interval: 21600
-    path: ./goalonez-remote/Notion.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Notion/Notion.yaml
+    path: ./rule-remote/Notion.yaml
   Nvidia:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Nvidia/Nvidia.yaml
-    interval: 21600
-    path: ./goalonez-remote/Nvidia.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nvidia/Nvidia.yaml
+    path: ./rule-remote/Nvidia.yaml
   Reddit:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Reddit/Reddit.yaml
-    interval: 21600
-    path: ./goalonez-remote/Reddit.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit.yaml
+    path: ./rule-remote/Reddit.yaml
   Twitch:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitch/Twitch.yaml
-    interval: 21600
-    path: ./goalonez-remote/Twitch.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitch/Twitch.yaml
+    path: ./rule-remote/Twitch.yaml
   Tumblr:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Tumblr/Tumblr.yaml
-    interval: 21600
-    path: ./goalonez-remote/Tumblr.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Tumblr/Tumblr.yaml
+    path: ./rule-remote/Tumblr.yaml
   Vercel:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Vercel/Vercel.yaml
-    interval: 21600
-    path: ./goalonez-remote/Vercel.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Vercel/Vercel.yaml
+    path: ./rule-remote/Vercel.yaml
   Steam:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml
-    interval: 21600
-    path: ./goalonez-remote/Steam.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml
+    path: ./rule-remote/Steam.yaml
   SteamCN:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.yaml
-    interval: 21600
-    path: ./goalonez-remote/SteamCN.yaml
-  GameDownloadCN:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml
-    interval: 21600
-    path: ./goalonez-remote/GameDownloadCN.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml
+    path: ./rule-remote/SteamCN.yaml
+  Epic:
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.yaml
+    path: ./rule-remote/Epic.yaml
   Microsoft:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
-    interval: 21600
-    path: ./goalonez-remote/Microsoft.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./rule-remote/Microsoft.yaml
   Pinterest:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Pinterest/Pinterest.yaml
-    interval: 21600
-    path: ./goalonez-remote/Pinterest.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Pinterest/Pinterest.yaml
+    path: ./rule-remote/Pinterest.yaml
   Facebook:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Facebook/Facebook.yaml
-    interval: 21600
-    path: ./goalonez-remote/Facebook.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml
+    path: ./rule-remote/Facebook.yaml
   OpenAI:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
-    interval: 21600
-    path: ./goalonez-remote/OpenAI.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./rule-remote/OpenAI.yaml
   Slack:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Slack/Slack.yaml
-    interval: 21600
-    path: ./goalonez-remote/Slack.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Slack/Slack.yaml
+    path: ./rule-remote/Slack.yaml
   Discord:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Discord/Discord.yaml
-    interval: 21600
-    path: ./goalonez-remote/Discord.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.yaml
+    path: ./rule-remote/Discord.yaml
   Docker:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Docker/Docker.yaml
-    interval: 21600
-    path: ./goalonez-remote/Docker.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Docker/Docker.yaml
+    path: ./rule-remote/Docker.yaml
   Python:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Python/Python.yaml
-    interval: 21600
-    path: ./goalonez-remote/Python.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Python/Python.yaml
+    path: ./rule-remote/Python.yaml
   Jetbrains:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Jetbrains/Jetbrains.yaml
-    interval: 21600
-    path: ./goalonez-remote/Jetbrains.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Jetbrains/Jetbrains.yaml
+    path: ./rule-remote/Jetbrains.yaml
   Claude:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml
-    interval: 21600
-    path: ./goalonez-remote/Claude.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
+    path: ./rule-remote/Claude.yaml
   Threads:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Threads/Threads.yaml
-    interval: 21600
-    path: ./goalonez-remote/Threads.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Threads/Threads.yaml
+    path: ./rule-remote/Threads.yaml
   Jsdelivr:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Jsdelivr/Jsdelivr.yaml
-    interval: 21600
-    path: ./goalonez-remote/Jsdelivr.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Jsdelivr/Jsdelivr.yaml
+    path: ./rule-remote/Jsdelivr.yaml
   Figma:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Figma/Figma.yaml
-    interval: 21600
-    path: ./goalonez-remote/Figma.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Figma/Figma.yaml
+    path: ./rule-remote/Figma.yaml
   Nintendo:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Nintendo/Nintendo.yaml
-    interval: 21600
-    path: ./goalonez-remote/Nintendo.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.yaml
+    path: ./rule-remote/Nintendo.yaml
   Tmdb:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Tmdb/Tmdb.yaml
-    interval: 21600
-    path: ./goalonez-remote/Tmdb.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Tmdb/Tmdb.yaml
+    path: ./rule-remote/Tmdb.yaml
+  TikTok:
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
+    path: ./rule-remote/TikTok.yaml
+  iCloud:
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/iCloud/iCloud.yaml
+    path: ./rule-remote/iCloud.yaml
   PrivateTracker:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
-    interval: 21600
-    path: ./goalonez-remote/PrivateTracker.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    path: ./rule-remote/PrivateTracker.yaml
   DirectRule:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
-    interval: 21600
-    path: ./goalonez-remote/AdvertisingLite.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml
+    path: ./rule-remote/DirectRule.yaml
   AdvertisingLite:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
-    interval: 21600
-    path: ./goalonez-remote/AdvertisingLite.yaml
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
+    path: ./rule-remote/AdvertisingLite.yaml
+  AdvertisingMiTV:
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingMiTV/AdvertisingMiTV.yaml
+    path: ./rule-remote/AdvertisingMiTV.yaml
+  GoogleVoice:
+    <<: *RuleProviders
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleVoice/GoogleVoice.yaml
+    path: ./rule-remote/GoogleVoice.yaml
 
 rules:
+  # 直连
+  - DOMAIN-SUFFIX,gov.cn,DIRECT
+
+  # 拒绝
+
+  # 进程
+  - PROCESS-NAME,Telegram,AutoProxy
+
   # 局域网（no-resolve不进行dns解析）
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-  # 直连
-  - RULE-SET,DirectRule,DIRECT
-  - RULE-SET,ChinaMaxNoIP,DIRECT
-  - RULE-SET,SteamCN,DIRECT
-  - RULE-SET,GameDownloadCN,DIRECT
-  - RULE-SET,PrivateTracker,DIRECT
-  # 去广告
-  - RULE-SET,AdvertisingLite,REJECT
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
 
   # PT
   - DOMAIN-SUFFIX,m-team.io,DIRECT
-  
+
   - DOMAIN-KEYWORD,tracker,DIRECT
   - DOMAIN-KEYWORD,v6tracker,DIRECT
   
   # 自定义规则
-  - DOMAIN-SUFFIX,www.v2ex.com,Proxy
-  - DOMAIN-SUFFIX,v2ex.com,Proxy
+  - DOMAIN-SUFFIX,www.v2ex.com,AutoProxy
 
   # 特定区地址
-  - DOMAIN-SUFFIX,sentry.io,auto-usa
-  - DOMAIN-SUFFIX,codeium.com,auto-usa
-  - DOMAIN-SUFFIX,godaddy.com,auto-usa
-  - DOMAIN-SUFFIX,oaistatic.com,auto-usa
-  - DOMAIN-SUFFIX,oaiusercontent.com,auto-usa
-  - DOMAIN-SUFFIX,cdn.oaistatic.com,auto-usa
+  - DOMAIN-SUFFIX,codeium.com,SpecialAutoProxy
 
   # 远程规则订阅
-  - RULE-SET,Microsoft,auto-usa
-  - RULE-SET,Jetbrains,auto-usa
-  - RULE-SET,Claude,auto-usa
-  - RULE-SET,OpenAI,auto-usa
-  - RULE-SET,Spotify,auto-usa
-  
-  - RULE-SET,Google,Proxy
-  - RULE-SET,Steam,Proxy
-  - RULE-SET,Cloudflare,Proxy
-  - RULE-SET,Twitter,Proxy
-  - RULE-SET,Telegram,Proxy
-  - RULE-SET,GitHub,Proxy
-  - RULE-SET,YouTube,Proxy
-  - RULE-SET,Vercel,Proxy
-  - RULE-SET,Tumblr,Proxy
-  - RULE-SET,Twitch,Proxy
-  - RULE-SET,Reddit,Proxy
-  - RULE-SET,Nvidia,Proxy
-  - RULE-SET,Notion,Proxy
-  - RULE-SET,Imgur,Proxy
-  - RULE-SET,GitLab,Proxy
-  - RULE-SET,GitBook,Proxy
-  - RULE-SET,Dropbox,Proxy
-  - RULE-SET,Emby,Proxy
-  - RULE-SET,GoogleEarth,Proxy
-  - RULE-SET,Wikimedia,Proxy
-  - RULE-SET,BBC,Proxy
-  - RULE-SET,Instagram,Proxy
-  - RULE-SET,Threads,Proxy
-  - RULE-SET,Amazon,Proxy
-  - RULE-SET,Wikipedia,Proxy
-  - RULE-SET,Pinterest,Proxy
-  - RULE-SET,Facebook,Proxy
-  - RULE-SET,Slack,Proxy
-  - RULE-SET,Discord,Proxy
-  - RULE-SET,Docker,Proxy
-  - RULE-SET,Python,Proxy
-  - RULE-SET,Jsdelivr,Proxy
-  - RULE-SET,Figma,Proxy
-  - RULE-SET,Nintendo,Proxy
-  - RULE-SET,Tmdb,Proxy
+  # 直连
+  - RULE-SET,DirectRule,DIRECT
+  - RULE-SET,ChinaMaxNoIP,DIRECT
+  - RULE-SET,SteamCN,DIRECT
+  - RULE-SET,PrivateTracker,DIRECT
+  - RULE-SET,iCloud,DIRECT
+
+  # 去广告
+  - RULE-SET,AdvertisingLite,Advertising
+  - RULE-SET,AdvertisingMiTV,Advertising
+
+  # OpenAI
+  - RULE-SET,OpenAI,OpenAI
+
+  # 美区
+  - RULE-SET,Microsoft,SpecialAutoProxy
+  - RULE-SET,Jetbrains,SpecialAutoProxy
+  - RULE-SET,Claude,SpecialAutoProxy
+  - RULE-SET,Spotify,SpecialAutoProxy
+  - RULE-SET,TikTok,SpecialAutoProxy
+  - RULE-SET,GitLab,SpecialAutoProxy
+  - RULE-SET,Docker,SpecialAutoProxy
+  - RULE-SET,GoogleVoice,SpecialAutoProxy
+
+  # 默认
+  - RULE-SET,Google,AutoProxy
+  - RULE-SET,Cloudflare,AutoProxy
+  - RULE-SET,Twitter,AutoProxy
+  - RULE-SET,Telegram,AutoProxy
+  - RULE-SET,GitHub,AutoProxy
+  - RULE-SET,YouTube,AutoProxy
+  - RULE-SET,Vercel,AutoProxy
+  - RULE-SET,Tumblr,AutoProxy
+  - RULE-SET,Twitch,AutoProxy
+  - RULE-SET,Reddit,AutoProxy
+  - RULE-SET,Nvidia,AutoProxy
+  - RULE-SET,Notion,AutoProxy
+  - RULE-SET,Imgur,AutoProxy
+  - RULE-SET,GitBook,AutoProxy
+  - RULE-SET,Dropbox,AutoProxy
+  - RULE-SET,Emby,AutoProxy
+  - RULE-SET,GoogleEarth,AutoProxy
+  - RULE-SET,Wikimedia,AutoProxy
+  - RULE-SET,BBC,AutoProxy
+  - RULE-SET,Instagram,AutoProxy
+  - RULE-SET,Threads,AutoProxy
+  - RULE-SET,Amazon,AutoProxy
+  - RULE-SET,Wikipedia,AutoProxy
+  - RULE-SET,Pinterest,AutoProxy
+  - RULE-SET,Facebook,AutoProxy
+  - RULE-SET,Slack,AutoProxy
+  - RULE-SET,Discord,AutoProxy
+  - RULE-SET,Python,AutoProxy
+  - RULE-SET,Jsdelivr,AutoProxy
+  - RULE-SET,Figma,AutoProxy
+  - RULE-SET,Nintendo,AutoProxy
+  - RULE-SET,Tmdb,AutoProxy
+  - RULE-SET,Steam,AutoProxy
+  - RULE-SET,Epic,AutoProxy
 
   # 国内网站
   - DOMAIN-SUFFIX,cn,DIRECT
   - DOMAIN-KEYWORD,-cn,DIRECT
 
   # 最终规则
-  - GEOIP,CN,DIRECT
-  - MATCH,DIRECT
+  - GEOIP,CN,End
+  - MATCH,End
 ```
 
 <gitalk/>

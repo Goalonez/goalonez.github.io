@@ -9,10 +9,6 @@ date: 2025-07-26 13:35:24
 ## 配置
 
 ```properties
-#Goalonez config
-#Date: 2025.07.26
-#Author: Goalonez
-
 [General]
 ip-mode = dual
 skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
@@ -54,29 +50,25 @@ Amy = 订阅地址,udp=false,block-quic=true,fast-open=false,vmess-aead=false,sk
 
 [Proxy Group]
 # select 类型
-PROXY = select,ALL_Filter,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Select.png
-CNdirect = select,DIRECT,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/China.png
-AutoProxy = select,AutoHK,AutoUS,AutoJP,AutoTW,AutoSG,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Auto_Speed.png
+AutoProxy = select,AutoHK,AutoUS,AutoJP,AutoTW,AutoSG,ALL_Filter,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Auto_Speed.png
 SpecialAutoProxy = select,AutoUS,AutoHK,AutoJP,AutoTW,AutoSG,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Streaming.png
-OpenAI = select,ALL_Filter,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Reddit.png
-Game = select,ALL_Filter,img-url = gamecontroller.fill
+OpenAI = select,US_Filter,JP_Filter,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Reddit.png
+# 广告模式
+Advertising = select,REJECT,DIRECT,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Reject.orig.png
+# 白名单模式 PROXY，黑名单模式 DIRECT
+End = select,DIRECT,AutoProxy,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Final.png
 # url-test模式，给提供的url发出http header请求，根据返回结果，选择测速最快的节点，默认间隔600s，测速超时时间5s，为了避免资源浪费，建议节点数不要过多，只支持单个节点和远端节点，其他会被忽略
 AutoHK = url-test,HK_Filter,url = http://bing.com/,interval = 600,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
 AutoUS = url-test,US_Filter,url = http://bing.com/,interval = 600,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
 AutoJP = url-test,JP_Filter,url = http://bing.com/,interval = 600,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
-AutoTW = url-test,TW_Filter,url = http://bing.com/,interval = 600,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_Nations.png
+AutoTW = url-test,TW_Filter,url = http://bing.com/,interval = 600,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/China.png
 AutoSG = url-test,SG_Filter,url = http://bing.com/,interval = 600,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
-# 广告模式
-Advertising = select,REJECT,DIRECT,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Reject.orig.png
-# 白名单模式 PROXY，黑名单模式 DIRECT，我一般选DIRECT，因为我希望大部分的代理都是在我知情的情况下进行
-Final = select,DIRECT,PROXY,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Final.png
 
 [Remote Filter]
 ALL_Filter = NameRegex, FilterKey = ".*"
 HK_Filter = NameRegex, FilterKey = "(?i)(港|HK|Hong)"
 TW_Filter = NameRegex, FilterKey = "(?i)(台|TW|Tai)"
 JP_Filter = NameRegex, FilterKey = "(?i)(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan)"
-KR_Filter = NameRegex, FilterKey = "(?i)(KR|Korea|KOR|首尔|韩|韓)"
 US_Filter = NameRegex, FilterKey = "(?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
 SG_Filter = NameRegex, FilterKey = "(?i)(新加坡|坡|狮城|SG|Singapore)"
 
@@ -89,7 +81,6 @@ SG_Filter = NameRegex, FilterKey = "(?i)(新加坡|坡|狮城|SG|Singapore)"
 DOMAIN-SUFFIX,gov.cn,DIRECT
 
 # 拒绝
-
 
 # 局域网
 IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
@@ -105,38 +96,28 @@ DOMAIN-KEYWORD,tracker,DIRECT
 DOMAIN-KEYWORD,v6tracker,DIRECT
 
 # 自定义
-DOMAIN-SUFFIX,www.v2ex.com,AutoProxy
 DOMAIN-SUFFIX,v2ex.com,AutoProxy
-
 
 # 特定地区
 DOMAIN-SUFFIX,codeium.com,SpecialAutoProxy
-
-# Game
-DOMAIN-SUFFIX,epicgames.com,Game
 
 # 国内网站
 DOMAIN-SUFFIX,cn,DIRECT
 DOMAIN-KEYWORD,-cn,DIRECT
 
-FINAL,Final
+FINAL,End
 
 [Remote Rule]
 # 直连
-https://rule.kelee.one/Loon/Direct.lsr, policy=CNdirect, tag=Direct, enabled=true
-https://rule.kelee.one/Loon/ChinaMaxNoIP.lsr, policy=CNdirect, tag=ChinaMaxNoIP, enabled=true
-https://rule.kelee.one/Loon/Game.lsr, policy=CNdirect, tag=Game, enabled=true
-https://rule.kelee.one/Loon/SteamCN.lsr, policy=CNdirect, tag=SteamCN, enabled=true
-https://rule.kelee.one/Loon/PrivateTracker.lsr, policy=CNdirect, tag=PrivateTracker, enabled=true
-https://rule.kelee.one/Loon/iCloud.lsr, policy=CNdirect, tag=iCloud, enabled=true
+https://rule.kelee.one/Loon/Direct.lsr, policy=DIRECT, tag=Direct, enabled=true
+https://rule.kelee.one/Loon/ChinaMaxNoIP.lsr, policy=DIRECT, tag=ChinaMaxNoIP, enabled=true
+https://rule.kelee.one/Loon/SteamCN.lsr, policy=DIRECT, tag=SteamCN, enabled=true
+https://rule.kelee.one/Loon/PrivateTracker.lsr, policy=DIRECT, tag=PrivateTracker, enabled=true
+https://rule.kelee.one/Loon/iCloud.lsr, policy=DIRECT, tag=iCloud, enabled=true
 
 # 去广告
 https://rule.kelee.one/Loon/AdvertisingLite.lsr, policy=Advertising, tag=AdvertisingLite, enabled=true
 https://rule.kelee.one/Loon/AdvertisingMiTV.lsr, policy=Advertising, tag=AdvertisingMiTV, enabled=true
-
-# 游戏
-https://rule.kelee.one/Loon/Epic.lsr, policy=Game, tag=Epic, enabled=true
-https://rule.kelee.one/Loon/Steam.lsr, policy=Game, tag=Steam, enabled=true
 
 # OpenAI
 https://rule.kelee.one/Loon/OpenAI.lsr, policy=OpenAI, tag=OpenAI, enabled=true
@@ -149,10 +130,11 @@ https://rule.kelee.one/Loon/Spotify.lsr, policy=SpecialAutoProxy, tag=Spotify, e
 https://rule.kelee.one/Loon/TikTok.lsr, policy=SpecialAutoProxy, tag=TikTok, enabled=true
 https://rule.kelee.one/Loon/GitLab.lsr, policy=SpecialAutoProxy, tag=GitLab, enabled=true
 https://rule.kelee.one/Loon/Docker.lsr, policy=SpecialAutoProxy, tag=Docker, enabled=true
+https://rule.kelee.one/Loon/GoogleVoice.lsr, policy=SpecialAutoProxy, tag=GoogleVoice, enabled=true
+
 
 # 默认代理
 https://rule.kelee.one/Loon/Google.lsr, policy=AutoProxy, tag=Google, enabled=true
-https://rule.kelee.one/Loon/GoogleVoice.lsr, policy=AutoProxy, tag=GoogleVoice, enabled=true
 https://rule.kelee.one/Loon/GoogleEarth.lsr, policy=AutoProxy, tag=GoogleEarth, enabled=true
 https://rule.kelee.one/Loon/Cloudflare.lsr, policy=AutoProxy, tag=Cloudflare, enabled=true
 https://rule.kelee.one/Loon/Twitter.lsr, policy=AutoProxy, tag=Twitter, enabled=true
@@ -184,6 +166,8 @@ https://rule.kelee.one/Loon/Jsdelivr.lsr, policy=AutoProxy, tag=Jsdelivr, enable
 https://rule.kelee.one/Loon/Figma.lsr, policy=AutoProxy, tag=Figma, enabled=true
 https://rule.kelee.one/Loon/Nintendo.lsr, policy=AutoProxy, tag=Nintendo, enabled=true
 https://rule.kelee.one/Loon/Tmdb.lsr, policy=AutoProxy, tag=Tmdb, enabled=true
+https://rule.kelee.one/Loon/Steam.lsr, policy=AutoProxy, tag=Steam, enabled=true
+https://rule.kelee.one/Loon/Epic.lsr, policy=AutoProxy, tag=Epic, enabled=true
 
 [Rewrite]
 
@@ -225,9 +209,7 @@ https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy=AutoProxy, enabled=true
 https://kelee.one/Tool/Loon/Lpx/NodeLinkCheck.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
 [Mitm]
-ca-p12 =
-ca-passphrase = 
-skip-server-cert-verify = 
+
 ```
 
 <gitalk/>
