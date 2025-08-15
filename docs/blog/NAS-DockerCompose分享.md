@@ -516,4 +516,41 @@ networks:
     external: true
 ```
 
+### RustDesk
+- 远程桌面
+```
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    container_name: hbbs
+    command: hbbs
+    ports:
+      - "21115:21115"
+      - "21116:21116/tcp"
+      - "21116:21116/udp"
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/rustdesk/data:/root
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    depends_on:
+      - hbbr
+
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    container_name: hbbr
+    command: hbbr
+    ports:
+      - "21117:21117"
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/rustdesk/data:/root
+    restart: unless-stopped
+    networks:
+      - defaultnet
+
+networks:
+  defaultnet:
+    external: true
+```
+
 <gitalk/>
