@@ -20,21 +20,19 @@ date: 2025-04-19 20:50:32
 限制内存和CPU的参数似乎没法生效
 
 ## YAML分享
-### alist
+### openlist
 - 分享文件及webdav
 ```yaml
 services:
-  alist:
-    image: xhofe/alist:latest
-    container_name: alist
+  openlist:
+    image: openlistteam/openlist:latest
+    container_name: openlist
     ports:
       - "11444:5244"
+    user: '0:0'
     volumes:
-      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/alist/data:/opt/alist/data
-      - # 剩下的自己加本地存储的映射
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/OpenList/data:/opt/openlist/data
     environment:
-      - PUID=0
-      - PGID=0
       - UMASK=022
       - TZ=Asia/Shanghai
     restart: unless-stopped
@@ -105,6 +103,7 @@ services:
     privileged: true
     volumes:
       - /tmp/zfsv3/硬盘名/账号手机号/data/docker/HomeAssistant/config:/config
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/HomeAssistant/ssh:/root/.ssh
     environment:
       - TZ=Asia/Shanghai
     restart: unless-stopped

@@ -108,6 +108,7 @@ export default defineConfig({
           {
             text: '2025',
             items: [
+              { text: '通过HomeAssistant控制电脑开关机并接入米家', link: '/blog/通过HomeAssistant控制电脑开关机并接入米家' },
               { text: 'Docker-Mihomo-引入远程配置', link: '/blog/Docker-Mihomo-引入远程配置' },
               { text: 'Loon配置', link: '/blog/Loon配置' },
               { text: 'Raycast-Windows初步体验', link: '/blog/Raycast-Windows初步体验' },
