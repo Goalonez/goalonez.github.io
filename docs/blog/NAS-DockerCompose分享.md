@@ -495,7 +495,7 @@ networks:
 
 ### Opengist
 - 自部署类似Github Gist
-```
+```yaml
 services:
   opengist:
     image: thomiceli/opengist:latest
@@ -517,7 +517,7 @@ networks:
 
 ### RustDesk
 - 远程桌面
-```
+```yaml
 services:
   hbbs:
     image: rustdesk/rustdesk-server:latest
@@ -550,6 +550,84 @@ services:
 networks:
   defaultnet:
     external: true
+```
+
+### immich
+- 照片管理
+```yaml
+services:
+  immich-server:
+    image: ghcr.io/immich-app/immich-server:release
+    container_name: immich_server
+    ports:
+      - '2283:2283'
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/immich/data:/data
+      # 中文地理编码https://github.com/ZingLix/immich-geodata-cn
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/immich/geodata:/build/geodata
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/immich/i18n-iso-countries/langs:/usr/src/app/server/node_modules/i18n-iso-countries/langs
+      - /tmp/zfsv3/硬盘名/账号手机号/data/Goalonez/Photos:/Photos
+    environment:
+      - DB_HOSTNAME=immich_postgres
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=123456
+      - DB_DATABASE_NAME=immich
+      # 我是复用了rsshub的redis，请自行参考上方rsshub中的redis镜像
+      - REDIS_HOSTNAME=redis
+      - REDIS_PORT=6379
+      # 同实例不同库
+      - REDIS_DBINDEX=1
+      - TZ=Asia/Shanghai
+    depends_on:
+      - immich_postgres
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 3
+
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:release
+    container_name: immich_machine_learning
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/immich/model-cache:/cache
+    environment:
+      # 代理
+      - HTTP_PROXY=http://192.168.5.2:7890
+      - HTTPS_PROXY=http://192.168.5.2:7890
+      - NO_PROXY=localhost,127.0.0.1,immich
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 4
+
+  immich_postgres:
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:32324a2f41df5de9efe1af166b7008c3f55646f8d0e00d9550c16c9822366b4a
+    container_name: immich_postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/immich/postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=immich
+      - POSTGRES_INITDB_ARGS=--data-checksums
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    shm_size: 128mb
+    mem_limit: 3g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+    
 ```
 
 <gitalk/>
