@@ -32,12 +32,64 @@ services:
     user: '0:0'
     volumes:
       - /tmp/zfsv3/硬盘名/账号手机号/data/docker/OpenList/data:/opt/openlist/data
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/aria2-pro/temp/aria2:/opt/openlist/data/temp/aria2
     environment:
       - UMASK=022
       - TZ=Asia/Shanghai
     restart: unless-stopped
     networks:
       - defaultnet
+    mem_limit: 1g
+    cpus: 2
+    depends_on:
+      - aria2-pro
+  
+  # 单独部署aria2，因为据说后续没有aio后缀的镜像了。
+  aria2-pro:
+    image: p3terx/aria2-pro
+    container_name: aria2-pro
+    ports:
+      - "11445:11445"
+      # 不用BT所以注释
+      # - '6888:6888'
+      # - '6888:6888/udp'
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/aria2-pro/config:/config
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/aria2-pro/downloads:/downloads
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/aria2-pro/temp/aria2:/opt/openlist/data/temp/aria2
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Shanghai
+      - UMASK_SET=022
+      # 设置密码
+      - RPC_SECRET=123456
+      - RPC_PORT=11445
+      - LISTEN_PORT=6888
+      - IPV6_MODE=true
+      # 由于配置文件是从github拉取的，所以可以通过环境变量设置代理
+      # - HTTP_PROXY=http://192.168.1.2:7890
+      # - HTTPS_PROXY=http://192.168.1.2:7890
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+
+  ariang:
+    image: p3terx/ariang
+    container_name: ariang
+    network_mode: host
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Shanghai
+    command: ["--port", "11446", "--ipv6"]
+    restart: unless-stopped
+    mem_limit: 1g
+    cpus: 2
+    depends_on:
+      - aria2-pro
 
 networks:
   defaultnet:
@@ -206,6 +258,42 @@ networks:
     external: true
 ```
 
+### jellyfin
+- 媒体库
+```yaml
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    ports:
+      - "8096:8096"
+    volumes:
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/jellyfin/path/to/config:/config
+      - /tmp/zfsv3/硬盘名/账号手机号/data/docker/jellyfin/path/to/cache:/cache
+      # :ro只读模式
+      - /tmp/zfsv3/sata12/public/公共下载:/downloads:ro
+      - /tmp/zfsv3/sata13/public/公共下载1:/downloads1:ro
+    environment:
+      # 外部访问地址
+      - JELLYFIN_PublishedServerUrl=https://example.com
+      # 为了刮削，添加代理
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+    # 调用核心显卡  
+    devices:
+      - /dev/dri:/dev/dri
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+
+```
+
 ### qbittorrent
 - 下载
 ```yaml
@@ -248,7 +336,7 @@ services:
     restart: unless-stopped
 ```
 
-### Qinglong
+### qinglong
 - 定时任务，配合dailycheckin签到
 ```yaml
 services:
@@ -493,7 +581,7 @@ networks:
     external: true
 ```
 
-### Opengist
+### opengist
 - 自部署类似Github Gist
 ```yaml
 services:
@@ -515,7 +603,7 @@ networks:
     external: true
 ```
 
-### RustDesk
+### rustDesk
 - 远程桌面
 ```yaml
 services:

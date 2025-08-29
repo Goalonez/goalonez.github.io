@@ -181,32 +181,25 @@ date: 2024-07-02 23:30:51
 
 ### 存储&目录
 - 目前的效果大概是这个样子的，qb是下载目录，link是媒体库。
-    - 动漫的分类是以前的版本遗留下来的，目前已经全部归属到电视剧里了，当然如果想拆分也可以自己调整配置
+- 没有使用二级分类，因为媒体库用极影视或者Jellyfin,似乎反而影响识别效果。
 ```
 link
 ├── 电视剧
-│   ├── 国产剧
-│   ├── 欧美剧
-│   ├── 日韩剧
-│   ├── 中国动漫
-│   └── 中国纪录
 ├── 电影
-│   ├── 中国动画电影
-│   └── 欧美电影
 qb
 ├── 电视剧
 ├── 电影
 ```
 ![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261306.png)
 
-#### 媒体库分类示例
-- 配合`二级分类策略`插件，修改会方便一点。
-- 参考分类[配置文件](https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml)
+#### ~~媒体库分类示例~~
+- ~~配合`二级分类策略`插件，修改会方便一点。~~
+- ~~参考分类[配置文件](https://github.com/jxxghp/MoviePilot/blob/main/config/category.yaml)~~
 
 ![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261330.png)
 
-- 修改配置文件（可以直接通过上面的插件修改）
-  - `/个人空间/docker/MoviePilot/config/category.yaml`
+- ~~修改配置文件（可以直接通过上面的插件修改）~~
+  - ~~`/个人空间/docker/MoviePilot/config/category.yaml`~~
 
 ```yaml
 # 配置电影的分类策略
@@ -364,6 +357,10 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 
 文件管理-左上角-选择对应网盘-扫码登录即可
 ![](assets/MoviePilot配置-Nas媒体库自动化管理工具-202507261332.png)
+
+## Jellyfin媒体库
+
+参考[Docker Compose](./NAS-DockerCompose分享.html#jellyfin)
 
 ## 其他教程
 

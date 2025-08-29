@@ -11,12 +11,12 @@ date: 2025-07-31 17:14:30
 
 ## Opengist
 
-- 安装[Opengist](./NAS-DockerCompose分享.html#opengist)
+- 安装[opengist](./NAS-DockerCompose分享.html#opengist)
 - 新建`config.yaml`文件
 - 获取`原始文件`url
 
 ## Qinglong
-- 安装[Qinglong](./NAS-DockerCompose分享.html#qinglong)
+- 安装[qinglong](./NAS-DockerCompose分享.html#qinglong)
     - 记得映射mihomo配置文件的目录
 - 脚本管理-新建脚本
 - 新建定时任务`task download_mihomo_config.sh`
