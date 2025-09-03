@@ -718,4 +718,32 @@ networks:
     
 ```
 
+### portainer
+- docker管理面板
+```yaml
+services:
+  portainer:
+    image: 6053537/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - "9000:9000"
+    volumes:
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1,::1,docker.internal
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+    
+```
+
 <gitalk/>
