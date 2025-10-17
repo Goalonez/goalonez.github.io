@@ -1,18 +1,30 @@
 {
-    "rewrites": [
-      {
-        "source": "/stats/:match*",
-        "destination": "https://cloud.umami.is/:match*"
-      },
-      {
-        "source": "/vstats/:match*",
-        "destination": "https://blog.goalonez.site/_vercel/insights/:match*"
-      }
-      ,
-      {
-        "source": "/svstats/:match*",
-        "destination": "https://blog.goalonez.site/_vercel/speed-insights/:match*"
-      }
-    ]
-  }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*Baiduspider.*"
+        }
+      ],
+      "dest": "/api/block-baidu"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/stats/:match*",
+      "destination": "https://cloud.umami.is/:match*"
+    },
+    {
+      "source": "/vstats/:match*",
+      "destination": "https://blog.goalonez.site/_vercel/insights/:match*"
+    },
+    {
+      "source": "/svstats/:match*",
+      "destination": "https://blog.goalonez.site/_vercel/speed-insights/:match*"
+    }
+  ]
+}
   
