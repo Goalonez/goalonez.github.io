@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/block-baidu).*)",
       "has": [
         {
           "type": "header",
