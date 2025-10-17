@@ -1,17 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/((?!api/block-baidu).*)",
-      "has": [
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": ".*Baiduspider.*"
-        }
-      ],
-      "destination": "/api/block-baidu"
-    },
-    {
       "source": "/stats/:match*",
       "destination": "https://cloud.umami.is/:match*"
     },
