@@ -1,7 +1,7 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
+      "source": "/(.*)",
       "has": [
         {
           "type": "header",
@@ -9,10 +9,8 @@
           "value": ".*Baiduspider.*"
         }
       ],
-      "dest": "/api/block-baidu"
-    }
-  ],
-  "rewrites": [
+      "destination": "/api/block-baidu"
+    },
     {
       "source": "/stats/:match*",
       "destination": "https://cloud.umami.is/:match*"
