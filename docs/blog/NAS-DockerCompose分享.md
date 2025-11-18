@@ -6,6 +6,34 @@ date: 2025-04-19 20:50:32
 好久没写Blog了，忙着研究装修。最近极空间更新了Docker Compose，抽时间把原先跑的镜像都切换成了Docker Compose的形式运行，以后也方便更新和迁移。
 
 ## YAML分享
+### dockge
+- Docker web管理面板
+- 由于portainer的体验不太好，没有遮罩层，更新容器的时候很奇怪，所以替换了这个轻量级的面板，反而感觉更好用
+```yaml
+services:
+  dockge:
+    image: louislam/dockge:latest
+    container_name: dockge
+    ports:
+      - "5001:5001"
+    volumes:
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/dockge/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/dockge/opt/stacks:/opt/stacks
+    environment:
+      - DOCKGE_STACKS_DIR=/opt/stacks
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+    
+```
+
 ### openlist
 - 分享文件及webdav
 ```yaml
@@ -726,6 +754,166 @@ services:
     mem_limit: 1g
     cpus: 2
 
+networks:
+  defaultnet:
+    external: true
+    
+```
+
+### bili-sync
+- 哔哩哔哩收藏视频备份
+```yaml
+services:
+  bili-sync-rs:
+    image: amtoaer/bili-sync-rs:latest
+    container_name: bili-sync-rs
+    ports:
+      - 12345:12345
+    volumes:
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/bili-sync-rs/config:/app/.config/bili-sync
+      - /tmp/zfsv3/硬盘名/public/videos/Bilibilis:/Bilibilis
+      # - /tmp/zfsv3/硬盘名/手机号/data/docker/jellyfin/path/to/config/metadata/People:/app/.config/bili-sync/upper_face
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+networks:
+  defaultnet:
+    external: true
+    
+```
+
+### dailyhot-api
+- 各大平台热榜接口api、rss
+```yaml
+services:
+  dailyhot-api:
+    image: imsyy/dailyhot-api:latest
+    container_name: dailyhot-api
+    ports:
+      - 6688:6688
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+networks:
+  defaultnet:
+    external: true
+    
+```
+
+### glance
+- 主页导航，搭配sun-panel的浏览器插件使用
+```yaml
+services:
+  glance:
+    image: glanceapp/glance:latest
+    container_name: glance
+    ports:
+      - 8080:8080
+    volumes:
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/glance/config:/app/config
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/glance/assets:/app/assets
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+      # - HTTP_PROXY=http://123.123.123.123:7890
+      # - HTTPS_PROXY=http://123.123.123.123:7890
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+networks:
+  defaultnet:
+    external: true
+    
+```
+
+### omnibox
+- 影视综合管理，集成影视站，网盘搜索，iptv，直播平台，支持tvbox订阅
+```yaml
+services:
+  omnibox:
+    image: lampon/omnibox:latest
+    container_name: omnibox
+    ports:
+      - 7023:7023
+    volumes:
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/omnibox/data:/app/data
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+networks:
+  defaultnet:
+    external: true
+    
+```
+
+### pansou
+- 网盘搜索api，搭配OmniBox使用
+```yaml
+services:
+  pansou:
+    image: ghcr.io/fish2018/pansou:latest
+    container_name: pansou
+    ports:
+      - 8888:8888
+    environment:
+      - PORT=8888
+      - CHANNELS=tgsearchers3,Aliyun_4K_Movies,bdbdndn11,yunpanx,bsbdbfjfjff,yp123pan,sbsbsnsqq,yunpanxunlei,tianyifc,BaiduCloudDisk,txtyzy,peccxinpd,gotopan,PanjClub,kkxlzy,baicaoZY,MCPH01,bdwpzhpd,ysxb48,jdjdn1111,yggpan,MCPH086,zaihuayun,Q66Share,ucwpzy,shareAliyun,alyp_1,dianyingshare,Quark_Movies,XiangxiuNBB,ydypzyfx,ucquark,xx123pan,yingshifenxiang123,zyfb123,tyypzhpd,tianyirigeng,cloudtianyi,hdhhd21,Lsp115,oneonefivewpfx,qixingzhenren,taoxgzy,Channel_Shares_115,tyysypzypd,vip115hot,wp123zy,yunpan139,yunpan189,yunpanuc,yydf_hzl,leoziyuan,pikpakpan,Q_dongman,yoyokuakeduanju,TG654TG,WFYSFX02,QukanMovie,yeqingjie_GJG666,movielover8888_film3,Baidu_netdisk,D_wusun,FLMdongtianfudi,KaiPanshare,QQZYDAPP,rjyxfx,PikPak_Share_Channel,btzhi,newproductsourcing,cctv1211,duan_ju,QuarkFree,yunpanNB,kkdj001,xxzlzn,pxyunpanxunlei,jxwpzy,kuakedongman,liangxingzhinan,xiangnikanj,solidsexydoll,guoman4K,zdqxm,kduanju,cilidianying,CBduanju,SharePanFilms,dzsgx,BooksRealm
+      # 必须指定启用的插件，多个插件用逗号分隔
+      - ENABLED_PLUGINS=labi,zhizhen,shandian,duoduo,muou,wanou,hunhepan,jikepan,panwiki,pansearch,panta,qupansou,hdr4k,pan666,susu,thepiratebay,xuexizhinan,panyq,ouge,huban,cyg,erxiao,miaoso,fox4k,pianku,clmao,wuji,cldi,xiaozhang,libvio,leijing,xb6v,xys,ddys,hdmoli,yuhuage,u3c3,javdb,clxiong,jutoushe,sdso,xiaoji,xdyh,haisou,bixin,djgou,nyaa,xinjuc,aikanzy,qupanshe,xdpan,discourse,yunsou
+      - CACHE_ENABLED=true
+      - CACHE_PATH=/app/cache
+      - CACHE_MAX_SIZE=100
+      - CACHE_TTL=60
+      - ASYNC_PLUGIN_ENABLED=true
+      - ASYNC_RESPONSE_TIMEOUT=4
+      - ASYNC_MAX_BACKGROUND_WORKERS=20
+      - ASYNC_MAX_BACKGROUND_TASKS=100
+      - ASYNC_CACHE_TTL_HOURS=1
+      # 认证配置（可选）
+      # - AUTH_ENABLED=true
+      # - AUTH_USERS=admin:admin123,user:pass456
+      # - AUTH_TOKEN_EXPIRY=24
+      # - AUTH_JWT_SECRET=your-secret-key-here
+      # 如果需要代理，取消下面的注释并设置代理地址
+      # - PROXY=socks5://123.123.123.123:7890
+    volumes:
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/pansou/app/cache.env:/app/cache
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+networks:
+  defaultnet:
+    external: true
+    
+```
+
+### danmu-api
+- 弹幕api，搭配OmniBox使用
+```yaml
+services:
+  danmu-api:
+    image: logvar/danmu-api:latest
+    container_name: danmu-api
+    ports:
+      - 9321:9321
+    volumes:
+      - /tmp/zfsv3/硬盘名/手机号/data/docker/danmu-api/config.yaml:/app/config.yaml
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
 networks:
   defaultnet:
     external: true
