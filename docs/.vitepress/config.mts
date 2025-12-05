@@ -33,6 +33,7 @@ export default defineConfig({
     // 浏览器中图标
     ["link", {rel: "icon", href: "/logo.ico"}],
     ["meta", { name: "baidu-site-verification", content: "codeva-tJXP9tlTwD" }],
+    ['meta', { name: 'baiduspider', content: 'noindex, nofollow' }],
     // 添加统计代码
     // 添加百度统计代码
     // [
