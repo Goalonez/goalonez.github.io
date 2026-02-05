@@ -170,7 +170,7 @@ services:
       AUTHENTIK_POSTGRESQL__PORT: postgresql端口
       AUTHENTIK_POSTGRESQL__NAME: authentik
       AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_POSTGRESQL__PASSWORD: vUhJ5hGFIxvgK0
+      AUTHENTIK_POSTGRESQL__PASSWORD: postgresql密码
     ports:
       - 自定义端口:9000
       - 自定义端口:9443
