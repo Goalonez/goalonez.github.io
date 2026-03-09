@@ -7,23 +7,30 @@
   />
   <GiscusComments
     v-else
-    :key="`giscus:${commentPath}:pathname`"
+    :key="`giscus:${commentPath}:specific:${discussionTerm}`"
     :comment-path="commentPath"
+    :discussion-term="discussionTerm"
   />
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { inBrowser, useRoute } from 'vitepress'
+import { inBrowser, useData, useRoute } from 'vitepress'
 import discussionMap from '../data/discussion-map.json'
 import { normalizeCommentPath } from '../data/comment-config'
 import GiscusComments from './giscus-comments.vue'
 
 const route = useRoute()
+const { page } = useData()
 
 const commentPath = computed(() => {
   const rawPath = inBrowser ? window.location.pathname : route.path
   return normalizeCommentPath(rawPath)
+})
+
+const discussionTerm = computed(() => {
+  const title = typeof page.value.title === 'string' ? page.value.title.trim() : ''
+  return title || commentPath.value
 })
 
 const discussionNumber = computed(() => {

@@ -5,11 +5,12 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData } from 'vitepress'
-import { getGiscusTheme, giscusConfig } from '../data/comment-config'
+import { getCommentBacklink, getGiscusTheme, giscusConfig } from '../data/comment-config'
 
 const props = defineProps<{
   commentPath: string
   discussionNumber?: number
+  discussionTerm?: string
 }>()
 
 const { isDark } = useData()
@@ -21,12 +22,29 @@ function clearContainer() {
   }
 }
 
+function upsertMetaTag(name: string, content: string) {
+  if (typeof document === 'undefined' || !content) {
+    return
+  }
+
+  let element = document.head.querySelector<HTMLMetaElement>(`meta[name='${name}']`)
+
+  if (!element) {
+    element = document.createElement('meta')
+    element.setAttribute('name', name)
+    document.head.appendChild(element)
+  }
+
+  element.setAttribute('content', content)
+}
+
 function renderGiscus() {
   if (!container.value) {
     return
   }
 
   clearContainer()
+  upsertMetaTag('giscus:backlink', getCommentBacklink(props.commentPath))
 
   const script = document.createElement('script')
   script.src = 'https://giscus.app/client.js'
@@ -48,8 +66,14 @@ function renderGiscus() {
   } else {
     script.setAttribute('data-category', giscusConfig.category)
     script.setAttribute('data-category-id', giscusConfig.categoryId)
-    script.setAttribute('data-mapping', giscusConfig.mapping)
     script.setAttribute('data-strict', giscusConfig.strict)
+
+    if (props.discussionTerm) {
+      script.setAttribute('data-mapping', 'specific')
+      script.setAttribute('data-term', props.discussionTerm)
+    } else {
+      script.setAttribute('data-mapping', giscusConfig.mapping)
+    }
   }
 
   container.value.appendChild(script)

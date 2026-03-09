@@ -1,4 +1,5 @@
 export const giscusConfig = {
+  siteOrigin: 'https://blog.goalonez.site',
   repo: 'Goalonez/goalonez.github.io',
   repoId: 'R_kgDOKNMytQ',
   category: 'Announcements',
@@ -11,6 +12,20 @@ export const giscusConfig = {
   lang: 'zh-CN',
   loading: 'lazy',
 } as const
+
+export function toHumanReadablePath(path: string): string {
+  const normalized = normalizeCommentPath(path)
+
+  try {
+    return decodeURI(normalized).replaceAll(' ', '%20')
+  } catch {
+    return normalized
+  }
+}
+
+export function getCommentBacklink(path: string): string {
+  return `${giscusConfig.siteOrigin}${toHumanReadablePath(path)}`
+}
 
 export function normalizeCommentPath(path: string): string {
   if (!path) {
