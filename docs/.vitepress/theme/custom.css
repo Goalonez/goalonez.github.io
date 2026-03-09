@@ -596,3 +596,15 @@
 .dark .vp-doc blockquote > p {
   color: #92cab2;
 }
+
+.comment-thread {
+  margin-top: 32px;
+}
+
+.comment-thread--giscus {
+  min-height: 220px;
+}
+
+.comment-thread--giscus .giscus-frame {
+  width: 100%;
+}

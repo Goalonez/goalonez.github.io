@@ -45,4 +45,4 @@ fi
 echo "🎉 脚本执行完成，无异常"
 ```
 
-<gitalk/>
+<PostComments/>

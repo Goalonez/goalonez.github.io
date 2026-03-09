@@ -1,12 +1,12 @@
-import DefaultTheme from 'vitepress/theme';
-import './custom.css';
+import DefaultTheme from 'vitepress/theme'
+import './custom.css'
 // @ts-ignore
-import comment from "../components/gitalk.vue";
+import PostComments from '../components/post-comments.vue'
 
 export default {
   ...DefaultTheme,
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx)
-    ctx.app.component("gitalk", comment)
+    ctx.app.component('PostComments', PostComments)
   },
-};
+}

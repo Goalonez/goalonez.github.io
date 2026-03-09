@@ -84,7 +84,7 @@ npx vitepress init
 ├─ docs
 │  ├─ .vitepress
 │  │    ├─ components            //这个目录自建，用于存放组件
-│  │    │    └─ gitalk.vue       //这个文件自建，用于引入gitalk
+│  │    │    └─ post-comments.vue //这个文件自建，用于引入评论组件
 │  │    ├─ theme                 //这个目录自建，用于存放主题相关文件
 │  │    │    ├─ custom.css       //这个文件自建，用于存放自定义样式
 │  │    │    └─ index.ts         //这个文件自建，用于引入主题和组件
@@ -385,90 +385,90 @@ jobs:
 
 ## 其他配置
 
-### 引入gitalk
+### 引入评论（giscus）
 
-> [参考原文档](https://blog.csdn.net/qq_42611074/article/details/128451765)
+`giscus` 基于 GitHub Discussions，不需要在前端保存 `clientSecret`，比旧的 OAuth 方案干净很多。
 
-#### 注册应用
+#### 前置准备
 
-- `Github`
-- 进入个人设置`Settings`
-- 最下方`Developer settings`
-- `OAuth Apps`
-- `New OAuth App`
-- 此刻获取到`clientID`和`clientSecret`
-
-#### 安装依赖
-
-```shell
-npm install md5 gitalk
-```
+- 仓库开启 `Discussions`
+- 安装 `giscus` GitHub App
+- 在仓库 Discussions 里创建一个分类，例如 `Announcements`
+- 打开 `https://giscus.app/zh-CN` 生成配置
+- 页面与 discussion 的映射建议选择 `pathname`，并开启严格匹配
 
 #### 编辑配置
 
-- 编辑`./docs/.vitepress/components/gitalk.vue`
-
-- 默认gitalk存在黑色模式下字体白色，背景色也是白色，导致看不见字体，所以样式里设置一下
-
-> [前端保存clientSecret是否安全?](https://carl-zk.github.io/blog/2020/03/03/gitalk-%E8%BF%90%E4%BD%9C%E5%8E%9F%E7%90%86/#%E4%BB%80%E4%B9%88%E6%98%AF-GitHub-OAuth-Apps)
+- 编辑 `./docs/.vitepress/components/post-comments.vue`
 
 ```vue
 <template>
-    <div class="gitalk-container">
-      <div id="gitalk-container"></div>
-    </div>
+  <div ref="container" class="comment-thread comment-thread--giscus"></div>
 </template>
-<script>
-import md5 from "md5"
-import Gitalk from "gitalk"
-import "gitalk/dist/gitalk.css"
-export default {
-  name: "gitalk",
-  data() {
-    return {}
-  },
-  mounted() {
-    const commentConfig = {
-      clientID: "你的clientID",
-      clientSecret: "你的clientSecret",
-      repo: "仓库.github.io",
-      owner: "名称",
-      admin: ["名称"],
-      id: md5(location.pathname),
-      distractionFreeMode: false,
-    }
-    const gitalk = new Gitalk(commentConfig)
-    gitalk.render("gitalk-container")
-  },
+
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+
+const container = ref<HTMLDivElement | null>(null)
+
+function clearContainer() {
+  if (container.value) {
+    container.value.innerHTML = ''
+  }
 }
+
+onMounted(() => {
+  if (!container.value) {
+    return
+  }
+
+  clearContainer()
+
+  const script = document.createElement('script')
+  script.src = 'https://giscus.app/client.js'
+  script.async = true
+  script.crossOrigin = 'anonymous'
+
+  script.setAttribute('data-repo', '用户名/仓库名')
+  script.setAttribute('data-repo-id', '从 giscus 页面复制')
+  script.setAttribute('data-category', 'Announcements')
+  script.setAttribute('data-category-id', '从 giscus 页面复制')
+  script.setAttribute('data-mapping', 'pathname')
+  script.setAttribute('data-strict', '1')
+  script.setAttribute('data-reactions-enabled', '1')
+  script.setAttribute('data-emit-metadata', '0')
+  script.setAttribute('data-input-position', 'top')
+  script.setAttribute('data-theme', 'preferred_color_scheme')
+  script.setAttribute('data-lang', 'zh-CN')
+  script.setAttribute('data-loading', 'lazy')
+
+  container.value.appendChild(script)
+})
+
+onBeforeUnmount(clearContainer)
 </script>
-<style>
-.gt-container .gt-header-textarea {
-  color: #000;
-}
-</style>
 ```
 
-- 编辑`./docs/.vitepress/theme/index.ts`
+- 编辑 `./docs/.vitepress/theme/index.ts`
 
 ```ts
-import DefaultTheme from 'vitepress/theme';
-import './custom.css';
+import DefaultTheme from 'vitepress/theme'
+import './custom.css'
 // @ts-ignore
-import comment from "../components/gitalk.vue";// 引入这一段
+import PostComments from '../components/post-comments.vue'
 
 export default {
   ...DefaultTheme,
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx)
-    ctx.app.component("gitalk", comment)// 引入这一段
+    ctx.app.component('PostComments', PostComments)
   },
-};
+}
 ```
 
 #### 使用
 
-在需要的Markdown里使用`<gitalk/>`开启评论
+在需要的 Markdown 里使用 `<PostComments/>` 开启评论
 
 ### 接入百度统计
 
@@ -502,4 +502,4 @@ export default {
 
 
 
-<gitalk/>
+<PostComments/>

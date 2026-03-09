@@ -764,5 +764,5 @@ rules:
   - MATCH,End
 ```
 
-<gitalk/>
+<PostComments/>
 

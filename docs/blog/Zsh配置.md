@@ -56,4 +56,4 @@ source .zshrc
 
 
 
-<gitalk/>
+<PostComments/>

@@ -218,11 +218,11 @@ export default defineConfig({
         link: `${hostname}${url}`,
         description: `${hostname}${url}`,
         //处理vitepress编译后生成的ZeroWidthSpace
-        //处理gitalk
+        //处理评论组件
         content: result?.cleanedHtml?.replaceAll('&ZeroWidthSpace;', '')
         .replaceAll(/<span class="line-number">\d+<\/span><br>/g, '')
-        .replaceAll(/<div class="gitalk-container"><div id="gitalk-container"><\/div><\/div>/g, '')
-        .replaceAll(/<gitalk\/>/g, ''),
+        .replaceAll(/<div class="comment-thread comment-thread--giscus"><\/div>/g, '')
+        .replaceAll(/<PostComments\/>/g, ''),
         author: feed.options.author ? [feed.options.author] : undefined,
         date: gmtDate, // 使用 GMT 时区的日期
         image: result?.firstImageUrl || `${hostname}` + '/logo.jpg',
@@ -252,4 +252,4 @@ date: 2024-07-13 14:29:41
 #### 完成
 本来还想着调休了可以好好休息一下。结果搞完已经大晚上了。比上班还累🫠
 
-<gitalk/>
+<PostComments/>

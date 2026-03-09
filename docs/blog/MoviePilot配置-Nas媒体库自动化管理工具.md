@@ -378,4 +378,4 @@ SPECSUB & CNSUB & 4K & !BLU & BLURAY & H265 & !DOLBY & !REMUX & !UHD > CNSUB & 4
 - **请勿**将 MoviePilot 用于任何违反法律法规的行为。
 - **请勿**将本教程在国内任何平台宣传，本教程**只**作为官方仓库教程补充。
 
-<gitalk/>
+<PostComments/>

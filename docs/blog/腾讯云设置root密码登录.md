@@ -34,4 +34,4 @@ sudo chmod -R 700 密钥路径
 sudo service ssh restart
 ```
 
-<gitalk/>
+<PostComments/>

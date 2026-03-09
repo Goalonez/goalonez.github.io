@@ -277,4 +277,4 @@ final, End
 hostname = games.mobileapi.hupu.com, du.hupucdn.com, i*.hoopchina.com.cn, goblin.hupu.com,raw.githubusercontent.com,gist.githubusercontent.com,github.com
 ```
 
-<gitalk/>
+<PostComments/>

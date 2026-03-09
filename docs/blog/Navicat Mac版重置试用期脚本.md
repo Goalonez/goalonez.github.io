@@ -72,4 +72,4 @@ sh ./navicatReset.sh
 
 
 
-<gitalk/>
+<PostComments/>

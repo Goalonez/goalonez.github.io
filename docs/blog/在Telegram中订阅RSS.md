@@ -92,4 +92,4 @@ GitHub: https://github.com/Rongronggg9/RSS-to-Telegram-Bot
 (@username 是频道/群组的用户名，@ 是不可缺少的；-10010000000000 是频道/群组的 ID，必须以 -100 开头)
 ```
 
-<gitalk/>
+<PostComments/>

@@ -17,4 +17,4 @@ defaults write io.tailscale.ipn.macos ControlURL https://controlplane.tailscale.
 
 ![image-20240515221657506](assets/image-20240515221657506.png)
 
-<gitalk/>
+<PostComments/>

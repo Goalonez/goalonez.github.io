@@ -74,4 +74,4 @@ shell_command:
 - [HomeAssistant 控制pc开关机（无需硬件和下载第三方软件）wol - 哔哩哔哩](https://www.bilibili.com/opus/921208379781677111?jump_opus=1)
 - [小爱同学通过homeassistant控制win电脑开关机\_小爱同学控制电脑开关机-CSDN博客](https://blog.csdn.net/qqqq2531/article/details/141351962)
 
-<gitalk/>
+<PostComments/>

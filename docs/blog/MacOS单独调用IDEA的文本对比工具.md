@@ -27,4 +27,4 @@ alias idiff='open -na "/Users/你的用户名/Applications/IntelliJ IDEA Ultimat
 
 
 
-<gitalk/>
+<PostComments/>
