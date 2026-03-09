@@ -108,6 +108,12 @@ export default defineConfig({
         text: 'Blog',
         items: [
           {
+            text: '2026',
+            items: [
+              { text: '更新了一下评论系统', link: '/blog/更新了一下评论系统' },
+            ]
+          },
+          {
             text: '2025',
             items: [
               { text: '最近部署的一些NAS容器', link: '/blog/最近部署的一些NAS容器' },
