@@ -3,6 +3,180 @@ date: 2025-04-19 20:50:32
 ---
 # NAS Docker Compose分享
 
+## AI
+### Axonhub
+- AI渠道聚合网关
+```
+services:
+  axonhub:
+    image: looplj/axonhub:latest
+    container_name: axonhub
+    ports:
+      - "自定义端口:8090"
+    volumes:
+      - /本地存储配置目录/data/docker/axonhub/config.yml:/app/config.yml:ro
+    environment:
+      - TZ=Asia/Shanghai
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 4
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### new-api
+- AI渠道分发网关
+```
+services:
+  new-api:
+    image: calciumion/new-api:latest
+    container_name: new-api
+    ports:
+      - 自定义端口:3000
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+      - STREAMING_TIMEOUT=300
+    volumes:
+      - /本地存储配置目录/data/docker/new-api/data:/data
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 3
+networks:
+  defaultnet:
+    external: true
+```
+
+### sub2api
+- AI渠道分发网关
+- 暂时没用了，感觉new-api的配置操作更方便点，支持的模型也多一些。
+```
+services:
+  sub2api:
+    image: weishaw/sub2api:latest
+    container_name: sub2api
+    ports:
+      - "自定义端口:8080"
+    volumes:
+      - /本地存储配置目录/data/docker/sub2api/data:/app/data
+    environment:
+      - TZ=Asia/Shanghai
+      - AUTO_SETUP=true
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8080
+      - SERVER_MODE=release
+      - RUN_MODE=standard
+      - DATABASE_HOST=自定义
+      - DATABASE_PORT=自定义
+      - DATABASE_USER=自定义
+      - DATABASE_PASSWORD=自定义
+      - DATABASE_DBNAME=自定义
+      - DATABASE_SSLMODE=disable
+      - DATABASE_MAX_OPEN_CONNS=256
+      - DATABASE_MAX_IDLE_CONNS=128
+      - DATABASE_CONN_MAX_LIFETIME_MINUTES=30
+      - DATABASE_CONN_MAX_IDLE_TIME_MINUTES=5
+      - REDIS_HOST=自定义
+      - REDIS_PORT=自定义
+      - REDIS_PASSWORD=自定义
+      - REDIS_DB=自定义
+      - REDIS_POOL_SIZE=4096
+      - REDIS_MIN_IDLE_CONNS=256
+      - REDIS_ENABLE_TLS=false
+      - ADMIN_EMAIL=自定义
+      - ADMIN_PASSWORD=自定义
+      - JWT_SECRET=自定义
+      - JWT_EXPIRE_HOUR=24
+      - TOTP_ENCRYPTION_KEY=自定义
+      - SECURITY_URL_ALLOWLIST_ALLOW_PRIVATE_HOSTS=true
+      - UPDATE_PROXY_URL=http://192.168.1.2:7890
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 4
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### CLIProxyAPI
+- 号池反代
+```
+services:
+  cli-proxy-api:
+    image: eceasy/cli-proxy-api:latest
+    container_name: cli-proxy-api
+    ports:
+      - 自定义端口:8317
+    volumes:
+      - /本地存储配置目录/data/docker/CLIProxyAPI/config.yaml:/CLIProxyAPI/config.yaml
+      - /本地存储配置目录/data/docker/CLIProxyAPI/auth-dir:/root/.cli-proxy-api
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 3
+networks:
+  defaultnet:
+    external: true
+```
+
+### hermes
+```
+services:
+  hermes:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes
+    ports:
+      - "自定义端口:8642"
+    volumes:
+      - /本地存储配置目录/data/docker/hermes/data:/opt/data
+    environment:
+      - TZ=Asia/Shanghai
+      - HERMES_TELEGRAM_HTTP_POOL_TIMEOUT=8.0
+      - HERMES_TELEGRAM_HTTP_CONNECT_TIMEOUT=10.0
+      - HERMES_TELEGRAM_HTTP_READ_TIMEOUT=20.0
+      - HERMES_TELEGRAM_HTTP_WRITE_TIMEOUT=20.0
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1
+    command: gateway run
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 4
+  hermes-dashboard:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-dashboard
+    ports:
+      - "自定义端口:9119"
+    volumes:
+      - /本地存储配置目录/data/docker/hermes/data:/opt/data
+    environment:
+      - GATEWAY_HEALTH_URL=http://192.168.1.2:hermes自定义端口
+    command: dashboard --host 0.0.0.0 --insecure
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+```
+
 ## 服务
 
 ### openlist
@@ -28,55 +202,6 @@ services:
       - defaultnet
     mem_limit: 1g
     cpus: 2
-    depends_on:
-      - aria2-pro
-  
-  # 单独部署aria2，因为据说后续没有aio后缀的镜像了。
-  aria2-pro:
-    image: p3terx/aria2-pro
-    container_name: aria2-pro
-    ports:
-      - "自定义端口:11445"
-      # 不用BT所以注释
-      # - '6888:6888'
-      # - '6888:6888/udp'
-    volumes:
-      - /本地存储配置目录/docker/aria2-pro/config:/config
-      - /本地存储配置目录/docker/aria2-pro/downloads:/downloads
-      - /本地存储配置目录/docker/aria2-pro/temp/aria2:/opt/openlist/data/temp/aria2
-    environment:
-      - PUID=0
-      - PGID=0
-      - TZ=Asia/Shanghai
-      - UMASK_SET=022
-      # 设置密码
-      - RPC_SECRET=123456
-      - RPC_PORT=11445
-      - LISTEN_PORT=6888
-      - IPV6_MODE=true
-      # 由于配置文件是从github拉取的，所以可以通过环境变量设置代理
-      # - HTTP_PROXY=http://192.168.1.2:7890
-      # - HTTPS_PROXY=http://192.168.1.2:7890
-    restart: unless-stopped
-    networks:
-      - defaultnet
-    mem_limit: 1g
-    cpus: 2
-
-  ariang:
-    image: p3terx/ariang
-    container_name: ariang
-    network_mode: host
-    environment:
-      - PUID=0
-      - PGID=0
-      - TZ=Asia/Shanghai
-    command: ["--port", "自定义端口", "--ipv6"]
-    restart: unless-stopped
-    mem_limit: 1g
-    cpus: 2
-    depends_on:
-      - aria2-pro
 
 networks:
   defaultnet:
@@ -154,62 +279,6 @@ networks:
     external: true
 ```
 
-### authentik
-- 用于单点登录各个系统
-
-```yaml
-services:
-  authentik-server:
-    image: ghcr.io/goauthentik/server:2025.10.3
-    container_name: authentik-server
-    command: server
-    restart: unless-stopped
-    environment:
-      AUTHENTIK_SECRET_KEY: 密钥
-      AUTHENTIK_POSTGRESQL__HOST: postgresql地址
-      AUTHENTIK_POSTGRESQL__PORT: postgresql端口
-      AUTHENTIK_POSTGRESQL__NAME: authentik
-      AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_POSTGRESQL__PASSWORD: postgresql密码
-    ports:
-      - 自定义端口:9000
-      - 自定义端口:9443
-    volumes:
-      - - /本地存储配置目录/docker/authentik/media:/media
-      - - /本地存储配置目录/docker/authentik/templates:/templates
-    networks:
-      - defaultnet
-    mem_limit: 3g
-    cpus: 3
-
-  authentik-worker:
-    image: ghcr.io/goauthentik/server:2025.10.3
-    container_name: authentik-worker
-    command: worker
-    restart: unless-stopped
-    user: root
-    environment:
-      AUTHENTIK_SECRET_KEY: 密钥
-      AUTHENTIK_POSTGRESQL__HOST: postgresql地址
-      AUTHENTIK_POSTGRESQL__PORT: postgresql端口
-      AUTHENTIK_POSTGRESQL__NAME: authentik
-      AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_POSTGRESQL__PASSWORD: postgresql密码
-    volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock
-      - - /本地存储配置目录/docker/authentik/media:/media
-      - - /本地存储配置目录/docker/authentik/certs:/certs
-      - - /本地存储配置目录/docker/authentik/templates:/templates
-    networks:
-      - defaultnet
-    mem_limit: 3g
-    cpus: 3
-    
-networks:
-  defaultnet:
-    external: true
-```
-
 ### opengist
 - 自部署文本托管，类似Github Gist
 
@@ -270,38 +339,6 @@ networks:
   defaultnet:
     external: true
 ```
-
-### glance
-- 主页导航，搭配sun-panel的浏览器插件使用
-
-```yaml
-services:
-  glance:
-    image: glanceapp/glance:latest
-    container_name: glance
-    ports:
-      - 自定义端口:8080
-    volumes:
-      - /本地存储配置目录/docker/glance/config:/app/config
-      - /本地存储配置目录/docker/glance/assets:/app/assets
-      - /etc/localtime:/etc/localtime:ro
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
-    environment:
-      - TZ=Asia/Shanghai
-      # - HTTP_PROXY=http://192.168.1.2:7890
-      # - HTTPS_PROXY=http://192.168.1.2:7890
-    networks:
-      - defaultnet
-    mem_limit: 1g
-    cpus: 2
-
-networks:
-  defaultnet:
-    external: true
-    
-```
-
 ### dailyhot-api
 - 各大平台热榜接口api、rss
 - 搭配glance使用
@@ -323,6 +360,7 @@ networks:
     external: true
     
 ```
+
 ### HowToCook
 - 菜谱
 
@@ -341,42 +379,179 @@ networks:
   defaultnet:
     external: true
 ```
-
-### sun-panel
-- 导航页
-- 暂时用的是glance，感觉信息更多一点
-
-```yaml
+### kasm-chrome
+- docker浏览器
+```
 services:
-  sun-panel:
-    image: hslr/sun-panel:latest
-    container_name: sun-panel
+  kasm-chrome:
+    image: kasmweb/chrome:1.18.0
+    container_name: kasm-chrome
+    user: root
     ports:
-      - "自定义端口:3002"
+      - "自定义端口:6901"    # VNC 访问
+      - "自定义端口:24334"    # CDP 协议
     volumes:
-      - /本地存储配置目录/docker/sun-panel/conf:/app/conf
-    restart: unless-stopped
-    networks:
-      - defaultnet
-
-  sun-panel-helper:
-    image: madrays/sun-panel-helper:latest
-    container_name: sun-panel-helper
-    ports:
-      - "自定义端口:80"
-    volumes:
-      - /本地存储配置目录/docker/sun-panel/sun-panel-helper/data:/app/backend/data
-      - /本地存储配置目录/docker/sun-panel/sun-panel-helper/backups:/app/backend/backups
-      - /本地存储配置目录/docker/sun-panel/conf/custom:/app/backend/custom
+      - /本地存储配置目录/data/docker/kasm-chrome/Downloads:/home/kasm-user/Downloads
+      - /本地存储配置目录/data/docker/kasm-chrome/startup.sh:/startup.sh:ro
     environment:
-      - BACKEND_PORT=3001
+      - TZ=Asia/Shanghai
+      - VNC_PW=自定义密码
+      - APP_ARGS=--remote-debugging-port=9222 --user-data-dir=remote-profile --remote-allow-origins=* --start-maximized
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1
+    entrypoint: /startup.sh
     restart: unless-stopped
     networks:
       - defaultnet
+    mem_limit: 4g
+    cpus: 4
 
 networks:
   defaultnet:
     external: true
+```
+
+### outlook-mail-reader
+- 邮箱批量管理
+```
+services:
+  outlook-mail-reader:
+    image: ghcr.io/assast/outlookemail:latest
+    container_name: outlook-mail-reader
+    ports:
+      - "自定义端口:5000"
+    volumes:
+      - /本地存储配置目录/data/docker/outlook-mail-reader/app/data:/app/data
+    environment:
+      - LOGIN_PASSWORD=自定义密码
+      - SECRET_KEY=自定义密钥
+      - FLASK_ENV=production
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### postgres
+- 数据库
+```
+services:
+  postgres:
+    image: postgres:18-trixie
+    container_name: postgres
+    ports:
+      - "自定义端口:5432"
+    volumes:
+      - /本地存储配置目录/data/docker/postgres/postgresql:/var/lib/postgresql
+    environment:
+      - TZ=Asia/Shanghai
+      - POSTGRES_PASSWORD=自定义密码
+      - POSTGRES_USER=自定义用户名
+      - POSTGRES_DB=自定义默认库
+      - POSTGRES_INITDB_ARGS=--data-checksums
+    shm_size: 128mb
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 4
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### rustfs
+- 对象存储
+```
+services:
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: rustfs
+    ports:
+      - "自定义端口:9000"
+      - "自定义端口:9001"
+    volumes:
+      - /本地存储配置目录/data/docker/rustfs/data:/data
+    environment:
+      - TZ=Asia/Shanghai
+      - RUSTFS_CONSOLE_ENABLE=true
+      - RUSTFS_ACCESS_KEY=自定义账号
+      - RUSTFS_SECRET_KEY=自定义密码
+    command:
+      ['--access-key', '自定义账号', '--secret-key', '自定义密码', '/data']
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 3
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### searxng
+- 聚合搜索引擎
+```
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    ports:
+      - "自定义端口:8080"
+    volumes:
+      - /本地存储配置目录/data/docker/searxng/searxng-settings.yml:/etc/searxng/settings.yml
+    environment:
+      - TZ=Asia/Shanghai
+      - SEARXNG_SETTINGS_FILE=/etc/searxng/settings.yml
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### reader
+- 阅读
+```
+services:
+  reader:
+    image: hectorqin/reader:latest
+    container_name: reader
+    ports:
+      - 自定义端口:8080
+    volumes:
+      - /本地存储配置目录/data/docker/reader/storage:/storage
+      - /本地存储配置目录/data/docker/reader/logs:/logs
+    environment:
+      - TZ=Asia/Shanghai
+      - SPRING_PROFILES_ACTIVE=prod
+      - READER_APP_CACHECHAPTERCONTENT=true #开启缓存章节内容 V2.0
+      - READER_APP_SECURE=true #开启登录鉴权，开启后将支持多用户模式
+      - READER_APP_SECUREKEY=自定义密钥 #管理员密码  建议修改
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 2
+networks:
+  defaultnet:
+    external: true
+
 ```
 
 ## RSS
@@ -478,35 +653,6 @@ networks:
     external: true
 ```
 
-### wewe-rss
-- 微信公众号RSS
-
-```yaml
-services:
-  wewe-rss:
-    image: cooderl/wewe-rss-sqlite:latest
-    container_name: wewe-rss
-    ports:
-      - "自定义端口:4000"
-    volumes:
-      - /本地存储配置目录/docker/wewe-rss/data:/app/data
-    environment:
-      - SERVER_ORIGIN_URL= #你的域名
-      - MAX_REQUEST_PER_MINUTE=60
-      - AUTH_CODE= #你的密钥
-      - DATABASE_URL=file:../data/wewe-rss.db
-      - AUTH_DATABASE_TYPECODE=sqlite
-      - FEED_MODE=fulltext
-      - ENABLE_CLEAN_HTML=true
-    restart: unless-stopped
-    networks:
-      - defaultnet
-
-networks:
-  defaultnet:
-    external: true
-```
-
 ## 影视
 ### moviepilot
 - 媒体库自动化管理
@@ -531,7 +677,7 @@ services:
       - TZ=Asia/Shanghai
       - AUTH_SITE= #你的认证方式，现在似乎也可以不填，跑起来直接去网页里填
       - # 对应的认证密钥
-      - PROXY_HOST=http://192.168.6.2:7890
+      - PROXY_HOST=http://192.168.1.2:7890
       - MOVIEPILOT_AUTO_UPDATE=release
       - PORT=3001
       - NGINX_PORT=3000
@@ -624,69 +770,42 @@ services:
       - TRANSMISSION_WEB_HOME=/web #默认不用加，有UI才需要
     restart: unless-stopped
 ```
-
-### omnibox
-- 影视综合管理，集成影视站，网盘搜索，iptv，直播平台，支持tvbox订阅
-
-```yaml
-services:
-  omnibox:
-    image: lampon/omnibox:latest
-    container_name: omnibox
-    ports:
-      - 自定义端口:7023
-    volumes:
-      - /本地存储配置目录/docker/omnibox/data:/app/data
-    restart: unless-stopped
-    networks:
-      - defaultnet
-    mem_limit: 1g
-    cpus: 2
-
-networks:
-  defaultnet:
-    external: true
-    
-```
-
 ### pansou
-- 网盘搜索api，搭配OmniBox使用
+- 网盘搜索api
 ```yaml
 services:
-  pansou:
-    image: ghcr.io/fish2018/pansou:latest
-    container_name: pansou
+  pansou-app:
+    image: ghcr.io/fish2018/pansou-web:latest
+    container_name: pansou-app
     ports:
       - 自定义端口:8888
+      - 自定义端口:80
     environment:
-      - PORT=8888
-      - CHANNELS=tgsearchers3,Aliyun_4K_Movies,bdbdndn11,yunpanx,bsbdbfjfjff,yp123pan,sbsbsnsqq,yunpanxunlei,tianyifc,BaiduCloudDisk,txtyzy,peccxinpd,gotopan,PanjClub,kkxlzy,baicaoZY,MCPH01,bdwpzhpd,ysxb48,jdjdn1111,yggpan,MCPH086,zaihuayun,Q66Share,ucwpzy,shareAliyun,alyp_1,dianyingshare,Quark_Movies,XiangxiuNBB,ydypzyfx,ucquark,xx123pan,yingshifenxiang123,zyfb123,tyypzhpd,tianyirigeng,cloudtianyi,hdhhd21,Lsp115,oneonefivewpfx,qixingzhenren,taoxgzy,Channel_Shares_115,tyysypzypd,vip115hot,wp123zy,yunpan139,yunpan189,yunpanuc,yydf_hzl,leoziyuan,pikpakpan,Q_dongman,yoyokuakeduanju,TG654TG,WFYSFX02,QukanMovie,yeqingjie_GJG666,movielover8888_film3,Baidu_netdisk,D_wusun,FLMdongtianfudi,KaiPanshare,QQZYDAPP,rjyxfx,PikPak_Share_Channel,btzhi,newproductsourcing,cctv1211,duan_ju,QuarkFree,yunpanNB,kkdj001,xxzlzn,pxyunpanxunlei,jxwpzy,kuakedongman,liangxingzhinan,xiangnikanj,solidsexydoll,guoman4K,zdqxm,kduanju,cilidianying,CBduanju,SharePanFilms,dzsgx,BooksRealm
-      # 必须指定启用的插件，多个插件用逗号分隔
-      - ENABLED_PLUGINS=labi,zhizhen,shandian,duoduo,muou,wanou,hunhepan,jikepan,panwiki,pansearch,panta,qupansou,hdr4k,pan666,susu,thepiratebay,xuexizhinan,panyq,ouge,huban,cyg,erxiao,miaoso,fox4k,pianku,clmao,wuji,cldi,xiaozhang,libvio,leijing,xb6v,xys,ddys,hdmoli,yuhuage,u3c3,javdb,clxiong,jutoushe,sdso,xiaoji,xdyh,haisou,bixin,djgou,nyaa,xinjuc,aikanzy,qupanshe,xdpan,discourse,yunsou
-      - CACHE_ENABLED=true
-      - CACHE_PATH=/app/cache
-      - CACHE_MAX_SIZE=100
-      - CACHE_TTL=60
-      - ASYNC_PLUGIN_ENABLED=true
-      - ASYNC_RESPONSE_TIMEOUT=4
-      - ASYNC_MAX_BACKGROUND_WORKERS=20
-      - ASYNC_MAX_BACKGROUND_TASKS=100
-      - ASYNC_CACHE_TTL_HOURS=1
+      - DOMAIN=localhost
+      - PANSOU_PORT=8888
+      - PANSOU_HOST=127.0.0.1
+      # 数据目录配置（统一在/app/data下）
+      - CACHE_PATH=/app/data/cache
+      - LOG_PATH=/app/data/logs
+      # Telegram频道配置（镜像已包含这些默认频道，如需自定义可取消注释）
+      # - CHANNELS=tgsearchers6,Aliyun_4K_Movies,bdbdndn11,yunpanx,bsbdbfjfjff,yp123pan,sbsbsnsqq,yunpanxunlei,tianyifc,BaiduCloudDisk,txtyzy,peccxinpd,gotopan,PanjClub,kkxlzy,baicaoZY,MCPH01,MCPH02,MCPH03,bdwpzhpd,ysxb48,jdjdn1111,yggpan,MCPH086,zaihuayun,Q66Share,ucwpzy,shareAliyun,alyp_1,dianyingshare,Quark_Movies,XiangxiuNBB,ydypzyfx,ucquark,xx123pan,yingshifenxiang123,zyfb123,tyypzhpd,tianyirigeng,cloudtianyi,hdhhd21,Lsp115,oneonefivewpfx,qixingzhenren,taoxgzy,Channel_Shares_115,tyysypzypd,vip115hot,wp123zy,yunpan139,yunpan189,yunpanuc,yydf_hzl,leoziyuan,Q_dongman,yoyokuakeduanju,TG654TG,WFYSFX02,QukanMovie,yeqingjie_GJG666,movielover8888_film3,Baidu_netdisk,D_wusun,FLMdongtianfudi,KaiPanshare,QQZYDAPP,rjyxfx,PikPak_Share_Channel,btzhi,newproductsourcing,cctv1211,duan_ju,QuarkFree,yunpanNB,kkdj001,xxzlzn,pxyunpanxunlei,jxwpzy,kuakedongman,liangxingzhinan,xiangnikanj,solidsexydoll,guoman4K,zdqxm,kduanju,cilidianying,CBduanju,SharePanFilms,dzsgx,BooksRealm,Oscar_4Kmovies,douerpan,baidu_yppan,Q_jilupian,Netdisk_Movies,yunpanquark,ammmziyuan,ciliziyuanku,cili8888,jzmm_123pan,Q_dianying,domgmingapk,dianying4k,q_dianshiju,tgbokee,ucshare,godupan,gokuapan,gimy115,WFYSFX03,peccxin,Movie888035,xlwpzy,zyywpzy,wydwpzy,gimy100,ucshare,gimy115iso,aliyunys,clouddriveresources,XunLeiPinDao,ydwpzy,a123fxme,WPpindao,kuyupan,djya5,pan_guangya
+      # 插件配置（镜像已包含推荐插件，如需自定义可取消注释并修改）
+      # - ENABLED_PLUGINS=labi,zhizhen,shandian,duoduo,muou,wanou,hunhepan,jikepan,panwiki,pansearch,panta,qupansou,hdr4k,pan666,susu,thepiratebay,xuexizhinan,panyq,ouge,huban,cyg,erxiao,miaoso,fox4k,pianku,clmao,wuji,cldi,xiaozhang,libvio,leijing,xb6v,xys,ddys,hdmoli,clxiong,jutoushe,sdso,xiaoji,xdyh,haisou,bixin,djgou,nyaa,xinjuc,aikanzy,qupanshe,xdpan,discourse,yunsou,ahhhhfs,nsgame,quark4k,quarksoo,sousou,ash,feikuai,kkmao,alupan,ypfxw,mikuclub,daishudj,dyyj,meitizy,jsnoteclub,mizixing,lou1,yiove,zxzj,qingying,kkv,yulinshufa,duanjuw,jupansou,lingjisp,quarktv,dyyjpro,gaoqing888,panlian,panzun
       # 认证配置（可选）
-      # - AUTH_ENABLED=true
-      # - AUTH_USERS=admin:admin123,user:pass456
-      # - AUTH_TOKEN_EXPIRY=24
-      # - AUTH_JWT_SECRET=your-secret-key-here
+      - AUTH_ENABLED=true
+      - AUTH_USERS=自定义账号:自定义密码
+      - AUTH_TOKEN_EXPIRY=24
+      - AUTH_JWT_SECRET=自定义
       # 如果需要代理，取消下面的注释并设置代理地址
-      # - PROXY=socks5://192.168.1.2:7890
+      - PROXY=socks5://192.168.1.2:7890
     volumes:
-      - /本地存储配置目录/docker/pansou/app/cache.env:/app/cache
+      - /本地存储配置目录/data/docker/pansou-web/app/cache:/app/data/cache
+      - /本地存储配置目录/data/docker/pansou-web/app/logs:/app/data/logs
     restart: unless-stopped
     networks:
       - defaultnet
     mem_limit: 1g
     cpus: 2
-
 networks:
   defaultnet:
     external: true
@@ -718,62 +837,39 @@ networks:
 ```
 
 ## 管理
-### dockge
-- 一个美观、易用且响应迅速的自托管 Docker compose.yaml 堆栈管理器。
 
-```yaml
-services:
-  dockge:
-    image: louislam/dockge:latest
-    container_name: dockge
-    ports:
-      - "自定义端口:5001"
-    volumes:
-      - /本地存储配置目录/docker/dockge/data:/app/data
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /本地存储配置目录/docker/dockge/opt/stacks:/opt/stacks
-    environment:
-      - DOCKGE_STACKS_DIR=/opt/stacks
-    restart: unless-stopped
-    networks:
-      - defaultnet
-    mem_limit: 1g
-    cpus: 2
-
-networks:
-  defaultnet:
-    external: true
-    
-```
-
-### portainer
+### arcane
 - docker管理面板
-- 暂时弃用了，没有遮罩层，web页面用得很难受
-
-```yaml
+```
 services:
-  portainer:
-    image: 6053537/portainer-ce:latest
-    container_name: portainer
+  arcane:
+    image: ghcr.io/getarcaneapp/arcane:latest
+    container_name: arcane
     ports:
-      - "自定义端口:9000"
+      - "自定义端口:3552"
     volumes:
-      - /本地存储配置目录/docker/portainer/data:/data
       - /var/run/docker.sock:/var/run/docker.sock
+      - /本地存储配置目录/data/docker/arcane/data:/app/data
     environment:
+      - TZ=Asia/Shanghai
+      - APP_URL=http://localhost:3552
+      - PUID=1000
+      - PGID=1000
+      - ENCRYPTION_KEY=自定义
+      - JWT_SECRET=自定义
       - HTTP_PROXY=http://192.168.1.2:7890
       - HTTPS_PROXY=http://192.168.1.2:7890
-      - NO_PROXY=localhost,127.0.0.1,::1,docker.internal
+      - ALL_PROXY=socks5://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1
     restart: unless-stopped
     networks:
       - defaultnet
-    mem_limit: 1g
-    cpus: 2
+    mem_limit: 2g
+    cpus: 3
 
 networks:
   defaultnet:
     external: true
-    
 ```
 
 ### home-assistant
@@ -806,7 +902,7 @@ services:
     network_mode: host
     volumes:
       - /本地存储配置目录/docker/icloudpd/config:/config
-      - /本地存储配置目录/Goalonez/Photos/iCloud:/iCloud
+      - /本地存储配置目录/Photos/iCloud:/iCloud
     environment:
       - apple_id= #你的appid
       - download_path=/iCloud
@@ -915,18 +1011,16 @@ services:
       # 中文地理编码https://github.com/ZingLix/immich-geodata-cn
       - /本地存储配置目录/docker/immich/geodata:/build/geodata
       - /本地存储配置目录/docker/immich/i18n-iso-countries/langs:/usr/src/app/server/node_modules/i18n-iso-countries/langs
-      - /本地存储配置目录/Goalonez/Photos:/Photos
+      - /本地存储配置目录/Photos:/Photos
     environment:
       - DB_HOSTNAME=immich_postgres
-      - DB_PORT=5432
-      - DB_USERNAME=postgres
+      - DB_PORT=自定义端口
+      - DB_USERNAME=自定义账号
       - DB_PASSWORD=自定义密码
       - DB_DATABASE_NAME=immich
-      # 我是复用了rsshub的redis，请自行参考上方rsshub中的redis镜像
-      - REDIS_HOSTNAME=redis
+      - REDIS_HOSTNAME=自定义
       - REDIS_PORT=6379
-      # 同实例不同库
-      - REDIS_DBINDEX=1
+      - REDIS_DBINDEX=0
       - TZ=Asia/Shanghai
     depends_on:
       - immich_postgres
@@ -943,8 +1037,8 @@ services:
       - /本地存储配置目录/docker/immich/model-cache:/cache
     environment:
       # 代理
-      - HTTP_PROXY=http://192.168.5.2:7890
-      - HTTPS_PROXY=http://192.168.5.2:7890
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
       - NO_PROXY=localhost,127.0.0.1,immich
       - TZ=Asia/Shanghai
     restart: unless-stopped
@@ -957,7 +1051,7 @@ services:
     image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:32324a2f41df5de9efe1af166b7008c3f55646f8d0e00d9550c16c9822366b4a
     container_name: immich_postgres
     ports:
-      - '5432:5432'
+      - '自定义端口:5432'
     volumes:
       - /本地存储配置目录/docker/immich/postgresql/data:/var/lib/postgresql/data
     environment:
@@ -979,25 +1073,68 @@ networks:
     
 ```
 
-## 网络
-### lucky
-- 自动续ssl证书，反代
-- 还有一堆功能
-
-```yaml
+### fast-note-sync-service
+- Obsidian多端同步
+```
 services:
-  lucky:
-    image: gdy666/lucky:latest
-    container_name: lucky
-    network_mode: host
+  fast-note-sync-service:
+    image: haierkeys/fast-note-sync-service:latest
+    container_name: fast-note-sync-service
+    ports:
+      - 自定义端口:9000
+      - 自定义端口:9001
     volumes:
-      - /本地存储配置目录/docker/lucky/luckyconf:/goodluck
+      - /本地存储配置目录/data/docker/fast-note-sync/storage:/fast-note-sync/storage
+      - /本地存储配置目录/data/docker/fast-note-sync/config:/fast-note-sync/config
+    environment:
+      - TZ=Asia/Shanghai  
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1
     restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+networks:
+  defaultnet:
+    external: true
+```
+## 网络
+
+### z-caddy
+- caddy自己集成了Cloudflare DNS 和 caddy-security
+```
+services:
+  z-caddy:
+    image: goalonez/z-caddy:latest
+    container_name: z-caddy
+    ports:
+      - "自定义端口:自定义端口"
+      - "自定义端口:自定义端口/udp"
+    volumes:
+      - /本地存储配置目录/data/docker/caddy/conf:/etc/caddy
+      - /本地存储配置目录/data/docker/caddy/data:/data
+      - /本地存储配置目录/data/docker/caddy/config:/config
+    environment:
+      - HTTP_PROXY=http://192.168.1.2:7890
+      - HTTPS_PROXY=http://192.168.1.2:7890
+      - ALL_PROXY=socks5://192.168.1.2:7890
+      - NO_PROXY=localhost,127.0.0.1,192.168.1.2
+      - JWT_SHARED_KEY=自定义
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 3
+
+networks:
+  defaultnet:
+    external: true
 ```
 
 ### mihomo
 - 🪜
-
 ```yaml
 services:
   mihomo:
@@ -1013,6 +1150,93 @@ services:
     networks:
       - defaultnet
 
+networks:
+  defaultnet:
+    external: true
+```
+
+### cloudflared
+- 隧道
+```
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    environment:
+      - TZ=Asia/Shanghai
+    command: tunnel --no-autoupdate run --token 令牌
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 4
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### ddns-go
+- 动态ip解析
+```
+services:
+  ddns-go:
+    image: jeessy/ddns-go:latest
+    container_name: ddns-go
+    ports:
+      - "自定义端口:9876"
+    volumes:
+      - /本地存储配置目录/data/docker/ddns-go/root:/root
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
+
+networks:
+  defaultnet:
+    external: true
+```
+
+## Vibe 的小工具
+### smart-harbor
+- 我根据自己需求vibe coding的导航页
+- 主要是为了解决在家或外面的时候，打开书签自动使用公网地址或者局域网地址
+
+```yaml
+services:
+  smart-harbor:
+    image: goalonez/smart-harbor:latest
+    container_name: smart-harbor
+    ports:
+      - 自定义端口:80
+    volumes:
+      - /本地存储配置目录/data/docker/smart-harbor/config:/app/config
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 4g
+    cpus: 3
+
+networks:
+  defaultnet:
+    external: true
+```
+
+### z-dev-toolbox
+- 开发者工具箱
+```
+services:
+  z-dev-toolbox:
+    image: goalonez/z-dev-toolbox:latest
+    container_name: z-dev-toolbox
+    ports:
+      - 自定义端口:80
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 1g
+    cpus: 2
 networks:
   defaultnet:
     external: true
