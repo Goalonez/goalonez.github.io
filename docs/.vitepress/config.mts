@@ -110,13 +110,13 @@ export default defineConfig({
           {
             text: '2026',
             items: [
+              { text: '记录一下目前用到的AI生态', link: '/blog/记录一下目前用到的AI生态' },
               { text: '更新了一下评论系统', link: '/blog/更新了一下评论系统' },
             ]
           },
           {
             text: '2025',
             items: [
-              { text: '记录一下目前用到的AI生态', link: '/blog/记录一下目前用到的AI生态' },
               { text: '最近部署的一些NAS容器', link: '/blog/最近部署的一些NAS容器' },
               { text: '通过HomeAssistant控制电脑开关机并接入米家', link: '/blog/通过HomeAssistant控制电脑开关机并接入米家' },
               { text: 'Docker-Mihomo-引入远程配置', link: '/blog/Docker-Mihomo-引入远程配置' },
