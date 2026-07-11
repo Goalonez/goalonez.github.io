@@ -9,14 +9,16 @@ date: 2026-06-26 16:08:49
 - [What I learned building an opinionated and minimal coding agent](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
 ### Claude Code
 - 体验最好，三方生态适配度和优先级都感觉高一些
+- 不过鉴于A➗的一些骚操作，自己抉择吧
 ### Codex
 - CLI用得比较少，感觉细节上比较粗糙，一般codex就直接用客户端了，起码切换会话方便，可视化也舒服点
 ### OpenCode
 - 切换模型方便
 - 不过现在一般只拿来处理非coding场景
-- 
+
 ## 客户端
 ### Codex App
+- 目前已合并成ChatGPT客户端
 - 目前通过官方授权登录 + 接入自己的api使用
     - 这样既能使用插件生态、远程控制等功能，也能使用自己的号池或者接入其他模型
 ![](assets/记录一下目前用到的AI生态-202606261528.png)
