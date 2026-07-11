@@ -2,6 +2,19 @@
 date: 2026-06-26 16:08:49
 ---
 # 记录一下目前用到的AI生态
+
+## CLI
+### Pi
+- 只提供一个精简的agent底座，可以根据自己的需求来进行各种扩展，就非常有意思，喜欢折腾的推荐尝试
+- [What I learned building an opinionated and minimal coding agent](https://mariozechner.at/posts/2025-11-30-pi-coding-agent/)
+### Claude Code
+- 体验最好，三方生态适配度和优先级都感觉高一些
+### Codex
+- CLI用得比较少，感觉细节上比较粗糙，一般codex就直接用客户端了，起码切换会话方便，可视化也舒服点
+### OpenCode
+- 切换模型方便
+- 不过现在一般只拿来处理非coding场景
+- 
 ## 客户端
 ### Codex App
 - 目前通过官方授权登录 + 接入自己的api使用
@@ -37,15 +50,6 @@ date: 2026-06-26 16:08:49
     - [universal-db-mcp](https://github.com/Anarkh-Lee/universal-db-mcp)
 
 ![](assets/记录一下目前用到的AI生态-202606261539.png)
-
-## CLI
-### Claude Code
-- 体验最好，三方生态适配度和优先级都感觉高一些
-### Codex
-- CLI用得比较少，感觉细节上比较粗糙，一般codex就直接用客户端了，起码切换会话方便，可视化也舒服点
-### OpenCode
-- 切换模型方便
-- 不过现在一般只拿来处理非coding场景
 
 ## 服务
 
@@ -108,20 +112,48 @@ date: 2026-06-26 16:08:49
 - 用于Obsidian
 ### [grill-me](https://github.com/mattpocock/skills)
 - 进行采访式问答进行需求明确
+- trellis已经集成
 ### [playwright-cli](https://github.com/microsoft/playwright-cli)
 - 控制浏览器，搭配Playwright CLI使用
-### [frontend-dev](https://github.com/MiniMax-AI/skills)
+### ~~[frontend-dev](https://github.com/MiniMax-AI/skills)~~
 - 前端
-### [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+### ~~[ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)~~
+- 前端
+### [taste-skill]([GitHub - Leonxlnx/taste-skill: Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop · GitHub](https://github.com/Leonxlnx/taste-skill)
 - 前端
 ### [find-docs](https://github.com/upstash/context7)
 - 搭配context7的CLI使用
+
+## Pi插件
+- [packages](https://pi.dev/packages)
+### @amaster.ai/pi-image-gen
+- 生图工具
+### @ayulab/pi-rewind
+- 回撤消息
+### @ff-labs/pi-fff
+- 替代内置的grep和find
+### pi-btw
+- 侧边对话
+### pi-codex-goal
+- 类似codex的goal
+### pi-nano-context
+- 一个UI的增强插件，显示各种上下文占用情况
+### pi-observational-memory
+- 长会话防偏移
+### pi-tool-display
+- 美化
+### pi-web-access
+- 网络搜索
+### pi-webdav-sync
+- 配置webdav备份
+### @gotgenes/pi-permission-system
+- 权限控制
 
 ## 全局提示词
 ```
 # AGENTS.md
 
-适用于 Claude Code、Codex、OpenCode 等 CLI 编码代理。
+适用于 Claude Code、Codex、OpenCode、Pi 等编码代理。
 
 本文件定义全局个人偏好、安全边界和输出习惯；项目级流程由项目内规则（如 `.trellis/`）定义。
 
@@ -132,10 +164,10 @@ date: 2026-06-26 16:08:49
 - **环境管理**：使用 `mise`。当前目录版本用 `mise list`，全局默认版本用 `mise list -g`。
 - **Python**：优先使用 `uv` 管理虚拟环境和依赖。
 - **Trellis**：若存在 `.trellis/`，且不违反安全边界、不冲突于用户本轮目标，优先遵循 Trellis；更靠近当前目录的项目规则优先。
-- **工具偏好**：
-  - 数据库：优先使用 `dbx skills` + `dbx-app CLI`。
-  - 官方文档：优先使用 `find-docs skills` + `ctx7 CLI`。
-  - 浏览器操作：优先使用 `playwright skills` + `playwright/cli CLI`。
+- **可用工具**：
+  - 数据库：`dbx skills` + `dbx-app CLI`。
+  - 官方文档：`find-docs skills` + `ctx7 CLI`。
+  - 浏览器操作：`playwright skills` + `playwright/cli CLI`。
 
 ---
 
@@ -204,11 +236,12 @@ date: 2026-06-26 16:08:49
 ## 7. 输出与沟通
 
 - 默认简体中文；代码、路径、命令、标识符保持原样。
-- 先给结论，再给必要说明；分析类任务默认按 `结论 -> 依据 -> 建议` 输出。
+- 先给原因，再给结论；分析类任务默认按 `原因 -> 结论 -> 建议` 输出。
 - 不套话、不谄媚、不虚假确认；未验证事项明确说明“未经测试”。
 - 多步骤或耗时任务只做简短进度反馈，不叙述工具流水账。
 - 分析、评审、比较、方案设计类任务默认只输出文本，除非用户明确要求执行。
 - 最终回答只说明结果、验证、风险和必要下一步；不展开内部推理或无关过程。
+
 ```
 
 ## AI编码工程化框架
