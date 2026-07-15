@@ -121,7 +121,7 @@ date: 2026-06-26 16:08:49
 - 前端
 ### ~~[ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)~~
 - 前端
-### [taste-skill]([GitHub - Leonxlnx/taste-skill: Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop · GitHub](https://github.com/Leonxlnx/taste-skill)
+### [taste-skill](https://github.com/Leonxlnx/taste-skill)
 - 前端
 ### [find-docs](https://github.com/upstash/context7)
 - 搭配context7的CLI使用
@@ -150,6 +150,8 @@ date: 2026-06-26 16:08:49
 - 配置webdav备份
 ### @gotgenes/pi-permission-system
 - 权限控制
+### @llblab/pi-telegram
+- 接入telegram进行远程控制
 
 ## 全局提示词
 ```
