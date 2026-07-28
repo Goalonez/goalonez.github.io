@@ -91,7 +91,7 @@ date: 2026-06-26 16:08:49
 
 ## Skills
 ### [zyes](https://github.com/Goalonez/zyes)
-- 自己结合mattpocock/skills和trellis定制的精简版Skills工作流
+- 自己结合mattpocock skills、trellis定制的精简版Skills工作流
 ### [skill-creator](https://github.com/anthropics/skills)
 - 创建skills(codex自带了)
 ### [find-docs](https://github.com/upstash/context7)
@@ -118,7 +118,7 @@ date: 2026-06-26 16:08:49
 ### ~~[grill-me](https://github.com/mattpocock/skills)~~
 - 进行采访式问答进行需求明确
 - trellis已经集成
-- 继承到zyes了
+- zyes也集成了
 ### ~~[frontend-dev](https://github.com/MiniMax-AI/skills)~~
 - 前端
 ### ~~[ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)~~
@@ -147,8 +147,6 @@ date: 2026-06-26 16:08:49
 - 一个UI的增强插件，显示各种上下文占用情况
 ### pi-observational-memory
 - 长会话防偏移
-### pi-hashline-edit-pro
-- 把内置的 `read` 和 `edit` 替换成哈希版
 ### pi-web-access
 - 网络搜索
 ### pi-webdav-sync
@@ -159,9 +157,14 @@ date: 2026-06-26 16:08:49
 - 增加一个todo视图
 ### @llblab/pi-telegram
 - 接入`telegram`进行远程控制
-### ~~pi-tool-display~~
+### pi-tool-display
 - opencode风格美化
 - 跟`pi-hashline-edit-pro`冲突
+### pi-markdown-preview
+- markdown预览
+### ~~pi-hashline-edit-pro~~
+- 把内置的 `read` 和 `edit` 替换成哈希版
+- pi-tool-display
 ## 全局提示词
 
 - 模型越来越强，大部分能力都可以交还给模型，感觉不需要定义太多边界了
@@ -201,7 +204,7 @@ date: 2026-06-26 16:08:49
 
 ## AI编码工程化框架
 ### [zyes](https://github.com/Goalonez/zyes)
-- 自己结合mattpocock/skills和trellis定制的精简版Skills工作流
+- 自己结合mattpocock skills、trellis定制的精简版Skills工作流
 ### ~~[Trellis](https://github.com/mindfold-ai/Trellis)~~
 - 基础用法
     - trellis init初始化一下项目
