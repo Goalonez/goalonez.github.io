@@ -153,8 +153,6 @@ date: 2026-06-26 16:08:49
 - 配置`webdav`备份
 ### @gotgenes/pi-permission-system
 - 权限控制
-### @juicesharp/rpiv-todo
-- 增加一个todo视图
 ### @llblab/pi-telegram
 - 接入`telegram`进行远程控制
 ### pi-tool-display
@@ -162,6 +160,11 @@ date: 2026-06-26 16:08:49
 - 跟`pi-hashline-edit-pro`冲突
 ### pi-markdown-preview
 - markdown预览
+### [magic-context](https://github.com/cortexkit/magic-context)
+- 记忆
+### ~~@juicesharp/rpiv-todo~~
+- 增加一个todo视图
+- magic-context也实现了todo视图
 ### ~~pi-hashline-edit-pro~~
 - 把内置的 `read` 和 `edit` 替换成哈希版
 - pi-tool-display
