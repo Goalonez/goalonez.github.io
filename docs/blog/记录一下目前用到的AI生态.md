@@ -135,18 +135,12 @@ date: 2026-06-26 16:08:49
 - 生图工具
 ### pi-workspace-history
 - 回撤消息及改动的文件
-### pi-wtf
-- 终止当前消息，会自动触发`pi-workspace-history`回退改动
 ### @ff-labs/pi-fff
 - 替代内置的 `grep` 和 `find`
 ### pi-btw
 - 侧边对话
-### pi-codex-goal
-- 类似codex的`goal`
 ### pi-nano-context
 - 一个UI的增强插件，显示各种上下文占用情况
-### pi-observational-memory
-- 长会话防偏移
 ### pi-web-access
 - 网络搜索
 ### pi-webdav-sync
@@ -158,16 +152,26 @@ date: 2026-06-26 16:08:49
 ### pi-tool-display
 - opencode风格美化
 - 跟`pi-hashline-edit-pro`冲突
-### pi-markdown-preview
-- markdown预览
+### @juicesharp/rpiv-todo
+- 增加一个todo视图
 ### [magic-context](https://github.com/cortexkit/magic-context)
 - 记忆
-### ~~@juicesharp/rpiv-todo~~
-- 增加一个todo视图
-- magic-context也实现了todo视图
+- 如果装了rpiv-todo，需要把magic-context自带的todo关掉
+    - `~/.config/cortexkit/magic-context.jsonc`设置`todowrite.enabled`为`false`
+    - [Configuration \| Magic Context](https://docs.cortexkit.io/magic-context/reference/configuration/#top-level-switches)
 ### ~~pi-hashline-edit-pro~~
 - 把内置的 `read` 和 `edit` 替换成哈希版
 - 跟pi-tool-display冲突了
+### ~~pi-wtf~~
+- 终止当前消息，会自动触发`pi-workspace-history`回退改动
+### ~~pi-codex-goal~~
+- 类似codex的`goal`
+### ~~pi-markdown-preview~~
+- markdown预览
+### ~~pi-observational-memory~~
+- 长会话防偏移
+- 用了magic-context，所以卸了
+
 ## 全局提示词
 
 - 模型越来越强，大部分能力都可以交还给模型，感觉不需要定义太多边界了
