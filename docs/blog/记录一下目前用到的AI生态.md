@@ -129,6 +129,8 @@ date: 2026-06-26 16:08:49
 ## Pi插件
 
 >[插件仓库](https://pi.dev/packages)
+### pi-zentui
+- 主题
 ### @gotgenes/pi-subagents
 - 子代理
 ### @amaster.ai/pi-image-gen
@@ -139,8 +141,6 @@ date: 2026-06-26 16:08:49
 - 替代内置的 `grep` 和 `find`
 ### pi-btw
 - 侧边对话
-### pi-nano-context
-- 一个UI的增强插件，显示各种上下文占用情况
 ### pi-web-access
 - 网络搜索
 ### pi-webdav-sync
@@ -152,6 +152,7 @@ date: 2026-06-26 16:08:49
 ### pi-tool-display
 - opencode风格美化
 - 跟`pi-hashline-edit-pro`冲突
+- 如果装了`pi-zentui`，最好把配置里的`enableNativeUserMessageBox`改成`false`
 ### @juicesharp/rpiv-todo
 - 增加一个todo视图
 ### [magic-context](https://github.com/cortexkit/magic-context)
@@ -171,6 +172,9 @@ date: 2026-06-26 16:08:49
 ### ~~pi-observational-memory~~
 - 长会话防偏移
 - 用了magic-context，所以卸了
+### ~~pi-nano-context~~
+- 一个UI的增强插件，显示各种上下文占用情况
+- 跟pi-zentui底部状态栏冲突
 
 ## 全局提示词
 
