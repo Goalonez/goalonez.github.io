@@ -131,8 +131,6 @@ date: 2026-06-26 16:08:49
 >[插件仓库](https://pi.dev/packages)
 ### pi-zentui
 - 主题
-### @gotgenes/pi-subagents
-- 子代理
 ### @amaster.ai/pi-image-gen
 - 生图工具
 ### pi-workspace-history
@@ -145,8 +143,6 @@ date: 2026-06-26 16:08:49
 - 网络搜索
 ### pi-webdav-sync
 - 配置`webdav`备份
-### @gotgenes/pi-permission-system
-- 权限控制
 ### @llblab/pi-telegram
 - 接入`telegram`进行远程控制
 ### pi-tool-display
@@ -175,7 +171,12 @@ date: 2026-06-26 16:08:49
 ### ~~pi-nano-context~~
 - 一个UI的增强插件，显示各种上下文占用情况
 - 跟pi-zentui底部状态栏冲突
-
+### ~~@gotgenes/pi-subagents~~
+- 子代理
+- 慢
+### ~~@gotgenes/pi-permission-system~~
+- 权限控制
+- 等以后有自动审批再看看，目前感觉无论怎么配置用起来都不是很舒服，而且在代码中还有强制规则，而非完全遵循自定义配置
 ## 全局提示词
 
 - 模型越来越强，大部分能力都可以交还给模型，感觉不需要定义太多边界了
