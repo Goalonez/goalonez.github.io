@@ -145,6 +145,8 @@ date: 2026-06-26 16:08:49
 - 配置`webdav`备份
 ### @llblab/pi-telegram
 - 接入`telegram`进行远程控制
+### pi-context-view
+- 查看上下文占用
 ### pi-tool-display
 - opencode风格美化
 - 跟`pi-hashline-edit-pro`冲突
