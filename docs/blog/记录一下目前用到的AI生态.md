@@ -223,7 +223,6 @@ Hindsight <bank-id> 为 `coding`，作为个人长期记忆使用。原则是读
 ## 环境与工具
 
 - **环境管理**：使用 `mise`。当前目录版本用 `mise list`，全局默认版本用 `mise list -g`。只有pnpm由corepack管理。
-- **Java**：`jmfwykt` 目录下的公司项目默认使用 Java 8。
 - **Python**：优先使用 `uv` 管理虚拟环境和依赖。
 - **可用工具**：
   - 数据库：`dbx skills` + `dbx-app CLI`
