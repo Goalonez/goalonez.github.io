@@ -79,10 +79,12 @@ date: 2026-06-26 16:08:49
 - 感觉任务执行其实不如openclaw，但是相对来说稳定点，以前用openclaw最大的感触就是更新完版本就崩，然后浪费token修bug
 - 可以跑个docker[KasmVNC](https://github.com/kasmtech/KasmVNC)用CDP协议给hermes接入
 ![](assets/记录一下目前用到的AI生态-202606261625.png)
-
+### [Hindsight](https://github.com/vectorize-io/hindsight)
+- 统一自托管Agent记忆
+- hermes原生接入，其他Agent也都有对应的接入方式：[Coding Agents \| Hindsight](https://hindsight.vectorize.io/sdks/integrations/coding-agents)
+![](assets/记录一下目前用到的AI生态-202608091813.png)
 ## MCP
 ### [滴答清单mcp](https://help.dida365.com/articles/7438132116019216384)
-- ~~让Kelivo直接操作滴答清单~~
 - 接到hermes
 ### ~~[chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp)~~
 - 控制浏览器
@@ -104,6 +106,8 @@ date: 2026-06-26 16:08:49
 - 处理Office
 ### [Obsidian Skills](https://github.com/kepano/obsidian-skills)
 - 操控Obsidian CLI
+### [hindsight skills](https://github.com/vectorize-io/hindsight/tree/main/skills)
+- 连接统一记忆
 ### ~~[karpathy-guidelines](https://github.com/forrestchang/andrej-karpathy-skills)~~
 - 编码规范
 - 精简到全局AGENTS.md了
@@ -129,6 +133,9 @@ date: 2026-06-26 16:08:49
 ## Pi插件
 
 >[插件仓库](https://pi.dev/packages)
+
+### @diegopetrucci/pi-notify
+- 通知
 ### pi-zentui
 - 主题
 ### @amaster.ai/pi-image-gen
@@ -153,8 +160,32 @@ date: 2026-06-26 16:08:49
 - 如果装了`pi-zentui`，最好把配置里的`enableNativeUserMessageBox`改成`false`
 ### @juicesharp/rpiv-todo
 - 增加一个todo视图
-### [magic-context](https://github.com/cortexkit/magic-context)
-- 记忆
+### pi-observational-memory
+- 长会话防偏移
+```
+ "observational-memory": {
+    "observeAfterTokens": 20000,
+    "reflectAfterTokens": 40000,
+    "compactAfterTokens": 81000,
+    "compactAfterTokensMode": "ratio",
+    "compactAfterTokensRatio": 0.6,
+    "observationsPoolMaxTokens": 20000,
+    "observationsPoolTargetTokens": 10000,
+    "agentMaxTurns": 8,
+    "model": {
+      "provider": "goalonez",
+      "id": "gpt-5.6-luna",
+      "thinking": "low"
+    },
+    "passive": false,
+    "debugLog": false
+  }
+```
+### @gotgenes/pi-subagents
+- 子代理
+- 关闭了默认的Plan子代理，只留了另外两个
+### ~~[magic-context](https://github.com/cortexkit/magic-context)~~
+- 记忆，接了hindsight所以就去掉了，不寻求多Agent共享记忆的话建议还是用这个，效果还是不错的
 - 如果装了rpiv-todo，需要把magic-context自带的todo关掉
     - `~/.config/cortexkit/magic-context.jsonc`设置`todowrite.enabled`为`false`
     - [Configuration \| Magic Context](https://docs.cortexkit.io/magic-context/reference/configuration/#top-level-switches)
@@ -167,15 +198,9 @@ date: 2026-06-26 16:08:49
 - 类似codex的`goal`
 ### ~~pi-markdown-preview~~
 - markdown预览
-### ~~pi-observational-memory~~
-- 长会话防偏移
-- 用了magic-context，所以卸了
 ### ~~pi-nano-context~~
 - 一个UI的增强插件，显示各种上下文占用情况
 - 跟pi-zentui底部状态栏冲突
-### ~~@gotgenes/pi-subagents~~
-- 子代理
-- 慢
 ### ~~@gotgenes/pi-permission-system~~
 - 权限控制
 - 等以后有自动审批再看看，目前感觉无论怎么配置用起来都不是很舒服，而且在代码中还有强制规则，而非完全遵循自定义配置
@@ -192,9 +217,13 @@ date: 2026-06-26 16:08:49
 
 - 默认简体中文；代码、路径、命令、标识符保持原样。包括输出需要落地的文档也请使用简体中文。
 
+## 长期记忆
+Hindsight <bank-id> 为 `coding`，作为个人长期记忆使用。原则是读多写少、宁缺毋滥。非平凡编码、排障、设计、配置、项目约定、个人偏好相关任务开始前先 recall；简单闲聊、翻译、一次性问答、小改动不主动 recall。仅 retain 长期有用的信息：明确个人偏好、稳定工作习惯、项目约定、技术决策、可复用排障结论、有效命令/失败原因、常见坑和 workaround。不保存临时状态、一次性指令、普通聊天、未确认推测、敏感信息、密钥凭证、大段日志或可从代码直接读取的普通实现细节。用户明确要求“记住”时可直接retain；不确定时先询问。连接失败不阻塞任务。
+
 ## 环境与工具
 
 - **环境管理**：使用 `mise`。当前目录版本用 `mise list`，全局默认版本用 `mise list -g`。只有pnpm由corepack管理。
+- **Java**：`jmfwykt` 目录下的公司项目默认使用 Java 8。
 - **Python**：优先使用 `uv` 管理虚拟环境和依赖。
 - **可用工具**：
   - 数据库：`dbx skills` + `dbx-app CLI`

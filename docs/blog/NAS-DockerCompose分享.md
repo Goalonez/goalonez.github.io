@@ -176,7 +176,47 @@ networks:
   defaultnet:
     external: true
 ```
+### hindsight
+- Agent统一记忆
+```
+services:
+  hindsight:
+    image: ghcr.io/vectorize-io/hindsight:latest-slim
+    container_name: hindsight
+    ports:
+      - "自定义端口:8888"
+      - "自定义端口看:9999"
+    volumes:
+      - /本地存储配置目录/data/docker/hindsight/data:/home/hindsight/.pg0
+    environment:
+      - TZ=Asia/Shanghai
+      - HINDSIGHT_CP_ACCESS_KEY=密钥
+      - HINDSIGHT_CP_DATAPLANE_API_KEY=密钥
+      - HINDSIGHT_API_TENANT_EXTENSION=hindsight_api.extensions.builtin.tenant:ApiKeyTenantExtension
+      - HINDSIGHT_API_TENANT_API_KEY=密钥
+      - HINDSIGHT_API_LLM_PROVIDER=openai
+      - HINDSIGHT_API_LLM_BASE_URL=模型地址/v1
+      - HINDSIGHT_API_LLM_MODEL=deepseek-v4-flash
+      - HINDSIGHT_API_LLM_API_KEY=密钥
+      - HINDSIGHT_API_EMBEDDINGS_PROVIDER=openai
+      - HINDSIGHT_API_EMBEDDINGS_OPENAI_BASE_URL=模型地址/v1
+      - HINDSIGHT_API_EMBEDDINGS_OPENAI_MODEL=BAAI/bge-m3
+      - HINDSIGHT_API_EMBEDDINGS_OPENAI_API_KEY=密钥
+      - HINDSIGHT_API_RERANKER_PROVIDER=siliconflow
+      - HINDSIGHT_API_RERANKER_SILICONFLOW_API_KEY=密钥
+      - HINDSIGHT_API_RERANKER_SILICONFLOW_MODEL=BAAI/bge-reranker-v2-m3
+      - HINDSIGHT_API_RERANKER_SILICONFLOW_BASE_URL=模型地址/v1
+      - HINDSIGHT_API_WORKER_ID=hindsight-prod
+    restart: unless-stopped
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 2
 
+networks:
+  defaultnet:
+    external: true
+```
 ## 服务
 
 ### openlist
@@ -361,20 +401,23 @@ networks:
     
 ```
 
-### HowToCook
+### howtocookviewer
 - 菜谱
 
 ```yaml
 services:
-  how-to-cook:
-    image: ghcr.io/anduin2017/how-to-cook:latest
-    container_name: how-to-cook
+  howtocookviewer:
+    image: aiursoft/howtocookviewer:latest
+    container_name: howtocookviewer
     ports:
-      - "自定义端口:5000"
+      - 自定义端口:5000
+    volumes:
+        - /本地存储配置目录/data/docker/howtocookviewer/data:/data
     restart: unless-stopped
     networks:
       - defaultnet
-
+    mem_limit: 1g
+    cpus: 2
 networks:
   defaultnet:
     external: true
@@ -653,7 +696,7 @@ networks:
     external: true
 ```
 
-## 影视
+## 书影音
 ### moviepilot
 - 媒体库自动化管理
 
@@ -835,7 +878,31 @@ networks:
     external: true
     
 ```
+### tomato-novel-downloader-webui
+- 番茄小说下载
+```
+services:
+  tomato-novel-downloader-webui:
+    image: zhongbai233/tomato-novel-downloader-webui:latest
+    container_name: tomato-novel-downloader-webui
+    restart: unless-stopped
+    ports:
+      - "自定义端口:18423"
+    volumes:
+      - /本地存储配置目录/data/docker/tomato-novel-downloader-webui/data:/data
+    environment:
+      - TOMATO_WEB_ADDR=0.0.0.0:18423
+      - TOMATO_WEB_PASSWORD=密钥
+    command: --server --data-dir /data
+    networks:
+      - defaultnet
+    mem_limit: 2g
+    cpus: 1
 
+networks:
+  defaultnet:
+    external: true
+```
 ## 管理
 
 ### arcane
