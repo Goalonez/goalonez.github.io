@@ -133,17 +133,12 @@ date: 2026-06-26 16:08:49
 ## Pi插件
 
 >[插件仓库](https://pi.dev/packages)
-
 ### @diegopetrucci/pi-notify
 - 通知
 ### pi-zentui
 - 主题
-### @amaster.ai/pi-image-gen
-- 生图工具
 ### pi-workspace-history
 - 回撤消息及改动的文件
-### @ff-labs/pi-fff
-- 替代内置的 `grep` 和 `find`
 ### pi-btw
 - 侧边对话
 ### pi-web-access
@@ -152,14 +147,6 @@ date: 2026-06-26 16:08:49
 - 配置`webdav`备份
 ### @llblab/pi-telegram
 - 接入`telegram`进行远程控制
-### pi-context-view
-- 查看上下文占用
-### pi-tool-display
-- opencode风格美化
-- 跟`pi-hashline-edit-pro`冲突
-- 如果装了`pi-zentui`，最好把配置里的`enableNativeUserMessageBox`改成`false`
-### @juicesharp/rpiv-todo
-- 增加一个todo视图
 ### pi-observational-memory
 - 长会话防偏移
 ```
@@ -184,6 +171,16 @@ date: 2026-06-26 16:08:49
 ### @gotgenes/pi-subagents
 - 子代理
 - 关闭了默认的Plan子代理，只留了另外两个
+### ~~@ff-labs/pi-fff~~
+- 替代内置的 `grep` 和 `find`
+### ~~pi-context-view~~
+- 查看上下文占用
+### ~~pi-tool-display~~
+- opencode风格美化
+- 跟`pi-hashline-edit-pro`冲突
+- 如果装了`pi-zentui`，最好把配置里的`enableNativeUserMessageBox`改成`false`
+### ~~@juicesharp/rpiv-todo~~
+- 增加一个todo视图
 ### ~~[magic-context](https://github.com/cortexkit/magic-context)~~
 - 记忆，接了hindsight所以就去掉了，不寻求多Agent共享记忆的话建议还是用这个，效果还是不错的
 - 如果装了rpiv-todo，需要把magic-context自带的todo关掉
@@ -218,7 +215,7 @@ date: 2026-06-26 16:08:49
 - 默认简体中文；代码、路径、命令、标识符保持原样。包括输出需要落地的文档也请使用简体中文。
 
 ## 长期记忆
-Hindsight <bank-id> 为 `coding`，作为个人长期记忆使用。原则是读多写少、宁缺毋滥。非平凡编码、排障、设计、配置、项目约定、个人偏好相关任务开始前先 recall；简单闲聊、翻译、一次性问答、小改动不主动 recall。仅 retain 长期有用的信息：明确个人偏好、稳定工作习惯、项目约定、技术决策、可复用排障结论、有效命令/失败原因、常见坑和 workaround。不保存临时状态、一次性指令、普通聊天、未确认推测、敏感信息、密钥凭证、大段日志或可从代码直接读取的普通实现细节。用户明确要求“记住”时可直接retain；不确定时先询问。连接失败不阻塞任务。
+Hindsight <bank-id> 为 `coding`，作为个人长期记忆使用。原则是读多写少、宁缺毋滥。非平凡编码、排障、设计、配置、调研分析、项目约定、个人偏好相关任务开始前先 recall。简单闲聊、翻译、一次性问答、小改动不主动 recall。复杂任务结束时主动判断是否有值得 retain 的长期结论，仅 retain 长期有用的信息：明确个人偏好、稳定工作习惯、项目约定、技术决策、可复用排障结论、有效命令/失败原因、常见坑和 workaround。不保存临时状态、一次性指令、普通聊天、未确认推测、敏感信息、密钥凭证、大段日志或可从代码直接读取的普通实现细节。用户明确要求“记住”时可直接retain。不确定时先询问。连接失败不阻塞任务。
 
 ## 环境与工具
 
